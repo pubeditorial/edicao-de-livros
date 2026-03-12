@@ -3,48 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#1b140f" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#1a1411" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:large" />
   <meta name="author" content="PUB Editorial" />
-  <meta name="description" content="PUB Editorial: serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento." />
+  <meta name="description" content="PUB Editorial: editora, serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, automações editoriais e atendimento para autores, editoras e leitores." />
 
-  <title>PUB Editorial | Serviços editoriais, design e produção de livros</title>
+  <title>PUB Editorial | Livros, serviços editoriais e produção de publicações</title>
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="PUB Editorial" />
-  <meta property="og:title" content="PUB Editorial | Serviços editoriais, design e produção de livros" />
-  <meta property="og:description" content="Serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento." />
+  <meta property="og:title" content="PUB Editorial | Livros, serviços editoriais e produção de publicações" />
+  <meta property="og:description" content="Editora e estúdio editorial com serviços de preparação, revisão, projeto gráfico, diagramação, capa, fechamento, automações e atendimento." />
   <meta property="og:url" content="https://pubeditorial.github.io/" />
-  <meta property="og:image" content="https://pubeditorial.github.io/assets/pub-editorial-capa-social.jpg" />
-  <meta property="og:image:alt" content="PUB Editorial, serviços editoriais e produção de livros" />
+  <meta property="og:image" content="https://pubeditorial.github.io/assets/pub-editorial-social.jpg" />
+  <meta property="og:image:alt" content="PUB Editorial, livros e serviços editoriais" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PUB Editorial | Serviços editoriais, design e produção de livros" />
-  <meta name="twitter:description" content="Serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento." />
-  <meta name="twitter:image" content="https://pubeditorial.github.io/assets/pub-editorial-capa-social.jpg" />
+  <meta name="twitter:title" content="PUB Editorial | Livros, serviços editoriais e produção de publicações" />
+  <meta name="twitter:description" content="Editora e estúdio editorial com serviços de preparação, revisão, projeto gráfico, diagramação, capa, fechamento, automações e atendimento." />
+  <meta name="twitter:image" content="https://pubeditorial.github.io/assets/pub-editorial-social.jpg" />
 
   <style>
     :root{
-      --bg:#f5f1ea;
-      --bg-soft:#fbf8f3;
+      --bg:#f4efe8;
+      --bg-soft:#fbf8f4;
       --paper:#fffdfa;
-      --paper-2:#f3ede4;
-      --ink:#241b14;
-      --text:#3a2d24;
-      --muted:#746559;
-      --line:#ddcfbf;
-      --line-strong:#c7b29d;
-      --brand:#8c5a33;
-      --brand-2:#b07a4d;
-      --accent:#6d3f25;
-      --accent-soft:#efe2d4;
-      --success:#2f6b4f;
+      --paper-2:#f1e8dd;
+      --ink:#241a13;
+      --text:#3b2d24;
+      --muted:#77685d;
+      --line:#dcccbc;
+      --line-strong:#c7af99;
+      --brand:#8d5a35;
+      --brand-2:#b57c4b;
+      --accent:#6f4228;
+      --accent-soft:#ede0d1;
+      --dark:#211712;
+      --success:#2f6a4f;
       --radius-xl:30px;
       --radius-lg:22px;
       --radius-md:16px;
-      --shadow:0 18px 50px rgba(36,27,20,.08);
-      --shadow-soft:0 10px 28px rgba(36,27,20,.06);
+      --shadow:0 18px 52px rgba(36,26,19,.08);
+      --shadow-soft:0 10px 28px rgba(36,26,19,.06);
       --wrap:1180px;
       --space-1:8px;
       --space-2:12px;
@@ -58,11 +59,12 @@
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
       min-height:100%;
       background:
-        radial-gradient(900px 260px at 10% 0%, rgba(176,122,77,.08), transparent 60%),
-        radial-gradient(900px 260px at 90% 0%, rgba(109,63,37,.06), transparent 60%),
+        radial-gradient(900px 260px at 10% 0%, rgba(181,124,75,.08), transparent 60%),
+        radial-gradient(900px 260px at 90% 0%, rgba(111,66,40,.06), transparent 60%),
         var(--bg);
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -73,8 +75,9 @@
 
     a{color:inherit;text-decoration:none}
     button,input,textarea,select{font:inherit}
+    img{max-width:100%;display:block}
     :focus-visible{
-      outline:3px solid rgba(140,90,51,.25);
+      outline:3px solid rgba(141,90,53,.24);
       outline-offset:3px;
       border-radius:12px;
     }
@@ -111,7 +114,7 @@
 
     .section{
       padding:var(--space-8) 0;
-      scroll-margin-top:28px;
+      scroll-margin-top:86px;
     }
 
     .panel{
@@ -142,11 +145,11 @@
 
     .title-xl{
       margin:0;
-      font-size:clamp(40px,4.6vw,68px);
-      line-height:1;
-      letter-spacing:-.05em;
+      font-size:clamp(40px,4.8vw,70px);
+      line-height:.98;
+      letter-spacing:-.055em;
       font-weight:1000;
-      max-width:14ch;
+      max-width:13ch;
     }
 
     .title-lg{
@@ -175,10 +178,10 @@
     .header{
       position:sticky;
       top:0;
-      z-index:40;
+      z-index:50;
       backdrop-filter:blur(10px);
-      background:rgba(245,241,234,.78);
-      border-bottom:1px solid rgba(199,178,157,.5);
+      background:rgba(244,239,232,.82);
+      border-bottom:1px solid rgba(199,175,153,.52);
     }
 
     .header-inner{
@@ -229,7 +232,7 @@
     }
 
     .nav a:hover{
-      background:rgba(255,255,255,.6);
+      background:rgba(255,255,255,.68);
       border-color:var(--line);
     }
 
@@ -267,7 +270,7 @@
     .btn-primary{
       background:linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
       color:#fff;
-      box-shadow:0 16px 36px rgba(140,90,51,.22);
+      box-shadow:0 16px 36px rgba(141,90,53,.22);
     }
 
     .btn-secondary{
@@ -290,19 +293,19 @@
       position:relative;
       overflow:hidden;
       padding:34px;
-      border:1px solid rgba(199,178,157,.7);
-      border-radius:34px;
+      border:1px solid rgba(199,175,153,.72);
+      border-radius:36px;
       background:
-        radial-gradient(680px 240px at 0% 0%, rgba(176,122,77,.12), transparent 60%),
-        radial-gradient(680px 240px at 100% 0%, rgba(109,63,37,.08), transparent 60%),
+        radial-gradient(680px 240px at 0% 0%, rgba(181,124,75,.12), transparent 60%),
+        radial-gradient(680px 240px at 100% 0%, rgba(111,66,40,.08), transparent 60%),
         linear-gradient(180deg, rgba(255,252,248,.98), rgba(249,242,233,.95));
-      box-shadow:0 26px 70px rgba(36,27,20,.10);
+      box-shadow:0 26px 70px rgba(36,26,19,.10);
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
-      gap:26px;
+      grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);
+      gap:28px;
       align-items:stretch;
     }
 
@@ -325,14 +328,14 @@
       color:var(--muted);
       font-size:13px;
       line-height:1.7;
-      max-width:54ch;
+      max-width:56ch;
     }
 
     .hero-card{
       align-self:center;
-      border:1px solid rgba(199,178,157,.85);
+      border:1px solid rgba(199,175,153,.85);
       border-radius:28px;
-      background:rgba(255,253,249,.92);
+      background:rgba(255,253,249,.94);
       padding:24px;
       box-shadow:var(--shadow-soft);
       display:grid;
@@ -354,6 +357,14 @@
       color:var(--text);
       font-size:14px;
       line-height:1.55;
+    }
+
+    .head{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      max-width:860px;
+      margin:0 0 28px;
     }
 
     .stats{
@@ -394,77 +405,6 @@
       line-height:1.55;
     }
 
-    .head{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      max-width:860px;
-      margin:0 0 28px;
-    }
-
-    .services{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .service{
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:rgba(255,253,250,.92);
-      padding:22px;
-      box-shadow:var(--shadow-soft);
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-height:100%;
-    }
-
-    .service-icon{
-      width:48px;
-      height:48px;
-      border-radius:16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--brand);
-      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(239,226,212,.9));
-      border:1px solid rgba(199,178,157,.8);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
-    }
-
-    .service-icon svg{
-      width:22px;
-      height:22px;
-      stroke:currentColor;
-      fill:none;
-      stroke-width:1.9;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .service h3{
-      margin:0;
-      font-size:20px;
-      line-height:1.2;
-      letter-spacing:-.02em;
-      font-weight:950;
-    }
-
-    .service p{
-      margin:0;
-      color:var(--text);
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .service .micro{
-      margin-top:auto;
-      color:var(--muted);
-      font-size:12.5px;
-      line-height:1.6;
-    }
-
     .split{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -490,7 +430,15 @@
       font-weight:980;
     }
 
-    .card ul, .card ol{
+    .card p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .card ul,
+    .card ol{
       margin:0;
       padding-left:18px;
       display:grid;
@@ -530,9 +478,272 @@
       font-weight:900;
     }
 
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .service{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.92);
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height:100%;
+    }
+
+    .service-icon{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--brand);
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(239,226,212,.9));
+      border:1px solid rgba(199,175,153,.8);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .service-icon svg{
+      width:22px;
+      height:22px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.9;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .service h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:950;
+    }
+
+    .service p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .service .micro{
+      margin-top:auto;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.6;
+    }
+
+    .books-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .book{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.94);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .book-cover{
+      aspect-ratio:3 / 4.2;
+      background:#e8ddd0;
+      overflow:hidden;
+    }
+
+    .book-cover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .book-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .book-tag{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .book h3{
+      margin:0;
+      font-size:19px;
+      line-height:1.18;
+      letter-spacing:-.02em;
+      font-weight:980;
+    }
+
+    .book p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .posts-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .post{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.94);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .post-media{
+      aspect-ratio:4 / 3;
+      background:#e8ddd0;
+    }
+
+    .post-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .post-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .post-meta{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .post h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:980;
+    }
+
+    .post p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.68;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:#e8ddd0;
+      box-shadow:var(--shadow-soft);
+      aspect-ratio:1 / 1;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .25s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.03);
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.62));
+      color:#fff;
+      font-size:12px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .video-card{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.94);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .video-frame{
+      aspect-ratio:16 / 9;
+      background:#1e1712;
+    }
+
+    .video-frame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .video-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .video-body h3{
+      margin:0;
+      font-size:19px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:980;
+    }
+
+    .video-body p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.68;
+    }
+
     .contact-grid{
       display:grid;
-      grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
+      grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);
       gap:18px;
     }
 
@@ -569,6 +780,7 @@
     }
 
     summary::-webkit-details-marker{display:none}
+
     details p{
       margin:10px 0 0;
       color:var(--text);
@@ -581,11 +793,11 @@
     }
 
     .footer-box{
-      border:1px solid rgba(109,63,37,.16);
+      border:1px solid rgba(111,66,40,.16);
       border-radius:26px;
       background:linear-gradient(180deg, #2b2018, #1f1711);
       color:#f7efe7;
-      box-shadow:0 22px 60px rgba(36,27,20,.16);
+      box-shadow:0 22px 60px rgba(36,26,19,.16);
       padding:18px 22px;
     }
 
@@ -663,7 +875,7 @@
       max-height:min(90vh,980px);
       overflow:auto;
       border-radius:28px;
-      border:1px solid rgba(199,178,157,.9);
+      border:1px solid rgba(199,175,153,.9);
       background:linear-gradient(180deg, rgba(255,253,250,.985), rgba(249,242,233,.965));
       box-shadow:0 30px 90px rgba(20,14,10,.25);
     }
@@ -750,11 +962,27 @@
     }
 
     @media (max-width:1080px){
-      .services{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
       .hero-grid,
       .contact-grid{
         grid-template-columns:1fr;
+      }
+
+      .services{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .books-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .posts-grid,
+      .video-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .gallery-grid,
+      .stats{
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
@@ -767,7 +995,11 @@
       .hero-actions .btn{width:100%}
       .services,
       .split,
-      .stats{
+      .stats,
+      .books-grid,
+      .posts-grid,
+      .gallery-grid,
+      .video-grid{
         grid-template-columns:1fr;
       }
       .lead-header{
@@ -792,15 +1024,16 @@
     <div class="wrap header-inner">
       <div class="brand" aria-label="Marca">
         <div class="brand-title">PUB Editorial</div>
-        <div class="brand-sub">Serviços editoriais, design e produção de livros</div>
+        <div class="brand-sub">Livros, serviços editoriais e produção de publicações</div>
       </div>
 
       <nav class="nav" aria-label="Navegação principal">
         <a href="#sobre">Sobre</a>
+        <a href="#livros">Livros</a>
+        <a href="#publicacoes">Publicações</a>
+        <a href="#videos">Vídeos</a>
         <a href="#servicos">Serviços</a>
-        <a href="#como-funciona">Como funciona</a>
         <a href="#contato">Contato</a>
-        <a href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
@@ -811,23 +1044,20 @@
         <div class="hero-box">
           <div class="hero-grid">
             <div class="hero-copy">
-              <span class="tag">Editora e produção editorial</span>
+              <span class="tag">Editora e estúdio editorial</span>
 
-              <h1 class="title-xl">Serviços editoriais para transformar texto em livro pronto para circulação</h1>
+              <h1 class="title-xl">Livros, projetos editoriais e serviços para publicar com mais cuidado e consistência</h1>
 
               <p class="lead">
-                A PUB Editorial atua em etapas essenciais da produção de livros, do tratamento do original ao fechamento para impressão, com atenção técnica, clareza visual e organização de fluxo.
+                A PUB Editorial desenvolve livros, acompanha processos editoriais e oferece serviços para autores, editoras, selos e profissionais que precisam transformar texto em publicação com qualidade visual, textual e técnica.
               </p>
 
               <p class="muted">
-                Preparação de originais, copidesque, revisão, projeto gráfico, diagramação, revisão de provas, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento integrado.
+                Da preparação de originais ao fechamento para impressão, passando por revisão, projeto gráfico, diagramação, capa, automações e páginas de apresentação com captação e atendimento.
               </p>
 
               <div class="hero-actions">
-                <button
-                  class="btn btn-primary js-lead"
-                  type="button"
-                  data-service="ORÇAMENTO GERAL">
+                <button class="btn btn-primary js-lead" type="button" data-service="ORÇAMENTO EDITORIAL">
                   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
                     <path d="M4 6h16v12H4z"/>
                     <path d="M4 8l8 6 8-6"/>
@@ -835,10 +1065,7 @@
                   Solicitar orçamento
                 </button>
 
-                <button
-                  class="btn btn-secondary js-ticket"
-                  type="button"
-                  data-service="ATENDIMENTO EDITORIAL">
+                <button class="btn btn-secondary js-ticket" type="button" data-service="ATENDIMENTO EDITORIAL">
                   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
                     <path d="M8 10h8"/>
                     <path d="M8 14h5"/>
@@ -849,23 +1076,20 @@
               </div>
 
               <p class="hero-note">
-                Nesta página, a coleta de leads serve para pedidos de orçamento e interesse comercial. A abertura de tickets serve para dúvidas, atendimento e encaminhamento de demandas específicas.
+                Fale com a equipe para orçamentos, projetos editoriais, serviços gráficos, produção de livros, automações ou orientações específicas.
               </p>
             </div>
 
             <aside class="hero-card" aria-label="Resumo de atuação">
-              <h2>O que a PUB Editorial pode atender</h2>
+              <h2>Atuação editorial para diferentes públicos</h2>
               <ul class="hero-list">
-                <li>Livros em fase inicial, intermediária ou final de produção</li>
-                <li>Autores, editoras, selos, estúdios e profissionais editoriais</li>
-                <li>Demandas pontuais ou fluxos editoriais completos</li>
-                <li>Atendimento comercial, técnico e operacional em um só lugar</li>
+                <li>Autores que precisam estruturar e preparar um livro</li>
+                <li>Editoras e selos com demandas recorrentes de produção</li>
+                <li>Profissionais que precisam de apoio técnico e gráfico</li>
+                <li>Projetos que exigem organização, clareza e acabamento</li>
               </ul>
 
-              <button
-                class="btn btn-soft js-lead"
-                type="button"
-                data-service="PROJETO EDITORIAL">
+              <button class="btn btn-soft js-lead" type="button" data-service="PROJETO DE LIVRO">
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
                   <path d="M12 5v14"/>
                   <path d="M5 12h14"/>
@@ -882,73 +1106,266 @@
       <div class="wrap">
         <div class="stats">
           <article class="stat">
-            <div class="stat-k">Texto</div>
-            <div class="stat-v">Original</div>
-            <div class="stat-n">Tratamento editorial com foco em clareza, consistência e estrutura.</div>
+            <div class="stat-k">Catálogo</div>
+            <div class="stat-v">Livros</div>
+            <div class="stat-n">Títulos e projetos editoriais apresentados com destaque visual e contexto de publicação.</div>
           </article>
 
           <article class="stat">
-            <div class="stat-k">Projeto</div>
-            <div class="stat-v">Forma</div>
-            <div class="stat-n">Decisões gráficas e de diagramação alinhadas ao conteúdo e ao público.</div>
-          </article>
-
-          <article class="stat">
-            <div class="stat-k">Produção</div>
+            <div class="stat-k">Serviços</div>
             <div class="stat-v">Fluxo</div>
-            <div class="stat-n">Organização técnica para reduzir retrabalho e melhorar a previsibilidade.</div>
+            <div class="stat-n">Etapas editoriais organizadas para reduzir retrabalho e fortalecer a qualidade final.</div>
+          </article>
+
+          <article class="stat">
+            <div class="stat-k">Conteúdo</div>
+            <div class="stat-v">Imagem</div>
+            <div class="stat-n">Grades de publicações e registros visuais para comunicar processo, catálogo e bastidores.</div>
           </article>
 
           <article class="stat">
             <div class="stat-k">Atendimento</div>
-            <div class="stat-v">Suporte</div>
-            <div class="stat-n">Captação de interesse e atendimento por tickets dentro da própria página.</div>
+            <div class="stat-v">Contato</div>
+            <div class="stat-n">Pontos claros para orçamento, interesse comercial e atendimento organizado.</div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="sobre" aria-label="Sobre a PUB Editorial">
+    <section class="section" id="sobre" aria-label="Sobre a editora">
       <div class="wrap">
         <div class="panel" style="padding:32px;">
           <div class="head">
             <span class="tag">Sobre</span>
-            <h2 class="title-lg">Uma página para apresentar a editora, seus serviços e seus canais de atendimento</h2>
+            <h2 class="title-lg">A PUB Editorial reúne publicação, serviços editoriais e soluções para produção de livros</h2>
             <p class="lead">
-              Nesta proposta, a PUB Editorial deixa de se apresentar apenas como fornecedora de scripts e passa a ocupar um lugar mais amplo: o de uma editora e prestadora de serviços editoriais, com uma estrutura clara para relacionamento comercial e atendimento.
+              A PUB Editorial trabalha com texto, forma, ritmo de leitura e acabamento técnico. Seu campo de atuação inclui tanto a construção de livros quanto o atendimento a demandas específicas de produção editorial.
             </p>
             <p class="muted">
-              O tema visual foi deslocado para uma linguagem mais editorial, mais sóbria e mais calorosa, com referência de papel, acabamento e produção de livro, em vez de uma aparência mais técnica ou mais voltada a software.
+              A linguagem visual desta página se aproxima mais do universo do livro, do papel, da edição e da circulação de publicações. O objetivo é apresentar a editora com mais densidade editorial e menos aparência de produto técnico isolado.
             </p>
           </div>
 
           <div class="split">
             <article class="card">
-              <h3>Coleta de leads</h3>
-              <p class="muted">
-                A coleta de leads entra em pontos de intenção comercial. Ela serve para captar interessados em orçamento, projetos, serviços, scripts, páginas e soluções editoriais.
-              </p>
+              <h3>Para autores e projetos autorais</h3>
+              <p>Atendimento para obras em desenvolvimento, originais em preparação, livros em fase de revisão, construção de identidade visual e organização de etapas até a publicação.</p>
               <ul>
-                <li>Botão principal de orçamento no hero</li>
-                <li>Botões de interesse em serviços estratégicos</li>
-                <li>Contato para projeto editorial ou proposta comercial</li>
-                <li>Captação de nome, e-mail e serviço de interesse</li>
+                <li>Preparação de texto</li>
+                <li>Leitura crítica e revisão</li>
+                <li>Projeto gráfico e diagramação</li>
+                <li>Capa e fechamento</li>
               </ul>
             </article>
 
             <article class="card">
-              <h3>Coleta de tickets</h3>
-              <p class="muted">
-                A abertura de tickets entra como canal de atendimento. Ela serve para dúvidas, problemas, solicitações de suporte, dúvidas sobre entrega, arquivos, etapas e orientação técnica.
-              </p>
+              <h3>Para editoras, selos e equipes</h3>
+              <p>Serviços editoriais e técnicos para demandas recorrentes, produção em série, padronização de fluxo, fechamento de arquivos e apoio operacional com automações.</p>
               <ul>
-                <li>Botão de atendimento no hero</li>
-                <li>Botões de abrir atendimento em serviços específicos</li>
-                <li>Mensagem detalhada com contexto do pedido</li>
-                <li>Registro organizado para acompanhamento posterior</li>
+                <li>Produção editorial em fluxo</li>
+                <li>Padronização gráfica</li>
+                <li>Soluções para InDesign</li>
+                <li>Páginas de apresentação com captação e atendimento</li>
               </ul>
             </article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="livros" aria-label="Livros em destaque">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Livros</span>
+          <h2 class="title-lg">Títulos, coleções e projetos em destaque</h2>
+          <p class="muted">
+            Use esta seção para apresentar livros publicados, lançamentos, coleções, títulos em circulação ou projetos recentes da editora.
+          </p>
+        </div>
+
+        <div class="books-grid">
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-01.jpg" alt="Capa do livro Caminhos do Texto" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Lançamento</div>
+              <h3>Caminhos do Texto</h3>
+              <p>Um título voltado ao trabalho com escrita, edição e construção de linguagem em processos editoriais contemporâneos.</p>
+              <button class="btn btn-soft js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO CAMINHOS DO TEXTO">Pedir informações</button>
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-02.jpg" alt="Capa do livro Oficina de Leitura" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Catálogo</div>
+              <h3>Oficina de Leitura</h3>
+              <p>Projeto editorial voltado à formação de leitores, com atenção à experiência de leitura e ao desenho da página.</p>
+              <button class="btn btn-soft js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO OFICINA DE LEITURA">Pedir informações</button>
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-03.jpg" alt="Capa do livro Cidade Impressa" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Projeto gráfico</div>
+              <h3>Cidade Impressa</h3>
+              <p>Livro com forte presença visual, pensado para articular texto, imagem, respiro e ritmo gráfico em conjunto.</p>
+              <button class="btn btn-soft js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO CIDADE IMPRESSA">Pedir informações</button>
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-04.jpg" alt="Capa do livro Caderno Editorial" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Coleção</div>
+              <h3>Caderno Editorial</h3>
+              <p>Exemplo de linha editorial com identidade contínua, linguagem gráfica coerente e soluções pensadas para série.</p>
+              <button class="btn btn-soft js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO CADERNO EDITORIAL">Pedir informações</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publicacoes" aria-label="Publicações e imagens">
+      <div class="wrap">
+        <div class="panel" style="padding:32px;">
+          <div class="head">
+            <span class="tag">Publicações</span>
+            <h2 class="title-lg">Grade de publicações com imagens</h2>
+            <p class="muted">
+              Aqui entram destaques editoriais, registros de lançamentos, capas, bastidores de produção, chamadas de catálogo e posts visuais da editora.
+            </p>
+          </div>
+
+          <div class="posts-grid" style="margin-bottom:18px;">
+            <article class="post">
+              <div class="post-media">
+                <img src="assets/post-01.jpg" alt="Imagem de publicação sobre lançamento editorial" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">Lançamento</div>
+                <h3>Um novo livro chega ao catálogo</h3>
+                <p>Espaço para chamada de lançamento, destaque de capa, texto breve e encaminhamento para contato ou compra.</p>
+              </div>
+            </article>
+
+            <article class="post">
+              <div class="post-media">
+                <img src="assets/post-02.jpg" alt="Imagem de publicação sobre processo de produção editorial" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">Bastidores</div>
+                <h3>Do original à prova</h3>
+                <p>Registro visual do percurso editorial, mostrando etapas de leitura, marcação, projeto gráfico e diagramação.</p>
+              </div>
+            </article>
+
+            <article class="post">
+              <div class="post-media">
+                <img src="assets/post-03.jpg" alt="Imagem de publicação com capa e miolo de livro" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">Projeto gráfico</div>
+                <h3>Forma editorial e leitura</h3>
+                <p>Imagem para mostrar composição, papel, ritmo de página, tipografia, capa e acabamento de uma obra.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="assets/galeria-01.jpg" alt="Capa de livro em destaque" />
+              <figcaption class="gallery-caption">Capa em destaque</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-02.jpg" alt="Miolo aberto com projeto gráfico" />
+              <figcaption class="gallery-caption">Projeto gráfico e ritmo de página</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-03.jpg" alt="Conjunto de publicações da editora" />
+              <figcaption class="gallery-caption">Catálogo e coleção</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-04.jpg" alt="Registro de livro impresso" />
+              <figcaption class="gallery-caption">Livro em circulação</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-05.jpg" alt="Mesa com provas e anotações editoriais" />
+              <figcaption class="gallery-caption">Revisão e conferência</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-06.jpg" alt="Detalhe de capa com acabamento gráfico" />
+              <figcaption class="gallery-caption">Design de capa</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-07.jpg" alt="Páginas internas de livro diagramado" />
+              <figcaption class="gallery-caption">Diagramação</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="assets/galeria-08.jpg" alt="Pilhas de livros impressos" />
+              <figcaption class="gallery-caption">Fechamento e impressão</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="videos" aria-label="Vídeos">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Vídeos</span>
+          <h2 class="title-lg">Vídeos sobre livros, processo editorial e produção</h2>
+          <p class="muted">
+            Esta área pode reunir entrevistas, apresentações de livros, bastidores, processos de edição, demonstrações de trabalho e conteúdo institucional.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/V4WoT7v7f1s?rel=0&modestbranding=1" title="Vídeo de apresentação editorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Apresentação de projeto editorial</h3>
+              <p>Vídeo para apresentar uma obra, uma coleção, uma linha editorial ou um processo de produção desenvolvido pela editora.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/K0kM5cEKGWc?rel=0&modestbranding=1" title="Vídeo sobre projeto gráfico ou capa" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Projeto gráfico, capa e linguagem visual</h3>
+              <p>Espaço para mostrar decisões de capa, tipografia, composição e elementos visuais que estruturam a leitura.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/t6QHOl6996U?rel=0&modestbranding=1" title="Vídeo sobre processo de produção editorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Processo editorial e bastidores de produção</h3>
+              <p>Vídeo para falar de preparação, revisão, diagramação, fechamento e soluções técnicas usadas em publicações.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -957,9 +1374,9 @@
       <div class="wrap">
         <div class="head">
           <span class="tag">Serviços</span>
-          <h2 class="title-lg">Serviços editoriais da PUB Editorial</h2>
+          <h2 class="title-lg">Serviços editoriais e soluções da PUB Editorial</h2>
           <p class="muted">
-            A proposta abaixo organiza os serviços em linguagem mais institucional, mais clara para cliente e mais compatível com o novo posicionamento visual da página.
+            Os serviços abaixo podem ser contratados em conjunto ou de forma pontual, conforme a etapa do projeto e a necessidade editorial.
           </p>
         </div>
 
@@ -973,7 +1390,7 @@
             </div>
             <h3>Preparação de originais</h3>
             <p>Tratamento inicial do texto para organizar estrutura, corrigir inconsistências, ajustar padrões e preparar o material para as próximas etapas do processo editorial.</p>
-            <div class="micro">Etapa indicada para textos ainda em consolidação editorial.</div>
+            <div class="micro">Indicada para textos ainda em consolidação editorial.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="PREPARAÇÃO DE ORIGINAIS">Solicitar orçamento</button>
           </article>
 
@@ -986,7 +1403,7 @@
             </div>
             <h3>Copidesque</h3>
             <p>Refinamento do texto para melhorar clareza, fluidez, precisão e unidade de linguagem, preservando a intenção autoral e fortalecendo a legibilidade da obra.</p>
-            <div class="micro">Etapa voltada ao acabamento textual e à consistência do discurso.</div>
+            <div class="micro">Voltado ao acabamento textual e à consistência do discurso.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="COPIDESQUE">Solicitar orçamento</button>
           </article>
 
@@ -998,7 +1415,7 @@
             </div>
             <h3>Revisão</h3>
             <p>Leitura crítica para correção gramatical, ortográfica, sintática e de padronização editorial, com atenção ao rigor formal e à coerência do conjunto.</p>
-            <div class="micro">Etapa fundamental para segurança textual e apresentação profissional.</div>
+            <div class="micro">Fundamental para segurança textual e apresentação profissional.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="REVISÃO">Solicitar orçamento</button>
           </article>
 
@@ -1011,7 +1428,7 @@
             </div>
             <h3>Projeto gráfico</h3>
             <p>Definição visual da obra, com estudo de formato, mancha, tipografia, hierarquia, ritmo de leitura e critérios gráficos adequados ao perfil editorial do livro.</p>
-            <div class="micro">Etapa que orienta as decisões visuais do miolo e da experiência de leitura.</div>
+            <div class="micro">Orienta as decisões visuais do miolo e da experiência de leitura.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="PROJETO GRÁFICO">Solicitar orçamento</button>
           </article>
 
@@ -1024,7 +1441,7 @@
             </div>
             <h3>Diagramação</h3>
             <p>Construção do miolo com cuidado tipográfico, organização de páginas, distribuição equilibrada do conteúdo e atenção à legibilidade e à consistência visual.</p>
-            <div class="micro">Etapa central para transformar o texto em objeto editorial pronto para circulação.</div>
+            <div class="micro">Transforma o texto em objeto editorial pronto para circulação.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="DIAGRAMAÇÃO">Solicitar orçamento</button>
           </article>
 
@@ -1050,7 +1467,7 @@
             </div>
             <h3>Design de capa</h3>
             <p>Desenvolvimento de capas com qualidade estética e adequação técnica, considerando identidade da obra, posicionamento editorial e exigências de produção gráfica.</p>
-            <div class="micro">Etapa que une impacto visual, conceito e viabilidade técnica.</div>
+            <div class="micro">Une impacto visual, conceito e viabilidade técnica.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="DESIGN DE CAPA">Solicitar orçamento</button>
           </article>
 
@@ -1064,7 +1481,7 @@
             </div>
             <h3>Fechamento para impressão</h3>
             <p>Preparação e conferência dos arquivos finais conforme exigências técnicas de gráfica, com atenção a formatos, sangria, marcas, exportação e integridade do PDF.</p>
-            <div class="micro">Etapa decisiva para reduzir erros no envio e na produção final.</div>
+            <div class="micro">Decisivo para reduzir erros no envio e na produção final.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="FECHAMENTO PARA IMPRESSÃO">Solicitar orçamento</button>
           </article>
 
@@ -1077,7 +1494,7 @@
             </div>
             <h3>Scripts e automações</h3>
             <p>Desenvolvimento e aplicação de scripts para Adobe InDesign voltados à automação de tarefas repetitivas, padronização técnica e ganho de produtividade editorial.</p>
-            <div class="micro">Etapa indicada para fluxos recorrentes e demandas operacionais repetíveis.</div>
+            <div class="micro">Indicado para fluxos recorrentes e demandas operacionais repetíveis.</div>
             <button class="btn btn-soft js-ticket" type="button" data-service="SCRIPTS E AUTOMAÇÕES">Abrir atendimento</button>
           </article>
 
@@ -1089,42 +1506,42 @@
               </svg>
             </div>
             <h3>Páginas com captação e atendimento</h3>
-            <p>Criação de páginas de apresentação para serviços, produtos e projetos editoriais, com formulários integrados, coleta de leads, abertura de tickets e organização do atendimento em sistema próprio.</p>
-            <div class="micro">Serviço para quem precisa divulgar, captar interesse e centralizar atendimento.</div>
+            <p>Criação de páginas para livros, serviços, produtos e projetos editoriais, com formulários integrados, coleta de interesse, abertura de atendimento e organização do contato em sistema próprio.</p>
+            <div class="micro">Para quem precisa divulgar, captar interesse e centralizar o relacionamento.</div>
             <button class="btn btn-soft js-lead" type="button" data-service="PÁGINAS COM CAPTAÇÃO E ATENDIMENTO">Solicitar orçamento</button>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="como-funciona" aria-label="Como funciona">
+    <section class="section" id="como-funciona" aria-label="Como entrar em contato">
       <div class="wrap">
         <div class="head">
-          <span class="tag">Fluxo</span>
-          <h2 class="title-lg">Como a página pode organizar relacionamento e atendimento</h2>
+          <span class="tag">Contato</span>
+          <h2 class="title-lg">Dois caminhos simples para falar com a PUB Editorial</h2>
           <p class="muted">
-            Esta estrutura diferencia bem o que é interesse comercial e o que é demanda de atendimento, sem misturar orçamento com suporte.
+            Quem deseja tratar de orçamento ou proposta pode iniciar um contato comercial. Quem precisa de orientação, retorno ou acompanhamento pode abrir um atendimento.
           </p>
         </div>
 
         <div class="split">
           <article class="card">
-            <h3>Fluxo de lead</h3>
+            <h3>Contato para orçamento</h3>
             <ol class="steps">
-              <li>O visitante clica em um botão de orçamento ou interesse.</li>
-              <li>Abre um formulário simples de captação com nome, e-mail e serviço.</li>
-              <li>O contato entra como lead para relacionamento comercial.</li>
-              <li>A equipe avalia o pedido e responde com encaminhamento comercial.</li>
+              <li>Escolha um serviço ou projeto de interesse.</li>
+              <li>Informe nome, e-mail e contexto inicial.</li>
+              <li>O pedido entra para avaliação comercial.</li>
+              <li>A equipe responde com encaminhamento e proposta.</li>
             </ol>
           </article>
 
           <article class="card">
-            <h3>Fluxo de ticket</h3>
+            <h3>Atendimento para orientação e suporte</h3>
             <ol class="steps">
-              <li>O visitante clica em um botão de atendimento.</li>
-              <li>Abre um formulário com nome, e-mail, WhatsApp opcional e mensagem.</li>
-              <li>A solicitação entra como ticket para acompanhamento organizado.</li>
-              <li>A equipe responde com retorno técnico, operacional ou editorial.</li>
+              <li>Abra um atendimento pelo botão de contato.</li>
+              <li>Descreva a necessidade com clareza.</li>
+              <li>O pedido é registrado para acompanhamento.</li>
+              <li>A equipe responde com retorno técnico, editorial ou operacional.</li>
             </ol>
           </article>
         </div>
@@ -1135,26 +1552,24 @@
       <div class="wrap">
         <div class="panel" style="padding:32px;">
           <div class="head">
-            <span class="tag">Contato</span>
-            <h2 class="title-lg">Dois caminhos claros: orçamento ou atendimento</h2>
+            <span class="tag">Fale com a equipe</span>
+            <h2 class="title-lg">Contato para projetos, publicações, serviços e atendimento</h2>
             <p class="muted">
-              O ideal é manter os dois pontos de entrada visíveis, cada um com função própria. Isso ajuda a filtrar melhor a demanda e melhora o uso do sistema.
+              Use o formulário de orçamento para projetos e propostas. Use o atendimento para dúvidas, orientações, acompanhamento ou solicitações específicas.
             </p>
           </div>
 
           <div class="contact-grid">
             <article class="card">
-              <h3>Quero falar sobre um serviço</h3>
-              <p class="muted">
-                Use a captação de leads para pedidos de orçamento, propostas, projetos editoriais, produção gráfica, scripts ou páginas personalizadas.
-              </p>
+              <h3>Quero apresentar um projeto</h3>
+              <p>Entre em contato para falar sobre publicação de livros, serviços editoriais, soluções gráficas, automações, produção em fluxo ou páginas de apresentação com atendimento integrado.</p>
 
               <div class="contact-note">
-                Exemplos: orçamento para revisão, diagramação, projeto gráfico, design de capa, fechamento para impressão, scripts ou página com captação e atendimento.
+                Exemplos: orçamento para revisão, diagramação, projeto gráfico, capa, fechamento, scripts, página de catálogo, página institucional ou apresentação de coleção.
               </div>
 
               <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                <button class="btn btn-primary js-lead" type="button" data-service="ORÇAMENTO EDITORIAL">
+                <button class="btn btn-primary js-lead" type="button" data-service="ORÇAMENTO GERAL">
                   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
                     <path d="M4 6h16v12H4z"/>
                     <path d="M4 8l8 6 8-6"/>
@@ -1165,13 +1580,11 @@
             </article>
 
             <article class="card">
-              <h3>Quero abrir um atendimento</h3>
-              <p class="muted">
-                Use tickets para dúvidas, acompanhamento, orientação técnica, problemas com arquivo, esclarecimentos sobre entrega ou qualquer solicitação que precise de resposta organizada.
-              </p>
+              <h3>Quero falar com a equipe</h3>
+              <p>Abra um atendimento para dúvidas, acompanhamento, orientações sobre arquivos, questões editoriais, necessidades técnicas ou pedidos de retorno sobre um serviço em andamento.</p>
 
               <div class="contact-note">
-                Exemplos: dúvida sobre etapa editorial, suporte em arquivo, orientação sobre fechamento, retorno sobre serviço em andamento ou pedido específico de atendimento.
+                Exemplos: dúvida sobre processo editorial, retorno sobre produção, orientação para fechamento, suporte em automação, solicitação técnica ou encaminhamento de demanda.
               </div>
 
               <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -1194,28 +1607,28 @@
       <div class="wrap">
         <div class="head">
           <span class="tag">FAQ</span>
-          <h2 class="title-lg">Perguntas rápidas sobre a proposta desta página</h2>
+          <h2 class="title-lg">Perguntas frequentes</h2>
         </div>
 
         <div class="faq">
           <details>
-            <summary>Esta página é de uma editora ou de um serviço técnico?</summary>
-            <p>Ela passa a ser de uma editora e prestadora de serviços editoriais. O serviço técnico continua existindo, mas agora entra como parte de um conjunto maior de soluções da PUB Editorial.</p>
+            <summary>A PUB Editorial trabalha apenas com livros próprios?</summary>
+            <p>Não. A editora pode apresentar títulos próprios, catálogos, coleções e também oferecer serviços editoriais para projetos externos, autores, editoras e equipes parceiras.</p>
           </details>
 
           <details>
-            <summary>Por que trocar o tema visual?</summary>
-            <p>Porque o front anterior estava muito associado a um produto técnico específico. Para representar a PUB Editorial como editora, faz mais sentido uma linguagem mais editorial, mais institucional e menos centrada em software.</p>
+            <summary>Posso contratar apenas uma etapa do processo?</summary>
+            <p>Sim. Os serviços podem ser contratados de forma pontual, como revisão, diagramação, capa ou fechamento, ou em combinação, conforme a necessidade do projeto.</p>
           </details>
 
           <details>
-            <summary>Leads e tickets precisam ficar no mesmo sistema?</summary>
-            <p>Sim, mas com funções diferentes. Leads cuidam da entrada comercial. Tickets cuidam do atendimento. A separação melhora a triagem e a organização do fluxo.</p>
+            <summary>Esta página pode reunir catálogo, publicações e atendimento ao mesmo tempo?</summary>
+            <p>Sim. A página pode apresentar livros, posts visuais, vídeos, serviços e contato, mantendo linguagem pública de editora e pontos claros de relacionamento.</p>
           </details>
 
           <details>
-            <summary>Os scripts ainda podem aparecer na página?</summary>
-            <p>Sim. Eles podem continuar como um serviço ou até ganhar uma seção própria depois. Nesta proposta, eles entram como um dos serviços da editora, não mais como o tema central da página.</p>
+            <summary>Os formulários podem ser integrados ao sistema de captação e atendimento?</summary>
+            <p>Sim. Os botões e formulários desta página podem ser conectados ao fluxo de leads e ao fluxo de atendimento já existente, com separação entre interesse comercial e atendimento.</p>
           </details>
         </div>
       </div>
@@ -1227,14 +1640,15 @@
           <div class="footer-grid">
             <div class="footer-brand">
               <p class="footer-title">PUB Editorial</p>
-              <p class="footer-meta">Serviços editoriais, design e produção de livros.</p>
+              <p class="footer-meta">Livros, serviços editoriais e produção de publicações.</p>
             </div>
 
             <div class="footer-links" aria-label="Links finais">
               <a href="#topo">Início</a>
-              <a href="#sobre">Sobre</a>
+              <a href="#livros">Livros</a>
+              <a href="#publicacoes">Publicações</a>
+              <a href="#videos">Vídeos</a>
               <a href="#servicos">Serviços</a>
-              <a href="#contato">Contato</a>
               <button type="button" class="js-lead" data-service="ORÇAMENTO GERAL">Orçamento</button>
               <button type="button" class="js-ticket" data-service="ATENDIMENTO GERAL">Atendimento</button>
             </div>
@@ -1252,28 +1666,28 @@
       </div>
 
       <form id="lead-form" class="lead-body" novalidate>
-        <input type="hidden" id="lead-mode" name="mode" value="lead">
-        <input type="hidden" id="lead-service" name="service" value="">
-        <input type="hidden" id="lead-ticket-id" name="ticket_id" value="">
+        <input type="hidden" id="lead-mode" name="mode" value="lead" />
+        <input type="hidden" id="lead-service" name="service" value="" />
+        <input type="hidden" id="lead-ticket-id" name="ticket_id" value="" />
 
         <div class="lead-field">
           <label class="lead-label" for="lead-name">Nome</label>
-          <input id="lead-name" class="lead-input" name="name" placeholder="Seu nome" autocomplete="name" required>
+          <input id="lead-name" class="lead-input" name="name" placeholder="Seu nome" autocomplete="name" required />
         </div>
 
         <div class="lead-field">
           <label class="lead-label" for="lead-email">E-mail</label>
-          <input id="lead-email" class="lead-input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+          <input id="lead-email" class="lead-input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
         </div>
 
         <div id="lead-whatsapp-wrap" class="lead-field is-hidden">
           <label class="lead-label" for="lead-whatsapp">WhatsApp</label>
-          <input id="lead-whatsapp" class="lead-input" name="whatsapp" type="tel" placeholder="(51) 99999-9999" autocomplete="tel">
+          <input id="lead-whatsapp" class="lead-input" name="whatsapp" type="tel" placeholder="(51) 99999-9999" autocomplete="tel" />
         </div>
 
         <div id="lead-message-wrap" class="lead-field is-hidden">
           <label class="lead-label" for="lead-message">Mensagem</label>
-          <textarea id="lead-message" class="lead-input" name="message" placeholder="Descreva sua dúvida, pedido ou necessidade."></textarea>
+          <textarea id="lead-message" class="lead-input" name="message" placeholder="Descreva sua necessidade, dúvida ou pedido."></textarea>
         </div>
 
         <div class="lead-actions">
@@ -1365,16 +1779,16 @@
         const ticketId = buildTicketId(service || "ATENDIMENTO");
         inputTicketId.value = ticketId;
         title.textContent = "Abrir atendimento";
-        submitBtn.textContent = "Enviar ticket";
+        submitBtn.textContent = "Enviar atendimento";
         whatsappWrap.classList.remove("is-hidden");
         messageWrap.classList.remove("is-hidden");
-        hint.textContent = "Preencha seus dados e descreva a solicitação.\nO ticket será usado para organizar o atendimento.";
+        hint.textContent = "Preencha seus dados e descreva a solicitação.\nO pedido será registrado para acompanhamento.";
       } else {
         title.textContent = "Solicitar orçamento";
-        submitBtn.textContent = "Enviar lead";
+        submitBtn.textContent = "Enviar solicitação";
         whatsappWrap.classList.add("is-hidden");
         messageWrap.classList.add("is-hidden");
-        hint.textContent = "Preencha nome e e-mail para registrar seu interesse comercial.";
+        hint.textContent = "Preencha nome e e-mail para registrar seu interesse.";
       }
 
       modal.setAttribute("aria-hidden", "false");
@@ -1479,9 +1893,9 @@
 
       if(mode === "ticket"){
         hint.textContent =
-          "Ticket pronto para integração.\n" +
+          "Atendimento pronto para integração.\n" +
           "ID: " + ticketId + "\n" +
-          "Serviço: " + service + "\n" +
+          "Assunto: " + service + "\n" +
           "Nome: " + name + "\n" +
           "E-mail: " + email + "\n" +
           "WhatsApp: " + normalizePhone(whatsapp) + "\n" +
@@ -1489,7 +1903,7 @@
 
         setTimeout(function(){
           submitBtn.disabled = false;
-          alert("Exemplo de ticket capturado:\\n\\nID: " + ticketId + "\\nServiço: " + service + "\\nNome: " + name + "\\nE-mail: " + email);
+          alert("Exemplo de atendimento capturado:\\n\\nID: " + ticketId + "\\nAssunto: " + service + "\\nNome: " + name + "\\nE-mail: " + email);
           closeModal();
         }, 200);
 
@@ -1497,7 +1911,7 @@
       }
 
       hint.textContent =
-        "Lead pronto para integração.\n" +
+        "Solicitação pronta para integração.\n" +
         "Serviço: " + service + "\n" +
         "Nome: " + name + "\n" +
         "E-mail: " + email;
