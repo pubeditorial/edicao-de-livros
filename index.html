@@ -1,1396 +1,2755 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#f5f1eb" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:large" />
-  <meta name="author" content="PUB Editorial" />
-  <meta name="description" content="PUB Editorial: livros, serviços editoriais e atendimento para autores, editoras e projetos de publicação." />
-
-  <title>PUB Editorial | Livros, serviços editoriais e projetos de publicação</title>
-
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:site_name" content="PUB Editorial" />
-  <meta property="og:title" content="PUB Editorial | Livros, serviços editoriais e projetos de publicação" />
-  <meta property="og:description" content="Editora e estúdio editorial com livros, serviços editoriais e atendimento para autores, editoras e projetos de publicação." />
-  <meta property="og:url" content="https://pubeditorial.github.io/" />
-  <meta property="og:image" content="https://pubeditorial.github.io/assets/pub-editorial-social.jpg" />
-  <meta property="og:image:alt" content="PUB Editorial" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PUB Editorial | Livros, serviços editoriais e projetos de publicação" />
-  <meta name="twitter:description" content="Editora e estúdio editorial com livros, serviços editoriais e atendimento para autores, editoras e projetos de publicação." />
-  <meta name="twitter:image" content="https://pubeditorial.github.io/assets/pub-editorial-social.jpg" />
-
-  <style>
-    :root{
-      --bg:#f5f1eb;
-      --paper:#fffdfa;
-      --paper-soft:#f1e8dd;
-      --text:#2c221b;
-      --muted:#74685d;
-      --line:#ddd0c2;
-      --brand:#8c5b36;
-      --brand-2:#b57d4d;
-      --accent:#ede2d4;
-      --wrap:1100px;
-      --r-xl:22px;
-      --r-lg:18px;
-      --r-md:14px;
-      --shadow:0 8px 24px rgba(44,34,27,.05);
-      --s1:8px;
-      --s2:12px;
-      --s3:16px;
-      --s4:20px;
-      --s5:28px;
-      --s6:40px;
-      --s7:56px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    html{scroll-behavior:smooth}
-
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-    }
-
-    img{display:block;max-width:100%}
-    a{color:inherit;text-decoration:none}
-    button,input,textarea{font:inherit}
-
-    :focus-visible{
-      outline:3px solid rgba(140,91,54,.22);
-      outline-offset:3px;
-      border-radius:10px;
-    }
-
-    .skip{
-      position:absolute;
-      left:-9999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
-    }
-
-    .skip:focus{
-      left:16px;
-      top:16px;
-      width:auto;
-      height:auto;
-      padding:10px 12px;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:10px;
-      z-index:999;
-    }
-
-    .wrap{
-      width:100%;
-      max-width:var(--wrap);
-      margin:0 auto;
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    .section{
-      padding:var(--s7) 0;
-      scroll-margin-top:84px;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--brand);
-    }
-
-    .tag::before{
-      content:"";
-      width:9px;
-      height:9px;
-      border-radius:3px;
-      background:linear-gradient(135deg,var(--brand),var(--brand-2));
-    }
-
-    .title-xl{
-      margin:0;
-      font-size:clamp(38px,5vw,62px);
-      line-height:1.02;
-      letter-spacing:-.05em;
-      font-weight:1000;
-      max-width:12ch;
-    }
-
-    .title-lg{
-      margin:0;
-      font-size:clamp(28px,3vw,40px);
-      line-height:1.08;
-      letter-spacing:-.04em;
-      font-weight:980;
-    }
-
-    .lead{
-      margin:0;
-      color:#3b2d24;
-      font-size:17px;
-      line-height:1.8;
-      max-width:58ch;
-    }
-
-    .muted{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.72;
-    }
-
-    .head{
-      display:grid;
-      gap:12px;
-      max-width:780px;
-      margin:0 0 24px;
-    }
-
-    .header{
-      position:sticky;
-      top:0;
-      z-index:40;
-      background:rgba(245,241,235,.9);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(221,208,194,.85);
-    }
-
-    .header-inner{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
-
-    .brand-title{
-      font-size:24px;
-      line-height:1.1;
-      font-weight:1000;
-      letter-spacing:-.04em;
-    }
-
-    .brand-sub{
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .nav a{
-      padding:9px 12px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:800;
-      color:#4a3a2f;
-    }
-
-    .nav a:hover{
-      background:rgba(255,255,255,.75);
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:50px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid transparent;
-      cursor:pointer;
-      font-weight:900;
-      letter-spacing:-.01em;
-      transition:transform .18s ease, background .18s ease, border-color .18s ease;
-      white-space:nowrap;
-    }
-
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0)}
-
-    .btn svg{
-      width:18px;
-      height:18px;
-      display:block;
-      stroke:currentColor;
-      fill:none;
-      stroke-width:2;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      flex:0 0 auto;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--brand),var(--brand-2));
-      color:#fff;
-    }
-
-    .btn-secondary{
-      background:#fff;
-      color:var(--text);
-      border-color:var(--line);
-    }
-
-    .hero{
-      padding-top:28px;
-    }
-
-    .hero-box{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--r-xl);
-      box-shadow:var(--shadow);
-      padding:28px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
-      gap:24px;
-      align-items:start;
-    }
-
-    .hero-copy{
-      display:grid;
-      gap:16px;
-      align-content:start;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:4px;
-    }
-
-    .hero-card{
-      background:#fcf8f3;
-      border:1px solid var(--line);
-      border-radius:var(--r-lg);
-      padding:20px;
-      display:grid;
-      gap:14px;
-    }
-
-    .hero-card h2{
-      margin:0;
-      font-size:18px;
-      line-height:1.2;
-      letter-spacing:-.02em;
-    }
-
-    .hero-card ul{
-      margin:0;
-      padding-left:18px;
-      display:grid;
-      gap:10px;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .panel{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--r-xl);
-      box-shadow:var(--shadow);
-      padding:28px;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .card{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--r-lg);
-      padding:20px;
-      display:grid;
-      gap:12px;
-    }
-
-    .card h3{
-      margin:0;
-      font-size:22px;
-      line-height:1.14;
-      letter-spacing:-.03em;
-      font-weight:980;
-    }
-
-    .card p{
-      margin:0;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.72;
-    }
-
-    .card ul{
-      margin:0;
-      padding-left:18px;
-      display:grid;
-      gap:10px;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .books-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .book{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--r-lg);
-      overflow:hidden;
-    }
-
-    .book-cover{
-      aspect-ratio:3 / 4;
-      background:#e7dccf;
-    }
-
-    .book-cover img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .book-body{
-      padding:16px;
-      display:grid;
-      gap:10px;
-    }
-
-    .book-k{
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--brand);
-    }
-
-    .book h3{
-      margin:0;
-      font-size:20px;
-      line-height:1.15;
-      letter-spacing:-.02em;
-      font-weight:980;
-    }
-
-    .book p{
-      margin:0;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:14px;
-    }
-
-    .gallery-item{
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-      background:#e7dccf;
-    }
-
-    .gallery-item img{
-      width:100%;
-      aspect-ratio:1 / 1;
-      object-fit:cover;
-    }
-
-    .gallery-caption{
-      padding:10px 12px;
-      color:#5c4c40;
-      font-size:13px;
-      line-height:1.5;
-      background:#fff;
-    }
-
-    .video-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .video-card{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--r-lg);
-      overflow:hidden;
-    }
-
-    .video-frame{
-      aspect-ratio:16 / 9;
-      background:#1f1712;
-    }
-
-    .video-frame iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
-
-    .video-body{
-      padding:16px;
-      display:grid;
-      gap:10px;
-    }
-
-    .video-body h3{
-      margin:0;
-      font-size:20px;
-      line-height:1.18;
-      letter-spacing:-.02em;
-      font-weight:980;
-    }
-
-    .video-body p{
-      margin:0;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.68;
-    }
-
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .service{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:var(--r-lg);
-      padding:18px;
-      display:grid;
-      gap:12px;
-    }
-
-    .service h3{
-      margin:0;
-      font-size:19px;
-      line-height:1.18;
-      letter-spacing:-.02em;
-      font-weight:960;
-    }
-
-    .service p{
-      margin:0;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.68;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .faq{
-      display:grid;
-      gap:12px;
-    }
-
-    details{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px;
-    }
-
-    summary{
-      cursor:pointer;
-      list-style:none;
-      font-size:16px;
-      line-height:1.45;
-      font-weight:900;
-    }
-
-    summary::-webkit-details-marker{display:none}
-
-    details p{
-      margin:10px 0 0;
-      color:#46372d;
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .footer{
-      padding:0 0 28px;
-    }
-
-    .footer-box{
-      background:#261d17;
-      color:#f6eee5;
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:18px;
-      padding:18px 20px;
-    }
-
-    .footer-grid{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .footer-brand{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-
-    .footer-title{
-      margin:0;
-      font-size:15px;
-      font-weight:950;
-    }
-
-    .footer-meta{
-      margin:0;
-      font-size:12px;
-      color:rgba(246,238,229,.72);
-    }
-
-    .footer-links{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .footer-links a,
-    .footer-links button{
-      background:none;
-      border:0;
-      padding:0;
-      color:#f6eee5;
-      font:inherit;
-      cursor:pointer;
-      font-size:13px;
-      line-height:1.2;
-    }
-
-    .footer-links a:hover,
-    .footer-links button:hover{
-      text-decoration:underline;
-    }
-
-    #lead-modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      z-index:9999;
-      padding:18px;
-      background:rgba(22,16,12,.56);
-      backdrop-filter:blur(8px);
-      align-items:center;
-      justify-content:center;
-    }
-
-    #lead-modal[data-state="open"]{
-      display:flex;
-    }
-
-    .lead-dialog{
-      width:min(560px,100%);
-      max-height:min(88vh,920px);
-      overflow:auto;
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:20px;
-      box-shadow:0 20px 50px rgba(0,0,0,.18);
-    }
-
-    .lead-header{
-      position:sticky;
-      top:0;
-      z-index:2;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      padding:18px 18px 14px;
-      background:var(--paper);
-      border-bottom:1px solid var(--line);
-    }
-
-    .lead-title{
-      margin:0;
-      font-size:24px;
-      line-height:1.08;
-      letter-spacing:-.03em;
-      font-weight:980;
-      max-width:20ch;
-    }
-
-    .lead-body{
-      padding:18px;
-      display:grid;
-      gap:14px;
-    }
-
-    .lead-field{
-      display:grid;
-      gap:7px;
-    }
-
-    .lead-label{
-      font-size:12px;
-      line-height:1.2;
-      font-weight:900;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      color:#5e4e42;
-    }
-
-    .lead-input{
-      width:100%;
-      min-height:48px;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--text);
-    }
-
-    textarea.lead-input{
-      min-height:120px;
-      resize:vertical;
-    }
-
-    .lead-actions{
-      display:flex;
-      justify-content:flex-end;
-    }
-
-    .lead-hint{
-      min-height:18px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.6;
-      white-space:pre-line;
-    }
-
-    .is-hidden{
-      display:none !important;
-    }
-
-    body.modal-open{
-      overflow:hidden;
-    }
-
-    @media (max-width:980px){
-      .hero-grid,
-      .split,
-      .contact-grid,
-      .services-grid,
-      .books-grid,
-      .video-grid{
-        grid-template-columns:1fr;
-      }
-
-      .gallery-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-    }
-
-    @media (max-width:760px){
-      .wrap{padding-left:18px;padding-right:18px}
-      .section{padding:44px 0}
-      .hero-box,.panel{padding:20px}
-      .hero-actions{display:grid}
-      .hero-actions .btn{width:100%}
-      .nav{gap:6px}
-      .nav a{padding:8px 10px}
-      .gallery-grid{grid-template-columns:1fr}
-      .lead-header{padding:16px 16px 12px}
-      .lead-body{padding:16px}
-      .lead-actions{display:grid}
-      .lead-actions .btn{width:100%}
-    }
-  </style>
-</head>
-<body>
-  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-
-  <header class="header" aria-label="Cabeçalho">
-    <div class="wrap header-inner">
-      <div class="brand" aria-label="Marca">
-        <div class="brand-title">PUB Editorial</div>
-        <div class="brand-sub">Livros, serviços editoriais e projetos de publicação</div>
-      </div>
-
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#livros">Livros</a>
-        <a href="#publicacoes">Publicações</a>
-        <a href="#videos">Vídeos</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="conteudo">
-    <section class="section hero" id="topo" aria-label="Apresentação">
-      <div class="wrap">
-        <div class="hero-box">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <span class="tag">Editora e estúdio editorial</span>
-
-              <h1 class="title-xl">Livros e serviços editoriais para projetos que precisam de forma, clareza e acabamento</h1>
-
-              <p class="lead">
-                A PUB Editorial atua com publicação, preparação de originais, revisão, projeto gráfico, diagramação, capa e fechamento, acompanhando diferentes etapas da construção de um livro.
-              </p>
-
-              <p class="muted">
-                A página fala com autores, editoras, equipes editoriais e leitores, apresentando catálogo, publicações, vídeos e pontos claros de contato.
-              </p>
-
-              <div class="hero-actions">
-                <button class="btn btn-primary js-lead" type="button" data-service="ORÇAMENTO EDITORIAL">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                    <path d="M4 6h16v12H4z"/>
-                    <path d="M4 8l8 6 8-6"/>
-                  </svg>
-                  Solicitar orçamento
-                </button>
-
-                <button class="btn btn-secondary js-ticket" type="button" data-service="ATENDIMENTO EDITORIAL">
-                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                    <path d="M8 10h8"/>
-                    <path d="M8 14h5"/>
-                    <path d="M6 5h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-4 3v-3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
-                  </svg>
-                  Abrir atendimento
-                </button>
-              </div>
-            </div>
-
-            <aside class="hero-card" aria-label="Resumo de atuação">
-              <h2>Como a PUB Editorial pode ajudar</h2>
-              <ul>
-                <li>Projetos autorais em fase inicial ou avançada</li>
-                <li>Demandas de produção editorial para editoras e equipes</li>
-                <li>Apresentação de livros, catálogo e publicações</li>
-                <li>Contato comercial e atendimento organizados</li>
-              </ul>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sobre" aria-label="Sobre a PUB Editorial">
-      <div class="wrap">
-        <div class="panel">
-          <div class="head">
-            <span class="tag">Sobre</span>
-            <h2 class="title-lg">Uma presença mais editorial e menos carregada</h2>
-            <p class="lead">
-              Esta proposta coloca a PUB Editorial como editora e prestadora de serviços editoriais, com uma linguagem pública voltada ao seu público real.
-            </p>
-            <p class="muted">
-              Em vez de muitas camadas visuais e muitos blocos concorrendo entre si, a página foi organizada em poucos conjuntos: apresentação, livros, publicações, vídeos, serviços e contato.
-            </p>
-          </div>
-
-          <div class="split">
-            <article class="card">
-              <h3>Para quem a página fala</h3>
-              <ul>
-                <li>Autores que precisam publicar ou estruturar um livro</li>
-                <li>Editoras e equipes com demandas de produção</li>
-                <li>Leitores interessados em catálogo e lançamentos</li>
-                <li>Clientes que precisam de serviços editoriais específicos</li>
-              </ul>
-            </article>
-
-            <article class="card">
-              <h3>Como a página se organiza</h3>
-              <ul>
-                <li>Livros e títulos em destaque</li>
-                <li>Publicações com imagens de capa e bastidores</li>
-                <li>Vídeos institucionais ou editoriais</li>
-                <li>Contato por orçamento e atendimento</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="livros" aria-label="Livros em destaque">
-      <div class="wrap">
-        <div class="head">
-          <span class="tag">Livros</span>
-          <h2 class="title-lg">Livros e projetos em destaque</h2>
-          <p class="muted">
-            Esta seção pode apresentar títulos do catálogo, lançamentos ou projetos recentes da editora.
-          </p>
-        </div>
-
-        <div class="books-grid">
-          <article class="book">
-            <div class="book-cover">
-              <img src="assets/livro-01.jpg" alt="Capa do livro Caminhos do Texto" />
-            </div>
-            <div class="book-body">
-              <div class="book-k">Lançamento</div>
-              <h3>Caminhos do Texto</h3>
-              <p>Livro voltado a processos de escrita, edição e construção de linguagem.</p>
-              <button class="btn btn-secondary js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO CAMINHOS DO TEXTO">Pedir informações</button>
-            </div>
-          </article>
-
-          <article class="book">
-            <div class="book-cover">
-              <img src="assets/livro-02.jpg" alt="Capa do livro Oficina de Leitura" />
-            </div>
-            <div class="book-body">
-              <div class="book-k">Catálogo</div>
-              <h3>Oficina de Leitura</h3>
-              <p>Projeto voltado à formação de leitores e à experiência de leitura no objeto livro.</p>
-              <button class="btn btn-secondary js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO OFICINA DE LEITURA">Pedir informações</button>
-            </div>
-          </article>
-
-          <article class="book">
-            <div class="book-cover">
-              <img src="assets/livro-03.jpg" alt="Capa do livro Cidade Impressa" />
-            </div>
-            <div class="book-body">
-              <div class="book-k">Projeto gráfico</div>
-              <h3>Cidade Impressa</h3>
-              <p>Livro com forte presença visual, articulando texto, imagem e ritmo de página.</p>
-              <button class="btn btn-secondary js-ticket" type="button" data-service="INFORMAÇÕES SOBRE O LIVRO CIDADE IMPRESSA">Pedir informações</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="publicacoes" aria-label="Publicações e imagens">
-      <div class="wrap">
-        <div class="panel">
-          <div class="head">
-            <span class="tag">Publicações</span>
-            <h2 class="title-lg">Imagens de capas, bastidores e circulação</h2>
-            <p class="muted">
-              Uma grade visual simples para mostrar livros, materiais gráficos, registros de lançamento e bastidores editoriais.
-            </p>
-          </div>
-
-          <div class="gallery-grid">
-            <figure class="gallery-item">
-              <img src="assets/galeria-01.jpg" alt="Capa de livro em destaque" />
-              <figcaption class="gallery-caption">Capa em destaque</figcaption>
-            </figure>
-
-            <figure class="gallery-item">
-              <img src="assets/galeria-02.jpg" alt="Páginas internas de livro" />
-              <figcaption class="gallery-caption">Projeto gráfico</figcaption>
-            </figure>
-
-            <figure class="gallery-item">
-              <img src="assets/galeria-03.jpg" alt="Conjunto de publicações da editora" />
-              <figcaption class="gallery-caption">Catálogo</figcaption>
-            </figure>
-
-            <figure class="gallery-item">
-              <img src="assets/galeria-04.jpg" alt="Registro de livro impresso" />
-              <figcaption class="gallery-caption">Livro em circulação</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="videos" aria-label="Vídeos">
-      <div class="wrap">
-        <div class="head">
-          <span class="tag">Vídeos</span>
-          <h2 class="title-lg">Vídeos sobre livros e processo editorial</h2>
-          <p class="muted">
-            Esta área pode reunir apresentação de títulos, bastidores, entrevistas e processos de produção.
-          </p>
-        </div>
-
-        <div class="video-grid">
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/V4WoT7v7f1s?rel=0&modestbranding=1" title="Vídeo de apresentação editorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="video-body">
-              <h3>Apresentação editorial</h3>
-              <p>Vídeo para apresentar um livro, uma coleção ou um projeto em destaque.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/K0kM5cEKGWc?rel=0&modestbranding=1" title="Vídeo sobre processo editorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="video-body">
-              <h3>Processo de produção</h3>
-              <p>Vídeo para mostrar bastidores, construção gráfica, diagramação ou fechamento.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="servicos" aria-label="Serviços editoriais">
-      <div class="wrap">
-        <div class="head">
-          <span class="tag">Serviços</span>
-          <h2 class="title-lg">Serviços da PUB Editorial</h2>
-          <p class="muted">
-            Os serviços podem ser contratados em conjunto ou de forma pontual, conforme a etapa do projeto.
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <article class="service">
-            <h3>Preparação de originais</h3>
-            <p>Organização do texto, padronização inicial e preparação para as etapas seguintes do processo editorial.</p>
-            <button class="btn btn-secondary js-lead" type="button" data-service="PREPARAÇÃO DE ORIGINAIS">Solicitar orçamento</button>
-          </article>
-
-          <article class="service">
-            <h3>Copidesque e revisão</h3>
-            <p>Refinamento de linguagem, clareza, consistência textual e correção formal da obra.</p>
-            <button class="btn btn-secondary js-lead" type="button" data-service="COPIDESQUE E REVISÃO">Solicitar orçamento</button>
-          </article>
-
-          <article class="service">
-            <h3>Projeto gráfico e diagramação</h3>
-            <p>Definição visual do livro, composição de páginas, tipografia, hierarquia e leitura.</p>
-            <button class="btn btn-secondary js-lead" type="button" data-service="PROJETO GRÁFICO E DIAGRAMAÇÃO">Solicitar orçamento</button>
-          </article>
-
-          <article class="service">
-            <h3>Design de capa</h3>
-            <p>Desenvolvimento de capa com atenção estética, identidade editorial e adequação técnica.</p>
-            <button class="btn btn-secondary js-lead" type="button" data-service="DESIGN DE CAPA">Solicitar orçamento</button>
-          </article>
-
-          <article class="service">
-            <h3>Fechamento para impressão</h3>
-            <p>Conferência técnica dos arquivos finais para entrega consistente à gráfica.</p>
-            <button class="btn btn-secondary js-lead" type="button" data-service="FECHAMENTO PARA IMPRESSÃO">Solicitar orçamento</button>
-          </article>
-
-          <article class="service">
-            <h3>Páginas com captação e atendimento</h3>
-            <p>Criação de páginas institucionais ou de catálogo com formulários, captação de contato e atendimento organizado.</p>
-            <button class="btn btn-secondary js-lead" type="button" data-service="PÁGINAS COM CAPTAÇÃO E ATENDIMENTO">Solicitar orçamento</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contato" aria-label="Contato">
-      <div class="wrap">
-        <div class="panel">
-          <div class="head">
-            <span class="tag">Contato</span>
-            <h2 class="title-lg">Dois caminhos claros para falar com a PUB Editorial</h2>
-            <p class="muted">
-              Use orçamento para projetos e propostas. Use atendimento para dúvidas, acompanhamento e solicitações específicas.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <article class="card">
-              <h3>Solicitar orçamento</h3>
-              <p>Para falar sobre um livro, um serviço editorial, uma proposta gráfica ou uma página com atendimento integrado.</p>
-              <button class="btn btn-primary js-lead" type="button" data-service="ORÇAMENTO GERAL">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                  <path d="M4 6h16v12H4z"/>
-                  <path d="M4 8l8 6 8-6"/>
-                </svg>
-                Solicitar orçamento
-              </button>
-            </article>
-
-            <article class="card">
-              <h3>Abrir atendimento</h3>
-              <p>Para pedir informações, enviar uma dúvida, acompanhar uma demanda ou falar com a equipe sobre um assunto específico.</p>
-              <button class="btn btn-secondary js-ticket" type="button" data-service="ATENDIMENTO GERAL">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                  <path d="M8 10h8"/>
-                  <path d="M8 14h5"/>
-                  <path d="M6 5h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-4 3v-3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
-                </svg>
-                Abrir atendimento
-              </button>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq" aria-label="Perguntas frequentes">
-      <div class="wrap">
-        <div class="head">
-          <span class="tag">FAQ</span>
-          <h2 class="title-lg">Perguntas frequentes</h2>
-        </div>
-
-        <div class="faq">
-          <details>
-            <summary>A página pode apresentar livros e serviços ao mesmo tempo?</summary>
-            <p>Sim. A proposta reúne catálogo, presença editorial, conteúdo visual e pontos de contato sem perder clareza.</p>
-          </details>
-
-          <details>
-            <summary>Leads e atendimento continuam possíveis?</summary>
-            <p>Sim. A página mantém dois fluxos: um para interesse comercial e outro para atendimento e acompanhamento.</p>
-          </details>
-
-          <details>
-            <summary>As imagens e vídeos podem ser trocados depois?</summary>
-            <p>Sim. A estrutura foi pensada para facilitar a substituição de capas, fotos, vídeos e textos sem mudar o layout.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="footer" aria-label="Rodapé">
-      <div class="wrap">
-        <div class="footer-box">
-          <div class="footer-grid">
-            <div class="footer-brand">
-              <p class="footer-title">PUB Editorial</p>
-              <p class="footer-meta">Livros, serviços editoriais e projetos de publicação.</p>
-            </div>
-
-            <div class="footer-links" aria-label="Links finais">
-              <a href="#topo">Início</a>
-              <a href="#livros">Livros</a>
-              <a href="#publicacoes">Publicações</a>
-              <a href="#videos">Vídeos</a>
-              <a href="#servicos">Serviços</a>
-              <button type="button" class="js-lead" data-service="ORÇAMENTO GERAL">Orçamento</button>
-              <button type="button" class="js-ticket" data-service="ATENDIMENTO GERAL">Atendimento</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div id="lead-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lead-title">
-    <div class="lead-dialog" role="document">
-      <div class="lead-header">
-        <h2 class="lead-title" id="lead-title">Falar com a PUB Editorial</h2>
-        <button type="button" id="lead-close" class="btn btn-secondary">Fechar</button>
-      </div>
-
-      <form id="lead-form" class="lead-body" novalidate>
-        <input type="hidden" id="lead-mode" name="mode" value="lead" />
-        <input type="hidden" id="lead-service" name="service" value="" />
-        <input type="hidden" id="lead-ticket-id" name="ticket_id" value="" />
-
-        <div class="lead-field">
-          <label class="lead-label" for="lead-name">Nome</label>
-          <input id="lead-name" class="lead-input" name="name" placeholder="Seu nome" autocomplete="name" required />
-        </div>
-
-        <div class="lead-field">
-          <label class="lead-label" for="lead-email">E-mail</label>
-          <input id="lead-email" class="lead-input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
-        </div>
-
-        <div id="lead-whatsapp-wrap" class="lead-field is-hidden">
-          <label class="lead-label" for="lead-whatsapp">WhatsApp</label>
-          <input id="lead-whatsapp" class="lead-input" name="whatsapp" type="tel" placeholder="(51) 99999-9999" autocomplete="tel" />
-        </div>
-
-        <div id="lead-message-wrap" class="lead-field is-hidden">
-          <label class="lead-label" for="lead-message">Mensagem</label>
-          <textarea id="lead-message" class="lead-input" name="message" placeholder="Descreva sua necessidade, dúvida ou pedido."></textarea>
-        </div>
-
-        <div class="lead-actions">
-          <button type="submit" id="lead-submit" class="btn btn-primary">Enviar</button>
-        </div>
-
-        <div id="lead-hint" class="lead-hint">Preencha seus dados para continuar.</div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById("lead-modal");
-    const form = document.getElementById("lead-form");
-    const closeBtn = document.getElementById("lead-close");
-    const submitBtn = document.getElementById("lead-submit");
-    const hint = document.getElementById("lead-hint");
-
-    const inputMode = document.getElementById("lead-mode");
-    const inputService = document.getElementById("lead-service");
-    const inputTicketId = document.getElementById("lead-ticket-id");
-    const inputName = document.getElementById("lead-name");
-    const inputEmail = document.getElementById("lead-email");
-    const inputWhatsapp = document.getElementById("lead-whatsapp");
-    const inputMessage = document.getElementById("lead-message");
-
-    const whatsappWrap = document.getElementById("lead-whatsapp-wrap");
-    const messageWrap = document.getElementById("lead-message-wrap");
-    const title = document.getElementById("lead-title");
-
-    let lastTrigger = null;
-
-    function validEmail(value){
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
-    }
-
-    function normalizePhone(value){
-      return String(value || "").replace(/\D+/g, "");
-    }
-
-    function formatPhoneBR(value){
-      const digits = normalizePhone(value);
-
-      if(!digits) return "";
-
-      if(digits.length === 11){
-        return digits.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
-      }
-
-      if(digits.length === 10){
-        return digits.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
-      }
-
-      return value;
-    }
-
-    function buildTicketId(service){
-      const now = new Date();
-      const yyyy = String(now.getFullYear());
-      const mm = String(now.getMonth() + 1).padStart(2, "0");
-      const dd = String(now.getDate()).padStart(2, "0");
-      const hh = String(now.getHours()).padStart(2, "0");
-      const mi = String(now.getMinutes()).padStart(2, "0");
-      const ss = String(now.getSeconds()).padStart(2, "0");
-      const slug = String(service || "ATENDIMENTO")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\w\s-]/g, "")
-        .trim()
-        .replace(/\s+/g, "-")
-        .replace(/-+/g, "-")
-        .toUpperCase();
-      const random = Math.random().toString(36).slice(2, 6).toUpperCase();
-
-      return "TCK-" + slug + "-" + yyyy + mm + dd + "-" + hh + mi + ss + "-" + random;
-    }
-
-    function openModal(mode, service, trigger){
-      lastTrigger = trigger || document.activeElement;
-
-      inputMode.value = mode;
-      inputService.value = service || "";
-      inputTicketId.value = "";
-      inputWhatsapp.value = "";
-      inputMessage.value = "";
-
-      if(mode === "ticket"){
-        inputTicketId.value = buildTicketId(service || "ATENDIMENTO");
-        title.textContent = "Abrir atendimento";
-        submitBtn.textContent = "Enviar atendimento";
-        whatsappWrap.classList.remove("is-hidden");
-        messageWrap.classList.remove("is-hidden");
-        hint.textContent = "Preencha seus dados e descreva a solicitação.";
-      } else {
-        title.textContent = "Solicitar orçamento";
-        submitBtn.textContent = "Enviar solicitação";
-        whatsappWrap.classList.add("is-hidden");
-        messageWrap.classList.add("is-hidden");
-        hint.textContent = "Preencha nome e e-mail para registrar seu interesse.";
-      }
-
-      modal.setAttribute("aria-hidden", "false");
-      modal.setAttribute("data-state", "open");
-      document.body.classList.add("modal-open");
-
-      setTimeout(function(){
-        inputName.focus();
-      }, 50);
-    }
-
-    function closeModal(){
-      modal.setAttribute("aria-hidden", "true");
-      modal.removeAttribute("data-state");
-      document.body.classList.remove("modal-open");
-
-      form.reset();
-      inputMode.value = "lead";
-      inputService.value = "";
-      inputTicketId.value = "";
-      whatsappWrap.classList.add("is-hidden");
-      messageWrap.classList.add("is-hidden");
-
-      submitBtn.disabled = false;
-      title.textContent = "Falar com a PUB Editorial";
-      hint.textContent = "Preencha seus dados para continuar.";
-
-      if(lastTrigger && typeof lastTrigger.focus === "function"){
-        lastTrigger.focus();
-      }
-
-      lastTrigger = null;
-    }
-
-    document.addEventListener("click", function(event){
-      const anchor = event.target.closest('a[href^="#"]');
-      if(anchor){
-        event.preventDefault();
-        const id = (anchor.getAttribute("href") || "").replace(/^#/, "");
-        const target = document.getElementById(id);
-        if(target){
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
+/* ========================================================================
+   PUB CORE
+   versão 1.1
+   atualizado para a página PUB Editorial
+   Google Apps Script
+   ======================================================================== */
+
+/* ========================================================================
+   CONFIG
+   ======================================================================== */
+
+var PUB = {
+  VERSION: "1.1",
+  CONTRACT_VERSION: "2026-03-12",
+  APP_NAME: "PUB CORE",
+  ROOT_FOLDER_NAME: "PUB CRM",
+  DB_FILE_NAME: "PUB CRM DB",
+
+  SHARED: {
+    DB_META_APP_NAME: "PUB CORE",
+    DB_META_SCHEMA_VERSION: "1.0",
+    DB_META_CONTRACT_VERSION: "2026-03-12",
+    MODULE_BINDINGS: {
+      DB_FILE_ID: "PUBCRM_DB_FILE_ID",
+      ROOT_FOLDER_ID: "PUBCRM_ROOT_FOLDER_ID",
+      MAIL_FOLDER_ID: "PUBCRM_MAIL_FOLDER_ID"
+    }
+  },
+
+  SHEETS: {
+    META: "meta",
+    CONFIG: "config",
+    CONTACTS: "contacts",
+    LEADS: "leads",
+    TICKETS: "tickets",
+    TICKET_MESSAGES: "ticket_messages",
+    TIMELINE: "timeline"
+  },
+
+  PROP_KEYS: {
+    ROOT_FOLDER_ID: "PUB_ROOT_FOLDER_ID",
+    DB_FILE_ID: "PUB_DB_FILE_ID",
+    MAIL_FOLDER_ID: "PUB_MAIL_FOLDER_ID",
+    ADMIN_TOKEN: "PUB_ADMIN_TOKEN",
+
+    CONTACT_SEQ: "PUB_CONTACT_SEQ",
+    LEAD_SEQ: "PUB_LEAD_SEQ",
+    TICKET_SEQ: "PUB_TICKET_SEQ",
+    TICKET_MESSAGE_SEQ: "PUB_TICKET_MESSAGE_SEQ",
+    TIMELINE_SEQ: "PUB_TIMELINE_SEQ"
+  },
+
+  FOLDERS: {
+    MAIL: "PUBMAIL_TEMPLATES"
+  },
+
+  MAX: {
+    RAW_POST_BYTES: 50000,
+    ID: 120,
+    NAME: 150,
+    EMAIL: 190,
+    WHATSAPP: 30,
+    ITEM: 120,
+    MESSAGE: 5000,
+    URL: 1200,
+    USER_AGENT: 1000,
+    SOURCE: 80,
+    STATUS: 40,
+    FILE_ID: 200,
+    PAYLOAD_JSON: 20000,
+    TOKEN: 500,
+    CHANNEL: 40,
+    DIRECTION: 20,
+    SENT_BY: 120,
+    ERROR: 1000,
+    LIST_LIMIT: 500
+  },
+
+  CONTACT_SOURCE_DEFAULT: "webapp",
+  TICKET_STATUS_DEFAULT: "OPEN",
+
+  TICKET_STATUS: {
+    OPEN: "OPEN",
+    ANSWERED: "ANSWERED",
+    WAITING_USER: "WAITING_USER",
+    CLOSED: "CLOSED"
+  },
+
+  MESSAGE_DIRECTION: {
+    INBOUND: "INBOUND",
+    OUTBOUND: "OUTBOUND"
+  },
+
+  MESSAGE_CHANNEL: {
+    WEB: "WEB",
+    EMAIL: "EMAIL",
+    MANUAL: "MANUAL"
+  },
+
+  SCRIPT_ITEMS: [
+    "PACOTE GRATUITO",
+    "CAPA MASTER",
+    "MIOLO MASTER",
+    "MANCHA MASTER",
+    "VERTICAL MASTER",
+    "BASELINE MASTER",
+    "GUIA DE USO"
+  ],
+
+  SERVICE_ITEMS: [
+    "PREPARAÇÃO DE ORIGINAIS",
+    "COPIDESQUE",
+    "REVISÃO",
+    "PROJETO GRÁFICO",
+    "DIAGRAMAÇÃO",
+    "REVISÃO DE PROVAS",
+    "DESIGN DE CAPA",
+    "FECHAMENTO PARA IMPRESSÃO",
+    "SCRIPTS E AUTOMAÇÕES",
+    "PÁGINAS COM CAPTAÇÃO E ATENDIMENTO",
+    "ATENDIMENTO EDITORIAL",
+    "ATENDIMENTO GERAL",
+    "ORÇAMENTO GERAL",
+    "ORÇAMENTO EDITORIAL",
+    "PROJETO DE LIVRO",
+    "PROJETO EDITORIAL"
+  ],
+
+  DOWNLOADS: {
+    "18OVi6Vxb1VDQlbq1mlkFz2n5Oxy76vFE": {
+      item: "PACOTE GRATUITO",
+      url: "https://drive.google.com/uc?export=download&id=18OVi6Vxb1VDQlbq1mlkFz2n5Oxy76vFE"
+    },
+    "1AHKC3hYZCo_qoZ5LnLmNrt1GmAThnomm": {
+      item: "CAPA MASTER",
+      url: "https://drive.google.com/uc?export=download&id=1AHKC3hYZCo_qoZ5LnLmNrt1GmAThnomm"
+    },
+    "1CiKz2brCrVzXqwEvRVXZS9MKr9tuyFsL": {
+      item: "MIOLO MASTER",
+      url: "https://drive.google.com/uc?export=download&id=1CiKz2brCrVzXqwEvRVXZS9MKr9tuyFsL"
+    },
+    "1ny87txfaUhN1mV0lB4WRC3KYWd9giVXJ": {
+      item: "MANCHA MASTER",
+      url: "https://drive.google.com/uc?export=download&id=1ny87txfaUhN1mV0lB4WRC3KYWd9giVXJ"
+    },
+    "1qmLtu_szJ_rgak3x0gHYYtlktQS3BXpi": {
+      item: "VERTICAL MASTER",
+      url: "https://drive.google.com/uc?export=download&id=1qmLtu_szJ_rgak3x0gHYYtlktQS3BXpi"
+    },
+    "16ttuf7bM8xC5YWkldqXLDdxWYdJ2u9qs": {
+      item: "BASELINE MASTER",
+      url: "https://drive.google.com/uc?export=download&id=16ttuf7bM8xC5YWkldqXLDdxWYdJ2u9qs"
+    },
+    "11iAOd6cnB34jLMJt5FBZOd9ZhWRKzZSc": {
+      item: "GUIA DE USO",
+      url: "https://drive.google.com/uc?export=download&id=11iAOd6cnB34jLMJt5FBZOd9ZhWRKzZSc"
+    }
+  }
+};
+
+PUB.ITEMS = PUB.SCRIPT_ITEMS.slice();
+
+var PUB_CTX = {
+  db: null,
+  headers: {},
+  headerMaps: {},
+  downloadsMap: null,
+  scriptLockDepth: 0
+};
+
+/* ========================================================================
+   ENTRADAS
+   ======================================================================== */
+
+function doGet(e) {
+  var mode = string_(getParam_(e, "mode", "status")).trim().toLowerCase();
+
+  try {
+    ensureSystemReadable_();
+
+    if (mode === "status") return jsonOutput_(getPublicStatus_());
+    if (mode === "health") return jsonOutput_(getPublicHealth_());
+    if (mode === "contract") return jsonOutput_(getPublicContract_());
+
+    return jsonOutput_({
+      ok: false,
+      code: "INVALID_MODE",
+      error: "Modo inválido."
+    });
+  } catch (err) {
+    return errorResponse_(err);
+  }
+}
+
+function doPost(e) {
+  try {
+    var raw = e && e.postData && e.postData.contents ? e.postData.contents : "{}";
+    enforceRawPayloadLimit_(raw);
+
+    var payload = parseJsonPayload_(raw);
+    var action = aliasAction_(normalizeAction_(payload.action));
+
+    if (action === "capture_lead" || action === "capture_ticket" || action === "capture_quote") {
+      ensureSystemReady_();
+    } else {
+      ensureSystemReadable_();
+    }
+
+    if (action === "capture_lead") return jsonOutput_(handleLead_(payload));
+    if (action === "capture_ticket") return jsonOutput_(handleTicket_(payload));
+    if (action === "capture_quote") return jsonOutput_(handleQuote_(payload));
+
+    if (isAdminAction_(action)) requireAdminAuth_(payload);
+
+    var coreResult = dispatchCoreAdminAction_(action, payload);
+    if (coreResult) return jsonOutput_(coreResult);
+
+    var pubmailResult = dispatchPubmailActionIfAvailable_(action, payload);
+    if (pubmailResult) return jsonOutput_(pubmailResult);
+
+    var pubcareResult = dispatchPubcareActionIfAvailable_(action, payload);
+    if (pubcareResult) return jsonOutput_(pubcareResult);
+
+    throw appError_("INVALID_ACTION", "Ação inválida.");
+  } catch (err) {
+    return errorResponse_(err);
+  }
+}
+
+/* ========================================================================
+   LEITURAS PÚBLICAS
+   ======================================================================== */
+
+function getPublicStatus_() {
+  var install = getCoreInstallationState_();
+  var pubmail = getPubmailHealthSnapshot_();
+  var pubcare = getPubcareHealthSnapshot_();
+
+  return {
+    ok: true,
+    app: PUB.APP_NAME,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    public_modes: ["status", "health", "contract"],
+    public_actions: getSupportedPublicActions_(),
+    admin_auth_required: true,
+    core: {
+      installed: install.installed,
+      ready: install.ready,
+      schema_ready: install.schema_ready
+    },
+    modules: {
+      core: true,
+      pubmail_available: pubmail.available,
+      pubmail_bound: pubmail.bound,
+      pubmail_installed: pubmail.installed,
+      pubmail_ready: pubmail.ready,
+      pubcare_available: pubcare.available,
+      pubcare_installed: pubcare.installed,
+      pubcare_ready: pubcare.ready,
+      pubcare_ok: pubcare.ok === true
+    },
+    now: isoNow_()
+  };
+}
+
+function getPublicHealth_() {
+  return {
+    ok: true,
+    app: PUB.APP_NAME,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    data: {
+      core: getCoreHealthSnapshot_(),
+      modules: {
+        pubmail: getPubmailHealthSnapshot_(),
+        pubcare: getPubcareHealthSnapshot_()
+      },
+      now: isoNow_()
+    }
+  };
+}
+
+function getPublicContract_() {
+  var pubcareActions = getSupportedPubcareActionsMerged_();
+
+  return {
+    ok: true,
+    app: PUB.APP_NAME,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    data: {
+      shared: PUB.SHARED,
+      items: PUB.ITEMS.slice(),
+      scriptItems: PUB.SCRIPT_ITEMS.slice(),
+      serviceItems: PUB.SERVICE_ITEMS.slice(),
+      leadItems: PUB.SCRIPT_ITEMS.slice(),
+      ticketItems: PUB.SCRIPT_ITEMS.concat(PUB.SERVICE_ITEMS),
+      quoteItems: PUB.SERVICE_ITEMS.slice(),
+      public_modes: ["status", "health", "contract"],
+      public_actions: getSupportedPublicActions_(),
+      admin_actions: getSupportedAdminActions_(),
+      modules: {
+        core: {
+          available: true,
+          contract_version: PUB.CONTRACT_VERSION,
+          public_modes: ["status", "health", "contract"],
+          capture_actions: getSupportedPublicActions_(),
+          admin_actions: getSupportedCoreAdminActions_(),
+          health_shape: {
+            available: "boolean",
+            ok: "boolean",
+            installed: "boolean",
+            ready: "boolean",
+            app: "string",
+            version: "string",
+            contract_version: "string",
+            root_folder_id: "string",
+            db_file_id: "string",
+            folders: "object",
+            sheets: "array",
+            schema_ready: "boolean",
+            counts: "object",
+            error: "string"
+          }
+        },
+        pubmail: {
+          available: modulePubmailAvailable_(),
+          actions: getSupportedPubmailActionsMerged_(),
+          health_shape: {
+            available: "boolean",
+            bound: "boolean",
+            installed: "boolean",
+            ready: "boolean",
+            ok: "boolean",
+            version: "string",
+            template_folder_id: "string",
+            pubcrm_root_folder_id: "string",
+            pubcrm_mail_folder_id: "string",
+            shared_bindings: "object",
+            triggers: "object",
+            errors: "array",
+            error: "string"
+          }
+        },
+        pubcare: {
+          available: modulePubcareAvailable_(),
+          actions: pubcareActions,
+          admin_actions: pubcareActions,
+          health_shape: {
+            available: "boolean",
+            installed: "boolean",
+            ready: "boolean",
+            ok: "boolean",
+            version: "string",
+            sheets: "array",
+            error: "string"
+          }
         }
-        return;
       }
+    }
+  };
+}
 
-      const leadButton = event.target.closest(".js-lead");
-      if(leadButton){
-        event.preventDefault();
-        openModal("lead", String(leadButton.getAttribute("data-service") || "").trim(), leadButton);
-        return;
-      }
+/* ========================================================================
+   HEALTH
+   ======================================================================== */
 
-      const ticketButton = event.target.closest(".js-ticket");
-      if(ticketButton){
-        event.preventDefault();
-        openModal("ticket", String(ticketButton.getAttribute("data-service") || "").trim(), ticketButton);
-      }
+function getCoreInstallationState_() {
+  var props = getScriptProps_();
+  var rootFolderId = string_(props.getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim();
+  var dbFileId = string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+
+  var rootExists = false;
+  var dbExists = false;
+  var schemaReady = false;
+
+  if (rootFolderId) {
+    try {
+      var root = DriveApp.getFolderById(rootFolderId);
+      rootExists = !!(root && !root.isTrashed());
+    } catch (_) {}
+  }
+
+  if (dbFileId) {
+    try {
+      var db = SpreadsheetApp.openById(dbFileId);
+      db.getSheets();
+      dbExists = true;
+      schemaReady = isSchemaReady_(db);
+    } catch (_) {}
+  }
+
+  return {
+    root_exists: rootExists,
+    db_exists: dbExists,
+    schema_ready: schemaReady,
+    installed: !!(rootExists && dbExists),
+    ready: !!(rootExists && dbExists && schemaReady)
+  };
+}
+
+function getCoreHealthSnapshot_() {
+  var props = getScriptProps_();
+  var install = getCoreInstallationState_();
+  var error = "";
+  var counts = {
+    contacts: 0,
+    leads: 0,
+    tickets: 0,
+    ticket_messages: 0,
+    timeline: 0
+  };
+
+  try {
+    if (install.ready) {
+      counts.contacts = countRows_(PUB.SHEETS.CONTACTS);
+      counts.leads = countRows_(PUB.SHEETS.LEADS);
+      counts.tickets = countRows_(PUB.SHEETS.TICKETS);
+      counts.ticket_messages = countRows_(PUB.SHEETS.TICKET_MESSAGES);
+      counts.timeline = countRows_(PUB.SHEETS.TIMELINE);
+    }
+  } catch (err) {
+    error = errorText_(err);
+  }
+
+  return {
+    available: true,
+    ok: !!(!error && install.ready),
+    installed: install.installed,
+    ready: !!(!error && install.ready),
+    app: PUB.APP_NAME,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    root_folder_id: string_(props.getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim(),
+    db_file_id: string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim(),
+    folders: {
+      root_folder_id: string_(props.getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim(),
+      mail_folder_id: string_(props.getProperty(PUB.PROP_KEYS.MAIL_FOLDER_ID)).trim()
+    },
+    sheets: getInstalledCoreSheets_(),
+    schema_ready: !!install.schema_ready,
+    counts: counts,
+    error: error
+  };
+}
+
+function getPubmailHealthSnapshot_() {
+  var shared = getSharedBindingSnapshot_();
+  var available = modulePubmailAvailable_();
+
+  if (!available) {
+    return {
+      available: false,
+      bound: shared.bound,
+      installed: false,
+      ready: false,
+      ok: false,
+      status_label: "INDISPONIVEL",
+      status_reason: "PUBMAIL indisponível.",
+      version: "",
+      template_folder_id: "",
+      pubcrm_root_folder_id: shared.root_folder_id,
+      pubcrm_mail_folder_id: shared.mail_folder_id,
+      shared_bindings: shared,
+      triggers: {
+        ok: false,
+        installed: false,
+        total: 0,
+        items: [],
+        error: "PUBMAIL indisponível."
+      },
+      errors: [],
+      error: "PUBMAIL indisponível."
+    };
+  }
+
+  var result = {};
+  var triggers = getMailerTriggersStatusSafe_();
+
+  try {
+    result = getPubmailHealthSourceSafe_() || {};
+  } catch (err) {
+    return {
+      available: true,
+      bound: shared.bound,
+      installed: false,
+      ready: false,
+      ok: false,
+      status_label: "ALERTA",
+      status_reason: errorText_(err),
+      version: "",
+      template_folder_id: "",
+      pubcrm_root_folder_id: shared.root_folder_id,
+      pubcrm_mail_folder_id: shared.mail_folder_id,
+      shared_bindings: shared,
+      triggers: triggers,
+      errors: [],
+      error: errorText_(err)
+    };
+  }
+
+  var validationOk = !!(result.ok === true);
+  var installed = inferPubmailInstalled_(result);
+  var ready = !!(installed && validationOk && triggers.ok === true);
+  var errors = isArray_(result.errors) ? result.errors : [];
+  var errorText = errors.length ? arrayJoinSafe_(errors, " | ") : "";
+  var triggerErrorText = !triggers.ok ? errorText_(triggers.error || "Triggers do PUBMAIL não estão prontas.") : "";
+  var statusReason = "";
+
+  if (!shared.bound) statusReason = "Bindings compartilhados do core não publicados.";
+  else if (!installed) statusReason = "PUBMAIL disponível, mas ainda não instalado.";
+  else if (!validationOk && errorText) statusReason = errorText;
+  else if (validationOk && !triggers.ok) statusReason = triggerErrorText;
+
+  return {
+    available: true,
+    bound: shared.bound,
+    installed: installed,
+    ready: ready,
+    ok: !!(validationOk && ready),
+    status_label: ready ? "PRONTO" : installed ? "ALERTA" : "NAO_INSTALADO",
+    status_reason: statusReason,
+    version: string_(result.version).trim(),
+    template_folder_id: string_(result.template_folder_id).trim(),
+    pubcrm_root_folder_id: string_(result.pubcrm_root_folder_id || shared.root_folder_id).trim(),
+    pubcrm_mail_folder_id: string_(result.pubcrm_mail_folder_id || shared.mail_folder_id).trim(),
+    shared_bindings: shared,
+    triggers: triggers,
+    errors: errors,
+    error: appendErrorText_(errorText, triggerErrorText)
+  };
+}
+
+function getPubcareHealthSnapshot_() {
+  if (!modulePubcareAvailable_()) {
+    return {
+      available: false,
+      installed: false,
+      ready: false,
+      ok: false,
+      version: "",
+      sheets: [],
+      actions: [],
+      error: "PUBCARE indisponível."
+    };
+  }
+
+  try {
+    var ss = getDb_();
+    var requiredSheets = getPubcareRequiredSheets_();
+    var missing = [];
+    var i;
+
+    for (i = 0; i < requiredSheets.length; i++) {
+      if (!ss.getSheetByName(requiredSheets[i])) missing.push(requiredSheets[i]);
+    }
+
+    var installed = missing.length === 0;
+
+    return {
+      available: true,
+      installed: installed,
+      ready: installed,
+      ok: installed,
+      version: getPubcareVersionSafe_(),
+      sheets: requiredSheets,
+      actions: getSupportedPubcareActionsMerged_(),
+      error: installed ? "" : "Sheets ausentes: " + missing.join(", ")
+    };
+  } catch (err) {
+    return {
+      available: true,
+      installed: false,
+      ready: false,
+      ok: false,
+      version: getPubcareVersionSafe_(),
+      sheets: getPubcareRequiredSheets_(),
+      actions: getSupportedPubcareActionsMerged_(),
+      error: errorText_(err)
+    };
+  }
+}
+
+function inferPubmailInstalled_(result) {
+  return !!(
+    result.installed === true ||
+    result.ok === true ||
+    string_(result.template_folder_id).trim() ||
+    string_(result.pubcrm_root_folder_id).trim() ||
+    string_(result.pubcrm_mail_folder_id).trim()
+  );
+}
+
+function getSharedBindingSnapshot_() {
+  var props = getScriptProps_();
+  var dbId = string_(props.getProperty(PUB.SHARED.MODULE_BINDINGS.DB_FILE_ID)).trim();
+  var rootId = string_(props.getProperty(PUB.SHARED.MODULE_BINDINGS.ROOT_FOLDER_ID)).trim();
+  var mailId = string_(props.getProperty(PUB.SHARED.MODULE_BINDINGS.MAIL_FOLDER_ID)).trim();
+
+  return {
+    db_file_id: dbId,
+    root_folder_id: rootId,
+    mail_folder_id: mailId,
+    bound: !!(dbId && rootId)
+  };
+}
+
+/* ========================================================================
+   CATÁLOGO DE ACTIONS
+   ======================================================================== */
+
+function getSupportedPublicActions_() {
+  return ["capture_lead", "capture_ticket", "capture_quote"];
+}
+
+function getSupportedCoreAdminActions_() {
+  return [
+    "admin_install_all",
+    "admin_install_crm",
+    "admin_list_contacts",
+    "admin_list_leads",
+    "admin_list_tickets",
+    "admin_get_ticket",
+    "admin_list_ticket_messages",
+    "admin_reply_ticket"
+  ];
+}
+
+function getSupportedPubmailActionsMerged_() {
+  var out = [];
+
+  if (modulePubmailAvailable_() && typeof getSupportedPubmailAdminActions_ === "function") {
+    try {
+      out = out.concat(getSupportedPubmailAdminActions_());
+    } catch (_) {}
+  } else {
+    out = out.concat([
+      "admin_mail_health",
+      "admin_mail_overview",
+      "admin_mail_checklist",
+      "admin_mail_governance_model",
+      "admin_mail_usage_notes",
+      "admin_mail_list_templates",
+      "admin_mail_list_suppressions",
+      "admin_mail_list_contact_state",
+      "admin_mail_list_queue",
+      "admin_mail_list_log",
+      "admin_mail_list_internal_log",
+      "admin_mail_list_manual_lists",
+      "admin_mail_bootstrap",
+      "admin_mail_create_template_docs",
+      "admin_mail_scan",
+      "admin_mail_process_queue",
+      "admin_mail_add_suppression",
+      "admin_mail_create_manual_list",
+      "admin_mail_update_manual_list_entry",
+      "admin_mail_set_manual_list_entry_active",
+      "admin_mail_send_manual"
+    ]);
+  }
+
+  return uniqueStrings_(out);
+}
+
+function getSupportedPubcareActionsMerged_() {
+  var fallback = [
+    "admin_care_install",
+    "admin_care_overview",
+    "admin_care_get_ticket_workspace",
+    "admin_care_update_ticket_state",
+    "admin_care_list_macros",
+    "admin_care_apply_macro",
+    "admin_care_reply_ticket"
+  ];
+
+  var out = [];
+
+  if (modulePubcareAvailable_() && typeof getSupportedPubcareAdminActions_ === "function") {
+    try {
+      out = out.concat(getSupportedPubcareAdminActions_());
+    } catch (_) {
+      out = out.concat(fallback);
+    }
+  } else {
+    out = out.concat(fallback);
+  }
+
+  return uniqueStrings_(out);
+}
+
+function getSupportedAdminActions_() {
+  return uniqueStrings_(
+    getSupportedCoreAdminActions_()
+      .concat(getSupportedPubmailActionsMerged_())
+      .concat(getSupportedPubcareActionsMerged_())
+  );
+}
+
+function isAdminAction_(action) {
+  action = normalizeAction_(action);
+  return !!action && getSupportedAdminActions_().indexOf(action) >= 0;
+}
+
+function aliasAction_(action) {
+  action = normalizeAction_(action);
+  if (action === "admin_mail_scan_timeline") return "admin_mail_scan";
+  return action;
+}
+
+/* ========================================================================
+   DISPATCH
+   ======================================================================== */
+
+function dispatchCoreAdminAction_(action, payload) {
+  action = normalizeAction_(action);
+  payload = payload || {};
+
+  if (action === "admin_install_all") return instalarTudo();
+  if (action === "admin_install_crm") return admin_install_crm_(payload);
+  if (action === "admin_list_contacts") return admin_list_contacts_(payload);
+  if (action === "admin_list_leads") return admin_list_leads_(payload);
+  if (action === "admin_list_tickets") return admin_list_tickets_(payload);
+  if (action === "admin_get_ticket") return admin_get_ticket_(payload);
+  if (action === "admin_list_ticket_messages") return admin_list_ticket_messages_(payload);
+  if (action === "admin_reply_ticket") return admin_reply_ticket_(payload);
+
+  return null;
+}
+
+function dispatchPubmailActionIfAvailable_(action, payload) {
+  if (!modulePubmailAvailable_()) return null;
+  bindAdvancedModulesIfPossible_();
+  return dispatchPubmailAdminAction_(action, payload || {});
+}
+
+function dispatchPubcareActionIfAvailable_(action, payload) {
+  if (!modulePubcareAvailable_()) return null;
+  bindAdvancedModulesIfPossible_();
+  return dispatchPubcareAdminAction_(action, payload || {});
+}
+
+function modulePubmailAvailable_() {
+  return typeof dispatchPubmailAdminAction_ === "function";
+}
+
+function modulePubcareAvailable_() {
+  return typeof dispatchPubcareAdminAction_ === "function";
+}
+
+/* ========================================================================
+   CAPTURE
+   ======================================================================== */
+
+function handleLead_(payload) {
+  validateLeadPayload_(payload);
+
+  var leadData = normalizeLeadPayload_(payload);
+  var redirectUrl = resolveDownloadUrl_(leadData.file_id, leadData.item);
+
+  return withWriteLock_(function() {
+    var db = getDb_();
+    var duplicate = findRecentLeadDuplicate_(db, leadData.email_norm, leadData.file_id, 60000);
+
+    if (duplicate) {
+      return {
+        ok: true,
+        data: {
+          lead_id: duplicate.lead_id || "",
+          duplicate: true,
+          redirect_url: redirectUrl
+        }
+      };
+    }
+
+    enforceSimpleRateLimit_("lead", leadData.email);
+
+    var contact = upsertContactSimple_(db, {
+      name: leadData.name,
+      email: leadData.email,
+      whatsapp: "",
+      source: PUB.CONTACT_SOURCE_DEFAULT
     });
 
-    closeBtn.addEventListener("click", closeModal);
+    var leadId = nextPublicId_("LD", PUB.PROP_KEYS.LEAD_SEQ);
+    var now = isoNow_();
 
-    modal.addEventListener("click", function(event){
-      if(event.target === modal){
-        closeModal();
-      }
+    appendRowObject_(db.getSheetByName(PUB.SHEETS.LEADS), {
+      lead_id: leadId,
+      created_at: now,
+      contact_id: contact.contact_id,
+      name: leadData.name,
+      email: leadData.email,
+      email_norm: leadData.email_norm,
+      item: leadData.item,
+      file_id: leadData.file_id,
+      page_url: leadData.page_url,
+      referrer: leadData.referrer,
+      user_agent: leadData.user_agent,
+      download_url: redirectUrl
     });
 
-    window.addEventListener("keydown", function(event){
-      if(event.key === "Escape" && modal.getAttribute("data-state") === "open"){
-        closeModal();
-      }
+    appendTimelineEvent_("lead", leadId, "lead_captured", {
+      lead_id: leadId,
+      contact_id: contact.contact_id,
+      item: leadData.item,
+      email: leadData.email
     });
 
-    inputWhatsapp.addEventListener("blur", function(){
-      inputWhatsapp.value = formatPhoneBR(inputWhatsapp.value);
+    return {
+      ok: true,
+      data: {
+        lead_id: leadId,
+        duplicate: false,
+        redirect_url: redirectUrl
+      }
+    };
+  });
+}
+
+function handleTicket_(payload) {
+  validateTicketPayload_(payload);
+
+  return withWriteLock_(function() {
+    var db = getDb_();
+    var ticketData = normalizeTicketPayload_(payload);
+
+    enforceSimpleRateLimit_("ticket", ticketData.email);
+
+    var contact = upsertContactSimple_(db, {
+      name: ticketData.name,
+      email: ticketData.email,
+      whatsapp: ticketData.whatsapp,
+      source: PUB.CONTACT_SOURCE_DEFAULT
     });
 
-    form.addEventListener("submit", function(event){
-      event.preventDefault();
+    var ticketId = nextPublicId_("TK", PUB.PROP_KEYS.TICKET_SEQ);
+    var now = isoNow_();
 
-      const mode = String(inputMode.value || "lead").trim();
-      const service = String(inputService.value || "").trim();
-      const name = String(inputName.value || "").trim();
-      const email = String(inputEmail.value || "").trim();
-      const whatsapp = String(inputWhatsapp.value || "").trim();
-      const message = String(inputMessage.value || "").trim();
-      const ticketId = String(inputTicketId.value || "").trim();
-
-      if(!name || !validEmail(email)){
-        hint.textContent = "Revise nome e e-mail.";
-        return;
-      }
-
-      if(mode === "ticket" && !message){
-        hint.textContent = "Escreva a mensagem do atendimento.";
-        return;
-      }
-
-      submitBtn.disabled = true;
-
-      if(mode === "ticket"){
-        hint.textContent =
-          "Atendimento pronto para integração.\n" +
-          "ID: " + ticketId + "\n" +
-          "Assunto: " + service + "\n" +
-          "Nome: " + name + "\n" +
-          "E-mail: " + email + "\n" +
-          "WhatsApp: " + normalizePhone(whatsapp);
-
-        setTimeout(function(){
-          submitBtn.disabled = false;
-          alert("Exemplo de atendimento capturado:\\n\\nID: " + ticketId + "\\nAssunto: " + service + "\\nNome: " + name + "\\nE-mail: " + email);
-          closeModal();
-        }, 200);
-
-        return;
-      }
-
-      hint.textContent =
-        "Solicitação pronta para integração.\n" +
-        "Serviço: " + service + "\n" +
-        "Nome: " + name + "\n" +
-        "E-mail: " + email;
-
-      setTimeout(function(){
-        submitBtn.disabled = false;
-        alert("Exemplo de lead capturado:\\n\\nServiço: " + service + "\\nNome: " + name + "\\nE-mail: " + email);
-        closeModal();
-      }, 200);
+    appendRowObject_(db.getSheetByName(PUB.SHEETS.TICKETS), {
+      ticket_id: ticketId,
+      external_ticket_id: ticketData.external_ticket_id,
+      created_at: now,
+      contact_id: contact.contact_id,
+      name: ticketData.name,
+      email: ticketData.email,
+      email_norm: ticketData.email_norm,
+      whatsapp: ticketData.whatsapp,
+      item: ticketData.item,
+      message: ticketData.message,
+      page_url: ticketData.page_url,
+      referrer: ticketData.referrer,
+      user_agent: ticketData.user_agent,
+      status: PUB.TICKET_STATUS_DEFAULT
     });
-  </script>
-</body>
-</html>
+
+    appendTicketMessage_(db, {
+      ticket_id: ticketId,
+      contact_id: contact.contact_id,
+      direction: PUB.MESSAGE_DIRECTION.INBOUND,
+      channel: PUB.MESSAGE_CHANNEL.WEB,
+      message: ticketData.message,
+      sent_by: ticketData.email,
+      status: PUB.TICKET_STATUS_DEFAULT
+    });
+
+    appendTimelineEvent_("ticket", ticketId, "ticket_created", {
+      ticket_id: ticketId,
+      contact_id: contact.contact_id,
+      item: ticketData.item,
+      email: ticketData.email,
+      status: PUB.TICKET_STATUS_DEFAULT
+    });
+
+    return {
+      ok: true,
+      data: {
+        ticket_id: ticketId,
+        status: PUB.TICKET_STATUS_DEFAULT
+      }
+    };
+  });
+}
+
+function handleQuote_(payload) {
+  validateQuotePayload_(payload);
+
+  return withWriteLock_(function() {
+    var db = getDb_();
+    var quoteData = normalizeQuotePayload_(payload);
+
+    enforceSimpleRateLimit_("quote", quoteData.email);
+
+    var contact = upsertContactSimple_(db, {
+      name: quoteData.name,
+      email: quoteData.email,
+      whatsapp: quoteData.whatsapp,
+      source: PUB.CONTACT_SOURCE_DEFAULT
+    });
+
+    var leadId = nextPublicId_("LD", PUB.PROP_KEYS.LEAD_SEQ);
+    var ticketId = nextPublicId_("TK", PUB.PROP_KEYS.TICKET_SEQ);
+    var now = isoNow_();
+
+    appendRowObject_(db.getSheetByName(PUB.SHEETS.LEADS), {
+      lead_id: leadId,
+      created_at: now,
+      contact_id: contact.contact_id,
+      name: quoteData.name,
+      email: quoteData.email,
+      email_norm: quoteData.email_norm,
+      item: quoteData.item,
+      file_id: "",
+      page_url: quoteData.page_url,
+      referrer: quoteData.referrer,
+      user_agent: quoteData.user_agent,
+      download_url: ""
+    });
+
+    appendTimelineEvent_("lead", leadId, "quote_lead_captured", {
+      lead_id: leadId,
+      contact_id: contact.contact_id,
+      item: quoteData.item,
+      email: quoteData.email,
+      kind: "quote"
+    });
+
+    appendRowObject_(db.getSheetByName(PUB.SHEETS.TICKETS), {
+      ticket_id: ticketId,
+      external_ticket_id: quoteData.external_ticket_id,
+      created_at: now,
+      contact_id: contact.contact_id,
+      name: quoteData.name,
+      email: quoteData.email,
+      email_norm: quoteData.email_norm,
+      whatsapp: quoteData.whatsapp,
+      item: quoteData.item,
+      message: quoteData.message,
+      page_url: quoteData.page_url,
+      referrer: quoteData.referrer,
+      user_agent: quoteData.user_agent,
+      status: PUB.TICKET_STATUS_DEFAULT
+    });
+
+    appendTicketMessage_(db, {
+      ticket_id: ticketId,
+      contact_id: contact.contact_id,
+      direction: PUB.MESSAGE_DIRECTION.INBOUND,
+      channel: PUB.MESSAGE_CHANNEL.WEB,
+      message: quoteData.message,
+      sent_by: quoteData.email,
+      status: PUB.TICKET_STATUS_DEFAULT
+    });
+
+    appendTimelineEvent_("ticket", ticketId, "quote_ticket_created", {
+      ticket_id: ticketId,
+      lead_id: leadId,
+      contact_id: contact.contact_id,
+      item: quoteData.item,
+      email: quoteData.email,
+      status: PUB.TICKET_STATUS_DEFAULT,
+      kind: "quote"
+    });
+
+    return {
+      ok: true,
+      data: {
+        lead_id: leadId,
+        ticket_id: ticketId,
+        status: PUB.TICKET_STATUS_DEFAULT,
+        kind: "quote"
+      }
+    };
+  });
+}
+
+/* ========================================================================
+   ADMIN CORE
+   ======================================================================== */
+
+function admin_install_crm_(payload) {
+  payload = payload || {};
+
+  return withWriteLock_(function() {
+    ensureSystem_();
+    publishCoreSharedBindings_();
+    tryBindPubmailModule_();
+
+    var health = getCoreHealthSnapshot_();
+
+    return {
+      ok: !!(health && health.ready === true),
+      version: PUB.VERSION,
+      contract_version: PUB.CONTRACT_VERSION,
+      generated_at: isoNow_(),
+      data: {
+        core: {
+          available: true,
+          installed: !!health.installed,
+          ready: !!health.ready,
+          error: health.error || "",
+          health: health
+        }
+      }
+    };
+  });
+}
+
+function admin_list_contacts_(payload) {
+  return listRowsResponse_(PUB.SHEETS.CONTACTS, payload);
+}
+
+function admin_list_leads_(payload) {
+  return listRowsResponse_(PUB.SHEETS.LEADS, payload);
+}
+
+function admin_list_tickets_(payload) {
+  return listRowsResponse_(PUB.SHEETS.TICKETS, payload);
+}
+
+function admin_get_ticket_(payload) {
+  payload = payload || {};
+
+  var ticketId = cut_(string_(payload.ticket_id).trim(), PUB.MAX.ID);
+  if (!ticketId) throw appError_("INVALID_PAYLOAD", "ticket_id ausente.");
+
+  var found = findRowByFieldValue_(getDb_(), PUB.SHEETS.TICKETS, "ticket_id", ticketId);
+  if (!found) throw appError_("NOT_FOUND", "Ticket não encontrado.");
+
+  return {
+    ok: true,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    generated_at: isoNow_(),
+    data: found.obj
+  };
+}
+
+function admin_list_ticket_messages_(payload) {
+  payload = payload || {};
+
+  var ticketId = cut_(string_(payload.ticket_id).trim(), PUB.MAX.ID);
+  if (!ticketId) throw appError_("INVALID_PAYLOAD", "ticket_id ausente.");
+
+  return pagedRowsResponse_(listTicketMessagesByTicketId_(ticketId), payload);
+}
+
+function admin_reply_ticket_(payload) {
+  payload = payload || {};
+  validateReplyTicketPayload_(payload);
+
+  return withWriteLock_(function() {
+    var db = getDb_();
+    var ticketId = cut_(string_(payload.ticket_id).trim(), PUB.MAX.ID);
+    var found = findRowByFieldValue_(db, PUB.SHEETS.TICKETS, "ticket_id", ticketId);
+
+    if (!found) throw appError_("NOT_FOUND", "Ticket não encontrado.");
+
+    var ticket = found.obj;
+    var nextStatus = payload.status
+      ? normalizeTicketStatus_(payload.status)
+      : normalizeTicketStatus_(ticket.status || PUB.TICKET_STATUS_DEFAULT);
+
+    appendTicketMessage_(db, {
+      ticket_id: ticket.ticket_id,
+      contact_id: ticket.contact_id,
+      direction: PUB.MESSAGE_DIRECTION.OUTBOUND,
+      channel: payload.channel || PUB.MESSAGE_CHANNEL.MANUAL,
+      message: payload.message,
+      sent_by: payload.sent_by || "admin",
+      status: nextStatus
+    });
+
+    updateTicketStatus_(db, found.rowIndex, ticket, nextStatus);
+
+    appendTimelineEvent_("ticket", ticket.ticket_id, "ticket_replied", {
+      ticket_id: ticket.ticket_id,
+      contact_id: ticket.contact_id,
+      status: nextStatus,
+      channel: normalizeTicketChannel_(payload.channel || PUB.MESSAGE_CHANNEL.MANUAL),
+      sent_by: normalizeText_(payload.sent_by || "admin", PUB.MAX.SENT_BY)
+    });
+
+    return {
+      ok: true,
+      version: PUB.VERSION,
+      contract_version: PUB.CONTRACT_VERSION,
+      generated_at: isoNow_(),
+      data: {
+        ticket_id: ticket.ticket_id,
+        contact_id: ticket.contact_id,
+        status: nextStatus,
+        replied: true
+      }
+    };
+  });
+}
+
+function listRowsResponse_(sheetName, payload) {
+  var page = normalizePage_(payload);
+  var pageData = getPagedRowsFromSheet_(sheetName, page.offset, page.limit);
+
+  return {
+    ok: true,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    generated_at: isoNow_(),
+    paging: {
+      offset: page.offset,
+      limit: page.limit,
+      returned: pageData.rows.length,
+      total: pageData.total,
+      has_more: page.offset + pageData.rows.length < pageData.total
+    },
+    rows: pageData.rows
+  };
+}
+
+function pagedRowsResponse_(rows, payload) {
+  var page = normalizePage_(payload);
+  var sliced = sliceRows_(rows, page.offset, page.limit);
+
+  return {
+    ok: true,
+    version: PUB.VERSION,
+    contract_version: PUB.CONTRACT_VERSION,
+    generated_at: isoNow_(),
+    paging: {
+      offset: page.offset,
+      limit: page.limit,
+      returned: sliced.length,
+      total: rows.length,
+      has_more: page.offset + sliced.length < rows.length
+    },
+    rows: sliced
+  };
+}
+
+/* ========================================================================
+   VALIDAÇÃO
+   ======================================================================== */
+
+function validateLeadPayload_(payload) {
+  if (normalizeAction_(payload.action) !== "capture_lead") {
+    throw appError_("INVALID_PAYLOAD", "action inválida para lead.");
+  }
+
+  validateHoneypot_(payload);
+  requireTextField_(payload, "name", PUB.MAX.NAME);
+  requireTextField_(payload, "email", PUB.MAX.EMAIL);
+  requireTextField_(payload, "item", PUB.MAX.ITEM);
+  requireTextField_(payload, "file_id", PUB.MAX.FILE_ID);
+
+  if (!isValidEmail_(payload.email)) {
+    throw appError_("INVALID_PAYLOAD", "email inválido.");
+  }
+
+  var fileId = cut_(string_(payload.file_id).trim(), PUB.MAX.FILE_ID);
+  var item = canonicalItem_(payload.item);
+  var downloads = getDownloadsMap_();
+  var entry = downloads[fileId];
+
+  if (!entry) throw appError_("INVALID_PAYLOAD", "file_id inválido.");
+  if (entry.item !== item) throw appError_("INVALID_PAYLOAD", "file_id incompatível com item.");
+
+  validateOptionalUrlField_(payload.page_url, "page_url");
+  validateOptionalUrlField_(payload.referrer, "referrer");
+  validateOptionalTextField_(payload.user_agent, "user_agent", PUB.MAX.USER_AGENT);
+}
+
+function validateTicketPayload_(payload) {
+  if (normalizeAction_(payload.action) !== "capture_ticket") {
+    throw appError_("INVALID_PAYLOAD", "action inválida para ticket.");
+  }
+
+  validateHoneypot_(payload);
+  requireTextField_(payload, "name", PUB.MAX.NAME);
+  requireTextField_(payload, "email", PUB.MAX.EMAIL);
+  requireTextField_(payload, "item", PUB.MAX.ITEM);
+  requireTextField_(payload, "message", PUB.MAX.MESSAGE);
+
+  if (!isValidEmail_(payload.email)) throw appError_("INVALID_PAYLOAD", "email inválido.");
+  if (!isAllowedTicketItem_(payload.item)) throw appError_("INVALID_PAYLOAD", "item inválido.");
+
+  validateOptionalTextField_(payload.ticket_id, "ticket_id", PUB.MAX.ID);
+  validateOptionalTextField_(payload.whatsapp, "whatsapp", PUB.MAX.WHATSAPP);
+  validateOptionalUrlField_(payload.page_url, "page_url");
+  validateOptionalUrlField_(payload.referrer, "referrer");
+  validateOptionalTextField_(payload.user_agent, "user_agent", PUB.MAX.USER_AGENT);
+}
+
+function validateQuotePayload_(payload) {
+  if (normalizeAction_(payload.action) !== "capture_quote") {
+    throw appError_("INVALID_PAYLOAD", "action inválida para orçamento.");
+  }
+
+  validateHoneypot_(payload);
+  requireTextField_(payload, "name", PUB.MAX.NAME);
+  requireTextField_(payload, "email", PUB.MAX.EMAIL);
+  requireTextField_(payload, "item", PUB.MAX.ITEM);
+  requireTextField_(payload, "message", PUB.MAX.MESSAGE);
+
+  if (!isValidEmail_(payload.email)) {
+    throw appError_("INVALID_PAYLOAD", "email inválido.");
+  }
+
+  if (!isAllowedServiceItem_(payload.item)) {
+    throw appError_("INVALID_PAYLOAD", "item de orçamento inválido.");
+  }
+
+  validateOptionalTextField_(payload.ticket_id, "ticket_id", PUB.MAX.ID);
+  validateOptionalTextField_(payload.whatsapp, "whatsapp", PUB.MAX.WHATSAPP);
+  validateOptionalUrlField_(payload.page_url, "page_url");
+  validateOptionalUrlField_(payload.referrer, "referrer");
+  validateOptionalTextField_(payload.user_agent, "user_agent", PUB.MAX.USER_AGENT);
+}
+
+function validateReplyTicketPayload_(payload) {
+  requireTextField_(payload, "ticket_id", PUB.MAX.ID);
+  requireTextField_(payload, "message", PUB.MAX.MESSAGE);
+  validateOptionalTextField_(payload.status, "status", PUB.MAX.STATUS);
+  validateOptionalTextField_(payload.channel, "channel", PUB.MAX.CHANNEL);
+  validateOptionalTextField_(payload.sent_by, "sent_by", PUB.MAX.SENT_BY);
+
+  if (payload.status && !isAllowedTicketStatus_(payload.status)) {
+    throw appError_("INVALID_PAYLOAD", "status inválido.");
+  }
+
+  if (payload.channel && !isAllowedTicketChannel_(payload.channel)) {
+    throw appError_("INVALID_PAYLOAD", "channel inválido.");
+  }
+}
+
+function normalizeLeadPayload_(payload) {
+  return {
+    name: normalizeText_(payload.name, PUB.MAX.NAME),
+    email: normalizeEmail_(payload.email),
+    email_norm: normalizeEmail_(payload.email),
+    item: canonicalItem_(payload.item),
+    file_id: cut_(string_(payload.file_id).trim(), PUB.MAX.FILE_ID),
+    page_url: sanitizeUrlField_(payload.page_url, PUB.MAX.URL),
+    referrer: sanitizeUrlField_(payload.referrer, PUB.MAX.URL),
+    user_agent: normalizeText_(payload.user_agent, PUB.MAX.USER_AGENT)
+  };
+}
+
+function normalizeTicketPayload_(payload) {
+  return {
+    external_ticket_id: normalizeExternalTicketId_(payload.ticket_id),
+    name: normalizeText_(payload.name, PUB.MAX.NAME),
+    email: normalizeEmail_(payload.email),
+    email_norm: normalizeEmail_(payload.email),
+    whatsapp: normalizePhoneBr_(payload.whatsapp),
+    item: normalizePublicItem_(payload.item),
+    message: normalizeTextPreserveBreaks_(payload.message, PUB.MAX.MESSAGE),
+    page_url: sanitizeUrlField_(payload.page_url, PUB.MAX.URL),
+    referrer: sanitizeUrlField_(payload.referrer, PUB.MAX.URL),
+    user_agent: normalizeText_(payload.user_agent, PUB.MAX.USER_AGENT)
+  };
+}
+
+function normalizeQuotePayload_(payload) {
+  var item = normalizeServiceItem_(payload.item);
+  var originalMessage = normalizeTextPreserveBreaks_(payload.message, PUB.MAX.MESSAGE);
+  var quoteMessage = [
+    "Solicitação de orçamento",
+    "",
+    "Serviço: " + item,
+    "",
+    originalMessage
+  ].join("\n");
+
+  return {
+    external_ticket_id: normalizeExternalTicketId_(payload.ticket_id),
+    name: normalizeText_(payload.name, PUB.MAX.NAME),
+    email: normalizeEmail_(payload.email),
+    email_norm: normalizeEmail_(payload.email),
+    whatsapp: normalizePhoneBr_(payload.whatsapp),
+    item: item,
+    message: quoteMessage,
+    page_url: sanitizeUrlField_(payload.page_url, PUB.MAX.URL),
+    referrer: sanitizeUrlField_(payload.referrer, PUB.MAX.URL),
+    user_agent: normalizeText_(payload.user_agent, PUB.MAX.USER_AGENT)
+  };
+}
+
+/* ========================================================================
+   BOOTSTRAP
+   ======================================================================== */
+
+function ensureSystemReadable_() {
+  var props = getScriptProps_();
+  var dbFileId = string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+
+  if (!dbFileId) {
+    PUB_CTX.db = null;
+    PUB_CTX.headers = {};
+    PUB_CTX.headerMaps = {};
+    PUB_CTX.downloadsMap = null;
+    bindAdvancedModulesIfPossible_();
+    return;
+  }
+
+  if (!PUB_CTX.db || String(PUB_CTX.db.getId()) !== String(dbFileId)) {
+    try {
+      PUB_CTX.db = SpreadsheetApp.openById(dbFileId);
+      PUB_CTX.db.getSheets();
+    } catch (_) {
+      PUB_CTX.db = null;
+      PUB_CTX.headers = {};
+      PUB_CTX.headerMaps = {};
+      PUB_CTX.downloadsMap = null;
+    }
+  }
+
+  bindAdvancedModulesIfPossible_();
+}
+
+function ensureSystemReady_() {
+  var props = getScriptProps_();
+  var dbFileId = string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+
+  if (!dbFileId) {
+    withWriteLock_(function() {
+      ensureSystem_();
+    });
+    return;
+  }
+
+  if (!PUB_CTX.db || String(PUB_CTX.db.getId()) !== String(dbFileId)) {
+    try {
+      PUB_CTX.db = SpreadsheetApp.openById(dbFileId);
+      PUB_CTX.db.getSheets();
+    } catch (_) {
+      PUB_CTX.db = null;
+      withWriteLock_(function() {
+        ensureSystem_();
+      });
+      return;
+    }
+  }
+
+  if (isRuntimeReadyFast_()) {
+    bindAdvancedModulesIfPossible_();
+    return;
+  }
+
+  withWriteLock_(function() {
+    var root = ensureRootFolder_();
+    ensureFolderTree_(root);
+
+    var liveDbId = string_(getScriptProps_().getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+    if (!liveDbId || !PUB_CTX.db || String(PUB_CTX.db.getId()) !== String(liveDbId)) {
+      PUB_CTX.db = ensureDatabase_(root);
+    }
+
+    if (!isSchemaReady_(PUB_CTX.db)) {
+      ensureSchema_(PUB_CTX.db);
+    }
+
+    publishCoreSharedBindings_();
+    tryBindPubmailModule_();
+  });
+}
+
+function ensureSystem_() {
+  var root = ensureRootFolder_();
+  ensureFolderTree_(root);
+
+  var db = ensureDatabase_(root);
+
+  PUB_CTX.db = db;
+  PUB_CTX.headers = {};
+  PUB_CTX.headerMaps = {};
+  PUB_CTX.downloadsMap = null;
+
+  if (!isSchemaReady_(db)) ensureSchema_(db);
+
+  publishCoreSharedBindings_();
+  tryBindPubmailModule_();
+}
+
+function bindAdvancedModulesIfPossible_() {
+  try { publishCoreSharedBindings_(); } catch (_) {}
+  try { tryBindPubmailModule_(); } catch (_) {}
+
+  try {
+    if (modulePubcareAvailable_()) {
+      getPubcareVersionSafe_();
+    }
+  } catch (_) {}
+}
+
+function isRuntimeReadyFast_() {
+  var props = getScriptProps_();
+  var rootFolderId = string_(props.getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim();
+  var dbFileId = string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+
+  if (!rootFolderId || !dbFileId || !PUB_CTX.db) return false;
+  if (String(PUB_CTX.db.getId()) !== String(dbFileId)) return false;
+
+  try {
+    PUB_CTX.db.getSheets();
+  } catch (_) {
+    return false;
+  }
+
+  return isSchemaReady_(PUB_CTX.db);
+}
+
+function publishCoreSharedBindings_() {
+  var props = getScriptProps_();
+  var dbId = string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+  var rootId = string_(props.getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim();
+  var mailId = string_(props.getProperty(PUB.PROP_KEYS.MAIL_FOLDER_ID)).trim();
+
+  if (!dbId) throw appError_("SYSTEM_UNAVAILABLE", "Base do core não vinculada.");
+  if (!rootId) throw appError_("SYSTEM_UNAVAILABLE", "Pasta raiz do core não vinculada.");
+
+  props.setProperty(PUB.SHARED.MODULE_BINDINGS.DB_FILE_ID, dbId);
+  props.setProperty(PUB.SHARED.MODULE_BINDINGS.ROOT_FOLDER_ID, rootId);
+  if (mailId) props.setProperty(PUB.SHARED.MODULE_BINDINGS.MAIL_FOLDER_ID, mailId);
+}
+
+function tryBindPubmailModule_() {
+  var props = getScriptProps_();
+  var dbId = string_(props.getProperty(PUB.SHARED.MODULE_BINDINGS.DB_FILE_ID)).trim();
+
+  if (!modulePubmailAvailable_()) {
+    return { available: false, bound: false, error: "PUBMAIL indisponível." };
+  }
+
+  if (!dbId) {
+    return { available: true, bound: false, error: "Bindings compartilhados não publicados." };
+  }
+
+  if (typeof setMailerDbFileId === "function") {
+    try {
+      setMailerDbFileId(dbId);
+      return { available: true, bound: true, error: "" };
+    } catch (err) {
+      return { available: true, bound: false, error: errorText_(err) };
+    }
+  }
+
+  return { available: true, bound: true, error: "" };
+}
+
+function ensureRootFolder_() {
+  var props = getScriptProps_();
+  var folderId = string_(props.getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim();
+
+  if (folderId) {
+    try {
+      var byId = DriveApp.getFolderById(folderId);
+      if (!byId.isTrashed()) return byId;
+    } catch (_) {}
+  }
+
+  var it = DriveApp.getFoldersByName(PUB.ROOT_FOLDER_NAME);
+  while (it.hasNext()) {
+    var existing = it.next();
+    if (!existing.isTrashed()) {
+      props.setProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID, existing.getId());
+      return existing;
+    }
+  }
+
+  var created = DriveApp.createFolder(PUB.ROOT_FOLDER_NAME);
+  props.setProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID, created.getId());
+  return created;
+}
+
+function ensureChildFolder_(parentFolder, folderName, propKey) {
+  var props = getScriptProps_();
+  var folderId = string_(props.getProperty(propKey)).trim();
+
+  if (folderId) {
+    try {
+      var byId = DriveApp.getFolderById(folderId);
+      if (!byId.isTrashed()) return byId;
+    } catch (_) {}
+  }
+
+  var it = parentFolder.getFoldersByName(folderName);
+  while (it.hasNext()) {
+    var existing = it.next();
+    if (!existing.isTrashed()) {
+      props.setProperty(propKey, existing.getId());
+      return existing;
+    }
+  }
+
+  var created = parentFolder.createFolder(folderName);
+  props.setProperty(propKey, created.getId());
+  return created;
+}
+
+function ensureFolderTree_(rootFolder) {
+  return {
+    root: rootFolder,
+    mail: ensureChildFolder_(rootFolder, PUB.FOLDERS.MAIL, PUB.PROP_KEYS.MAIL_FOLDER_ID)
+  };
+}
+
+function ensureDatabase_(rootFolder) {
+  var props = getScriptProps_();
+  var fileId = string_(props.getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+
+  if (fileId) {
+    try {
+      var ssById = SpreadsheetApp.openById(fileId);
+      ssById.getSheets();
+      ensureFileInsideFolder_(DriveApp.getFileById(ssById.getId()), rootFolder);
+      props.setProperty(PUB.PROP_KEYS.DB_FILE_ID, ssById.getId());
+      return ssById;
+    } catch (_) {}
+  }
+
+  var files = rootFolder.getFilesByName(PUB.DB_FILE_NAME);
+  while (files.hasNext()) {
+    var f = files.next();
+    if (f.isTrashed()) continue;
+
+    try {
+      var ssByName = SpreadsheetApp.openById(f.getId());
+      ssByName.getSheets();
+      props.setProperty(PUB.PROP_KEYS.DB_FILE_ID, ssByName.getId());
+      return ssByName;
+    } catch (_) {}
+  }
+
+  var created = SpreadsheetApp.create(PUB.DB_FILE_NAME);
+  ensureFileInsideFolder_(DriveApp.getFileById(created.getId()), rootFolder);
+  props.setProperty(PUB.PROP_KEYS.DB_FILE_ID, created.getId());
+  return created;
+}
+
+function ensureSchema_(ss) {
+  ensureSheetWithHeader_(ss, PUB.SHEETS.META, ["key", "value"]);
+  ensureSheetWithHeader_(ss, PUB.SHEETS.CONFIG, ["key", "value"]);
+
+  ensureSheetWithHeader_(ss, PUB.SHEETS.CONTACTS, [
+    "contact_id", "created_at", "updated_at", "name", "email", "email_norm", "whatsapp", "source"
+  ]);
+
+  ensureSheetWithHeader_(ss, PUB.SHEETS.LEADS, [
+    "lead_id", "created_at", "contact_id", "name", "email", "email_norm", "item", "file_id", "page_url", "referrer", "user_agent", "download_url"
+  ]);
+
+  ensureSheetWithHeader_(ss, PUB.SHEETS.TICKETS, [
+    "ticket_id", "external_ticket_id", "created_at", "contact_id", "name", "email", "email_norm", "whatsapp", "item", "message", "page_url", "referrer", "user_agent", "status"
+  ]);
+
+  ensureSheetWithHeader_(ss, PUB.SHEETS.TICKET_MESSAGES, [
+    "ticket_message_id", "created_at", "ticket_id", "contact_id", "direction", "channel", "message", "sent_by", "status"
+  ]);
+
+  ensureSheetWithHeader_(ss, PUB.SHEETS.TIMELINE, [
+    "timeline_id", "created_at", "entity_type", "entity_id", "event_type", "payload_json"
+  ]);
+
+  writeMeta_(ss, "app_name", PUB.SHARED.DB_META_APP_NAME);
+  writeMeta_(ss, "schema_version", PUB.SHARED.DB_META_SCHEMA_VERSION);
+  writeMeta_(ss, "contract_version", PUB.SHARED.DB_META_CONTRACT_VERSION);
+  writeMeta_(ss, "root_folder_id", string_(getScriptProps_().getProperty(PUB.PROP_KEYS.ROOT_FOLDER_ID)).trim());
+  writeMeta_(ss, "mail_folder_id", string_(getScriptProps_().getProperty(PUB.PROP_KEYS.MAIL_FOLDER_ID)).trim());
+
+  PUB_CTX.headers = {};
+  PUB_CTX.headerMaps = {};
+}
+
+function isSchemaReady_(ss) {
+  if (!ss) return false;
+
+  var specs = [
+    { name: PUB.SHEETS.META, header: ["key", "value"] },
+    { name: PUB.SHEETS.CONFIG, header: ["key", "value"] },
+    { name: PUB.SHEETS.CONTACTS, header: ["contact_id", "created_at", "updated_at", "name", "email", "email_norm", "whatsapp", "source"] },
+    { name: PUB.SHEETS.LEADS, header: ["lead_id", "created_at", "contact_id", "name", "email", "email_norm", "item", "file_id", "page_url", "referrer", "user_agent", "download_url"] },
+    { name: PUB.SHEETS.TICKETS, header: ["ticket_id", "external_ticket_id", "created_at", "contact_id", "name", "email", "email_norm", "whatsapp", "item", "message", "page_url", "referrer", "user_agent", "status"] },
+    { name: PUB.SHEETS.TICKET_MESSAGES, header: ["ticket_message_id", "created_at", "ticket_id", "contact_id", "direction", "channel", "message", "sent_by", "status"] },
+    { name: PUB.SHEETS.TIMELINE, header: ["timeline_id", "created_at", "entity_type", "entity_id", "event_type", "payload_json"] }
+  ];
+
+  for (var i = 0; i < specs.length; i++) {
+    var sh = ss.getSheetByName(specs[i].name);
+    if (!sh) return false;
+
+    var lastCol = sh.getLastColumn();
+    if (lastCol <= 0) return false;
+
+    var header = cleanHeaderRow_(sh.getRange(1, 1, 1, lastCol).getValues()[0]);
+    if (!headerStartsWith_(header, specs[i].header)) return false;
+  }
+
+  if (readMeta_(ss, "app_name") !== PUB.SHARED.DB_META_APP_NAME) return false;
+  if (readMeta_(ss, "schema_version") !== PUB.SHARED.DB_META_SCHEMA_VERSION) return false;
+  if (readMeta_(ss, "contract_version") !== PUB.SHARED.DB_META_CONTRACT_VERSION) return false;
+
+  return true;
+}
+
+function getInstalledCoreSheets_() {
+  return [
+    PUB.SHEETS.META,
+    PUB.SHEETS.CONFIG,
+    PUB.SHEETS.CONTACTS,
+    PUB.SHEETS.LEADS,
+    PUB.SHEETS.TICKETS,
+    PUB.SHEETS.TICKET_MESSAGES,
+    PUB.SHEETS.TIMELINE
+  ];
+}
+
+/* ========================================================================
+   ADMIN AUTH
+   ======================================================================== */
+
+function requireAdminAuth_(payload) {
+  payload = payload || {};
+
+  var props = getScriptProps_();
+  var expected = string_(props.getProperty(PUB.PROP_KEYS.ADMIN_TOKEN)).trim();
+
+  if (!expected) throw appError_("ADMIN_AUTH_UNAVAILABLE", "Token administrativo não configurado.");
+
+  var received = extractAdminToken_(payload);
+  if (!received) throw appError_("ADMIN_AUTH_REQUIRED", "Autenticação administrativa obrigatória.");
+  if (received !== expected) throw appError_("ADMIN_AUTH_INVALID", "Token administrativo inválido.");
+}
+
+function extractAdminToken_(payload) {
+  payload = payload || {};
+
+  var token = string_(payload.admin_token).trim();
+  if (!token) token = string_(payload.token).trim();
+
+  if (!token && payload.auth && typeof payload.auth === "object") {
+    token = string_(payload.auth.admin_token || payload.auth.token).trim();
+  }
+
+  if (!token && payload.headers && typeof payload.headers === "object") {
+    token = string_(payload.headers.x_admin_token).trim();
+    if (!token) token = extractBearerToken_(payload.headers.authorization);
+  }
+
+  return cut_(token, PUB.MAX.TOKEN);
+}
+
+function extractBearerToken_(authorizationValue) {
+  var s = string_(authorizationValue).trim();
+  var match = s.match(/^Bearer\s+(.+)$/i);
+  return match ? string_(match[1]).trim() : "";
+}
+
+/* ========================================================================
+   CONTACTS
+   ======================================================================== */
+
+function upsertContactSimple_(db, data) {
+  var sh = db.getSheetByName(PUB.SHEETS.CONTACTS);
+  if (!sh) throw appError_("SCHEMA_INVALID", 'Sheet "contacts" ausente.');
+
+  var emailNorm = normalizeEmail_(data.email);
+  var found = findContactByEmailNorm_(db, emailNorm);
+  var now = isoNow_();
+
+  if (!found) {
+    var contactId = nextPublicId_("CT", PUB.PROP_KEYS.CONTACT_SEQ);
+
+    appendRowObject_(sh, {
+      contact_id: contactId,
+      created_at: now,
+      updated_at: now,
+      name: normalizeText_(data.name, PUB.MAX.NAME),
+      email: emailNorm,
+      email_norm: emailNorm,
+      whatsapp: normalizePhoneBr_(data.whatsapp),
+      source: cut_(data.source || PUB.CONTACT_SOURCE_DEFAULT, PUB.MAX.SOURCE)
+    });
+
+    return { contact_id: contactId, created: true, updated: false };
+  }
+
+  var current = found.obj;
+
+  updateRowObject_(sh, found.rowIndex, {
+    contact_id: current.contact_id,
+    created_at: current.created_at,
+    updated_at: now,
+    name: chooseBetterText_(current.name, data.name, PUB.MAX.NAME),
+    email: emailNorm,
+    email_norm: emailNorm,
+    whatsapp: choosePhone_(current.whatsapp, data.whatsapp),
+    source: current.source || cut_(data.source || PUB.CONTACT_SOURCE_DEFAULT, PUB.MAX.SOURCE)
+  });
+
+  return { contact_id: current.contact_id, created: false, updated: true };
+}
+
+function findContactByEmailNorm_(db, emailNorm) {
+  return findRowByFieldValue_(db, PUB.SHEETS.CONTACTS, "email_norm", normalizeEmail_(emailNorm));
+}
+
+function enforceSimpleRateLimit_(scope, email) {
+  var cache = CacheService.getScriptCache();
+  var key = "RL_" + string_(scope).trim().toUpperCase() + "_" + normalizeEmail_(email);
+
+  if (cache.get(key)) {
+    throw appError_("RATE_LIMIT", "Aguarde alguns segundos antes de enviar novamente.");
+  }
+
+  cache.put(key, "1", 20);
+}
+
+/* ========================================================================
+   TICKETS E MENSAGENS
+   ======================================================================== */
+
+function appendTicketMessage_(db, data) {
+  var sh = db.getSheetByName(PUB.SHEETS.TICKET_MESSAGES);
+  if (!sh) throw appError_("SCHEMA_INVALID", 'Sheet "ticket_messages" ausente.');
+
+  appendRowObject_(sh, {
+    ticket_message_id: nextPublicId_("TM", PUB.PROP_KEYS.TICKET_MESSAGE_SEQ),
+    created_at: isoNow_(),
+    ticket_id: cut_(data.ticket_id || "", PUB.MAX.ID),
+    contact_id: cut_(data.contact_id || "", PUB.MAX.ID),
+    direction: normalizeTicketDirection_(data.direction),
+    channel: normalizeTicketChannel_(data.channel),
+    message: normalizeTextPreserveBreaks_(data.message, PUB.MAX.MESSAGE),
+    sent_by: normalizeText_(data.sent_by || "", PUB.MAX.SENT_BY),
+    status: normalizeTicketStatus_(data.status || PUB.TICKET_STATUS_DEFAULT)
+  });
+}
+
+function listTicketMessagesByTicketId_(ticketId) {
+  var sh = getDb_().getSheetByName(PUB.SHEETS.TICKET_MESSAGES);
+  if (!sh) return [];
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return [];
+
+  var cleanTicketId = cut_(string_(ticketId).trim(), PUB.MAX.ID);
+  var state = getSheetHeaderState_(sh);
+  var values = sh.getRange(2, 1, lastRow - 1, state.header.length).getValues();
+  var filtered = [];
+
+  for (var i = 0; i < values.length; i++) {
+    if (isEmptyRow_(values[i])) continue;
+    if (normalizeSheetCellForCompare_(values[i][state.idx.ticket_id]) !== cleanTicketId) continue;
+    filtered.push(mapRow_(state.header, values[i]));
+  }
+
+  filtered.sort(function(a, b) {
+    return (Date.parse(a.created_at || "") || 0) - (Date.parse(b.created_at || "") || 0);
+  });
+
+  return filtered;
+}
+
+function updateTicketStatus_(db, rowIndex, currentTicket, nextStatus) {
+  var sh = db.getSheetByName(PUB.SHEETS.TICKETS);
+  if (!sh) throw appError_("SCHEMA_INVALID", 'Sheet "tickets" ausente.');
+
+  updateRowObject_(sh, rowIndex, {
+    ticket_id: currentTicket.ticket_id,
+    external_ticket_id: currentTicket.external_ticket_id,
+    created_at: currentTicket.created_at,
+    contact_id: currentTicket.contact_id,
+    name: currentTicket.name,
+    email: currentTicket.email,
+    email_norm: currentTicket.email_norm,
+    whatsapp: currentTicket.whatsapp,
+    item: currentTicket.item,
+    message: currentTicket.message,
+    page_url: currentTicket.page_url,
+    referrer: currentTicket.referrer,
+    user_agent: currentTicket.user_agent,
+    status: normalizeTicketStatus_(nextStatus)
+  });
+}
+
+/* ========================================================================
+   TIMELINE
+   ======================================================================== */
+
+function appendTimelineEvent_(entityType, entityId, eventType, payloadObj) {
+  appendRowObject_(getDb_().getSheetByName(PUB.SHEETS.TIMELINE), {
+    timeline_id: nextPublicId_("TL", PUB.PROP_KEYS.TIMELINE_SEQ),
+    created_at: isoNow_(),
+    entity_type: cut_(entityType || "", 40),
+    entity_id: cut_(entityId || "", PUB.MAX.ID),
+    event_type: cut_(eventType || "", 80),
+    payload_json: cut_(safeJson_(payloadObj || {}), PUB.MAX.PAYLOAD_JSON)
+  });
+}
+
+/* ========================================================================
+   DOWNLOADS
+   ======================================================================== */
+
+function getDownloadsMap_() {
+  if (PUB_CTX.downloadsMap) return PUB_CTX.downloadsMap;
+
+  var configJson = readConfigValue_("downloads_json");
+  if (!configJson) {
+    PUB_CTX.downloadsMap = PUB.DOWNLOADS;
+    return PUB_CTX.downloadsMap;
+  }
+
+  try {
+    var parsed = JSON.parse(configJson);
+    if (!parsed || typeof parsed !== "object") {
+      PUB_CTX.downloadsMap = PUB.DOWNLOADS;
+      return PUB_CTX.downloadsMap;
+    }
+
+    var out = {};
+    for (var fileId in parsed) {
+      if (!Object.prototype.hasOwnProperty.call(parsed, fileId)) continue;
+
+      var entry = parsed[fileId] || {};
+      var cleanFileId = cut_(string_(fileId).trim(), PUB.MAX.FILE_ID);
+      var item = canonicalItem_(entry.item);
+      var url = sanitizeUrlField_(entry.url, PUB.MAX.URL);
+
+      if (!cleanFileId || !item || !url || !isValidHttpUrl_(url)) continue;
+
+      out[cleanFileId] = { item: item, url: url };
+    }
+
+    PUB_CTX.downloadsMap = Object.keys(out).length ? out : PUB.DOWNLOADS;
+    return PUB_CTX.downloadsMap;
+  } catch (_) {
+    PUB_CTX.downloadsMap = PUB.DOWNLOADS;
+    return PUB_CTX.downloadsMap;
+  }
+}
+
+function resolveDownloadUrl_(fileId, item) {
+  var downloads = getDownloadsMap_();
+  var cleanFileId = cut_(string_(fileId).trim(), PUB.MAX.FILE_ID);
+  var entry = downloads[cleanFileId];
+
+  if (!entry) throw appError_("INVALID_PAYLOAD", "file_id inválido.");
+  if (entry.item !== canonicalItem_(item)) throw appError_("INVALID_PAYLOAD", "file_id incompatível com item.");
+  if (!isValidHttpUrl_(entry.url)) throw appError_("SYSTEM_UNAVAILABLE", "download_url inválida.");
+
+  return entry.url;
+}
+
+function readConfigValue_(key) {
+  var db = getDb_();
+  var sh = db.getSheetByName(PUB.SHEETS.CONFIG);
+  if (!sh) return "";
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return "";
+
+  var values = sh.getRange(2, 1, lastRow - 1, 2).getValues();
+  for (var i = 0; i < values.length; i++) {
+    if (string_(values[i][0]).trim() === string_(key).trim()) {
+      return string_(values[i][1]);
+    }
+  }
+
+  return "";
+}
+
+/* ========================================================================
+   SHEETS / ROWS
+   ======================================================================== */
+
+function getDb_() {
+  if (PUB_CTX.db) return PUB_CTX.db;
+
+  var id = string_(getScriptProps_().getProperty(PUB.PROP_KEYS.DB_FILE_ID)).trim();
+  if (!id) throw appError_("SYSTEM_UNAVAILABLE", "Base não inicializada.");
+
+  PUB_CTX.db = SpreadsheetApp.openById(id);
+  PUB_CTX.db.getSheets();
+  return PUB_CTX.db;
+}
+
+function ensureFileInsideFolder_(file, folder) {
+  if (!file || !folder) return;
+  try { folder.addFile(file); } catch (_) {}
+  try { DriveApp.getRootFolder().removeFile(file); } catch (_) {}
+}
+
+function ensureSheetWithHeader_(ss, sheetName, expectedHeader) {
+  var sh = ss.getSheetByName(sheetName);
+  if (!sh) sh = ss.insertSheet(sheetName);
+
+  var lastRow = sh.getLastRow();
+  var lastCol = sh.getLastColumn();
+  var currentHeader = lastCol > 0 ? cleanHeaderRow_(sh.getRange(1, 1, 1, lastCol).getValues()[0]) : [];
+  var headerIsReady = headerStartsWith_(currentHeader, expectedHeader);
+
+  if (!currentHeader.length) {
+    if (lastRow <= 0) {
+      sh.getRange(1, 1, 1, expectedHeader.length).setValues([expectedHeader]);
+      sh.setFrozenRows(1);
+      resetHeaderCacheForSheet_(sh);
+      return;
+    }
+
+    rebuildSheetWithHeaderPreservingData_(sh, expectedHeader);
+    sh.setFrozenRows(1);
+    resetHeaderCacheForSheet_(sh);
+    return;
+  }
+
+  if (!headerIsReady) {
+    rebuildSheetWithHeaderPreservingData_(sh, expectedHeader);
+    sh.setFrozenRows(1);
+  }
+
+  resetHeaderCacheForSheet_(sh);
+}
+
+function rebuildSheetWithHeaderPreservingData_(sheet, expectedHeader) {
+  expectedHeader = isArray_(expectedHeader) ? expectedHeader.slice() : [];
+  if (!sheet) return;
+
+  var lastRow = sheet.getLastRow();
+  var lastCol = sheet.getLastColumn();
+  var oldHeader = lastCol > 0 ? cleanHeaderRow_(sheet.getRange(1, 1, 1, lastCol).getValues()[0]) : [];
+  var oldData = [];
+
+  if (lastRow >= 2 && oldHeader.length) {
+    oldData = sheet.getRange(2, 1, lastRow - 1, oldHeader.length).getValues();
+  }
+
+  var oldIndex = indexMapSafe_(oldHeader);
+  var rebuilt = [];
+
+  for (var r = 0; r < oldData.length; r++) {
+    var newRow = [];
+    var nonEmpty = false;
+
+    for (var c = 0; c < expectedHeader.length; c++) {
+      var key = expectedHeader[c];
+      var value = oldIndex[key] != null ? oldData[r][oldIndex[key]] : "";
+      newRow.push(value);
+      if (string_(value).trim()) nonEmpty = true;
+    }
+
+    if (nonEmpty) rebuilt.push(newRow);
+  }
+
+  if (sheet.getLastRow() > 0 || sheet.getLastColumn() > 0) {
+    sheet.clearContents();
+  }
+
+  if (!expectedHeader.length) return;
+  sheet.getRange(1, 1, 1, expectedHeader.length).setValues([expectedHeader]);
+
+  if (rebuilt.length) {
+    sheet.getRange(2, 1, rebuilt.length, expectedHeader.length).setValues(rebuilt);
+  }
+}
+
+function appendRowObject_(sheet, rowObj) {
+  var state = getSheetHeaderState_(sheet);
+  var row = [];
+
+  for (var i = 0; i < state.header.length; i++) {
+    var key = state.header[i];
+    row.push(Object.prototype.hasOwnProperty.call(rowObj, key) ? rowObj[key] : "");
+  }
+
+  sheet.getRange(sheet.getLastRow() + 1, 1, 1, row.length).setValues([row]);
+}
+
+function updateRowObject_(sheet, rowIndex, rowObj) {
+  var state = getSheetHeaderState_(sheet);
+  var row = [];
+
+  for (var i = 0; i < state.header.length; i++) {
+    var key = state.header[i];
+    row.push(Object.prototype.hasOwnProperty.call(rowObj, key) ? rowObj[key] : "");
+  }
+
+  sheet.getRange(rowIndex, 1, 1, row.length).setValues([row]);
+}
+
+function getRowObjectByIndex_(sheet, rowIndex) {
+  var state = getSheetHeaderState_(sheet);
+  var row = sheet.getRange(rowIndex, 1, 1, state.header.length).getValues()[0];
+  var out = {};
+
+  for (var i = 0; i < state.header.length; i++) {
+    out[state.header[i]] = normalizeSheetCellForCompare_(row[i]);
+  }
+
+  return out;
+}
+
+function findRowByFieldValue_(db, sheetName, fieldName, value) {
+  var sh = db.getSheetByName(sheetName);
+  if (!sh) return null;
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return null;
+
+  var state = getSheetHeaderState_(sh);
+  if (state.idx[fieldName] == null) return null;
+
+  var values = sh.getRange(2, 1, lastRow - 1, state.header.length).getValues();
+  var expected = normalizeSheetCellForCompare_(value);
+
+  for (var i = values.length - 1; i >= 0; i--) {
+    if (normalizeSheetCellForCompare_(values[i][state.idx[fieldName]]) === expected) {
+      var rowIndex = i + 2;
+      return {
+        rowIndex: rowIndex,
+        obj: getRowObjectByIndex_(sh, rowIndex)
+      };
+    }
+  }
+
+  return null;
+}
+
+function findRecentLeadDuplicate_(db, emailNorm, fileId, windowMs) {
+  var sh = db.getSheetByName(PUB.SHEETS.LEADS);
+  if (!sh) return null;
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return null;
+
+  var state = getSheetHeaderState_(sh);
+  if (state.idx.email_norm == null || state.idx.file_id == null || state.idx.created_at == null) {
+    return null;
+  }
+
+  var values = sh.getRange(2, 1, lastRow - 1, state.header.length).getValues();
+  var now = Date.now();
+  var maxWindow = Number(windowMs) || 60000;
+  var targetEmail = normalizeEmail_(emailNorm);
+  var targetFileId = string_(fileId).trim();
+
+  for (var i = values.length - 1; i >= 0; i--) {
+    var rowEmail = normalizeSheetCellForCompare_(values[i][state.idx.email_norm]);
+    var rowFileId = normalizeSheetCellForCompare_(values[i][state.idx.file_id]);
+    var rowCreated = normalizeSheetCellForCompare_(values[i][state.idx.created_at]);
+
+    if (rowEmail !== targetEmail || rowFileId !== targetFileId) continue;
+
+    var ts = Date.parse(rowCreated);
+    if (!isFinite(ts)) continue;
+    if ((now - ts) > maxWindow) continue;
+
+    var leadId = state.idx.lead_id != null ? normalizeSheetCellForCompare_(values[i][state.idx.lead_id]) : "";
+    return { lead_id: leadId };
+  }
+
+  return null;
+}
+
+function getSheetHeaderState_(sheet) {
+  var sheetId = sheet.getSheetId();
+  var header = PUB_CTX.headers[sheetId];
+  var idx = PUB_CTX.headerMaps[sheetId];
+
+  if (!header || !idx) {
+    var lastCol = sheet.getLastColumn();
+    if (lastCol <= 0) throw appError_("SCHEMA_INVALID", 'Sheet "' + sheet.getName() + '" sem cabeçalho.');
+
+    header = cleanHeaderRow_(sheet.getRange(1, 1, 1, lastCol).getValues()[0]);
+    idx = indexMap_(header);
+
+    PUB_CTX.headers[sheetId] = header;
+    PUB_CTX.headerMaps[sheetId] = idx;
+  }
+
+  return { header: header, idx: idx };
+}
+
+function resetHeaderCacheForSheet_(sheet) {
+  if (!sheet) return;
+  var sheetId = sheet.getSheetId();
+  delete PUB_CTX.headers[sheetId];
+  delete PUB_CTX.headerMaps[sheetId];
+}
+
+function cleanHeaderRow_(row) {
+  var out = [];
+  for (var i = 0; i < row.length; i++) out.push(string_(row[i]).trim());
+  while (out.length && !out[out.length - 1]) out.pop();
+  return out;
+}
+
+function headerStartsWith_(actualHeader, expectedHeader) {
+  actualHeader = isArray_(actualHeader) ? actualHeader : [];
+  expectedHeader = isArray_(expectedHeader) ? expectedHeader : [];
+  if (actualHeader.length < expectedHeader.length) return false;
+
+  for (var i = 0; i < expectedHeader.length; i++) {
+    if (string_(actualHeader[i]).trim() !== string_(expectedHeader[i]).trim()) return false;
+  }
+
+  return true;
+}
+
+function indexMap_(headerRow) {
+  var out = {};
+  for (var i = 0; i < headerRow.length; i++) {
+    var key = string_(headerRow[i]).trim();
+    if (!key) throw appError_("SCHEMA_INVALID", "Cabeçalho inválido.");
+    out[key] = i;
+  }
+  return out;
+}
+
+function indexMapSafe_(headerRow) {
+  var out = {};
+  headerRow = isArray_(headerRow) ? headerRow : [];
+
+  for (var i = 0; i < headerRow.length; i++) {
+    var key = string_(headerRow[i]).trim();
+    if (!key) continue;
+    if (out[key] == null) out[key] = i;
+  }
+
+  return out;
+}
+
+function getPagedRowsFromSheet_(sheetName, offset, limit) {
+  var sh = getDb_().getSheetByName(sheetName);
+  if (!sh) return { total: 0, rows: [] };
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return { total: 0, rows: [] };
+
+  var state = getSheetHeaderState_(sh);
+  var allValues = sh.getRange(2, 1, lastRow - 1, state.header.length).getValues();
+  var total = 0;
+  var rows = [];
+  var start = offset;
+  var end = offset + limit;
+
+  for (var i = 0; i < allValues.length; i++) {
+    if (isEmptyRow_(allValues[i])) continue;
+
+    if (total >= start && total < end) {
+      rows.push(mapRow_(state.header, allValues[i]));
+    }
+
+    total += 1;
+  }
+
+  return { total: total, rows: rows };
+}
+
+function mapRow_(header, row) {
+  var out = {};
+  for (var i = 0; i < header.length; i++) {
+    out[header[i]] = normalizeSheetCellForCompare_(row[i]);
+  }
+  return out;
+}
+
+function countRows_(sheetName) {
+  var sh = getDb_().getSheetByName(sheetName);
+  if (!sh) return 0;
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return 0;
+
+  var state = getSheetHeaderState_(sh);
+  var values = sh.getRange(2, 1, lastRow - 1, state.header.length).getValues();
+  var count = 0;
+
+  for (var i = 0; i < values.length; i++) {
+    if (!isEmptyRow_(values[i])) count += 1;
+  }
+
+  return count;
+}
+
+function isEmptyRow_(row) {
+  for (var i = 0; i < row.length; i++) {
+    if (string_(row[i]).trim()) return false;
+  }
+  return true;
+}
+
+/* ========================================================================
+   META
+   ======================================================================== */
+
+function writeMeta_(ss, key, value) {
+  var sh = ss.getSheetByName(PUB.SHEETS.META);
+  var lastRow = sh.getLastRow();
+
+  if (lastRow < 2) {
+    sh.getRange(2, 1, 1, 2).setValues([[key, value]]);
+    return;
+  }
+
+  var values = sh.getRange(2, 1, lastRow - 1, 2).getValues();
+  for (var i = 0; i < values.length; i++) {
+    if (string_(values[i][0]).trim() === key) {
+      sh.getRange(i + 2, 2).setValue(value);
+      return;
+    }
+  }
+
+  sh.getRange(lastRow + 1, 1, 1, 2).setValues([[key, value]]);
+}
+
+function readMeta_(ss, key) {
+  var sh = ss.getSheetByName(PUB.SHEETS.META);
+  if (!sh) return "";
+
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return "";
+
+  var values = sh.getRange(2, 1, lastRow - 1, 2).getValues();
+  for (var i = 0; i < values.length; i++) {
+    if (string_(values[i][0]).trim() === key) return string_(values[i][1]).trim();
+  }
+
+  return "";
+}
+
+/* ========================================================================
+   LOCK / IDS
+   ======================================================================== */
+
+function withWriteLock_(fn) {
+  return withScriptLock_(30000, fn);
+}
+
+function withScriptLock_(timeoutMs, fn) {
+  var needsAcquire = PUB_CTX.scriptLockDepth <= 0;
+  var lock = null;
+  var locked = false;
+
+  try {
+    if (needsAcquire) {
+      lock = LockService.getScriptLock();
+      locked = lock.tryLock(timeoutMs || 30000);
+      if (!locked) throw appError_("SYSTEM_UNAVAILABLE", "Sistema ocupado.");
+    }
+
+    PUB_CTX.scriptLockDepth += 1;
+    return fn();
+  } finally {
+    if (PUB_CTX.scriptLockDepth > 0) PUB_CTX.scriptLockDepth -= 1;
+    if (needsAcquire && locked && lock) {
+      try { lock.releaseLock(); } catch (_) {}
+    }
+  }
+}
+
+function nextPublicId_(prefix, propKey) {
+  var props = getScriptProps_();
+  var curr = Number(props.getProperty(propKey) || "0");
+  if (!isFinite(curr) || curr < 0) curr = 0;
+  curr += 1;
+  props.setProperty(propKey, String(curr));
+
+  var d = new Date();
+  return prefix + "-" +
+    d.getUTCFullYear() +
+    pad2_(d.getUTCMonth() + 1) +
+    pad2_(d.getUTCDate()) + "-" +
+    ("000000" + curr).slice(-6);
+}
+
+/* ========================================================================
+   RESPONSE / ERRORS
+   ======================================================================== */
+
+function jsonOutput_(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function errorResponse_(err) {
+  var appErr = toAppError_(err);
+  return jsonOutput_({
+    ok: false,
+    error: cut_(appErr.message, PUB.MAX.ERROR),
+    code: appErr.code || "INTERNAL"
+  });
+}
+
+function parseJsonPayload_(raw) {
+  try {
+    var payload = JSON.parse(raw || "{}");
+    if (!payload || typeof payload !== "object" || Object.prototype.toString.call(payload) !== "[object Object]") {
+      throw appError_("INVALID_JSON", "Payload inválido.");
+    }
+    return payload;
+  } catch (err) {
+    if (isAppError_(err)) throw err;
+    throw appError_("INVALID_JSON", "JSON inválido.");
+  }
+}
+
+function appError_(code, message) {
+  var err = new Error(message || "Erro interno.");
+  err.name = "AppError";
+  err.code = code || "INTERNAL";
+  return err;
+}
+
+function isAppError_(err) {
+  return !!(err && typeof err === "object" && err.code);
+}
+
+function toAppError_(err) {
+  if (isAppError_(err)) return err;
+  return appError_("INTERNAL", errorText_(err));
+}
+
+function errorText_(err) {
+  if (!err) return "Erro desconhecido";
+  return string_(err.message || err.stack || err);
+}
+
+function appendErrorText_(base, extra) {
+  base = string_(base).trim();
+  extra = string_(extra).trim();
+  if (!base) return extra;
+  if (!extra) return base;
+  return base + " | " + extra;
+}
+
+/* ========================================================================
+   PUBMAIL HELPERS
+   ======================================================================== */
+
+function getMailerTriggersStatusSafe_() {
+  try {
+    if (typeof getMailerTriggersStatus_ === "function") {
+      var result = getMailerTriggersStatus_();
+      if (result && typeof result === "object") return result;
+    }
+  } catch (_) {}
+
+  return {
+    ok: false,
+    installed: false,
+    total: 0,
+    items: [],
+    error: "Status de triggers indisponível."
+  };
+}
+
+function getPubmailHealthSourceSafe_() {
+  var result = null;
+
+  if (typeof runMailerHealthCheckSilent_ === "function") {
+    result = runMailerHealthCheckSilent_();
+  } else if (typeof runMailerHealthCheck_ === "function") {
+    result = runMailerHealthCheck_();
+  }
+
+  return result && typeof result === "object" ? result : {};
+}
+
+/* ========================================================================
+   PUBCARE HELPERS
+   ======================================================================== */
+
+function getPubcareRequiredSheets_() {
+  if (typeof PUBCARE !== "undefined" && PUBCARE.SHEETS) {
+    return [
+      PUBCARE.SHEETS.TICKET_STATE,
+      PUBCARE.SHEETS.MACROS,
+      PUBCARE.SHEETS.LOG
+    ];
+  }
+
+  return [
+    "care_ticket_state",
+    "care_macros",
+    "care_log"
+  ];
+}
+
+function getPubcareVersionSafe_() {
+  try {
+    if (typeof PUBCARE !== "undefined" && PUBCARE.VERSION) {
+      return string_(PUBCARE.VERSION).trim();
+    }
+  } catch (_) {}
+  return "";
+}
+
+/* ========================================================================
+   NORMALIZAÇÃO / VALIDATION
+   ======================================================================== */
+
+function normalizeAction_(v) {
+  return string_(v).trim().toLowerCase();
+}
+
+function validateHoneypot_(payload) {
+  if (string_(payload && payload.company).trim()) {
+    throw appError_("INVALID_PAYLOAD", "Payload inválido.");
+  }
+}
+
+function requireTextField_(payload, fieldName, maxLen) {
+  var value = string_(payload && payload[fieldName]).trim();
+  if (!value) throw appError_("INVALID_PAYLOAD", fieldName + " ausente.");
+  if (value.length > maxLen) throw appError_("INVALID_PAYLOAD", fieldName + " excede o limite máximo.");
+}
+
+function validateOptionalTextField_(value, fieldName, maxLen) {
+  var s = string_(value).trim();
+  if (!s) return;
+  if (s.length > maxLen) throw appError_("INVALID_PAYLOAD", fieldName + " excede o limite máximo.");
+}
+
+function validateOptionalUrlField_(value, fieldName) {
+  var s = string_(value).trim();
+  if (!s) return;
+  if (!isValidHttpUrl_(s)) throw appError_("INVALID_PAYLOAD", fieldName + " inválida.");
+}
+
+function normalizeEmail_(v) {
+  return cut_(string_(v).trim().toLowerCase(), PUB.MAX.EMAIL);
+}
+
+function normalizePhoneBr_(v) {
+  var digits = string_(v).replace(/\D/g, "");
+  if (!digits) return "";
+
+  if (digits.length === 13 && digits.slice(0, 2) === "55") return cut_(digits, PUB.MAX.WHATSAPP);
+  if (digits.length === 12 && digits.slice(0, 2) === "55") return cut_(digits, PUB.MAX.WHATSAPP);
+  if (digits.length === 11 || digits.length === 10) return cut_("55" + digits, PUB.MAX.WHATSAPP);
+
+  return cut_(digits, PUB.MAX.WHATSAPP);
+}
+
+function normalizeExternalTicketId_(v) {
+  return cut_(string_(v).trim(), PUB.MAX.ID);
+}
+
+function normalizeText_(v, maxLen) {
+  return cut_(string_(v).replace(/\s+/g, " ").trim(), maxLen || 500);
+}
+
+function normalizeTextPreserveBreaks_(v, maxLen) {
+  var s = string_(v).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  s = s.replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  return cut_(s, maxLen || 5000);
+}
+
+function sanitizeUrlField_(v, maxLen) {
+  var s = string_(v).trim();
+  if (!s) return "";
+  return cut_(s, maxLen || PUB.MAX.URL);
+}
+
+function canonicalItem_(v) {
+  return cut_(removeDiacritics_(string_(v).trim()).toUpperCase(), PUB.MAX.ITEM);
+}
+
+function normalizeScriptItem_(v) {
+  return canonicalItem_(v);
+}
+
+function normalizeServiceItem_(v) {
+  return canonicalItem_(v);
+}
+
+function normalizePublicItem_(v) {
+  return canonicalItem_(v);
+}
+
+function isAllowedItem_(item) {
+  return isAllowedScriptItem_(item);
+}
+
+function isAllowedScriptItem_(item) {
+  var clean = normalizeScriptItem_(item);
+  for (var i = 0; i < PUB.SCRIPT_ITEMS.length; i++) {
+    if (PUB.SCRIPT_ITEMS[i] === clean) return true;
+  }
+  return false;
+}
+
+function isAllowedServiceItem_(item) {
+  var clean = normalizeServiceItem_(item);
+  for (var i = 0; i < PUB.SERVICE_ITEMS.length; i++) {
+    if (PUB.SERVICE_ITEMS[i] === clean) return true;
+  }
+  return false;
+}
+
+function isAllowedTicketItem_(item) {
+  return isAllowedScriptItem_(item) || isAllowedServiceItem_(item);
+}
+
+function normalizeTicketStatus_(value) {
+  var status = cut_(removeDiacritics_(string_(value).trim()).toUpperCase(), PUB.MAX.STATUS);
+  if (!status) return PUB.TICKET_STATUS_DEFAULT;
+  if (!isAllowedTicketStatus_(status)) throw appError_("INVALID_PAYLOAD", "status inválido.");
+  return status;
+}
+
+function isAllowedTicketStatus_(value) {
+  var clean = cut_(removeDiacritics_(string_(value).trim()).toUpperCase(), PUB.MAX.STATUS);
+  return !!(
+    clean === PUB.TICKET_STATUS.OPEN ||
+    clean === PUB.TICKET_STATUS.ANSWERED ||
+    clean === PUB.TICKET_STATUS.WAITING_USER ||
+    clean === PUB.TICKET_STATUS.CLOSED
+  );
+}
+
+function normalizeTicketDirection_(value) {
+  var direction = cut_(removeDiacritics_(string_(value).trim()).toUpperCase(), PUB.MAX.DIRECTION);
+  if (!direction) return PUB.MESSAGE_DIRECTION.INBOUND;
+  if (direction !== PUB.MESSAGE_DIRECTION.INBOUND && direction !== PUB.MESSAGE_DIRECTION.OUTBOUND) {
+    throw appError_("INVALID_PAYLOAD", "direction inválido.");
+  }
+  return direction;
+}
+
+function normalizeTicketChannel_(value) {
+  var channel = cut_(removeDiacritics_(string_(value).trim()).toUpperCase(), PUB.MAX.CHANNEL);
+  if (!channel) return PUB.MESSAGE_CHANNEL.MANUAL;
+  if (!isAllowedTicketChannel_(channel)) throw appError_("INVALID_PAYLOAD", "channel inválido.");
+  return channel;
+}
+
+function isAllowedTicketChannel_(value) {
+  var clean = cut_(removeDiacritics_(string_(value).trim()).toUpperCase(), PUB.MAX.CHANNEL);
+  return !!(
+    clean === PUB.MESSAGE_CHANNEL.WEB ||
+    clean === PUB.MESSAGE_CHANNEL.EMAIL ||
+    clean === PUB.MESSAGE_CHANNEL.MANUAL
+  );
+}
+
+function chooseBetterText_(currentValue, incomingValue, maxLen) {
+  var current = normalizeText_(currentValue, maxLen);
+  var incoming = normalizeText_(incomingValue, maxLen);
+
+  if (!current && incoming) return incoming;
+  if (incoming && incoming.length > current.length) return incoming;
+  return current;
+}
+
+function choosePhone_(currentValue, incomingValue) {
+  var current = normalizePhoneBr_(currentValue);
+  var incoming = normalizePhoneBr_(incomingValue);
+
+  if (!current && incoming) return incoming;
+  if (incoming && incoming.length >= current.length) return incoming;
+  return current;
+}
+
+/* ========================================================================
+   UTILS
+   ======================================================================== */
+
+function getScriptProps_() {
+  return PropertiesService.getScriptProperties();
+}
+
+function getParam_(e, key, fallback) {
+  try {
+    if (e && e.parameter && e.parameter[key] != null) return e.parameter[key];
+  } catch (_) {}
+  return fallback;
+}
+
+function isoNow_() {
+  return new Date().toISOString();
+}
+
+function pad2_(n) {
+  return ("0" + n).slice(-2);
+}
+
+function string_(v) {
+  return v == null ? "" : String(v);
+}
+
+function cut_(v, maxLen) {
+  var s = string_(v);
+  return s.length > maxLen ? s.slice(0, maxLen) : s;
+}
+
+function enforceRawPayloadLimit_(raw) {
+  if (string_(raw).length > PUB.MAX.RAW_POST_BYTES) {
+    throw appError_("PAYLOAD_TOO_LARGE", "Payload excede o limite máximo.");
+  }
+}
+
+function isValidEmail_(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(string_(email).trim());
+}
+
+function isValidHttpUrl_(url) {
+  var s = string_(url).trim();
+  if (!s) return true;
+  if (s.length > PUB.MAX.URL) return false;
+  if (/\s/.test(s)) return false;
+  if (!/^https?:\/\//i.test(s)) return false;
+  return true;
+}
+
+function removeDiacritics_(s) {
+  s = string_(s);
+  var map = {
+    "Á":"A","À":"A","Â":"A","Ã":"A","Ä":"A","á":"a","à":"a","â":"a","ã":"a","ä":"a",
+    "É":"E","È":"E","Ê":"E","Ë":"E","é":"e","è":"e","ê":"e","ë":"e",
+    "Í":"I","Ì":"I","Î":"I","Ï":"I","í":"i","ì":"i","î":"i","ï":"i",
+    "Ó":"O","Ò":"O","Ô":"O","Õ":"O","Ö":"O","ó":"o","ò":"o","ô":"o","õ":"o","ö":"o",
+    "Ú":"U","Ù":"U","Û":"U","Ü":"U","ú":"u","ù":"u","û":"u","ü":"u",
+    "Ç":"C","ç":"c","Ñ":"N","ñ":"n"
+  };
+
+  return s.replace(/[ÁÀÂÃÄáàâãäÉÈÊËéèêëÍÌÎÏíìîïÓÒÔÕÖóòôõöÚÙÛÜúùûüÇçÑñ]/g, function(ch) {
+    return map[ch] || ch;
+  });
+}
+
+function normalizeSheetCellForCompare_(v) {
+  if (v == null) return "";
+  if (Object.prototype.toString.call(v) === "[object Date]") return new Date(v).toISOString();
+  if (typeof v === "number") return String(v);
+  if (typeof v === "boolean") return v ? "true" : "false";
+  return string_(v).trim();
+}
+
+function safeJson_(obj) {
+  try { return JSON.stringify(obj || {}); } catch (_) { return "{}"; }
+}
+
+function uniqueStrings_(arr) {
+  arr = isArray_(arr) ? arr : [];
+  var out = [];
+  var seen = {};
+
+  for (var i = 0; i < arr.length; i++) {
+    var s = string_(arr[i]).trim();
+    if (!s || seen[s]) continue;
+    seen[s] = true;
+    out.push(s);
+  }
+
+  return out;
+}
+
+function isArray_(value) {
+  return Object.prototype.toString.call(value) === "[object Array]";
+}
+
+function arrayJoinSafe_(arr, sep) {
+  arr = isArray_(arr) ? arr : [];
+  var clean = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    var s = string_(arr[i]).trim();
+    if (s) clean.push(s);
+  }
+
+  return clean.join(sep || ", ");
+}
+
+function normalizePage_(payload) {
+  payload = payload || {};
+
+  var limit = Number(payload.limit);
+  var offset = Number(payload.offset);
+
+  if (!isFinite(limit) || limit <= 0) limit = 100;
+  if (limit > PUB.MAX.LIST_LIMIT) limit = PUB.MAX.LIST_LIMIT;
+
+  if (!isFinite(offset) || offset < 0) offset = 0;
+  offset = Math.floor(offset);
+
+  return {
+    limit: Math.floor(limit),
+    offset: offset
+  };
+}
+
+function sliceRows_(rows, offset, limit) {
+  rows = isArray_(rows) ? rows : [];
+  return rows.slice(offset, offset + limit);
+}
+
+/* ========================================================================
+   INSTALAÇÃO TOTAL
+   ======================================================================== */
+
+function instalarTudo() {
+  return withWriteLock_(function() {
+    ensureSystem_();
+    publishCoreSharedBindings_();
+    tryBindPubmailModule_();
+
+    var pubmail = null;
+    var pubcare = null;
+
+    if (modulePubmailAvailable_()) {
+      try {
+        pubmail = dispatchPubmailAdminAction_("admin_mail_bootstrap", {}) || null;
+      } catch (errMail) {
+        pubmail = {
+          ok: false,
+          error: errorText_(errMail)
+        };
+      }
+    }
+
+    if (modulePubcareAvailable_()) {
+      try {
+        pubcare = dispatchPubcareAdminAction_("admin_care_install", {}) || null;
+      } catch (errCare) {
+        pubcare = {
+          ok: false,
+          error: errorText_(errCare)
+        };
+      }
+    }
+
+    var coreHealth = getCoreHealthSnapshot_();
+
+    return {
+      ok: !!(coreHealth && coreHealth.ready),
+      app: PUB.APP_NAME,
+      version: PUB.VERSION,
+      contract_version: PUB.CONTRACT_VERSION,
+      generated_at: isoNow_(),
+      data: {
+        core: {
+          available: true,
+          installed: !!coreHealth.installed,
+          ready: !!coreHealth.ready,
+          error: coreHealth.error || "",
+          health: coreHealth
+        },
+        pubmail: pubmail,
+        pubcare: pubcare
+      }
+    };
+  });
+}
