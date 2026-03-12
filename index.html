@@ -1,0 +1,1513 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1b140f" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="PUB Editorial" />
+  <meta name="description" content="PUB Editorial: serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento." />
+
+  <title>PUB Editorial | Serviços editoriais, design e produção de livros</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="PUB Editorial" />
+  <meta property="og:title" content="PUB Editorial | Serviços editoriais, design e produção de livros" />
+  <meta property="og:description" content="Serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento." />
+  <meta property="og:url" content="https://pubeditorial.github.io/" />
+  <meta property="og:image" content="https://pubeditorial.github.io/assets/pub-editorial-capa-social.jpg" />
+  <meta property="og:image:alt" content="PUB Editorial, serviços editoriais e produção de livros" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PUB Editorial | Serviços editoriais, design e produção de livros" />
+  <meta name="twitter:description" content="Serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento." />
+  <meta name="twitter:image" content="https://pubeditorial.github.io/assets/pub-editorial-capa-social.jpg" />
+
+  <style>
+    :root{
+      --bg:#f5f1ea;
+      --bg-soft:#fbf8f3;
+      --paper:#fffdfa;
+      --paper-2:#f3ede4;
+      --ink:#241b14;
+      --text:#3a2d24;
+      --muted:#746559;
+      --line:#ddcfbf;
+      --line-strong:#c7b29d;
+      --brand:#8c5a33;
+      --brand-2:#b07a4d;
+      --accent:#6d3f25;
+      --accent-soft:#efe2d4;
+      --success:#2f6b4f;
+      --radius-xl:30px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --shadow:0 18px 50px rgba(36,27,20,.08);
+      --shadow-soft:0 10px 28px rgba(36,27,20,.06);
+      --wrap:1180px;
+      --space-1:8px;
+      --space-2:12px;
+      --space-3:16px;
+      --space-4:20px;
+      --space-5:28px;
+      --space-6:36px;
+      --space-7:48px;
+      --space-8:72px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      min-height:100%;
+      background:
+        radial-gradient(900px 260px at 10% 0%, rgba(176,122,77,.08), transparent 60%),
+        radial-gradient(900px 260px at 90% 0%, rgba(109,63,37,.06), transparent 60%),
+        var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    :focus-visible{
+      outline:3px solid rgba(140,90,51,.25);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    .skip{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+      background:#fff;
+      color:#000;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:12px;
+    }
+
+    .skip:focus{
+      left:18px;
+      top:18px;
+      width:auto;
+      height:auto;
+      z-index:9999;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--wrap);
+      margin:0 auto;
+      padding-left:24px;
+      padding-right:24px;
+    }
+
+    .section{
+      padding:var(--space-8) 0;
+      scroll-margin-top:28px;
+    }
+
+    .panel{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,253,250,.98), rgba(255,251,246,.94));
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .tag::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+
+    .title-xl{
+      margin:0;
+      font-size:clamp(40px,4.6vw,68px);
+      line-height:1;
+      letter-spacing:-.05em;
+      font-weight:1000;
+      max-width:14ch;
+    }
+
+    .title-lg{
+      margin:0;
+      font-size:clamp(28px,3vw,42px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:980;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--text);
+      font-size:17px;
+      line-height:1.82;
+      max-width:62ch;
+    }
+
+    .muted{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter:blur(10px);
+      background:rgba(245,241,234,.78);
+      border-bottom:1px solid rgba(199,178,157,.5);
+    }
+
+    .header-inner{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .brand-title{
+      font-size:24px;
+      font-weight:1000;
+      letter-spacing:-.04em;
+      color:var(--ink);
+      line-height:1.1;
+    }
+
+    .brand-sub{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      padding:10px 13px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--text);
+      border:1px solid transparent;
+    }
+
+    .nav a:hover{
+      background:rgba(255,255,255,.6);
+      border-color:var(--line);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:54px;
+      padding:14px 18px;
+      border-radius:16px;
+      border:1px solid transparent;
+      cursor:pointer;
+      font-weight:900;
+      letter-spacing:-.01em;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn svg{
+      width:18px;
+      height:18px;
+      display:block;
+      flex:0 0 auto;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color:#fff;
+      box-shadow:0 16px 36px rgba(140,90,51,.22);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      border-color:var(--line);
+      color:var(--ink);
+    }
+
+    .btn-soft{
+      background:var(--accent-soft);
+      border-color:#e0cdb9;
+      color:var(--accent);
+    }
+
+    .hero{
+      padding-top:28px;
+    }
+
+    .hero-box{
+      position:relative;
+      overflow:hidden;
+      padding:34px;
+      border:1px solid rgba(199,178,157,.7);
+      border-radius:34px;
+      background:
+        radial-gradient(680px 240px at 0% 0%, rgba(176,122,77,.12), transparent 60%),
+        radial-gradient(680px 240px at 100% 0%, rgba(109,63,37,.08), transparent 60%),
+        linear-gradient(180deg, rgba(255,252,248,.98), rgba(249,242,233,.95));
+      box-shadow:0 26px 70px rgba(36,27,20,.10);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      justify-content:center;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .hero-note{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+      max-width:54ch;
+    }
+
+    .hero-card{
+      align-self:center;
+      border:1px solid rgba(199,178,157,.85);
+      border-radius:28px;
+      background:rgba(255,253,249,.92);
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:16px;
+    }
+
+    .hero-card h2{
+      margin:0;
+      font-size:18px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+
+    .hero-list{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:10px;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .stat{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      background:rgba(255,253,250,.92);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .stat-k{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    .stat-v{
+      font-size:31px;
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:-.04em;
+      color:var(--ink);
+    }
+
+    .stat-n{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .head{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      max-width:860px;
+      margin:0 0 28px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .service{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.92);
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height:100%;
+    }
+
+    .service-icon{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--brand);
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(239,226,212,.9));
+      border:1px solid rgba(199,178,157,.8);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .service-icon svg{
+      width:22px;
+      height:22px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.9;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .service h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:950;
+    }
+
+    .service p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .service .micro{
+      margin-top:auto;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.6;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:26px;
+      background:rgba(255,253,250,.94);
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:16px;
+      min-height:100%;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:22px;
+      line-height:1.15;
+      letter-spacing:-.03em;
+      font-weight:980;
+    }
+
+    .card ul, .card ol{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:10px;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .steps{
+      counter-reset:step;
+      list-style:none;
+      padding-left:0 !important;
+    }
+
+    .steps li{
+      position:relative;
+      padding-left:48px;
+    }
+
+    .steps li::before{
+      counter-increment:step;
+      content:counter(step);
+      position:absolute;
+      left:0;
+      top:0;
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--accent-soft);
+      border:1px solid var(--line-strong);
+      color:var(--accent);
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
+      gap:18px;
+    }
+
+    .contact-note{
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:var(--paper-2);
+      padding:18px;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .faq{
+      display:grid;
+      gap:12px;
+    }
+
+    details{
+      border:1px solid var(--line);
+      background:rgba(255,253,250,.92);
+      border-radius:20px;
+      padding:18px 18px 16px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:900;
+      font-size:16px;
+      line-height:1.45;
+      color:var(--ink);
+    }
+
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin:10px 0 0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .footer{
+      padding:0 0 34px;
+    }
+
+    .footer-box{
+      border:1px solid rgba(109,63,37,.16);
+      border-radius:26px;
+      background:linear-gradient(180deg, #2b2018, #1f1711);
+      color:#f7efe7;
+      box-shadow:0 22px 60px rgba(36,27,20,.16);
+      padding:18px 22px;
+    }
+
+    .footer-grid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .footer-title{
+      margin:0;
+      font-size:15px;
+      font-weight:950;
+      letter-spacing:-.01em;
+    }
+
+    .footer-meta{
+      margin:0;
+      color:rgba(247,239,231,.72);
+      font-size:12px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+
+    .footer-links a,
+    .footer-links button{
+      background:none;
+      border:0;
+      padding:0;
+      color:rgba(247,239,231,.92);
+      font:inherit;
+      cursor:pointer;
+      font-size:13px;
+      line-height:1.2;
+      white-space:nowrap;
+    }
+
+    .footer-links a:hover,
+    .footer-links button:hover{
+      text-decoration:underline;
+    }
+
+    #lead-modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      padding:18px;
+      background:rgba(20,14,10,.62);
+      backdrop-filter:blur(10px);
+      align-items:center;
+      justify-content:center;
+    }
+
+    #lead-modal[data-state="open"]{
+      display:flex;
+    }
+
+    .lead-dialog{
+      width:min(600px,100%);
+      max-height:min(90vh,980px);
+      overflow:auto;
+      border-radius:28px;
+      border:1px solid rgba(199,178,157,.9);
+      background:linear-gradient(180deg, rgba(255,253,250,.985), rgba(249,242,233,.965));
+      box-shadow:0 30px 90px rgba(20,14,10,.25);
+    }
+
+    .lead-header{
+      position:sticky;
+      top:0;
+      z-index:2;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding:22px 22px 16px;
+      background:linear-gradient(180deg, rgba(255,253,250,.98), rgba(255,250,244,.95));
+      border-bottom:1px solid var(--line);
+    }
+
+    .lead-title{
+      margin:0;
+      font-size:26px;
+      line-height:1.08;
+      font-weight:980;
+      letter-spacing:-.03em;
+      color:var(--ink);
+      max-width:22ch;
+    }
+
+    .lead-body{
+      padding:20px 22px 22px;
+      display:grid;
+      gap:16px;
+    }
+
+    .lead-field{
+      display:grid;
+      gap:7px;
+    }
+
+    .lead-label{
+      font-size:12.5px;
+      font-weight:950;
+      letter-spacing:.01em;
+      color:var(--ink);
+    }
+
+    .lead-input{
+      width:100%;
+      min-height:50px;
+      padding:13px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fffdfa;
+      color:var(--ink);
+      line-height:1.4;
+    }
+
+    textarea.lead-input{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .lead-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .lead-hint{
+      min-height:18px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+      white-space:pre-line;
+    }
+
+    .is-hidden{
+      display:none !important;
+    }
+
+    body.modal-open{
+      overflow:hidden;
+    }
+
+    @media (max-width:1080px){
+      .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      .wrap{padding-left:18px;padding-right:18px}
+      .section{padding:48px 0}
+      .header-inner{padding:10px 0}
+      .hero-box{padding:22px}
+      .hero-actions{display:grid}
+      .hero-actions .btn{width:100%}
+      .services,
+      .split,
+      .stats{
+        grid-template-columns:1fr;
+      }
+      .lead-header{
+        padding:18px 16px 14px;
+      }
+      .lead-body{
+        padding:16px;
+      }
+      .lead-actions{
+        display:grid;
+      }
+      .lead-actions .btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="header" aria-label="Cabeçalho">
+    <div class="wrap header-inner">
+      <div class="brand" aria-label="Marca">
+        <div class="brand-title">PUB Editorial</div>
+        <div class="brand-sub">Serviços editoriais, design e produção de livros</div>
+      </div>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#contato">Contato</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="section hero" id="topo" aria-label="Apresentação">
+      <div class="wrap">
+        <div class="hero-box">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="tag">Editora e produção editorial</span>
+
+              <h1 class="title-xl">Serviços editoriais para transformar texto em livro pronto para circulação</h1>
+
+              <p class="lead">
+                A PUB Editorial atua em etapas essenciais da produção de livros, do tratamento do original ao fechamento para impressão, com atenção técnica, clareza visual e organização de fluxo.
+              </p>
+
+              <p class="muted">
+                Preparação de originais, copidesque, revisão, projeto gráfico, diagramação, revisão de provas, design de capa, fechamento para impressão, scripts e páginas com captação e atendimento integrado.
+              </p>
+
+              <div class="hero-actions">
+                <button
+                  class="btn btn-primary js-lead"
+                  type="button"
+                  data-service="ORÇAMENTO GERAL">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                    <path d="M4 6h16v12H4z"/>
+                    <path d="M4 8l8 6 8-6"/>
+                  </svg>
+                  Solicitar orçamento
+                </button>
+
+                <button
+                  class="btn btn-secondary js-ticket"
+                  type="button"
+                  data-service="ATENDIMENTO EDITORIAL">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                    <path d="M8 10h8"/>
+                    <path d="M8 14h5"/>
+                    <path d="M6 5h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-4 3v-3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
+                  </svg>
+                  Abrir atendimento
+                </button>
+              </div>
+
+              <p class="hero-note">
+                Nesta página, a coleta de leads serve para pedidos de orçamento e interesse comercial. A abertura de tickets serve para dúvidas, atendimento e encaminhamento de demandas específicas.
+              </p>
+            </div>
+
+            <aside class="hero-card" aria-label="Resumo de atuação">
+              <h2>O que a PUB Editorial pode atender</h2>
+              <ul class="hero-list">
+                <li>Livros em fase inicial, intermediária ou final de produção</li>
+                <li>Autores, editoras, selos, estúdios e profissionais editoriais</li>
+                <li>Demandas pontuais ou fluxos editoriais completos</li>
+                <li>Atendimento comercial, técnico e operacional em um só lugar</li>
+              </ul>
+
+              <button
+                class="btn btn-soft js-lead"
+                type="button"
+                data-service="PROJETO EDITORIAL">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M12 5v14"/>
+                  <path d="M5 12h14"/>
+                </svg>
+                Falar sobre um projeto
+              </button>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Indicadores">
+      <div class="wrap">
+        <div class="stats">
+          <article class="stat">
+            <div class="stat-k">Texto</div>
+            <div class="stat-v">Original</div>
+            <div class="stat-n">Tratamento editorial com foco em clareza, consistência e estrutura.</div>
+          </article>
+
+          <article class="stat">
+            <div class="stat-k">Projeto</div>
+            <div class="stat-v">Forma</div>
+            <div class="stat-n">Decisões gráficas e de diagramação alinhadas ao conteúdo e ao público.</div>
+          </article>
+
+          <article class="stat">
+            <div class="stat-k">Produção</div>
+            <div class="stat-v">Fluxo</div>
+            <div class="stat-n">Organização técnica para reduzir retrabalho e melhorar a previsibilidade.</div>
+          </article>
+
+          <article class="stat">
+            <div class="stat-k">Atendimento</div>
+            <div class="stat-v">Suporte</div>
+            <div class="stat-n">Captação de interesse e atendimento por tickets dentro da própria página.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre" aria-label="Sobre a PUB Editorial">
+      <div class="wrap">
+        <div class="panel" style="padding:32px;">
+          <div class="head">
+            <span class="tag">Sobre</span>
+            <h2 class="title-lg">Uma página para apresentar a editora, seus serviços e seus canais de atendimento</h2>
+            <p class="lead">
+              Nesta proposta, a PUB Editorial deixa de se apresentar apenas como fornecedora de scripts e passa a ocupar um lugar mais amplo: o de uma editora e prestadora de serviços editoriais, com uma estrutura clara para relacionamento comercial e atendimento.
+            </p>
+            <p class="muted">
+              O tema visual foi deslocado para uma linguagem mais editorial, mais sóbria e mais calorosa, com referência de papel, acabamento e produção de livro, em vez de uma aparência mais técnica ou mais voltada a software.
+            </p>
+          </div>
+
+          <div class="split">
+            <article class="card">
+              <h3>Coleta de leads</h3>
+              <p class="muted">
+                A coleta de leads entra em pontos de intenção comercial. Ela serve para captar interessados em orçamento, projetos, serviços, scripts, páginas e soluções editoriais.
+              </p>
+              <ul>
+                <li>Botão principal de orçamento no hero</li>
+                <li>Botões de interesse em serviços estratégicos</li>
+                <li>Contato para projeto editorial ou proposta comercial</li>
+                <li>Captação de nome, e-mail e serviço de interesse</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>Coleta de tickets</h3>
+              <p class="muted">
+                A abertura de tickets entra como canal de atendimento. Ela serve para dúvidas, problemas, solicitações de suporte, dúvidas sobre entrega, arquivos, etapas e orientação técnica.
+              </p>
+              <ul>
+                <li>Botão de atendimento no hero</li>
+                <li>Botões de abrir atendimento em serviços específicos</li>
+                <li>Mensagem detalhada com contexto do pedido</li>
+                <li>Registro organizado para acompanhamento posterior</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos" aria-label="Serviços oferecidos">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Serviços</span>
+          <h2 class="title-lg">Serviços editoriais da PUB Editorial</h2>
+          <p class="muted">
+            A proposta abaixo organiza os serviços em linguagem mais institucional, mais clara para cliente e mais compatível com o novo posicionamento visual da página.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M6 4h9l3 3v13H6z"/>
+                <path d="M9 10h6M9 14h6"/>
+              </svg>
+            </div>
+            <h3>Preparação de originais</h3>
+            <p>Tratamento inicial do texto para organizar estrutura, corrigir inconsistências, ajustar padrões e preparar o material para as próximas etapas do processo editorial.</p>
+            <div class="micro">Etapa indicada para textos ainda em consolidação editorial.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="PREPARAÇÃO DE ORIGINAIS">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 20l4-1 10-10-3-3L5 16z"/>
+                <path d="M13 6l3 3"/>
+              </svg>
+            </div>
+            <h3>Copidesque</h3>
+            <p>Refinamento do texto para melhorar clareza, fluidez, precisão e unidade de linguagem, preservando a intenção autoral e fortalecendo a legibilidade da obra.</p>
+            <div class="micro">Etapa voltada ao acabamento textual e à consistência do discurso.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="COPIDESQUE">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 12l4 4L19 6"/>
+              </svg>
+            </div>
+            <h3>Revisão</h3>
+            <p>Leitura crítica para correção gramatical, ortográfica, sintática e de padronização editorial, com atenção ao rigor formal e à coerência do conjunto.</p>
+            <div class="micro">Etapa fundamental para segurança textual e apresentação profissional.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="REVISÃO">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="4" y="5" width="16" height="14" rx="2"/>
+                <path d="M8 9h8M8 13h5"/>
+              </svg>
+            </div>
+            <h3>Projeto gráfico</h3>
+            <p>Definição visual da obra, com estudo de formato, mancha, tipografia, hierarquia, ritmo de leitura e critérios gráficos adequados ao perfil editorial do livro.</p>
+            <div class="micro">Etapa que orienta as decisões visuais do miolo e da experiência de leitura.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="PROJETO GRÁFICO">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="6" y="4" width="12" height="16" rx="2"/>
+                <path d="M9 8h6M9 12h6M9 16h4"/>
+              </svg>
+            </div>
+            <h3>Diagramação</h3>
+            <p>Construção do miolo com cuidado tipográfico, organização de páginas, distribuição equilibrada do conteúdo e atenção à legibilidade e à consistência visual.</p>
+            <div class="micro">Etapa central para transformar o texto em objeto editorial pronto para circulação.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="DIAGRAMAÇÃO">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 5h14v14H5z"/>
+                <path d="M8 9h8M8 13h6"/>
+              </svg>
+            </div>
+            <h3>Revisão de provas</h3>
+            <p>Conferência da obra já diagramada para identificar falhas textuais, visuais, técnicas e de paginação antes da aprovação final e do envio para fechamento.</p>
+            <div class="micro">Etapa final de controle de qualidade antes da produção gráfica.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="REVISÃO DE PROVAS">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10H4z"/>
+                <path d="M8 5v14"/>
+              </svg>
+            </div>
+            <h3>Design de capa</h3>
+            <p>Desenvolvimento de capas com qualidade estética e adequação técnica, considerando identidade da obra, posicionamento editorial e exigências de produção gráfica.</p>
+            <div class="micro">Etapa que une impacto visual, conceito e viabilidade técnica.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="DESIGN DE CAPA">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 4v10"/>
+                <path d="M8 10l4 4 4-4"/>
+                <path d="M4 20h16"/>
+              </svg>
+            </div>
+            <h3>Fechamento para impressão</h3>
+            <p>Preparação e conferência dos arquivos finais conforme exigências técnicas de gráfica, com atenção a formatos, sangria, marcas, exportação e integridade do PDF.</p>
+            <div class="micro">Etapa decisiva para reduzir erros no envio e na produção final.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="FECHAMENTO PARA IMPRESSÃO">Solicitar orçamento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 8h8v8H8z"/>
+                <path d="M4 12h4M16 12h4M12 4v4M12 16v4"/>
+              </svg>
+            </div>
+            <h3>Scripts e automações</h3>
+            <p>Desenvolvimento e aplicação de scripts para Adobe InDesign voltados à automação de tarefas repetitivas, padronização técnica e ganho de produtividade editorial.</p>
+            <div class="micro">Etapa indicada para fluxos recorrentes e demandas operacionais repetíveis.</div>
+            <button class="btn btn-soft js-ticket" type="button" data-service="SCRIPTS E AUTOMAÇÕES">Abrir atendimento</button>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M7 9h10M7 13h6"/>
+              </svg>
+            </div>
+            <h3>Páginas com captação e atendimento</h3>
+            <p>Criação de páginas de apresentação para serviços, produtos e projetos editoriais, com formulários integrados, coleta de leads, abertura de tickets e organização do atendimento em sistema próprio.</p>
+            <div class="micro">Serviço para quem precisa divulgar, captar interesse e centralizar atendimento.</div>
+            <button class="btn btn-soft js-lead" type="button" data-service="PÁGINAS COM CAPTAÇÃO E ATENDIMENTO">Solicitar orçamento</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona" aria-label="Como funciona">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Fluxo</span>
+          <h2 class="title-lg">Como a página pode organizar relacionamento e atendimento</h2>
+          <p class="muted">
+            Esta estrutura diferencia bem o que é interesse comercial e o que é demanda de atendimento, sem misturar orçamento com suporte.
+          </p>
+        </div>
+
+        <div class="split">
+          <article class="card">
+            <h3>Fluxo de lead</h3>
+            <ol class="steps">
+              <li>O visitante clica em um botão de orçamento ou interesse.</li>
+              <li>Abre um formulário simples de captação com nome, e-mail e serviço.</li>
+              <li>O contato entra como lead para relacionamento comercial.</li>
+              <li>A equipe avalia o pedido e responde com encaminhamento comercial.</li>
+            </ol>
+          </article>
+
+          <article class="card">
+            <h3>Fluxo de ticket</h3>
+            <ol class="steps">
+              <li>O visitante clica em um botão de atendimento.</li>
+              <li>Abre um formulário com nome, e-mail, WhatsApp opcional e mensagem.</li>
+              <li>A solicitação entra como ticket para acompanhamento organizado.</li>
+              <li>A equipe responde com retorno técnico, operacional ou editorial.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato" aria-label="Contato e atendimento">
+      <div class="wrap">
+        <div class="panel" style="padding:32px;">
+          <div class="head">
+            <span class="tag">Contato</span>
+            <h2 class="title-lg">Dois caminhos claros: orçamento ou atendimento</h2>
+            <p class="muted">
+              O ideal é manter os dois pontos de entrada visíveis, cada um com função própria. Isso ajuda a filtrar melhor a demanda e melhora o uso do sistema.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <article class="card">
+              <h3>Quero falar sobre um serviço</h3>
+              <p class="muted">
+                Use a captação de leads para pedidos de orçamento, propostas, projetos editoriais, produção gráfica, scripts ou páginas personalizadas.
+              </p>
+
+              <div class="contact-note">
+                Exemplos: orçamento para revisão, diagramação, projeto gráfico, design de capa, fechamento para impressão, scripts ou página com captação e atendimento.
+              </div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button class="btn btn-primary js-lead" type="button" data-service="ORÇAMENTO EDITORIAL">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                    <path d="M4 6h16v12H4z"/>
+                    <path d="M4 8l8 6 8-6"/>
+                  </svg>
+                  Solicitar orçamento
+                </button>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Quero abrir um atendimento</h3>
+              <p class="muted">
+                Use tickets para dúvidas, acompanhamento, orientação técnica, problemas com arquivo, esclarecimentos sobre entrega ou qualquer solicitação que precise de resposta organizada.
+              </p>
+
+              <div class="contact-note">
+                Exemplos: dúvida sobre etapa editorial, suporte em arquivo, orientação sobre fechamento, retorno sobre serviço em andamento ou pedido específico de atendimento.
+              </div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button class="btn btn-secondary js-ticket" type="button" data-service="ATENDIMENTO GERAL">
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                    <path d="M8 10h8"/>
+                    <path d="M8 14h5"/>
+                    <path d="M6 5h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-4 3v-3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
+                  </svg>
+                  Abrir atendimento
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-label="Perguntas frequentes">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">FAQ</span>
+          <h2 class="title-lg">Perguntas rápidas sobre a proposta desta página</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Esta página é de uma editora ou de um serviço técnico?</summary>
+            <p>Ela passa a ser de uma editora e prestadora de serviços editoriais. O serviço técnico continua existindo, mas agora entra como parte de um conjunto maior de soluções da PUB Editorial.</p>
+          </details>
+
+          <details>
+            <summary>Por que trocar o tema visual?</summary>
+            <p>Porque o front anterior estava muito associado a um produto técnico específico. Para representar a PUB Editorial como editora, faz mais sentido uma linguagem mais editorial, mais institucional e menos centrada em software.</p>
+          </details>
+
+          <details>
+            <summary>Leads e tickets precisam ficar no mesmo sistema?</summary>
+            <p>Sim, mas com funções diferentes. Leads cuidam da entrada comercial. Tickets cuidam do atendimento. A separação melhora a triagem e a organização do fluxo.</p>
+          </details>
+
+          <details>
+            <summary>Os scripts ainda podem aparecer na página?</summary>
+            <p>Sim. Eles podem continuar como um serviço ou até ganhar uma seção própria depois. Nesta proposta, eles entram como um dos serviços da editora, não mais como o tema central da página.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer" aria-label="Rodapé">
+      <div class="wrap">
+        <div class="footer-box">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <p class="footer-title">PUB Editorial</p>
+              <p class="footer-meta">Serviços editoriais, design e produção de livros.</p>
+            </div>
+
+            <div class="footer-links" aria-label="Links finais">
+              <a href="#topo">Início</a>
+              <a href="#sobre">Sobre</a>
+              <a href="#servicos">Serviços</a>
+              <a href="#contato">Contato</a>
+              <button type="button" class="js-lead" data-service="ORÇAMENTO GERAL">Orçamento</button>
+              <button type="button" class="js-ticket" data-service="ATENDIMENTO GERAL">Atendimento</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lead-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+    <div class="lead-dialog" role="document">
+      <div class="lead-header">
+        <h2 class="lead-title" id="lead-title">Falar com a PUB Editorial</h2>
+        <button type="button" id="lead-close" class="btn btn-secondary">Fechar</button>
+      </div>
+
+      <form id="lead-form" class="lead-body" novalidate>
+        <input type="hidden" id="lead-mode" name="mode" value="lead">
+        <input type="hidden" id="lead-service" name="service" value="">
+        <input type="hidden" id="lead-ticket-id" name="ticket_id" value="">
+
+        <div class="lead-field">
+          <label class="lead-label" for="lead-name">Nome</label>
+          <input id="lead-name" class="lead-input" name="name" placeholder="Seu nome" autocomplete="name" required>
+        </div>
+
+        <div class="lead-field">
+          <label class="lead-label" for="lead-email">E-mail</label>
+          <input id="lead-email" class="lead-input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required>
+        </div>
+
+        <div id="lead-whatsapp-wrap" class="lead-field is-hidden">
+          <label class="lead-label" for="lead-whatsapp">WhatsApp</label>
+          <input id="lead-whatsapp" class="lead-input" name="whatsapp" type="tel" placeholder="(51) 99999-9999" autocomplete="tel">
+        </div>
+
+        <div id="lead-message-wrap" class="lead-field is-hidden">
+          <label class="lead-label" for="lead-message">Mensagem</label>
+          <textarea id="lead-message" class="lead-input" name="message" placeholder="Descreva sua dúvida, pedido ou necessidade."></textarea>
+        </div>
+
+        <div class="lead-actions">
+          <button type="submit" id="lead-submit" class="btn btn-primary">Enviar</button>
+        </div>
+
+        <div id="lead-hint" class="lead-hint">Preencha seus dados para continuar.</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("lead-modal");
+    const form = document.getElementById("lead-form");
+    const closeBtn = document.getElementById("lead-close");
+    const submitBtn = document.getElementById("lead-submit");
+    const hint = document.getElementById("lead-hint");
+
+    const inputMode = document.getElementById("lead-mode");
+    const inputService = document.getElementById("lead-service");
+    const inputTicketId = document.getElementById("lead-ticket-id");
+
+    const inputName = document.getElementById("lead-name");
+    const inputEmail = document.getElementById("lead-email");
+    const inputWhatsapp = document.getElementById("lead-whatsapp");
+    const inputMessage = document.getElementById("lead-message");
+
+    const whatsappWrap = document.getElementById("lead-whatsapp-wrap");
+    const messageWrap = document.getElementById("lead-message-wrap");
+    const title = document.getElementById("lead-title");
+
+    let lastTrigger = null;
+
+    function validEmail(value){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
+    }
+
+    function normalizePhone(value){
+      return String(value || "").replace(/\D+/g, "");
+    }
+
+    function formatPhoneBR(value){
+      const digits = normalizePhone(value);
+
+      if(!digits) return "";
+
+      if(digits.length === 11){
+        return digits.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+      }
+
+      if(digits.length === 10){
+        return digits.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
+      }
+
+      return value;
+    }
+
+    function buildTicketId(service){
+      const now = new Date();
+      const yyyy = String(now.getFullYear());
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mi = String(now.getMinutes()).padStart(2, "0");
+      const ss = String(now.getSeconds()).padStart(2, "0");
+      const slug = String(service || "ATENDIMENTO")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\w\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .toUpperCase();
+      const random = Math.random().toString(36).slice(2, 6).toUpperCase();
+
+      return "TCK-" + slug + "-" + yyyy + mm + dd + "-" + hh + mi + ss + "-" + random;
+    }
+
+    function openModal(mode, service, trigger){
+      lastTrigger = trigger || document.activeElement;
+
+      inputMode.value = mode;
+      inputService.value = service || "";
+      inputTicketId.value = "";
+      inputWhatsapp.value = "";
+      inputMessage.value = "";
+
+      if(mode === "ticket"){
+        const ticketId = buildTicketId(service || "ATENDIMENTO");
+        inputTicketId.value = ticketId;
+        title.textContent = "Abrir atendimento";
+        submitBtn.textContent = "Enviar ticket";
+        whatsappWrap.classList.remove("is-hidden");
+        messageWrap.classList.remove("is-hidden");
+        hint.textContent = "Preencha seus dados e descreva a solicitação.\nO ticket será usado para organizar o atendimento.";
+      } else {
+        title.textContent = "Solicitar orçamento";
+        submitBtn.textContent = "Enviar lead";
+        whatsappWrap.classList.add("is-hidden");
+        messageWrap.classList.add("is-hidden");
+        hint.textContent = "Preencha nome e e-mail para registrar seu interesse comercial.";
+      }
+
+      modal.setAttribute("aria-hidden", "false");
+      modal.setAttribute("data-state", "open");
+      document.body.classList.add("modal-open");
+
+      setTimeout(function(){
+        inputName.focus();
+      }, 50);
+    }
+
+    function closeModal(){
+      modal.setAttribute("aria-hidden", "true");
+      modal.removeAttribute("data-state");
+      document.body.classList.remove("modal-open");
+
+      form.reset();
+      inputMode.value = "lead";
+      inputService.value = "";
+      inputTicketId.value = "";
+
+      whatsappWrap.classList.add("is-hidden");
+      messageWrap.classList.add("is-hidden");
+
+      submitBtn.disabled = false;
+      title.textContent = "Falar com a PUB Editorial";
+      hint.textContent = "Preencha seus dados para continuar.";
+
+      if(lastTrigger && typeof lastTrigger.focus === "function"){
+        lastTrigger.focus();
+      }
+
+      lastTrigger = null;
+    }
+
+    document.addEventListener("click", function(event){
+      const anchor = event.target.closest('a[href^="#"]');
+      if(anchor){
+        event.preventDefault();
+        const id = (anchor.getAttribute("href") || "").replace(/^#/, "");
+        const target = document.getElementById(id);
+        if(target){
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        return;
+      }
+
+      const leadButton = event.target.closest(".js-lead");
+      if(leadButton){
+        event.preventDefault();
+        openModal("lead", String(leadButton.getAttribute("data-service") || "").trim(), leadButton);
+        return;
+      }
+
+      const ticketButton = event.target.closest(".js-ticket");
+      if(ticketButton){
+        event.preventDefault();
+        openModal("ticket", String(ticketButton.getAttribute("data-service") || "").trim(), ticketButton);
+      }
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function(event){
+      if(event.target === modal){
+        closeModal();
+      }
+    });
+
+    window.addEventListener("keydown", function(event){
+      if(event.key === "Escape" && modal.getAttribute("data-state") === "open"){
+        closeModal();
+      }
+    });
+
+    inputWhatsapp.addEventListener("blur", function(){
+      inputWhatsapp.value = formatPhoneBR(inputWhatsapp.value);
+    });
+
+    form.addEventListener("submit", function(event){
+      event.preventDefault();
+
+      const mode = String(inputMode.value || "lead").trim();
+      const service = String(inputService.value || "").trim();
+      const name = String(inputName.value || "").trim();
+      const email = String(inputEmail.value || "").trim();
+      const whatsapp = String(inputWhatsapp.value || "").trim();
+      const message = String(inputMessage.value || "").trim();
+      const ticketId = String(inputTicketId.value || "").trim();
+
+      if(!name || !validEmail(email)){
+        hint.textContent = "Revise nome e e-mail.";
+        return;
+      }
+
+      if(mode === "ticket" && !message){
+        hint.textContent = "Escreva a mensagem do atendimento.";
+        return;
+      }
+
+      submitBtn.disabled = true;
+
+      if(mode === "ticket"){
+        hint.textContent =
+          "Ticket pronto para integração.\n" +
+          "ID: " + ticketId + "\n" +
+          "Serviço: " + service + "\n" +
+          "Nome: " + name + "\n" +
+          "E-mail: " + email + "\n" +
+          "WhatsApp: " + normalizePhone(whatsapp) + "\n" +
+          "Mensagem: " + message;
+
+        setTimeout(function(){
+          submitBtn.disabled = false;
+          alert("Exemplo de ticket capturado:\\n\\nID: " + ticketId + "\\nServiço: " + service + "\\nNome: " + name + "\\nE-mail: " + email);
+          closeModal();
+        }, 200);
+
+        return;
+      }
+
+      hint.textContent =
+        "Lead pronto para integração.\n" +
+        "Serviço: " + service + "\n" +
+        "Nome: " + name + "\n" +
+        "E-mail: " + email;
+
+      setTimeout(function(){
+        submitBtn.disabled = false;
+        alert("Exemplo de lead capturado:\\n\\nServiço: " + service + "\\nNome: " + name + "\\nE-mail: " + email);
+        closeModal();
+      }, 200);
+    });
+  </script>
+</body>
+</html>
