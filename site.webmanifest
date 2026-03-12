@@ -1,0 +1,21 @@
+{
+  "name": "PUB Editorial",
+  "short_name": "PUB Editorial",
+  "lang": "pt-BR",
+  "start_url": "/edicao-de-livros/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0a1222",
+  "icons": [
+    {
+      "src": "/scripts-indesign/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/scripts-indesign/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
