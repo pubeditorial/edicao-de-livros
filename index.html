@@ -3,237 +3,615 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0f172a" />
-  <meta name="robots" content="noindex,nofollow,noarchive" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>PUBPANEL 2.0 | PUB Editorial</title>
+  <meta name="theme-color" content="#f6f2ec" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:large" />
+  <meta name="author" content="PUB Editorial" />
+  <meta name="description" content="PUB Editorial: livros, serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, automações e atendimento." />
+
+  <title>PUB Editorial | Livros, serviços editoriais e produção de publicações</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="PUB Editorial" />
+  <meta property="og:title" content="PUB Editorial | Livros, serviços editoriais e produção de publicações" />
+  <meta property="og:description" content="Livros, serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, automações e atendimento." />
+  <meta property="og:url" content="https://pubeditorial.github.io/" />
+  <meta property="og:image" content="https://pubeditorial.github.io/assets/pub-editorial-social.jpg" />
+  <meta property="og:image:alt" content="PUB Editorial, livros e serviços editoriais" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PUB Editorial | Livros, serviços editoriais e produção de publicações" />
+  <meta name="twitter:description" content="Livros, serviços editoriais, projeto gráfico, diagramação, revisão, design de capa, fechamento para impressão, automações e atendimento." />
+  <meta name="twitter:image" content="https://pubeditorial.github.io/assets/pub-editorial-social.jpg" />
 
   <style>
     :root{
-      --bg:#f7f8fb;
-      --panel:#ffffff;
-      --panel-soft:#f8fafc;
-      --fg:#0f172a;
-      --muted:#526174;
-      --line:#dbe4ee;
-      --blue:#1473e6;
-      --green:#12805c;
-      --amber:#b76a00;
-      --red:#d31510;
-      --radius:16px;
-      --shadow:0 10px 28px rgba(15,23,42,.06);
-      --wrap:1120px;
+      --bg:#f6f2ec;
+      --paper:#fffdfa;
+      --paper-2:#f1e7db;
+      --ink:#231913;
+      --text:#3c2f27;
+      --muted:#75675c;
+      --line:#dfd1c4;
+      --line-strong:#cab39a;
+      --brand:#8c5a33;
+      --brand-2:#b67849;
+      --accent:#6f4329;
+      --accent-soft:#eee0d1;
+      --dark:#201712;
+      --success:#256b4e;
+      --danger:#b42318;
+      --radius-xl:30px;
+      --radius-lg:22px;
+      --radius-md:16px;
+      --shadow:0 18px 52px rgba(35,25,19,.07);
+      --shadow-soft:0 10px 26px rgba(35,25,19,.05);
+      --wrap:1140px;
+      --s1:8px;
+      --s2:12px;
+      --s3:16px;
+      --s4:20px;
+      --s5:28px;
+      --s6:36px;
+      --s7:48px;
+      --s8:72px;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
+      min-height:100%;
+      background:
+        radial-gradient(900px 240px at 10% 0%, rgba(182,120,73,.07), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(111,67,41,.05), transparent 60%),
+        var(--bg);
+      color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--fg);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
     }
 
+    a{color:inherit;text-decoration:none}
     button,input,select,textarea{font:inherit}
-    :focus-visible{outline:3px solid rgba(20,115,230,.24);outline-offset:2px}
+    img{max-width:100%;display:block}
+
+    :focus-visible{
+      outline:3px solid rgba(140,90,51,.22);
+      outline-offset:3px;
+      border-radius:12px;
+    }
+
+    .skip{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+      background:#fff;
+      color:#000;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:12px;
+    }
+
+    .skip:focus{
+      left:18px;
+      top:18px;
+      width:auto;
+      height:auto;
+      z-index:9999;
+    }
 
     .wrap{
       width:100%;
       max-width:var(--wrap);
       margin:0 auto;
-      padding:20px;
-      display:grid;
-      gap:16px;
+      padding-left:24px;
+      padding-right:24px;
+    }
+
+    .section{
+      padding:var(--s8) 0;
+      scroll-margin-top:88px;
     }
 
     .panel{
-      background:var(--panel);
       border:1px solid var(--line);
-      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,253,250,.98), rgba(255,250,245,.94));
+      border-radius:var(--radius-xl);
       box-shadow:var(--shadow);
-      padding:18px;
     }
 
-    .top{
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .tag::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    }
+
+    .title-xl{
+      margin:0;
+      font-size:clamp(38px,4.6vw,68px);
+      line-height:1;
+      letter-spacing:-.055em;
+      font-weight:1000;
+      max-width:13ch;
+    }
+
+    .title-lg{
+      margin:0;
+      font-size:clamp(28px,3vw,42px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:980;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--text);
+      font-size:17px;
+      line-height:1.8;
+      max-width:60ch;
+    }
+
+    .muted{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(246,242,236,.84);
+      border-bottom:1px solid rgba(202,179,154,.48);
+    }
+
+    .header-inner{
+      min-height:76px;
       display:flex;
+      align-items:center;
       justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
+      gap:18px;
       flex-wrap:wrap;
     }
 
-    .title{
-      font-size:28px;
-      font-weight:900;
-      letter-spacing:-.03em;
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
     }
 
-    .sub{
-      margin-top:4px;
+    .brand-title{
+      font-size:24px;
+      font-weight:1000;
+      letter-spacing:-.04em;
+      line-height:1.1;
+    }
+
+    .brand-sub{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.55;
     }
 
-    .section-title{
-      margin:0 0 6px;
-      font-size:20px;
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      padding:10px 13px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--text);
+      border:1px solid transparent;
+    }
+
+    .nav a:hover{
+      background:rgba(255,255,255,.68);
+      border-color:var(--line);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:14px 18px;
+      border-radius:16px;
+      border:1px solid transparent;
+      cursor:pointer;
       font-weight:900;
+      letter-spacing:-.01em;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+
+    .btn svg{
+      width:18px;
+      height:18px;
+      display:block;
+      flex:0 0 auto;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--brand) 0%, var(--brand-2) 100%);
+      border-color:transparent;
+      color:#fff;
+      box-shadow:0 16px 36px rgba(140,90,51,.22);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      border-color:var(--line);
+      color:var(--ink);
+    }
+
+    .btn-soft{
+      background:var(--accent-soft);
+      border-color:#dfc8b4;
+      color:var(--accent);
+    }
+
+    .btn-full{width:100%}
+
+    .hero{
+      padding-top:28px;
+    }
+
+    .hero-box{
+      position:relative;
+      overflow:hidden;
+      padding:34px;
+      border:1px solid rgba(202,179,154,.72);
+      border-radius:36px;
+      background:
+        radial-gradient(680px 240px at 0% 0%, rgba(182,120,73,.11), transparent 60%),
+        radial-gradient(680px 240px at 100% 0%, rgba(111,67,41,.08), transparent 60%),
+        linear-gradient(180deg, rgba(255,252,248,.98), rgba(249,242,233,.95));
+      box-shadow:0 26px 70px rgba(35,25,19,.10);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      justify-content:center;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .hero-note{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+      max-width:56ch;
+    }
+
+    .hero-card{
+      align-self:center;
+      border:1px solid rgba(202,179,154,.85);
+      border-radius:28px;
+      background:rgba(255,253,249,.94);
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:14px;
+    }
+
+    .hero-card h2{
+      margin:0;
+      font-size:18px;
+      line-height:1.2;
       letter-spacing:-.02em;
     }
 
-    .section-text{
+    .hero-list{
       margin:0;
-      color:var(--muted);
+      padding-left:18px;
+      display:grid;
+      gap:10px;
+      color:var(--text);
       font-size:14px;
       line-height:1.6;
     }
 
-    .row{
+    .head{
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .stack{
-      display:grid;
+      flex-direction:column;
       gap:12px;
-      min-width:0;
+      max-width:820px;
+      margin:0 0 28px;
     }
 
-    .btn{
-      min-height:48px;
-      padding:12px 16px;
-      border-radius:12px;
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .card{
       border:1px solid var(--line);
-      background:#fff;
-      color:var(--fg);
-      font-weight:800;
-      cursor:pointer;
+      border-radius:26px;
+      background:rgba(255,253,250,.94);
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      display:grid;
+      gap:14px;
+      min-height:100%;
     }
 
-    .btn[disabled]{
-      opacity:.55;
-      cursor:not-allowed;
+    .card h3{
+      margin:0;
+      font-size:22px;
+      line-height:1.15;
+      letter-spacing:-.03em;
+      font-weight:980;
     }
 
-    .btn-primary{
-      background:var(--blue);
-      border-color:var(--blue);
-      color:#fff;
-    }
-
-    .btn-danger{
-      border-color:#fecaca;
-      color:var(--red);
-      background:#fff;
-    }
-
-    .banner{
-      display:none;
-      padding:14px 16px;
-      border-radius:12px;
+    .card p{
+      margin:0;
+      color:var(--text);
       font-size:14px;
-      line-height:1.5;
-      border:1px solid var(--line);
-      background:#fff;
+      line-height:1.72;
     }
 
-    .banner.show{display:block}
-    .banner.ok{
-      background:rgba(18,128,92,.05);
-      border-color:rgba(18,128,92,.18);
-    }
-    .banner.warn{
-      background:rgba(183,106,0,.05);
-      border-color:rgba(183,106,0,.18);
-    }
-    .banner.error{
-      background:rgba(211,21,16,.05);
-      border-color:rgba(211,21,16,.18);
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      gap:14px;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-    }
-
-    .grid-4{
+    .books-grid{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .book{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.94);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .book-cover{
+      aspect-ratio:3 / 4.2;
+      background:#eadfce;
+    }
+
+    .book-cover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .book-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .book-tag{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .book h3{
+      margin:0;
+      font-size:19px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:980;
+    }
+
+    .book p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .posts-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .post{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.94);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .post-media{
+      aspect-ratio:4 / 3;
+      background:#eadfce;
+    }
+
+    .post-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .post-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .post-meta{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .post h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:980;
+    }
+
+    .post p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.68;
+    }
+
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .video-card{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.94);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .video-frame{
+      aspect-ratio:16 / 9;
+      background:#1d1611;
+    }
+
+    .video-frame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    .video-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .video-body h3{
+      margin:0;
+      font-size:19px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:980;
+    }
+
+    .video-body p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.68;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .service{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,253,250,.92);
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height:100%;
+    }
+
+    .service h3{
+      margin:0;
+      font-size:20px;
+      line-height:1.2;
+      letter-spacing:-.02em;
+      font-weight:950;
+    }
+
+    .service p{
+      margin:0;
+      color:var(--text);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .service .micro{
+      margin-top:auto;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.6;
+    }
+
+    .cta-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:18px;
+    }
+
+    .form-grid{
+      display:grid;
       gap:14px;
     }
-
-    .metric{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:16px;
-      background:#fff;
-    }
-
-    .metric .k{
-      font-size:12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.06em;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-
-    .metric .v{
-      font-size:28px;
-      font-weight:900;
-      line-height:1;
-      letter-spacing:-.03em;
-    }
-
-    .metric .n{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
-    }
-
-    .statusline{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 11px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      font-size:12px;
-      font-weight:900;
-      background:#fff;
-    }
-
-    .pill::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:99px;
-      background:currentColor;
-    }
-
-    .ok-pill{color:var(--green); background:rgba(18,128,92,.06); border-color:rgba(18,128,92,.18)}
-    .warn-pill{color:var(--amber); background:rgba(183,106,0,.06); border-color:rgba(183,106,0,.18)}
-    .error-pill{color:var(--red); background:rgba(211,21,16,.06); border-color:rgba(211,21,16,.18)}
-    .muted-pill{color:#64748b}
 
     .field{
       display:grid;
@@ -242,1257 +620,787 @@
 
     .label{
       font-size:12px;
-      color:var(--muted);
+      font-weight:900;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      letter-spacing:.06em;
-      font-weight:800;
+      color:var(--muted);
     }
 
-    .input,.textarea,.select{
+    .input,
+    .select,
+    .textarea{
       width:100%;
-      min-height:46px;
+      min-height:50px;
+      padding:13px 14px;
+      border-radius:16px;
       border:1px solid var(--line);
-      border-radius:12px;
-      padding:11px 13px;
-      background:#fff;
-      color:var(--fg);
+      background:#fffdfa;
+      color:var(--ink);
+      line-height:1.4;
     }
 
     .textarea{
-      min-height:120px;
+      min-height:130px;
       resize:vertical;
     }
 
-    .empty{
-      padding:16px;
-      border:1px dashed var(--line);
-      border-radius:12px;
-      color:var(--muted);
-      background:#fff;
+    .feedback{
+      min-height:22px;
+      font-size:13px;
       line-height:1.6;
-      font-size:14px;
+      color:var(--muted);
+      white-space:pre-line;
     }
 
-    .list{
-      display:grid;
+    .feedback.ok{color:var(--success)}
+    .feedback.error{color:var(--danger)}
+
+    .footer{
+      padding:0 0 34px;
+    }
+
+    .footer-box{
+      border:1px solid rgba(111,67,41,.16);
+      border-radius:26px;
+      background:linear-gradient(180deg, #2b2018, #1f1711);
+      color:#f7efe7;
+      box-shadow:0 22px 60px rgba(35,25,19,.16);
+      padding:18px 22px;
+    }
+
+    .footer-grid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:baseline;
       gap:10px;
+      flex-wrap:wrap;
     }
 
-    .item{
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px;
-      background:#fff;
-    }
-
-    .item-button{
-      width:100%;
-      text-align:left;
-      cursor:pointer;
-    }
-
-    .item-title{
-      font-weight:900;
+    .footer-title{
+      margin:0;
       font-size:15px;
-      line-height:1.35;
+      font-weight:950;
+      letter-spacing:-.01em;
     }
 
-    .item-sub{
-      margin-top:4px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
-    }
-
-    .item-meta{
-      margin-top:8px;
-      color:var(--muted);
+    .footer-meta{
+      margin:0;
+      color:rgba(247,239,231,.72);
       font-size:12px;
-      line-height:1.5;
     }
 
-    .item.active{
-      border-color:rgba(20,115,230,.35);
-      box-shadow:0 0 0 3px rgba(20,115,230,.08);
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
     }
 
-    .code{
-      width:100%;
-      padding:12px;
-      border-radius:12px;
-      background:#0f172a;
-      color:#e2e8f0;
-      font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;
-      white-space:pre-wrap;
-      word-break:break-word;
-      overflow:auto;
-    }
-
-    details summary{
-      cursor:pointer;
-      font-weight:800;
-      list-style:none;
-    }
-
-    details summary::-webkit-details-marker{display:none}
-
-    .soft{
-      background:var(--panel-soft);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px;
-    }
-
-    .micro{
-      color:var(--muted);
+    .footer-links a{
       font-size:13px;
-      line-height:1.55;
+      color:rgba(247,239,231,.92);
     }
 
-    @media (max-width:980px){
-      .grid-2,.grid-3,.grid-4{
+    .hidden{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px !important;
+      height:1px !important;
+      overflow:hidden !important;
+    }
+
+    @media (max-width:1080px){
+      .hero-grid,
+      .split,
+      .cta-grid{
+        grid-template-columns:1fr;
+      }
+
+      .books-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .posts-grid,
+      .video-grid,
+      .services{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:760px){
+      .wrap{padding-left:18px;padding-right:18px}
+      .section{padding:48px 0}
+      .header-inner{padding:10px 0}
+      .hero-box{padding:22px}
+      .hero-actions{display:grid}
+      .hero-actions .btn{width:100%}
+      .books-grid,
+      .posts-grid,
+      .video-grid,
+      .services{
         grid-template-columns:1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="panel">
-      <div class="top">
-        <div>
-          <div class="title">PUBPANEL 2.0</div>
-          <div class="sub">PUB Editorial · leads, orçamentos, tickets e fila de emails.</div>
-        </div>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-        <div class="row">
-          <button class="btn" id="btn-refresh">Atualizar</button>
-        </div>
+  <header class="header" aria-label="Cabeçalho">
+    <div class="wrap header-inner">
+      <div class="brand" aria-label="Marca">
+        <div class="brand-title">PUB Editorial</div>
+        <div class="brand-sub">Livros, serviços editoriais e produção de publicações</div>
       </div>
 
-      <div class="statusline">
-        <span id="pill-overall" class="pill muted-pill">Sistema —</span>
-        <span id="pill-core" class="pill muted-pill">Core —</span>
-        <span id="pill-mail" class="pill muted-pill">Mailer —</span>
-        <span id="pill-care" class="pill muted-pill">Atendimento —</span>
-      </div>
-    </section>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#livros">Livros</a>
+        <a href="#publicacoes">Publicações</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-    <div id="banner" class="banner"></div>
+  <main id="conteudo">
+    <section class="section hero" id="topo" aria-label="Apresentação">
+      <div class="wrap">
+        <div class="hero-box">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="tag">Editora e produção editorial</span>
+              <h1 class="title-xl">Livros, projetos editoriais e serviços para publicar com mais clareza e consistência</h1>
+              <p class="lead">
+                A PUB Editorial reúne publicação, produção editorial e soluções para autores, editoras, selos e equipes que precisam transformar texto em publicação com qualidade.
+              </p>
+              <p class="muted">
+                Livros, projeto gráfico, diagramação, revisão, capa, fechamento para impressão, scripts e atendimento em uma mesma presença pública.
+              </p>
 
-    <section class="panel">
-      <h2 class="section-title">Conexão</h2>
-      <p class="section-text">Informe a URL do Web App e o token administrativo.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#orcamento">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 8l8 6 8-6"/></svg>
+                  Solicitar orçamento
+                </a>
+                <a class="btn btn-secondary" href="#atendimento">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 10h8"/><path d="M8 14h5"/><path d="M6 5h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4l-4 3v-3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+                  Abrir atendimento
+                </a>
+              </div>
 
-      <div style="height:12px"></div>
-
-      <div class="grid-2">
-        <div class="field">
-          <label class="label" for="api-base">URL do Web App</label>
-          <input id="api-base" class="input" placeholder="https://script.google.com/macros/s/.../exec" />
-          <div class="row">
-            <button class="btn" id="btn-save-api-base">Salvar URL</button>
-            <button class="btn btn-danger" id="btn-clear-api-base">Limpar URL</button>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for="admin-token">Token administrativo</label>
-          <input id="admin-token" class="input" type="password" placeholder="Token administrativo" />
-          <div class="row">
-            <button class="btn" id="btn-apply-token">Aplicar token</button>
-            <button class="btn btn-danger" id="btn-clear-token">Limpar token</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2 class="section-title">Resumo</h2>
-      <p class="section-text">Visão rápida do fluxo comercial e do atendimento.</p>
-
-      <div style="height:12px"></div>
-
-      <div class="grid-4">
-        <div class="metric">
-          <div class="k">Leads</div>
-          <div class="v" id="sum-leads">—</div>
-          <div class="n">Contatos e interesses recebidos.</div>
-        </div>
-
-        <div class="metric">
-          <div class="k">Contatos</div>
-          <div class="v" id="sum-contacts">—</div>
-          <div class="n">Base consolidada de relacionamento.</div>
-        </div>
-
-        <div class="metric">
-          <div class="k">Tickets com atenção</div>
-          <div class="v" id="sum-care-attention">—</div>
-          <div class="n">Abertos, aguardando usuário ou respondidos.</div>
-        </div>
-
-        <div class="metric">
-          <div class="k">Emails em fila</div>
-          <div class="v" id="sum-mail-queue">—</div>
-          <div class="n">Mensagens aguardando processamento.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="top">
-        <div>
-          <h2 class="section-title">Atendimento agora</h2>
-          <p class="section-text">O painel prioriza o ticket mais urgente.</p>
-        </div>
-        <div class="row">
-          <button class="btn" id="btn-refresh-care">Atualizar atendimento</button>
-        </div>
-      </div>
-
-      <div style="height:12px"></div>
-
-      <div class="grid-2">
-        <div class="stack">
-          <div class="soft">
-            <div class="label">Tickets</div>
-            <div class="micro">Clique em um ticket para abrir o histórico e responder.</div>
-          </div>
-          <div id="care-list" class="empty">Nenhum ticket carregado.</div>
-        </div>
-
-        <div class="stack">
-          <div class="soft">
-            <div class="label">Ticket atual</div>
-            <div id="selected-ticket-summary" class="micro">Nenhum ticket selecionado.</div>
-          </div>
-
-          <div class="soft">
-            <div class="label">Histórico</div>
-            <div id="selected-ticket-messages" class="empty">Nenhuma mensagem carregada.</div>
-          </div>
-
-          <div class="field">
-            <label class="label" for="reply-message">Resposta</label>
-            <textarea id="reply-message" class="textarea" placeholder="Escreva uma resposta simples e direta"></textarea>
-          </div>
-
-          <div class="grid-2">
-            <div class="field">
-              <label class="label" for="reply-status">Situação depois da resposta</label>
-              <select id="reply-status" class="select">
-                <option value="ANSWERED">Respondido</option>
-                <option value="WAITING_USER">Aguardando usuário</option>
-                <option value="CLOSED">Fechado</option>
-              </select>
+              <p class="hero-note">
+                O formulário de orçamento envia uma solicitação comercial e também abre o registro de acompanhamento. O formulário de atendimento é voltado a dúvidas, suporte e retorno.
+              </p>
             </div>
 
-            <div class="field">
-              <label class="label" for="reply-channel">Canal</label>
-              <select id="reply-channel" class="select">
-                <option value="MANUAL">Manual</option>
-                <option value="EMAIL">Email</option>
-              </select>
-              <div class="micro">Manual registra a resposta no ticket. Email registra a resposta e também envia mensagem ao contato.</div>
+            <aside class="hero-card" aria-label="Resumo de atuação">
+              <h2>Atuação da PUB Editorial</h2>
+              <ul class="hero-list">
+                <li>Publicação e apresentação de livros</li>
+                <li>Serviços editoriais por etapa ou em fluxo completo</li>
+                <li>Atendimento para autores, editoras e leitores</li>
+                <li>Soluções técnicas para produção editorial</li>
+              </ul>
+              <a class="btn btn-soft" href="#servicos">Ver serviços</a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre" aria-label="Sobre">
+      <div class="wrap">
+        <div class="panel" style="padding:32px">
+          <div class="head">
+            <span class="tag">Sobre</span>
+            <h2 class="title-lg">Uma página pública de editora, conectada ao sistema da PUB Editorial</h2>
+            <p class="lead">
+              Esta página apresenta a PUB Editorial de forma pública e institucional, mas já conversa com o sistema de CRM, atendimento e registro de contatos.
+            </p>
+            <p class="muted">
+              O visitante encontra livros, publicações, vídeos, serviços, pedido de orçamento, download de materiais e abertura de atendimento, tudo com estrutura compatível com o back-end do PUB CORE.
+            </p>
+          </div>
+
+          <div class="split">
+            <article class="card">
+              <h3>Para projetos editoriais</h3>
+              <p>
+                A página permite apresentar catálogo, serviços e pontos de contato em uma linguagem pública de editora, sem parecer painel técnico.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Para relacionamento</h3>
+              <p>
+                O front separa três fluxos: lead de material/script, ticket de atendimento e orçamento com abertura comercial e de acompanhamento.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="livros" aria-label="Livros">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Livros</span>
+          <h2 class="title-lg">Títulos, coleções e destaques da editora</h2>
+          <p class="muted">
+            Espaço para mostrar catálogo, lançamentos e obras em circulação.
+          </p>
+        </div>
+
+        <div class="books-grid">
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-01.jpg" alt="Capa do livro Caminhos do Texto" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Lançamento</div>
+              <h3>Caminhos do Texto</h3>
+              <p>Um título sobre escrita, edição e organização de linguagem em processos editoriais.</p>
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-02.jpg" alt="Capa do livro Oficina de Leitura" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Catálogo</div>
+              <h3>Oficina de Leitura</h3>
+              <p>Projeto voltado à formação de leitores e à experiência de leitura na página.</p>
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-03.jpg" alt="Capa do livro Cidade Impressa" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Projeto gráfico</div>
+              <h3>Cidade Impressa</h3>
+              <p>Exemplo de obra com diálogo entre texto, imagem, ritmo gráfico e composição.</p>
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-cover">
+              <img src="assets/livro-04.jpg" alt="Capa do livro Caderno Editorial" />
+            </div>
+            <div class="book-body">
+              <div class="book-tag">Coleção</div>
+              <h3>Caderno Editorial</h3>
+              <p>Conjunto editorial com identidade gráfica contínua e coerência de série.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publicacoes" aria-label="Publicações">
+      <div class="wrap">
+        <div class="panel" style="padding:32px">
+          <div class="head">
+            <span class="tag">Publicações</span>
+            <h2 class="title-lg">Posts e imagens da editora</h2>
+            <p class="muted">
+              Área para destaques de lançamentos, bastidores, capas, miolo, coleção e circulação dos livros.
+            </p>
+          </div>
+
+          <div class="posts-grid">
+            <article class="post">
+              <div class="post-media">
+                <img src="assets/post-01.jpg" alt="Post sobre lançamento editorial" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">Lançamento</div>
+                <h3>Um novo título chega ao catálogo</h3>
+                <p>Destaque visual de lançamento, com capa, chamada curta e encaminhamento para contato.</p>
+              </div>
+            </article>
+
+            <article class="post">
+              <div class="post-media">
+                <img src="assets/post-02.jpg" alt="Post sobre bastidores de produção editorial" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">Bastidores</div>
+                <h3>Do original à prova</h3>
+                <p>Registro do percurso editorial, com leitura, marcação, composição e fechamento.</p>
+              </div>
+            </article>
+
+            <article class="post">
+              <div class="post-media">
+                <img src="assets/post-03.jpg" alt="Post sobre capa e projeto gráfico" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">Projeto gráfico</div>
+                <h3>Forma editorial e leitura</h3>
+                <p>Espaço para mostrar capa, tipografia, ritmo visual e soluções de página.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="videos" aria-label="Vídeos">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Vídeos</span>
+          <h2 class="title-lg">Vídeos sobre livros, produção e processos editoriais</h2>
+          <p class="muted">
+            Área para apresentar obras, bastidores, fluxos de trabalho e conteúdos institucionais.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/V4WoT7v7f1s?rel=0&modestbranding=1" title="Vídeo de apresentação editorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Apresentação editorial</h3>
+              <p>Vídeo para apresentar linha editorial, projeto ou obra em destaque.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/K0kM5cEKGWc?rel=0&modestbranding=1" title="Vídeo sobre capa e projeto gráfico" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Capa e linguagem visual</h3>
+              <p>Espaço para mostrar composição, projeto gráfico e decisões de apresentação.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/t6QHOl6996U?rel=0&modestbranding=1" title="Vídeo sobre processo editorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="video-body">
+              <h3>Processo editorial</h3>
+              <p>Apresentação de preparação, revisão, diagramação, fechamento e soluções técnicas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos" aria-label="Serviços">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Serviços</span>
+          <h2 class="title-lg">Serviços editoriais e soluções da PUB Editorial</h2>
+          <p class="muted">
+            Os mesmos itens exibidos aqui são os itens aceitos pelo orçamento do PUB CORE.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service"><h3>Preparação de originais</h3><p>Organização do texto para as próximas etapas do processo editorial.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Copidesque</h3><p>Refino de clareza, unidade de linguagem e fluidez do texto.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Revisão</h3><p>Correção gramatical, ortográfica, sintática e de padronização editorial.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Projeto gráfico</h3><p>Definição visual da obra, da leitura e da organização de página.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Diagramação</h3><p>Construção do miolo com consistência gráfica e legibilidade.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Revisão de provas</h3><p>Conferência final da obra já diagramada antes da aprovação.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Design de capa</h3><p>Desenvolvimento de capa com impacto visual e adequação técnica.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Fechamento para impressão</h3><p>Preparação dos arquivos finais conforme exigências de gráfica.</p><div class="micro">Item aceito no orçamento.</div></article>
+          <article class="service"><h3>Scripts e automações</h3><p>Soluções para Adobe InDesign com foco em produtividade editorial.</p><div class="micro">Aceito em orçamento e atendimento.</div></article>
+          <article class="service"><h3>Páginas com captação e atendimento</h3><p>Criação de páginas conectadas a lead, ticket e relacionamento.</p><div class="micro">Item aceito no orçamento.</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato" aria-label="Contato">
+      <div class="wrap">
+        <div class="head">
+          <span class="tag">Contato</span>
+          <h2 class="title-lg">Três entradas públicas, ligadas ao mesmo sistema</h2>
+          <p class="muted">
+            Download de material, orçamento e atendimento usam ações diferentes no back-end, conforme o contrato do PUB CORE.
+          </p>
+        </div>
+
+        <div class="cta-grid">
+          <article class="card" id="downloads">
+            <h3>Baixar materiais e scripts</h3>
+            <p>Fluxo de lead para materiais e downloads vinculados aos itens de script aceitos pelo core.</p>
+
+            <form id="lead-form" class="form-grid" novalidate>
+              <div class="field">
+                <label class="label" for="lead-name">Nome</label>
+                <input id="lead-name" class="input" name="name" autocomplete="name" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="lead-email">E-mail</label>
+                <input id="lead-email" class="input" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="lead-item">Material</label>
+                <select id="lead-item" class="select" name="item" required>
+                  <option value="PACOTE GRATUITO">Pacote gratuito</option>
+                  <option value="CAPA MASTER">Capa Master</option>
+                  <option value="MIOLO MASTER">Miolo Master</option>
+                  <option value="MANCHA MASTER">Mancha Master</option>
+                  <option value="VERTICAL MASTER">Vertical Master</option>
+                  <option value="BASELINE MASTER">Baseline Master</option>
+                  <option value="GUIA DE USO">Guia de uso</option>
+                </select>
+              </div>
+
+              <input id="lead-file-id" type="hidden" name="file_id" value="18OVi6Vxb1VDQlbq1mlkFz2n5Oxy76vFE" />
+              <input class="hidden" name="company" autocomplete="off" tabindex="-1" />
+
+              <button type="submit" class="btn btn-primary btn-full">Receber link</button>
+              <div id="lead-feedback" class="feedback">Preencha nome, e-mail e selecione o material.</div>
+            </form>
+          </article>
+
+          <article class="card" id="orcamento">
+            <h3>Solicitar orçamento</h3>
+            <p>Este fluxo usa <strong>capture_quote</strong>. No core, ele já gera lead e ticket ao mesmo tempo.</p>
+
+            <form id="quote-form" class="form-grid" novalidate>
+              <div class="field">
+                <label class="label" for="quote-name">Nome</label>
+                <input id="quote-name" class="input" name="name" autocomplete="name" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="quote-email">E-mail</label>
+                <input id="quote-email" class="input" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="quote-whatsapp">WhatsApp</label>
+                <input id="quote-whatsapp" class="input" name="whatsapp" type="tel" autocomplete="tel" placeholder="(51) 99999-9999" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="quote-item">Serviço</label>
+                <select id="quote-item" class="select" name="item" required></select>
+              </div>
+
+              <div class="field">
+                <label class="label" for="quote-message">Mensagem</label>
+                <textarea id="quote-message" class="textarea" name="message" required placeholder="Descreva o projeto, a etapa do trabalho e o que você precisa orçar."></textarea>
+              </div>
+
+              <input class="hidden" name="company" autocomplete="off" tabindex="-1" />
+
+              <button type="submit" class="btn btn-primary btn-full">Enviar orçamento</button>
+              <div id="quote-feedback" class="feedback">O orçamento será enviado como solicitação comercial com abertura de acompanhamento.</div>
+            </form>
+          </article>
+
+          <article class="card" id="atendimento">
+            <h3>Abrir atendimento</h3>
+            <p>Este fluxo usa <strong>capture_ticket</strong>, para dúvidas, suporte, orientação e acompanhamento.</p>
+
+            <form id="ticket-form" class="form-grid" novalidate>
+              <div class="field">
+                <label class="label" for="ticket-name">Nome</label>
+                <input id="ticket-name" class="input" name="name" autocomplete="name" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="ticket-email">E-mail</label>
+                <input id="ticket-email" class="input" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="ticket-whatsapp">WhatsApp</label>
+                <input id="ticket-whatsapp" class="input" name="whatsapp" type="tel" autocomplete="tel" placeholder="(51) 99999-9999" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="ticket-item">Assunto</label>
+                <select id="ticket-item" class="select" name="item" required></select>
+              </div>
+
+              <div class="field">
+                <label class="label" for="ticket-message">Mensagem</label>
+                <textarea id="ticket-message" class="textarea" name="message" required placeholder="Descreva sua dúvida, problema, solicitação ou contexto."></textarea>
+              </div>
+
+              <input class="hidden" name="company" autocomplete="off" tabindex="-1" />
+
+              <button type="submit" class="btn btn-secondary btn-full">Enviar atendimento</button>
+              <div id="ticket-feedback" class="feedback">Use atendimento para dúvidas, suporte, retorno e orientação técnica ou editorial.</div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer" aria-label="Rodapé">
+      <div class="wrap">
+        <div class="footer-box">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <p class="footer-title">PUB Editorial</p>
+              <p class="footer-meta">Livros, serviços editoriais e produção de publicações.</p>
+            </div>
+
+            <div class="footer-links" aria-label="Links finais">
+              <a href="#topo">Início</a>
+              <a href="#livros">Livros</a>
+              <a href="#servicos">Serviços</a>
+              <a href="#orcamento">Orçamento</a>
+              <a href="#atendimento">Atendimento</a>
             </div>
           </div>
-
-          <div class="row">
-            <button class="btn btn-primary" id="btn-reply-ticket">Responder ticket</button>
-          </div>
         </div>
       </div>
     </section>
-
-    <section class="panel">
-      <div class="top">
-        <div>
-          <h2 class="section-title">Relacionamento</h2>
-          <p class="section-text">Leads e contatos mais recentes.</p>
-        </div>
-        <div class="row">
-          <button class="btn" id="btn-load-relationship">Atualizar relacionamento</button>
-        </div>
-      </div>
-
-      <div style="height:12px"></div>
-
-      <div class="grid-2">
-        <div>
-          <div class="label" style="margin-bottom:10px">Leads recentes</div>
-          <div id="leads-box" class="empty">Nenhum lead carregado.</div>
-        </div>
-
-        <div>
-          <div class="label" style="margin-bottom:10px">Contatos recentes</div>
-          <div id="contacts-box" class="empty">Nenhum contato carregado.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="top">
-        <div>
-          <h2 class="section-title">Mailer</h2>
-          <p class="section-text">Fila, processamento e mensagem manual.</p>
-        </div>
-        <div class="row">
-          <button class="btn" id="btn-mail-refresh">Atualizar mailer</button>
-          <button class="btn btn-primary" id="btn-mail-process">Processar fila</button>
-        </div>
-      </div>
-
-      <div style="height:12px"></div>
-
-      <div class="grid-3">
-        <div class="metric">
-          <div class="k">Fila</div>
-          <div class="v" id="mail-queue-count">—</div>
-          <div class="n">Emails pendentes.</div>
-        </div>
-
-        <div class="metric">
-          <div class="k">Log</div>
-          <div class="v" id="mail-log-count">—</div>
-          <div class="n">Envios registrados.</div>
-        </div>
-
-        <div class="metric">
-          <div class="k">Supressões</div>
-          <div class="v" id="mail-suppressions-count">—</div>
-          <div class="n">Emails bloqueados.</div>
-        </div>
-      </div>
-
-      <div style="height:14px"></div>
-
-      <div class="grid-2">
-        <div class="field">
-          <label class="label" for="send-manual-emails">Mensagem manual</label>
-          <input id="send-manual-emails" class="input" placeholder="emails separados por vírgula ou quebra de linha" />
-          <input id="send-manual-subject" class="input" placeholder="Assunto" />
-          <textarea id="send-manual-message" class="textarea" placeholder="Mensagem"></textarea>
-          <div class="row">
-            <button class="btn btn-primary" id="btn-mail-send-manual">Enviar mensagem</button>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" for="suppression-email">Bloquear envio para um email</label>
-          <input id="suppression-email" class="input" placeholder="email@dominio.com" />
-          <input id="suppression-reason" class="input" placeholder="Motivo" />
-          <div class="row">
-            <button class="btn" id="btn-mail-add-suppression">Bloquear email</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <details>
-        <summary>Diagnóstico</summary>
-        <div style="height:12px"></div>
-
-        <div class="row" style="margin-bottom:12px">
-          <button class="btn" id="btn-load-status">Status</button>
-          <button class="btn" id="btn-load-health">Health</button>
-          <button class="btn" id="btn-load-contract">Contract</button>
-          <button class="btn" id="btn-load-mail-health">Mailer health</button>
-        </div>
-
-        <div class="grid-2">
-          <div>
-            <div class="label" style="margin-bottom:10px">Core</div>
-            <div id="diag-core" class="code">Nenhuma leitura ainda.</div>
-          </div>
-          <div>
-            <div class="label" style="margin-bottom:10px">Mailer</div>
-            <div id="diag-mail" class="code">Nenhuma leitura ainda.</div>
-          </div>
-        </div>
-      </details>
-    </section>
-  </div>
+  </main>
 
   <script>
-    const PUBPANEL = {
-      VERSION: "2.0",
-      STORAGE_API_BASE: "PUBPANEL_COG_V2_API_BASE"
+    const PUB_FRONT = {
+      WEBAPP_URL: "COLE_AQUI_A_URL_DO_WEBAPP",
+      SCRIPT_ITEMS: [
+        { item: "PACOTE GRATUITO", file_id: "18OVi6Vxb1VDQlbq1mlkFz2n5Oxy76vFE" },
+        { item: "CAPA MASTER", file_id: "1AHKC3hYZCo_qoZ5LnLmNrt1GmAThnomm" },
+        { item: "MIOLO MASTER", file_id: "1CiKz2brCrVzXqwEvRVXZS9MKr9tuyFsL" },
+        { item: "MANCHA MASTER", file_id: "1ny87txfaUhN1mV0lB4WRC3KYWd9giVXJ" },
+        { item: "VERTICAL MASTER", file_id: "1qmLtu_szJ_rgak3x0gHYYtlktQS3BXpi" },
+        { item: "BASELINE MASTER", file_id: "16ttuf7bM8xC5YWkldqXLDdxWYdJ2u9qs" },
+        { item: "GUIA DE USO", file_id: "11iAOd6cnB34jLMJt5FBZOd9ZhWRKzZSc" }
+      ],
+      SERVICE_ITEMS: [
+        "PREPARAÇÃO DE ORIGINAIS",
+        "COPIDESQUE",
+        "REVISÃO",
+        "PROJETO GRÁFICO",
+        "DIAGRAMAÇÃO",
+        "REVISÃO DE PROVAS",
+        "DESIGN DE CAPA",
+        "FECHAMENTO PARA IMPRESSÃO",
+        "SCRIPTS E AUTOMAÇÕES",
+        "PÁGINAS COM CAPTAÇÃO E ATENDIMENTO",
+        "ATENDIMENTO EDITORIAL",
+        "ATENDIMENTO GERAL",
+        "ORÇAMENTO GERAL",
+        "ORÇAMENTO EDITORIAL",
+        "PROJETO DE LIVRO",
+        "PROJETO EDITORIAL"
+      ]
     };
 
-    const state = {
-      apiBase: "",
-      adminToken: "",
+    function $(id){ return document.getElementById(id); }
 
-      status: null,
-      health: null,
-      contract: null,
-
-      contacts: [],
-      leads: [],
-      tickets: [],
-
-      selectedTicketId: "",
-      selectedTicket: null,
-      selectedTicketMessages: [],
-
-      mail: {
-        health: null,
-        overview: null,
-        queue: [],
-        log: [],
-        suppressions: [],
-        raw: null
-      }
-    };
-
-    let uiBusy = false;
-
-    function $(selector){
-      return document.querySelector(selector);
-    }
-
-    function stringValue(v){
+    function str(v){
       return String(v == null ? "" : v).trim();
     }
 
-    function safeJson(v){
-      try { return JSON.stringify(v, null, 2); }
-      catch(_) { return String(v); }
+    function validEmail(value){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str(value));
     }
 
-    function escapeHtml(v){
-      return String(v == null ? "" : v)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;");
+    function normalizePhone(value){
+      return str(value).replace(/\D+/g, "");
     }
 
-    function setBanner(type, text){
-      const box = $("#banner");
-      box.className = "banner show " + type;
-      box.textContent = text;
+    function feedback(el, text, kind){
+      el.textContent = text || "";
+      el.className = "feedback" + (kind ? " " + kind : "");
     }
 
-    function clearBanner(){
-      const box = $("#banner");
-      box.className = "banner";
-      box.textContent = "";
-    }
-
-    function clearAdminState(){
-      state.contacts = [];
-      state.leads = [];
-      state.tickets = [];
-
-      state.selectedTicketId = "";
-      state.selectedTicket = null;
-      state.selectedTicketMessages = [];
-
-      state.mail = {
-        health: null,
-        overview: null,
-        queue: [],
-        log: [],
-        suppressions: [],
-        raw: null
+    function currentCommonPayload(){
+      return {
+        page_url: window.location.href,
+        referrer: document.referrer || "",
+        user_agent: navigator.userAgent || "",
+        company: ""
       };
     }
 
-    async function saveApiBase(){
-      const nextApiBase = stringValue($("#api-base").value);
+    async function postJson(payload){
+      const response = await fetch(PUB_FRONT.WEBAPP_URL, {
+        method: "POST",
+        cache: "no-store",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
 
-      if(!nextApiBase){
-        clearApiBase();
-        setBanner("warn", "URL vazia.");
-        return;
-      }
-
-      try{
-        new URL(nextApiBase);
-      }catch(_){
-        throw new Error("URL do Web App inválida.");
-      }
-
-      state.apiBase = nextApiBase;
-      localStorage.setItem(PUBPANEL.STORAGE_API_BASE, state.apiBase);
-      renderAll();
-      await refreshEverything();
-    }
-
-    function clearApiBase(){
-      state.apiBase = "";
-      state.status = null;
-      state.health = null;
-      state.contract = null;
-
-      state.adminToken = "";
-      $("#admin-token").value = "";
-
-      clearAdminState();
-
-      localStorage.removeItem(PUBPANEL.STORAGE_API_BASE);
-      $("#api-base").value = "";
-      renderAll();
-      setBanner("warn", "URL removida. Leituras limpas.");
-    }
-
-    async function applyToken(){
-      state.adminToken = stringValue($("#admin-token").value);
-      renderAll();
-
-      if(!state.adminToken){
-        clearAdminState();
-        renderAll();
-        setBanner("warn", "Token vazio.");
-        return;
-      }
-
-      try{
-        await loadCare();
-        await loadRelationship();
-        await loadMailSummaryOnly();
-        setBanner("ok", "Token aplicado.");
-      }catch(err){
-        if(isAdminAuthError(err)){
-          clearAdminState();
-          state.adminToken = "";
-          $("#admin-token").value = "";
-          renderAll();
-          setBanner("error", err.message || "Token administrativo inválido.");
-          return;
-        }
-
-        if(isBusyError(err)){
-          renderAll();
-          setBanner("warn", "O sistema está ocupado no momento. Atualize novamente em alguns segundos.");
-          return;
-        }
-
-        clearAdminState();
-        renderAll();
-        setBanner("error", err.message || "Falha ao aplicar token.");
-      }
-    }
-
-    function clearToken(){
-      state.adminToken = "";
-      $("#admin-token").value = "";
-      clearAdminState();
-      renderAll();
-      setBanner("warn", "Token removido. Dados administrativos limpos.");
-    }
-
-    function requireApiBase(){
-      if(!state.apiBase) throw new Error("Defina a URL do Web App.");
-    }
-
-    function requireAdminToken(){
-      if(!state.adminToken) throw new Error("Defina o token administrativo.");
-    }
-
-    async function readJsonResponse(response){
       const text = await response.text();
       let json = {};
 
-      if(text.trim()) json = JSON.parse(text);
-
-      if(!response.ok){
-        const err = new Error(json.error || ("Falha HTTP " + response.status));
-        err.code = json.code || "";
-        throw err;
+      if(text.trim()){
+        json = JSON.parse(text);
       }
 
-      if(json && json.ok === false){
-        const err = new Error(json.error || "Resposta inválida.");
-        err.code = json.code || "";
-        throw err;
+      if(!response.ok || !json || json.ok === false){
+        throw new Error((json && (json.error || json.message)) || "Falha na comunicação.");
       }
 
       return json;
     }
 
-    function isAdminAuthError(err){
-      const code = String(err && err.code || "").toUpperCase();
-      return (
-        code === "ADMIN_AUTH_REQUIRED" ||
-        code === "ADMIN_AUTH_INVALID" ||
-        code === "ADMIN_AUTH_UNAVAILABLE"
-      );
-    }
-
-    function isBusyError(err){
-      const code = String(err && err.code || "").toUpperCase();
-      const message = String(err && err.message || "").toLowerCase();
-
-      return (
-        code === "SYSTEM_UNAVAILABLE" ||
-        message.indexOf("sistema ocupado") >= 0
-      );
-    }
-
-    function isActionUnavailableError(err){
-      const code = String(err && err.code || "").toUpperCase();
-      const message = String(err && err.message || "").toLowerCase();
-
-      return (
-        code === "INVALID_ACTION" ||
-        message.indexOf("ação inválida") >= 0
-      );
-    }
-
-    function isPubcareNotInstalledError(err){
-      const code = String(err && err.code || "").toUpperCase();
-      const message = String(err && err.message || "").toLowerCase();
-
-      return (
-        code === "SCHEMA_INVALID" ||
-        message.indexOf("care_ticket_state") >= 0 ||
-        message.indexOf("care_macros") >= 0 ||
-        message.indexOf("care_log") >= 0 ||
-        message.indexOf("sheet") >= 0 && message.indexOf("ausente") >= 0
-      );
-    }
-
-    async function apiPost(action, payload){
-      requireApiBase();
-      requireAdminToken();
-
-      const body = {
-        action: action,
-        admin_token: state.adminToken
-      };
-
-      Object.keys(payload || {}).forEach(function(key){
-        body[key] = payload[key];
+    function buildOptions(select, items){
+      select.innerHTML = "";
+      items.forEach(function(item){
+        const option = document.createElement("option");
+        option.value = item;
+        option.textContent = item;
+        select.appendChild(option);
       });
+    }
 
-      const response = await fetch(state.apiBase, {
-        method: "POST",
-        cache: "no-store",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify(body)
+    function syncLeadFileId(){
+      const item = $("lead-item").value;
+      const match = PUB_FRONT.SCRIPT_ITEMS.find(function(entry){
+        return entry.item === item;
       });
-
-      return readJsonResponse(response);
+      $("lead-file-id").value = match ? match.file_id : "";
     }
 
-    async function apiGet(mode){
-      requireApiBase();
+    function initSelects(){
+      buildOptions($("quote-item"), PUB_FRONT.SERVICE_ITEMS);
+      buildOptions($("ticket-item"), PUB_FRONT.SCRIPT_ITEMS.map(function(x){ return x.item; }).concat(PUB_FRONT.SERVICE_ITEMS));
+      syncLeadFileId();
 
-      const url = new URL(state.apiBase);
-      url.searchParams.set("mode", mode);
-
-      const response = await fetch(url.toString(), {
-        method: "GET",
-        cache: "no-store"
-      });
-
-      return readJsonResponse(response);
+      $("lead-item").addEventListener("change", syncLeadFileId);
     }
 
-    function coreHealth(){
-      return state.health && state.health.data && state.health.data.core
-        ? state.health.data.core
-        : null;
-    }
+    async function onLeadSubmit(event){
+      event.preventDefault();
 
-    function mailHealth(){
-      return state.mail.health ||
-        (state.health && state.health.data && state.health.data.modules && state.health.data.modules.pubmail
-          ? state.health.data.modules.pubmail
-          : null);
-    }
+      const name = str($("lead-name").value);
+      const email = str($("lead-email").value);
+      const item = str($("lead-item").value);
+      const fileId = str($("lead-file-id").value);
+      const box = $("lead-feedback");
 
-    function careModule(){
-      return state.health && state.health.data && state.health.data.modules && state.health.data.modules.pubcare
-        ? state.health.data.modules.pubcare
-        : null;
-    }
-
-    function mailOverview(){
-      if(state.mail.overview && state.mail.overview.data){
-        return state.mail.overview.data;
-      }
-      return null;
-    }
-
-    function ticketCount(status){
-      return state.tickets.filter(function(t){
-        return String(t.status || "").toUpperCase() === status;
-      }).length;
-    }
-
-    function attentionCount(){
-      return ticketCount("OPEN") + ticketCount("WAITING_USER") + ticketCount("ANSWERED");
-    }
-
-    function pillClass(label){
-      const s = String(label || "").toLowerCase();
-      if(s.indexOf("pronto") >= 0) return "ok-pill";
-      if(s.indexOf("aten") >= 0) return "warn-pill";
-      if(s.indexOf("indisp") >= 0) return "error-pill";
-      if(s.indexOf("instal") >= 0) return "warn-pill";
-      return "muted-pill";
-    }
-
-    function renderHeaderState(){
-      const core = coreHealth();
-      const mail = mailHealth();
-      const care = careModule();
-
-      let coreLabel = "—";
-      if(core){
-        if(core.ready === true || core.ok === true || core.schema_ready === true) coreLabel = "Pronto";
-        else if(core.installed === true) coreLabel = "Atenção";
-        else coreLabel = "Instalar";
-      }
-
-      let mailLabel = "—";
-      if(mail){
-        if(mail.ready === true && mail.ok === true) mailLabel = "Pronto";
-        else if(mail.available === false) mailLabel = "Indisponível";
-        else if(mail.installed === true) mailLabel = "Atenção";
-        else mailLabel = "Instalar";
-      }
-
-      let careLabel = "—";
-      if(care){
-        if(care.ready === true || care.ok === true) careLabel = "Pronto";
-        else if(care.available === false) careLabel = "Indisponível";
-        else if(care.installed === true) careLabel = "Atenção";
-        else careLabel = "Atenção";
-      } else {
-        careLabel = state.tickets.length ? (attentionCount() ? "Atenção" : "Pronto") : "—";
-      }
-
-      let overall = "—";
-      if(coreLabel === "Pronto" && (mailLabel === "Pronto" || mailLabel === "—" || mailLabel === "Indisponível")) overall = "Pronto";
-      else if(core || mail || state.tickets.length) overall = "Atenção";
-
-      $("#pill-overall").className = "pill " + pillClass(overall);
-      $("#pill-core").className = "pill " + pillClass(coreLabel);
-      $("#pill-mail").className = "pill " + pillClass(mailLabel);
-      $("#pill-care").className = "pill " + pillClass(careLabel);
-
-      $("#pill-overall").textContent = "Sistema " + overall;
-      $("#pill-core").textContent = "Core " + coreLabel;
-      $("#pill-mail").textContent = "Mailer " + mailLabel;
-      $("#pill-care").textContent = "Atendimento " + careLabel;
-    }
-
-    function renderSummary(){
-      const overview = mailOverview();
-
-      $("#sum-leads").textContent = state.leads.length ? String(state.leads.length) : "—";
-      $("#sum-contacts").textContent = state.contacts.length ? String(state.contacts.length) : "—";
-      $("#sum-care-attention").textContent = state.tickets.length ? String(attentionCount()) : "—";
-      $("#sum-mail-queue").textContent = overview ? String(overview.queue_count || 0) : "—";
-    }
-
-    function renderRecentSimpleBox(containerId, rows, type){
-      const box = $(containerId);
-
-      if(!rows || !rows.length){
-        box.innerHTML = '<div class="empty">Nenhum dado carregado.</div>';
+      if(!name || !validEmail(email) || !item || !fileId){
+        feedback(box, "Revise nome, e-mail e material selecionado.", "error");
         return;
       }
 
-      const sliced = rows.slice(0, 6);
-      let html = '<div class="list">';
+      feedback(box, "Enviando solicitação...", "");
 
-      sliced.forEach(function(r){
-        if(type === "lead"){
-          html +=
-            '<div class="item">' +
-              '<div class="item-title">' + escapeHtml(r.name || "Sem nome") + '</div>' +
-              '<div class="item-sub">' + escapeHtml(r.email || "") + '</div>' +
-              '<div class="item-meta">' + escapeHtml(r.item || "") + ' · ' + escapeHtml(r.created_at || "") + '</div>' +
-            '</div>';
-        } else {
-          html +=
-            '<div class="item">' +
-              '<div class="item-title">' + escapeHtml(r.name || "Sem nome") + '</div>' +
-              '<div class="item-sub">' + escapeHtml(r.email || "") + '</div>' +
-              '<div class="item-meta">' + escapeHtml(r.whatsapp || "") + ' · ' + escapeHtml(r.updated_at || r.created_at || "") + '</div>' +
-            '</div>';
+      try{
+        const json = await postJson(Object.assign({
+          action: "capture_lead",
+          name: name,
+          email: email,
+          item: item,
+          file_id: fileId
+        }, currentCommonPayload()));
+
+        feedback(box, "Lead registrado com sucesso. O download será aberto.", "ok");
+
+        if(json && json.data && json.data.redirect_url){
+          window.location.href = json.data.redirect_url;
         }
-      });
-
-      html += '</div>';
-      box.innerHTML = html;
+      }catch(err){
+        feedback(box, err.message || "Não foi possível registrar o lead.", "error");
+      }
     }
 
-    function renderCareList(){
-      const box = $("#care-list");
+    async function onQuoteSubmit(event){
+      event.preventDefault();
 
-      if(!state.tickets.length){
-        box.innerHTML = '<div class="empty">Nenhum ticket carregado.</div>';
+      const name = str($("quote-name").value);
+      const email = str($("quote-email").value);
+      const whatsapp = normalizePhone($("quote-whatsapp").value);
+      const item = str($("quote-item").value);
+      const message = str($("quote-message").value);
+      const box = $("quote-feedback");
+
+      if(!name || !validEmail(email) || !item || !message){
+        feedback(box, "Revise nome, e-mail, serviço e mensagem.", "error");
         return;
       }
 
-      const ordered = state.tickets.slice().sort(function(a, b){
-        const pa = priorityValue(a.status);
-        const pb = priorityValue(b.status);
-        if(pa !== pb) return pa - pb;
-        return (Date.parse(b.created_at || "") || 0) - (Date.parse(a.created_at || "") || 0);
-      });
+      feedback(box, "Enviando orçamento...", "");
 
-      let html = '<div class="list">';
+      try{
+        const json = await postJson(Object.assign({
+          action: "capture_quote",
+          name: name,
+          email: email,
+          whatsapp: whatsapp,
+          item: item,
+          message: message
+        }, currentCommonPayload()));
 
-      ordered.forEach(function(t){
-        const active = t.ticket_id === state.selectedTicketId ? ' active' : '';
-        html +=
-          '<button class="item item-button' + active + '" data-ticket-id="' + escapeHtml(t.ticket_id || "") + '">' +
-            '<div class="item-title">' + escapeHtml(t.name || t.ticket_id || "Ticket") + '</div>' +
-            '<div class="item-sub">' + escapeHtml(t.email || "") + '</div>' +
-            '<div class="item-meta">' + escapeHtml(t.item || "") + ' · ' + escapeHtml(t.status || "") + ' · ' + escapeHtml(t.created_at || "") + '</div>' +
-          '</button>';
-      });
+        let msg = "Orçamento enviado com sucesso.";
+        if(json && json.data && json.data.ticket_id){
+          msg += "\nTicket: " + json.data.ticket_id;
+        }
+        if(json && json.data && json.data.lead_id){
+          msg += "\nLead: " + json.data.lead_id;
+        }
 
-      html += '</div>';
-      box.innerHTML = html;
-
-      Array.prototype.slice.call(box.querySelectorAll("[data-ticket-id]")).forEach(function(el){
-        el.addEventListener("click", function(){
-          const id = el.getAttribute("data-ticket-id");
-          handleAction(async function(){
-            await selectTicket(id);
-          });
-        });
-      });
-
-      function priorityValue(status){
-        const s = String(status || "").toUpperCase();
-        if(s === "OPEN") return 1;
-        if(s === "WAITING_USER") return 2;
-        if(s === "ANSWERED") return 3;
-        if(s === "CLOSED") return 4;
-        return 9;
+        feedback(box, msg, "ok");
+        event.target.reset();
+      }catch(err){
+        feedback(box, err.message || "Não foi possível enviar o orçamento.", "error");
       }
     }
 
-    function renderSelectedTicket(){
-      $("#selected-ticket-summary").textContent = state.selectedTicket
-        ? [
-            state.selectedTicket.ticket_id || "",
-            state.selectedTicket.name || "",
-            state.selectedTicket.email || "",
-            state.selectedTicket.item || "",
-            state.selectedTicket.status || ""
-          ].filter(Boolean).join(" · ")
-        : "Nenhum ticket selecionado.";
+    async function onTicketSubmit(event){
+      event.preventDefault();
 
-      const box = $("#selected-ticket-messages");
+      const name = str($("ticket-name").value);
+      const email = str($("ticket-email").value);
+      const whatsapp = normalizePhone($("ticket-whatsapp").value);
+      const item = str($("ticket-item").value);
+      const message = str($("ticket-message").value);
+      const box = $("ticket-feedback");
 
-      if(!state.selectedTicketMessages.length){
-        box.innerHTML = '<div class="empty">Nenhuma mensagem carregada.</div>';
+      if(!name || !validEmail(email) || !item || !message){
+        feedback(box, "Revise nome, e-mail, assunto e mensagem.", "error");
         return;
       }
 
-      let html = '<div class="list">';
-
-      state.selectedTicketMessages.forEach(function(m){
-        html +=
-          '<div class="item">' +
-            '<div class="item-title">' + escapeHtml(m.direction || "") + ' · ' + escapeHtml(m.channel || "") + '</div>' +
-            '<div class="item-sub">' + escapeHtml(m.message || "") + '</div>' +
-            '<div class="item-meta">' + escapeHtml(m.created_at || "") + '</div>' +
-          '</div>';
-      });
-
-      html += '</div>';
-      box.innerHTML = html;
-    }
-
-    function renderMail(){
-      const overview = mailOverview();
-      $("#mail-queue-count").textContent = overview ? String(overview.queue_count || 0) : "—";
-      $("#mail-log-count").textContent = overview ? String(overview.log_count || 0) : "—";
-      $("#mail-suppressions-count").textContent = overview ? String(overview.suppressions_count || 0) : "—";
-    }
-
-    function renderDiagnostics(){
-      $("#diag-core").textContent = safeJson({
-        status: state.status,
-        health: state.health,
-        contract: state.contract
-      });
-
-      $("#diag-mail").textContent = safeJson({
-        mail_health: state.mail.health,
-        mail_overview: state.mail.overview,
-        mail_raw: state.mail.raw
-      });
-    }
-
-    function renderAll(){
-      renderHeaderState();
-      renderSummary();
-      renderRecentSimpleBox("#leads-box", state.leads, "lead");
-      renderRecentSimpleBox("#contacts-box", state.contacts, "contact");
-      renderCareList();
-      renderSelectedTicket();
-      renderMail();
-      renderDiagnostics();
-    }
-
-    async function runPublicMode(mode){
-      const json = await apiGet(mode);
-
-      if(mode === "status") state.status = json;
-      if(mode === "health") state.health = json;
-      if(mode === "contract") state.contract = json;
-
-      renderAll();
-      return json;
-    }
-
-    async function loadRelationship(){
-      const leadsJson = await apiPost("admin_list_leads", {});
-      const contactsJson = await apiPost("admin_list_contacts", {});
-
-      state.leads = Array.isArray(leadsJson.rows) ? leadsJson.rows : [];
-      state.contacts = Array.isArray(contactsJson.rows) ? contactsJson.rows : [];
-      renderAll();
-    }
-
-    async function loadCare(){
-      const ticketsJson = await apiPost("admin_list_tickets", {});
-      state.tickets = Array.isArray(ticketsJson.rows) ? ticketsJson.rows : [];
-
-      const preferred = choosePreferredTicket(state.tickets);
-
-      if(preferred){
-        await selectTicket(preferred.ticket_id);
-      } else {
-        state.selectedTicketId = "";
-        state.selectedTicket = null;
-        state.selectedTicketMessages = [];
-      }
-
-      renderAll();
-    }
-
-    function choosePreferredTicket(rows){
-      if(!rows || !rows.length) return null;
-
-      const ordered = rows.slice().sort(function(a, b){
-        const pa = priority(a.status);
-        const pb = priority(b.status);
-        if(pa !== pb) return pa - pb;
-        return (Date.parse(b.created_at || "") || 0) - (Date.parse(a.created_at || "") || 0);
-      });
-
-      return ordered[0] || null;
-
-      function priority(status){
-        const s = String(status || "").toUpperCase();
-        if(s === "OPEN") return 1;
-        if(s === "WAITING_USER") return 2;
-        if(s === "ANSWERED") return 3;
-        if(s === "CLOSED") return 4;
-        return 9;
-      }
-    }
-
-    async function selectTicket(ticketId){
-      if(!ticketId) return;
-
-      state.selectedTicketId = ticketId;
-
-      const ticketJson = await apiPost("admin_get_ticket", { ticket_id: ticketId });
-      const messagesJson = await apiPost("admin_list_ticket_messages", { ticket_id: ticketId });
-
-      state.selectedTicket = ticketJson && ticketJson.data ? ticketJson.data : null;
-      state.selectedTicketMessages = Array.isArray(messagesJson.rows) ? messagesJson.rows : [];
-      renderAll();
-    }
-
-    async function loadMail(){
-      const healthJson = await apiPost("admin_mail_health", {});
-      const overviewJson = await apiPost("admin_mail_overview", {});
-
-      state.mail.health = healthJson || null;
-      state.mail.overview = overviewJson || null;
-      state.mail.raw = {
-        health: healthJson || null,
-        overview: overviewJson || null
-      };
-
-      renderAll();
-    }
-
-    async function loadMailSummaryOnly(){
-      const healthJson = await apiPost("admin_mail_health", {});
-      const summaryJson = await apiPost("admin_mail_summary", {});
-
-      state.mail.health = healthJson || null;
-      state.mail.overview = summaryJson || null;
-      state.mail.raw = {
-        health: healthJson || null,
-        summary: summaryJson || null
-      };
-
-      renderAll();
-    }
-
-    async function refreshEverything(){
-      clearBanner();
-
-      await runPublicMode("status");
-      await runPublicMode("health");
-      await runPublicMode("contract");
-
-      if(!state.adminToken){
-        renderAll();
-        setBanner("warn", "Leituras públicas atualizadas. Para dados administrativos, aplique o token.");
-        return;
-      }
+      feedback(box, "Enviando atendimento...", "");
 
       try{
-        await loadRelationship();
-        await loadCare();
-        await loadMail();
-        setBanner("ok", "Painel atualizado.");
+        const json = await postJson(Object.assign({
+          action: "capture_ticket",
+          name: name,
+          email: email,
+          whatsapp: whatsapp,
+          item: item,
+          message: message
+        }, currentCommonPayload()));
+
+        let msg = "Atendimento enviado com sucesso.";
+        if(json && json.data && json.data.ticket_id){
+          msg += "\nTicket: " + json.data.ticket_id;
+        }
+
+        feedback(box, msg, "ok");
+        event.target.reset();
       }catch(err){
-        if(isAdminAuthError(err)){
-          clearAdminState();
-          state.adminToken = "";
-          $("#admin-token").value = "";
-          renderAll();
-          setBanner("warn", (err.message || "Falha de autenticação administrativa.") + " O token administrativo foi removido do estado atual.");
-          return;
-        }
-
-        if(isBusyError(err)){
-          renderAll();
-          setBanner("warn", "O sistema está ocupado no momento. Atualize novamente em alguns segundos.");
-          return;
-        }
-
-        clearAdminState();
-        renderAll();
-        setBanner("warn", err.message || "Falha ao carregar dados administrativos.");
+        feedback(box, err.message || "Não foi possível enviar o atendimento.", "error");
       }
     }
 
-    async function replySelectedTicket(){
-      if(!state.selectedTicketId){
-        throw new Error("Nenhum ticket selecionado.");
-      }
-
-      const message = stringValue($("#reply-message").value);
-      const status = String($("#reply-status").value || "ANSWERED").toUpperCase();
-      const selectedChannel = String($("#reply-channel").value || "MANUAL").toUpperCase();
-      const sendEmail = selectedChannel === "EMAIL";
-
-      if(!message){
-        throw new Error("Escreva uma resposta antes de enviar.");
-      }
-
-      if(sendEmail && (!state.selectedTicket || !stringValue(state.selectedTicket.email))){
-        throw new Error("Este ticket não possui email válido para envio.");
-      }
-
-      try{
-        await apiPost("admin_care_reply_ticket", {
-          ticket_id: state.selectedTicketId,
-          message: message,
-          status: status,
-          channel: selectedChannel,
-          sent_by: "admin",
-          send_email: sendEmail,
-          mail_subject: state.selectedTicket && state.selectedTicket.item
-            ? ("PUB Editorial | " + String(state.selectedTicket.item))
-            : "PUB Editorial | Atendimento"
-        });
-
-        $("#reply-message").value = "";
-        await loadCare();
-        if(sendEmail){
-          await loadMailSummaryOnly();
-        }
-        setBanner("ok", sendEmail ? "Resposta registrada e email preparado." : "Resposta registrada.");
-      }catch(err){
-        if(isBusyError(err)){
-          setBanner("warn", "O sistema está ocupado. Tente enviar a resposta novamente em alguns segundos.");
-          return;
-        }
-
-        if(isPubcareNotInstalledError(err) || isActionUnavailableError(err)){
-          setBanner("error", "O módulo de atendimento ainda não está preparado nesta base.");
-          return;
-        }
-
-        throw err;
-      }
-    }
-
-    async function processMail(){
-      clearBanner();
-
-      try{
-        await apiPost("admin_mail_process_queue", {});
-        await loadMail();
-        setBanner("ok", "Fila de emails processada.");
-      }catch(err){
-        if(isBusyError(err)){
-          setBanner("warn", "O sistema está ocupado processando outras operações. Tente novamente em alguns segundos.");
-          return;
-        }
-        throw err;
-      }
-    }
-
-    async function sendManualMail(){
-      clearBanner();
-
-      try{
-        await apiPost("admin_mail_send_manual", {
-          template_key: "tmpl_manual_generic",
-          audience_mode: "manual_emails",
-          emails: stringValue($("#send-manual-emails").value),
-          manual_subject: stringValue($("#send-manual-subject").value),
-          manual_message: stringValue($("#send-manual-message").value),
-          item: ""
-        });
-
-        await loadMail();
-        setBanner("ok", "Mensagem manual preparada na fila.");
-      }catch(err){
-        if(isBusyError(err)){
-          setBanner("warn", "O sistema está ocupado. Tente enviar a mensagem novamente em alguns segundos.");
-          return;
-        }
-        throw err;
-      }
-    }
-
-    async function addSuppression(){
-      clearBanner();
-
-      try{
-        await apiPost("admin_mail_add_suppression", {
-          email: stringValue($("#suppression-email").value),
-          reason: stringValue($("#suppression-reason").value),
-          source: "panel"
-        });
-
-        await loadMail();
-        setBanner("ok", "Email bloqueado.");
-      }catch(err){
-        if(isBusyError(err)){
-          setBanner("warn", "O sistema está ocupado. Tente bloquear o email novamente em alguns segundos.");
-          return;
-        }
-        throw err;
-      }
-    }
-
-    async function handleAction(fn){
-      if(uiBusy) return;
-
-      uiBusy = true;
-
-      try{
-        await fn();
-      }catch(err){
-        renderAll();
-
-        if(isBusyError(err)){
-          setBanner("warn", "O sistema está ocupado em outra operação. Tente novamente em alguns segundos.");
-          return;
-        }
-
-        setBanner("error", err.message || "Erro.");
-      }finally{
-        uiBusy = false;
-      }
-    }
-
-    function bind(){
-      $("#btn-save-api-base").addEventListener("click", function(){ handleAction(saveApiBase); });
-      $("#btn-clear-api-base").addEventListener("click", function(){ handleAction(async function(){ clearApiBase(); }); });
-      $("#btn-apply-token").addEventListener("click", function(){ handleAction(applyToken); });
-      $("#btn-clear-token").addEventListener("click", function(){ handleAction(async function(){ clearToken(); }); });
-
-      $("#btn-refresh").addEventListener("click", function(){ handleAction(refreshEverything); });
-
-      $("#btn-refresh-care").addEventListener("click", function(){ handleAction(loadCare); });
-      $("#btn-reply-ticket").addEventListener("click", function(){ handleAction(replySelectedTicket); });
-
-      $("#btn-load-relationship").addEventListener("click", function(){
-        handleAction(async function(){
-          await loadRelationship();
-          setBanner("ok", "Relacionamento atualizado.");
-        });
-      });
-
-      $("#btn-mail-refresh").addEventListener("click", function(){
-        handleAction(async function(){
-          await loadMail();
-          setBanner("ok", "Mailer atualizado.");
-        });
-      });
-
-      $("#btn-mail-process").addEventListener("click", function(){ handleAction(processMail); });
-      $("#btn-mail-send-manual").addEventListener("click", function(){ handleAction(sendManualMail); });
-      $("#btn-mail-add-suppression").addEventListener("click", function(){ handleAction(addSuppression); });
-
-      $("#btn-load-status").addEventListener("click", function(){
-        handleAction(async function(){
-          await runPublicMode("status");
-          setBanner("ok", "Status carregado.");
-        });
-      });
-
-      $("#btn-load-health").addEventListener("click", function(){
-        handleAction(async function(){
-          await runPublicMode("health");
-          setBanner("ok", "Health carregado.");
-        });
-      });
-
-      $("#btn-load-contract").addEventListener("click", function(){
-        handleAction(async function(){
-          await runPublicMode("contract");
-          setBanner("ok", "Contract carregado.");
-        });
-      });
-
-      $("#btn-load-mail-health").addEventListener("click", function(){
-        handleAction(async function(){
-          const json = await apiPost("admin_mail_health", {});
-          state.mail.health = json;
-          state.mail.raw = json;
-          renderAll();
-          setBanner("ok", "Mailer health carregado.");
-        });
-      });
-    }
-
-    async function boot(){
-      state.apiBase = localStorage.getItem(PUBPANEL.STORAGE_API_BASE) || "";
-      $("#api-base").value = state.apiBase;
-
-      renderAll();
-      bind();
-
-      if(state.apiBase){
-        try{
-          await runPublicMode("status");
-          await runPublicMode("health");
-          setBanner("warn", "Painel iniciado com leituras públicas. Aplique o token para carregar dados administrativos.");
-        }catch(err){
-          renderAll();
-          setBanner("error", err.message || "Falha ao iniciar o painel.");
-        }
-      }
+    function boot(){
+      initSelects();
+      $("lead-form").addEventListener("submit", onLeadSubmit);
+      $("quote-form").addEventListener("submit", onQuoteSubmit);
+      $("ticket-form").addEventListener("submit", onTicketSubmit);
     }
 
     document.addEventListener("DOMContentLoaded", boot);
