@@ -1185,23 +1185,23 @@
         { item: "GUIA DE USO", file_id: "11iAOd6cnB34jLMJt5FBZOd9ZhWRKzZSc" }
       ],
       SERVICE_ITEMS: [
-        "PREPARAÇÃO DE ORIGINAIS",
-        "COPIDESQUE",
-        "REVISÃO",
-        "PROJETO GRÁFICO",
-        "DIAGRAMAÇÃO",
-        "REVISÃO DE PROVAS",
-        "DESIGN DE CAPA",
-        "FECHAMENTO PARA IMPRESSÃO",
-        "SCRIPTS E AUTOMAÇÕES",
-        "PÁGINAS COM CAPTAÇÃO E ATENDIMENTO",
-        "ATENDIMENTO EDITORIAL",
-        "ATENDIMENTO GERAL",
-        "ORÇAMENTO GERAL",
-        "ORÇAMENTO EDITORIAL",
-        "PROJETO DE LIVRO",
-        "PROJETO EDITORIAL"
-      ]
+  { value: "PREPARACAO DE ORIGINAIS", label: "Preparação de originais" },
+  { value: "COPIDESQUE", label: "Copidesque" },
+  { value: "REVISAO", label: "Revisão" },
+  { value: "PROJETO GRAFICO", label: "Projeto gráfico" },
+  { value: "DIAGRAMACAO", label: "Diagramação" },
+  { value: "REVISAO DE PROVAS", label: "Revisão de provas" },
+  { value: "DESIGN DE CAPA", label: "Design de capa" },
+  { value: "FECHAMENTO PARA IMPRESSAO", label: "Fechamento para impressão" },
+  { value: "SCRIPTS E AUTOMACOES", label: "Scripts e automações" },
+  { value: "PAGINAS COM CAPTACAO E ATENDIMENTO", label: "Páginas com captação e atendimento" },
+  { value: "ATENDIMENTO EDITORIAL", label: "Atendimento editorial" },
+  { value: "ATENDIMENTO GERAL", label: "Atendimento geral" },
+  { value: "ORCAMENTO GERAL", label: "Orçamento geral" },
+  { value: "ORCAMENTO EDITORIAL", label: "Orçamento editorial" },
+  { value: "PROJETO DE LIVRO", label: "Projeto de livro" },
+  { value: "PROJETO EDITORIAL", label: "Projeto editorial" }
+]
     };
 
     function $(id){
@@ -1274,14 +1274,21 @@
     }
 
     function buildOptions(select, items){
-      select.innerHTML = "";
-      items.forEach(function(item){
-        const option = document.createElement("option");
-        option.value = item;
-        option.textContent = item;
-        select.appendChild(option);
-      });
+  select.innerHTML = "";
+  items.forEach(function(item){
+    const option = document.createElement("option");
+
+    if(typeof item === "string"){
+      option.value = item;
+      option.textContent = item;
+    } else {
+      option.value = item.value;
+      option.textContent = item.label;
     }
+
+    select.appendChild(option);
+  });
+}
 
     function syncLeadFileId(){
       const item = $("lead-item").value;
