@@ -1204,7 +1204,9 @@
       ]
     };
 
-    function $(id){ return document.getElementById(id); }
+    function $(id){
+      return document.getElementById(id);
+    }
 
     function str(v){
       return String(v == null ? "" : v).trim();
@@ -1236,18 +1238,35 @@
       const response = await fetch(PUB_FRONT.WEBAPP_URL, {
         method: "POST",
         cache: "no-store",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
         body: JSON.stringify(payload)
       });
 
       const text = await response.text();
-      let json = {};
+      const raw = String(text || "").trim();
 
-      if(text.trim()){
-        json = JSON.parse(text);
+      if(!response.ok){
+        throw new Error("Falha HTTP " + response.status + ".");
       }
 
-      if(!response.ok || !json || json.ok === false){
+      if(!raw){
+        throw new Error("Resposta vazia do servidor.");
+      }
+
+      if(raw.charAt(0) === "<"){
+        throw new Error("O Web App retornou HTML em vez de JSON. Verifique a URL publicada, as permissões do Web App e a implantação ativa.");
+      }
+
+      let json;
+      try{
+        json = JSON.parse(raw);
+      }catch(_){
+        throw new Error("A resposta do Web App não é JSON válido.");
+      }
+
+      if(!json || json.ok === false){
         throw new Error((json && (json.error || json.message)) || "Falha na comunicação.");
       }
 
@@ -1274,7 +1293,12 @@
 
     function initSelects(){
       buildOptions($("quote-item"), PUB_FRONT.SERVICE_ITEMS);
-      buildOptions($("ticket-item"), PUB_FRONT.SCRIPT_ITEMS.map(function(x){ return x.item; }).concat(PUB_FRONT.SERVICE_ITEMS));
+
+      const ticketItems = PUB_FRONT.SCRIPT_ITEMS
+        .map(function(entry){ return entry.item; })
+        .concat(PUB_FRONT.SERVICE_ITEMS);
+
+      buildOptions($("ticket-item"), ticketItems);
       syncLeadFileId();
 
       $("lead-item").addEventListener("change", syncLeadFileId);
