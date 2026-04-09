@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#111111" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:1" />
-  <meta name="description" content="PUB Editorial — produção editorial com método, clareza e continuidade. Envie seu original, entenda o processo e acompanhe seu projeto com segurança." />
+  <meta name="description" content="PUB Editorial — Tudo para a publicação do seu livro. Orientação editorial, preparação, revisão, projeto gráfico, diagramação, capa e arquivos finais com clareza, método e segurança." />
   <meta name="author" content="PUB Editorial" />
-  <title>PUB Editorial — Produção editorial com método e continuidade</title>
+  <title>PUB Editorial — Tudo para a publicação do seu livro</title>
 
   <style>
     :root{
@@ -114,7 +114,9 @@
     .hero-side-card,
     .capture-band,
     .trust-box,
-    .upload-card{
+    .upload-card,
+    .journey-card,
+    .proof-band{
       background:var(--panel);
       border:1px solid var(--line);
       box-shadow:var(--shadow-card);
@@ -260,10 +262,28 @@
     .hero-inner{padding:clamp(22px,3vw,40px);display:grid;gap:var(--stack-xl)}
 
     .hero-body{display:grid;gap:24px;align-items:start}
-    @media (min-width:980px){.hero-body{grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr)}}
+    @media (min-width:980px){.hero-body{grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr)}}
 
     .hero-copy{display:grid;gap:var(--stack-md);align-content:start;min-width:0}
     .hero-lead{margin:0;color:#f3ede5;font-size:17px;line-height:1.82;max-width:64ch}
+    .hero-kicker{
+      display:grid;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+      color:#e9dfd2;
+      font-size:14.5px;
+      line-height:1.65;
+    }
+    .hero-kicker li{position:relative;padding-left:18px}
+    .hero-kicker li::before{
+      content:"";
+      position:absolute;
+      left:0;top:.58em;
+      width:8px;height:8px;border-radius:50%;
+      background:var(--accent);
+    }
 
     .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
@@ -295,7 +315,8 @@
     .btn--full{width:100%}
 
     .trust-box,
-    .hero-side-card{
+    .hero-side-card,
+    .proof-band{
       border-radius:28px;
       padding:20px;
       display:grid;
@@ -326,9 +347,15 @@
     .grid-2{display:grid;gap:var(--s4);grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (max-width:980px){.grid-3,.grid-2{grid-template-columns:1fr}}
 
-    .card{border-radius:22px;padding:20px;display:grid;gap:var(--stack-md);align-content:start;min-height:100%}
-    .card h3{margin:0;font-size:18px;line-height:1.15;letter-spacing:-.02em;color:var(--fg)}
-    .card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+    .card,.journey-card{border-radius:22px;padding:20px;display:grid;gap:var(--stack-md);align-content:start;min-height:100%}
+    .card h3,.journey-card h3{margin:0;font-size:18px;line-height:1.15;letter-spacing:-.02em;color:var(--fg)}
+    .card p,.journey-card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+
+    .journey-card{
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
 
     .step-list{display:grid;gap:14px}
     .step{
@@ -376,6 +403,9 @@
       letter-spacing:.04em;
       text-transform:uppercase;
     }
+
+    .proof-band{gap:10px}
+    .proof-band p{margin:0;color:var(--muted);font-size:15px;line-height:1.7}
 
     .faq-list{display:grid;gap:12px}
     .faq-item{border-radius:22px;padding:18px}
@@ -495,12 +525,13 @@
     <div class="wrap site-header-inner">
       <a href="#inicio" class="brand" aria-label="PUB Editorial, página inicial">
         <span class="brand-title">PUB Editorial</span>
-        <span class="brand-sub">produção editorial com método</span>
+        <span class="brand-sub">Tudo para a publicação do seu livro</span>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
-        <a class="navlink" href="#como-funciona">Como funciona</a>
+        <a class="navlink" href="#para-quem-e">Para quem é</a>
         <a class="navlink" href="#servicos">Serviços editoriais</a>
+        <a class="navlink" href="#como-funciona">Como funciona</a>
         <a class="navlink" href="#enviar-original">Enviar original</a>
         <a class="navlink" href="#materiais">Materiais</a>
         <a class="navlink" href="#faq">Perguntas frequentes</a>
@@ -517,38 +548,47 @@
           <div class="hero-body">
             <div class="hero-copy">
               <span class="tag">PUB Editorial</span>
-              <h1 class="h1">Produção editorial completa, organizada a partir do seu original</h1>
+              <h1 class="h1">Seu livro pode avançar com direção, método e clareza</h1>
               <p class="hero-lead">
-                A PUB Editorial estrutura, orienta e executa projetos de livros com base real no material do autor — do texto inicial até a entrega final.
-              </p>
-              <p class="mini">
-                Você pode começar com uma ideia, um texto em desenvolvimento ou um original pronto. Quando necessário, o envio do material permite uma análise mais precisa e uma orientação adequada para o seu projeto.
+                A PUB Editorial conduz projetos editoriais em diferentes estágios — da ideia em desenvolvimento ao original pronto — com orientação segura, leitura responsável do material e execução técnica de todas as etapas da produção do livro.
               </p>
 
+              <ul class="hero-kicker" aria-label="Síntese da proposta de valor">
+                <li>Você não precisa chegar sabendo exatamente de qual serviço precisa.</li>
+                <li>A PUB Editorial ajuda a situar seu projeto e definir o caminho adequado.</li>
+                <li>Quando necessário, a análise do original orienta a continuidade com base real.</li>
+              </ul>
+
               <div class="actions" aria-label="Ações principais">
-                <a class="btn btn--primary" href="#como-funciona">Entender como funciona</a>
-                <a class="btn btn--secondary" href="#enviar-original">Enviar meu original</a>
+                <button class="btn btn--primary js-modal" type="button"
+                  data-modal-title="Falar sobre meu projeto"
+                  data-modal-description="Conte brevemente em que momento está seu livro para que a PUB Editorial possa orientar seu próximo passo com mais clareza."
+                  data-modal-submit="Enviar mensagem"
+                  data-modal-kind="contact">
+                  Falar sobre meu projeto
+                </button>
+                <a class="btn btn--secondary" href="#servicos">Ver serviços editoriais</a>
                 <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
               </div>
 
               <p class="mini">
-                O envio de materiais é usado para análise editorial e organização do projeto. A produção só começa após alinhamento entre as partes.
+                Você pode começar por uma conversa inicial ou, se já estiver pronto para isso, seguir para o envio do original. A produção começa somente após alinhamento adequado do projeto.
               </p>
             </div>
 
-            <aside class="hero-side-card" aria-label="Síntese de confiança e continuidade">
-              <h2 class="trust-title">A área do cliente organiza o envio e a continuidade</h2>
+            <aside class="hero-side-card" aria-label="Síntese de confiança e posicionamento">
+              <h2 class="trust-title">Tudo para a publicação do seu livro — com critério editorial</h2>
               <ul class="trust-list">
-                <li>Cadastro e login permitem envio seguro e rastreável de materiais.</li>
-                <li>O original pode ser enviado preferencialmente em Word; PDF também é aceito.</li>
-                <li>Imagens do miolo e propostas para a capa podem ser enviadas em arquivos de imagem ou PDF.</li>
-                <li>Se o projeto não tiver continuidade, os materiais são descartados com segurança.</li>
+                <li>A PUB Editorial atende desde a orientação inicial até a entrega final dos arquivos.</li>
+                <li>Os serviços seguem a ordem real da produção editorial do livro.</li>
+                <li>Quando o projeto exige leitura do material, a análise ajuda a definir a etapa correta.</li>
+                <li>Há continuidade por conversa inicial, por envio de original e pela área do cliente, conforme a necessidade do projeto.</li>
               </ul>
               <div class="actions">
-                <a class="btn btn--secondary btn--micro" href="#area-cliente">Acessar área do cliente</a>
+                <a class="btn btn--secondary btn--micro" href="#para-quem-e">Entender se é para mim</a>
                 <button class="btn btn--secondary btn--micro js-modal" type="button"
                   data-modal-title="Receber apresentação da PUB Editorial"
-                  data-modal-description="Envie seu nome e e-mail para receber uma apresentação breve da PUB Editorial, com visão geral do método, dos serviços e do processo editorial."
+                  data-modal-description="Envie seu nome e e-mail para receber uma apresentação breve da PUB Editorial, com visão geral dos serviços, da condução editorial e das possibilidades de trabalho."
                   data-modal-submit="Receber apresentação"
                   data-modal-kind="material">
                   Receber apresentação
@@ -560,48 +600,53 @@
       </div>
     </section>
 
-    <section class="stripe" id="como-funciona" aria-label="Como funciona">
+    <section class="stripe" id="para-quem-e" aria-label="Para quem é a PUB Editorial">
       <div class="wrap">
         <div class="panel">
           <div class="head">
-            <span class="tag">Como funciona</span>
-            <h2 class="h2">Como a PUB Editorial trabalha</h2>
+            <span class="tag">Para quem é</span>
+            <h2 class="h2">A PUB Editorial atende diferentes momentos do seu livro</h2>
             <p class="muted">
-              O processo editorial começa pela compreensão real do projeto. Quando necessário, o envio do material ajuda a evitar orientações genéricas e permite uma leitura precisa do que precisa ser feito.
+              Nem todo autor chega com uma demanda técnica claramente definida. Muitas vezes, o que existe no início é um livro em construção e a necessidade de entender por onde começar. A PUB Editorial existe também para situar esse momento e orientar o caminho.
             </p>
           </div>
 
-          <div class="step-list">
-            <article class="step">
-              <strong>Etapa 1</strong>
-              <h3>Entendimento do projeto</h3>
-              <p>Você apresenta sua ideia, necessidade ou material inicial para que o projeto seja situado corretamente.</p>
+          <div class="grid-3">
+            <article class="journey-card">
+              <h3>Quando a ideia ainda está sendo estruturada</h3>
+              <p>Se você está transformando uma ideia em livro e precisa de direção para organizar o projeto, a PUB Editorial pode ajudar a situar o caminho editorial.</p>
             </article>
-            <article class="step">
-              <strong>Etapa 2</strong>
-              <h3>Análise do material</h3>
-              <p>Quando necessário, o original é enviado pela área do cliente, em ambiente autenticado, para análise editorial responsável.</p>
+            <article class="journey-card">
+              <h3>Quando o texto está em desenvolvimento</h3>
+              <p>Se o original já começou a tomar forma, mas ainda precisa de leitura de estágio, clareza de processo e definição de próximos passos, há espaço para orientação adequada.</p>
             </article>
-            <article class="step">
-              <strong>Etapa 3</strong>
-              <h3>Estruturação editorial</h3>
-              <p>A partir da análise, a PUB Editorial organiza o caminho do projeto e identifica as etapas pertinentes.</p>
+            <article class="journey-card">
+              <h3>Quando o original já está pronto</h3>
+              <p>Se você já possui um texto concluído e quer seguir para preparação, revisão, projeto gráfico, diagramação, capa e fechamento, a PUB Editorial pode conduzir essa esteira com método.</p>
             </article>
-            <article class="step">
-              <strong>Etapa 4</strong>
-              <h3>Alinhamento e decisão</h3>
-              <p>As possibilidades de continuidade são apresentadas com base real no conteúdo, no estágio do material e no tipo de intervenção necessária.</p>
+            <article class="journey-card">
+              <h3>Quando você precisa apenas de uma etapa específica</h3>
+              <p>Mesmo em demandas pontuais, o projeto é observado dentro do conjunto do livro, para que a etapa contratada faça sentido no processo editorial.</p>
             </article>
-            <article class="step">
-              <strong>Etapa 5</strong>
-              <h3>Produção editorial</h3>
-              <p>Com o projeto definido, o trabalho segue com acompanhamento, organização dos arquivos e continuidade adequada.</p>
+            <article class="journey-card">
+              <h3>Quando você precisa de condução completa</h3>
+              <p>Se o que você procura é uma marca capaz de compreender o projeto como um todo, organizar as etapas e acompanhar a publicação com seriedade, esse também é o lugar certo.</p>
+            </article>
+            <article class="journey-card">
+              <h3>Quando ainda não sabe exatamente do que precisa</h3>
+              <p>Você não precisa chegar com o nome técnico do serviço. A PUB Editorial ajuda a entender a situação do material e a identificar a solução editorial adequada.</p>
             </article>
           </div>
 
           <div class="actions">
-            <a class="btn btn--primary" href="#enviar-original">Enviar material para análise</a>
-            <a class="btn btn--secondary" href="#area-cliente">Acessar área do cliente</a>
+            <button class="btn btn--primary js-modal" type="button"
+              data-modal-title="Quero situar meu projeto"
+              data-modal-description="Conte em que estágio está seu livro para receber uma orientação inicial da PUB Editorial sobre o próximo passo mais adequado."
+              data-modal-submit="Enviar mensagem"
+              data-modal-kind="contact">
+              Situar meu projeto
+            </button>
+            <a class="btn btn--secondary" href="#servicos">Conhecer os serviços</a>
           </div>
         </div>
       </div>
@@ -612,106 +657,164 @@
         <div class="panel">
           <div class="head">
             <span class="tag">Serviços editoriais</span>
-            <h2 class="h2">Etapas da produção editorial</h2>
+            <h2 class="h2">Etapas da produção editorial do seu livro</h2>
             <p class="muted">
-              A PUB Editorial organiza seus serviços conforme a ordem natural da produção do livro, para que o processo seja compreensível e acompanhável.
+              A PUB Editorial apresenta seus serviços conforme a ordem natural da produção do livro. Isso ajuda você a entender o processo com mais clareza e reforça que cada etapa existe para levar o projeto adiante com qualidade e coerência.
             </p>
           </div>
 
           <div class="grid-3">
             <article class="service-card">
               <h3>Preparação de texto</h3>
-              <p>Tratamento editorial do original para melhorar clareza, consistência, organização e qualidade do texto.</p>
-              <p class="mini">Quando aplicável, depende da leitura real do material.</p>
+              <p>Trabalho editorial voltado a melhorar clareza, consistência, fluidez e qualidade do original, preparando o texto adequadamente para as etapas seguintes.</p>
+              <p class="mini">Quando aplicável, a definição dessa necessidade depende da leitura real do material.</p>
             </article>
             <article class="service-card">
               <h3>Revisão</h3>
-              <p>Revisão de texto e revisão de provas em momentos distintos do processo, sempre conforme o estágio do projeto.</p>
-              <p class="mini">A etapa correta depende da situação do material.</p>
+              <p>Cuidado técnico com o texto em seus diferentes momentos, incluindo revisão de texto e revisão de provas, conforme o estágio real do projeto.</p>
+              <p class="mini">A etapa correta depende da situação do material e do momento da produção.</p>
             </article>
             <article class="service-card">
               <h3>Projeto gráfico</h3>
-              <p>Definição da lógica visual do livro, com base no conteúdo, no público e no posicionamento editorial da obra.</p>
-              <p class="mini">Pode depender do texto e do contexto do projeto.</p>
+              <p>Construção da lógica visual do livro com base no conteúdo, no público e na identidade editorial da obra.</p>
+              <p class="mini">A proposta visual precisa responder ao livro, não apenas a uma escolha gráfica isolada.</p>
             </article>
             <article class="service-card">
               <h3>Diagramação</h3>
-              <p>Aplicação do projeto gráfico ao miolo e à capa, com organização técnica das páginas e dos elementos visuais.</p>
-              <p class="mini">O material precisa estar em condição compatível com a etapa.</p>
+              <p>Organização técnica das páginas do livro, aplicando o projeto gráfico ao miolo e à capa com coerência visual e precisão editorial.</p>
+              <p class="mini">Essa etapa depende de o material estar em condição compatível com a produção.</p>
             </article>
             <article class="service-card">
               <h3>Capa</h3>
-              <p>Desenvolvimento ou composição técnica da capa com base no projeto, nas referências e nos arquivos disponíveis.</p>
-              <p class="mini">Imagens e referências podem ser enviadas pela área do cliente.</p>
+              <p>Desenvolvimento ou composição visual da capa, alinhando conteúdo, referências, posicionamento da obra e materiais disponíveis.</p>
+              <p class="mini">Referências e imagens podem ser consideradas conforme a necessidade do projeto.</p>
             </article>
             <article class="service-card">
               <h3>Arquivos finais</h3>
-              <p>Conferência, fechamento e geração dos arquivos de saída para impressão e formatos digitais.</p>
-              <p class="mini">Etapa final da esteira editorial.</p>
+              <p>Conferência, fechamento e geração dos arquivos de saída para impressão e formatos digitais, prontos para publicação.</p>
+              <p class="mini">É a etapa que consolida tecnicamente o livro para sua entrega final.</p>
             </article>
           </div>
 
+          <div class="proof-band" aria-label="Posicionamento sobre condução editorial">
+            <h3 class="trust-title">Mais do que executar etapas isoladas</h3>
+            <p>
+              A PUB Editorial não se apresenta apenas como fornecedora de tarefas pontuais. Mesmo quando a necessidade envolve uma etapa específica, o livro é observado como projeto editorial completo. Isso dá mais segurança ao processo e ajuda a tomar decisões mais adequadas.
+            </p>
+          </div>
+
           <div class="trust-box" aria-label="Observação sobre análise real do material">
-            <h3 class="trust-title">Quando o material faz diferença</h3>
+            <h3 class="trust-title">Quando a análise do material faz diferença</h3>
             <p class="muted">
-              Em muitos casos, a definição correta dessas etapas depende da análise do material. Isso evita encaminhamentos genéricos e ajuda a organizar o projeto com base real no conteúdo.
+              Em muitos casos, a definição correta dessas etapas depende da análise do original. Isso evita encaminhamentos genéricos e permite orientar o projeto com base real no conteúdo, no estágio do texto e no tipo de trabalho necessário.
             </p>
           </div>
 
           <div class="actions">
-            <a class="btn btn--primary" href="#enviar-original">Enviar original para análise</a>
-            <button class="btn btn--secondary js-modal" type="button"
+            <button class="btn btn--primary js-modal" type="button"
               data-modal-title="Solicitar orientação editorial inicial"
               data-modal-description="Conte brevemente em que situação está seu projeto para que a PUB Editorial possa orientar seu próximo passo de forma mais precisa."
               data-modal-submit="Enviar solicitação"
               data-modal-kind="contact">
               Solicitar orientação editorial
             </button>
+            <a class="btn btn--secondary" href="#enviar-original">Enviar original para análise</a>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="stripe" id="como-funciona" aria-label="Como funciona">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Como funciona</span>
+            <h2 class="h2">Um caminho editorial claro, do seu momento atual até a publicação</h2>
+            <p class="muted">
+              A PUB Editorial trabalha com método, mas a experiência do cliente precisa ser simples de entender. O processo parte da situação real do projeto e segue com definição de etapas, alinhamento e acompanhamento.
+            </p>
+          </div>
+
+          <div class="step-list">
+            <article class="step">
+              <strong>Etapa 1</strong>
+              <h3>Você apresenta o projeto</h3>
+              <p>O ponto de partida pode ser uma ideia, um texto em desenvolvimento, um original pronto ou uma necessidade mais específica dentro da produção do livro.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 2</strong>
+              <h3>O material é analisado quando necessário</h3>
+              <p>Quando a orientação do projeto depende de leitura real do conteúdo, o original pode ser solicitado para análise editorial mais precisa.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 3</strong>
+              <h3>O caminho editorial é definido</h3>
+              <p>Com base no estágio do material e na necessidade do projeto, as etapas pertinentes são organizadas com clareza.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 4</strong>
+              <h3>O trabalho é alinhado</h3>
+              <p>As possibilidades de continuidade são apresentadas de forma coerente, para que o projeto avance com entendimento comum sobre escopo e direção.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 5</strong>
+              <h3>A produção segue com acompanhamento</h3>
+              <p>Com o projeto definido, a PUB Editorial conduz a produção com organização, critério técnico e continuidade adequada.</p>
+            </article>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn--primary js-modal" type="button"
+              data-modal-title="Quero começar pelo meu projeto"
+              data-modal-description="Envie uma mensagem contando brevemente em que momento está seu livro para receber orientação inicial da PUB Editorial."
+              data-modal-submit="Enviar mensagem"
+              data-modal-kind="contact">
+              Começar pelo meu projeto
+            </button>
+            <a class="btn btn--secondary" href="#enviar-original">Seguir para envio de original</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="stripe" id="enviar-original" aria-label="Envio de original">
       <div class="wrap">
         <div class="panel">
           <div class="head">
             <span class="tag">Enviar original</span>
-            <h2 class="h2">Envie seu original para análise editorial</h2>
+            <h2 class="h2">Quando o envio do material ajuda a orientar com mais precisão</h2>
             <p class="muted">
-              O envio do material permite uma leitura real do projeto e ajuda a construir orientações mais precisas. Isso melhora a análise editorial, a organização do processo e a continuidade do trabalho.
+              Nem todo projeto precisa começar pelo envio do original. Em muitos casos, uma conversa inicial já situa o caminho. Mas, quando a leitura do material for importante para compreender melhor o livro e definir a etapa correta, o envio ajuda a construir uma análise mais precisa.
             </p>
           </div>
 
           <div class="grid-2">
             <div class="card">
-              <h3>Como o envio funciona</h3>
+              <h3>Você pode começar de duas formas</h3>
               <p>
-                O envio de materiais acontece dentro da área do cliente, em ambiente autenticado. Para isso, você cria seu acesso, entra no sistema e organiza os arquivos conforme a natureza do projeto.
+                Se ainda está situando o projeto, a PUB Editorial pode orientar seu próximo passo por conversa inicial. Se você já possui material e está pronto para isso, o original pode ser enviado para análise editorial.
               </p>
               <p>
-                Esse processo existe para permitir entendimento adequado do conteúdo, registro estruturado e continuidade editorial consistente.
+                Essa lógica reduz atrito comercial e evita transformar o envio de arquivos em exigência antecipada quando ele ainda não é necessário.
               </p>
             </div>
 
             <div class="trust-box">
-              <h3 class="trust-title">Antes de enviar seu material</h3>
+              <h3 class="trust-title">Quando o envio é recomendado</h3>
               <ul class="trust-list">
-                <li>O envio é feito pela área do cliente, com cadastro e login.</li>
-                <li>O original deve ser enviado preferencialmente em Word.</li>
-                <li>Também aceitamos PDF e arquivos complementares conforme a etapa do projeto.</li>
-                <li>Os materiais são utilizados apenas para análise editorial e organização do processo.</li>
-                <li>Caso não haja continuidade, os arquivos são descartados com segurança.</li>
+                <li>Quando a definição da etapa depende de leitura real do original.</li>
+                <li>Quando o projeto já está maduro o suficiente para análise do material.</li>
+                <li>Quando o cliente quer avançar com mais precisão no entendimento do trabalho.</li>
+                <li>Quando a continuidade do processo pede organização de arquivos e registro do projeto.</li>
               </ul>
             </div>
           </div>
 
           <div class="capture-band">
             <div>
-              <h3>Comece pelo envio organizado do seu material</h3>
+              <h3>Comece pela conversa ou pelo envio — conforme o momento do seu projeto</h3>
               <p>
-                Se você já possui acesso, entre na área do cliente. Se ainda não possui, crie seu cadastro para enviar o original e os demais arquivos do projeto com segurança e continuidade.
+                Se você já possui acesso, pode entrar na área do cliente para organizar o envio do material. Se ainda está situando seu livro, também pode começar por uma conversa inicial e seguir para o envio apenas quando fizer sentido.
               </p>
             </div>
             <div class="actions">
@@ -720,9 +823,15 @@
                 data-modal-description="Envie seus dados para criar acesso à área do cliente e organizar o envio do seu original e dos materiais do projeto."
                 data-modal-submit="Solicitar acesso"
                 data-modal-kind="access">
-                Cadastrar e enviar original
+                Solicitar acesso para envio
               </button>
-              <a class="btn btn--secondary" href="#area-cliente">Já tenho acesso</a>
+              <button class="btn btn--secondary js-modal" type="button"
+                data-modal-title="Quero começar por conversa"
+                data-modal-description="Conte brevemente em que momento está seu projeto para receber uma orientação inicial antes do envio de materiais."
+                data-modal-submit="Enviar mensagem"
+                data-modal-kind="contact">
+                Começar por conversa
+              </button>
               <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Prefiro falar pelo WhatsApp</a>
             </div>
           </div>
@@ -735,17 +844,17 @@
         <div class="panel">
           <div class="head">
             <span class="tag">Área do cliente</span>
-            <h2 class="h2">Acesse sua área do cliente</h2>
+            <h2 class="h2">Um recurso de continuidade, segurança e organização do projeto</h2>
             <p class="muted">
-              Se você já possui cadastro, entre para enviar materiais, acompanhar seu projeto e consultar as informações relacionadas ao seu processo editorial.
+              A área do cliente faz parte do funcionamento estratégico da PUB Editorial, mas seu papel é simples: oferecer um ambiente organizado para envio de materiais, acompanhamento do projeto e continuidade quando isso for necessário.
             </p>
           </div>
 
           <div class="grid-2">
             <div class="card">
-              <h3>Entrar no sistema</h3>
+              <h3>Já possui acesso?</h3>
               <p>
-                A área do cliente organiza o envio de arquivos, o acompanhamento do projeto e a continuidade editorial em ambiente seguro e vinculado ao seu cadastro.
+                Se você já está em continuidade com a PUB Editorial, a área do cliente permite enviar materiais, acompanhar o projeto e consultar informações relacionadas ao seu processo editorial.
               </p>
               <div class="actions">
                 <a class="btn btn--primary" href="LOGIN_URL_AQUI">Entrar</a>
@@ -762,7 +871,7 @@
             <div class="card">
               <h3>Ainda não tem acesso?</h3>
               <p>
-                O acesso à área do cliente permite enviar materiais com organização e continuidade. Se você ainda não possui cadastro, solicite sua entrada no sistema para começar pelo envio correto do projeto.
+                Se o seu projeto já pede análise de material e organização de continuidade, você pode solicitar acesso ao ambiente de envio da PUB Editorial e iniciar essa etapa com segurança.
               </p>
               <div class="actions">
                 <button class="btn btn--secondary js-modal" type="button"
@@ -770,7 +879,7 @@
                   data-modal-description="Envie seus dados para solicitar cadastro e acesso ao ambiente de envio de materiais da PUB Editorial."
                   data-modal-submit="Solicitar acesso"
                   data-modal-kind="access">
-                  Criar acesso
+                  Solicitar acesso
                 </button>
                 <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
               </div>
@@ -785,9 +894,9 @@
         <div class="panel">
           <div class="head">
             <span class="tag">Uploads organizados</span>
-            <h2 class="h2">O que você poderá enviar na área do cliente</h2>
+            <h2 class="h2">O que pode ser enviado quando o projeto entra em continuidade</h2>
             <p class="muted">
-              Os uploads são organizados por tipo de material para manter clareza, rastreabilidade e continuidade editorial ao longo do projeto.
+              Essas informações são úteis quando o projeto já está em fase de envio de materiais. Na home, elas aparecem de forma resumida para mostrar que a PUB Editorial trabalha com organização e clareza, sem transformar a operação no centro da narrativa.
             </p>
           </div>
 
@@ -795,7 +904,7 @@
             <article class="upload-card">
               <h3>Original do livro</h3>
               <p>
-                Envie o texto principal do projeto para análise editorial e entendimento real do conteúdo.
+                O texto principal do projeto pode ser enviado para análise editorial e entendimento real do conteúdo.
               </p>
               <div class="format-list" aria-label="Formatos aceitos para original">
                 <span class="pill">DOC</span>
@@ -810,7 +919,7 @@
             <article class="upload-card">
               <h3>Imagens para o miolo</h3>
               <p>
-                Envie as imagens que devem constar no corpo do livro, em arquivos de imagem ou PDF.
+                Imagens que integram o corpo do livro podem ser enviadas em arquivos de imagem ou PDF, conforme a etapa do projeto.
               </p>
               <div class="format-list" aria-label="Formatos aceitos para imagens do miolo">
                 <span class="pill">JPG</span>
@@ -819,14 +928,14 @@
                 <span class="pill">TIFF</span>
               </div>
               <p class="mini">
-                O envio organizado dessas imagens ajuda a manter o projeto editorial legível e estruturado.
+                O envio organizado ajuda a manter clareza e continuidade editorial.
               </p>
             </article>
 
             <article class="upload-card">
               <h3>Imagens propostas para a capa</h3>
               <p>
-                Envie referências visuais, imagens-base ou arquivos que possam ser considerados na construção da capa.
+                Referências visuais, imagens-base e arquivos relacionados à capa podem ser considerados conforme a necessidade do projeto.
               </p>
               <div class="format-list" aria-label="Formatos aceitos para imagens da capa">
                 <span class="pill">JPG</span>
@@ -835,15 +944,15 @@
                 <span class="pill">TIFF</span>
               </div>
               <p class="mini">
-                Essas referências ajudam a orientar a leitura visual do projeto e a continuidade da etapa de capa.
+                Essas referências ajudam a orientar a leitura visual da obra.
               </p>
             </article>
           </div>
 
           <div class="trust-box">
-            <h3 class="trust-title">Por que isso é organizado dessa forma</h3>
+            <h3 class="trust-title">Por que essa organização existe</h3>
             <p class="muted">
-              Separar os materiais por categoria ajuda a PUB Editorial a compreender melhor o projeto, registrar corretamente cada elemento e dar continuidade ao processo sem perda de contexto.
+              Quando o projeto exige envio de materiais, separar os arquivos por categoria ajuda a compreender melhor o livro, registrar corretamente cada elemento e manter a continuidade do processo sem perda de contexto.
             </p>
           </div>
 
@@ -866,20 +975,20 @@
         <div class="panel">
           <div class="head">
             <span class="tag">Materiais</span>
-            <h2 class="h2">Materiais e conteúdos da PUB Editorial</h2>
+            <h2 class="h2">Materiais e conteúdos para aquecer sua decisão</h2>
             <p class="muted">
-              Receba materiais de apresentação, conteúdos de apoio e informações que ajudam a compreender melhor o método da PUB Editorial e o funcionamento do processo editorial.
+              Nem todo visitante está pronto para enviar o original ou avançar imediatamente. Por isso, a PUB Editorial também oferece materiais de apresentação e orientações iniciais que ajudam a compreender melhor os serviços, o processo e os próximos passos possíveis.
             </p>
           </div>
 
           <div class="grid-3">
             <article class="card">
               <h3>Apresentação institucional</h3>
-              <p>Receba uma visão breve da PUB Editorial, do método de trabalho e da lógica geral do processo.</p>
+              <p>Receba uma visão breve da PUB Editorial, dos serviços editoriais e da forma como a marca conduz projetos de livros.</p>
               <div class="actions">
                 <button class="btn btn--secondary btn--micro js-modal" type="button"
                   data-modal-title="Receber apresentação institucional"
-                  data-modal-description="Envie seu nome e e-mail para receber uma apresentação breve da PUB Editorial, com visão geral do método e da estrutura de trabalho."
+                  data-modal-description="Envie seu nome e e-mail para receber uma apresentação breve da PUB Editorial, com visão geral dos serviços, da marca e da estrutura de trabalho."
                   data-modal-submit="Receber apresentação"
                   data-modal-kind="material">
                   Receber material
@@ -889,7 +998,7 @@
 
             <article class="card">
               <h3>Orientações iniciais</h3>
-              <p>Receba conteúdos de apoio para entender melhor o envio de original, a análise do projeto e a continuidade editorial.</p>
+              <p>Receba conteúdos de apoio para entender melhor como situar o projeto, quando enviar o original e como a produção editorial costuma avançar.</p>
               <div class="actions">
                 <button class="btn btn--secondary btn--micro js-modal" type="button"
                   data-modal-title="Receber orientações iniciais"
@@ -903,7 +1012,7 @@
 
             <article class="card">
               <h3>Falar sobre o projeto</h3>
-              <p>Se preferir, envie uma mensagem e apresente brevemente sua necessidade editorial para receber orientação inicial.</p>
+              <p>Se preferir, apresente brevemente sua necessidade editorial para receber orientação inicial antes de decidir o próximo passo.</p>
               <div class="actions">
                 <button class="btn btn--secondary btn--micro js-modal" type="button"
                   data-modal-title="Falar sobre o projeto"
@@ -924,9 +1033,9 @@
         <div class="panel">
           <div class="head">
             <span class="tag">Perguntas frequentes</span>
-            <h2 class="h2">Perguntas frequentes</h2>
+            <h2 class="h2">Dúvidas comuns antes de avançar</h2>
             <p class="muted">
-              Respostas para dúvidas comuns sobre envio de original, área do cliente, continuidade editorial e organização do processo.
+              Esta seção existe para reduzir insegurança, esclarecer objeções frequentes e ajudar você a decidir com mais tranquilidade como começar seu projeto com a PUB Editorial.
             </p>
           </div>
 
@@ -937,17 +1046,27 @@
                 <span aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                Nem sempre. Em alguns casos, uma descrição inicial já ajuda a orientar o caminho. Mas, quando a análise real do material for importante para compreender o projeto, o envio do original será recomendado ou necessário.
+                Nem sempre. Em alguns casos, uma conversa inicial já ajuda a orientar o caminho. Mas, quando a análise real do material for importante para compreender o projeto, o envio do original será recomendado ou necessário.
               </div>
             </details>
 
             <details class="faq-item">
               <summary>
-                Como funciona a área do cliente?
+                Posso começar pelo WhatsApp ou por conversa inicial?
                 <span aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                A área do cliente é o ambiente autenticado em que você pode enviar materiais, organizar arquivos e acompanhar a continuidade do seu projeto com mais clareza e segurança.
+                Sim. Se você ainda estiver situando seu projeto ou não quiser enviar arquivos neste primeiro momento, pode começar por WhatsApp ou por uma mensagem inicial e seguir depois conforme a necessidade do trabalho.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                Como a PUB Editorial define de que serviço meu livro precisa?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                Isso depende do estágio do projeto. Em alguns casos, a situação pode ser compreendida por conversa inicial. Em outros, a leitura do material é importante para orientar com mais precisão a etapa editorial adequada.
               </div>
             </details>
 
@@ -963,31 +1082,21 @@
 
             <details class="faq-item">
               <summary>
-                O que acontece depois que eu envio meus materiais?
+                Para que serve a área do cliente?
                 <span aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                Os arquivos passam a compor o contexto do projeto, permitindo análise editorial mais precisa, melhor organização do processo e continuidade adequada conforme a necessidade do trabalho.
+                A área do cliente é o ambiente de continuidade da PUB Editorial. Ela serve para organizar o envio de materiais, registrar o andamento do projeto e manter o processo mais claro e seguro quando isso se torna necessário.
               </div>
             </details>
 
             <details class="faq-item">
               <summary>
-                O material enviado é utilizado para quê?
+                O que acontece com os arquivos se o projeto não prosseguir?
                 <span aria-hidden="true">+</span>
               </summary>
               <div class="faq-answer">
-                Os materiais são utilizados exclusivamente para análise editorial, entendimento do projeto e organização da continuidade. Caso o projeto não avance, os arquivos são descartados com segurança.
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary>
-                Posso continuar pelo WhatsApp se ainda não quiser enviar arquivos?
-                <span aria-hidden="true">+</span>
-              </summary>
-              <div class="faq-answer">
-                Sim. Se você ainda não estiver em condição de enviar o material, pode apresentar sua necessidade pelo WhatsApp e dar continuidade inicial por esse canal.
+                Os materiais enviados são utilizados exclusivamente para análise editorial, entendimento do projeto e organização da continuidade. Caso o projeto não avance, os arquivos são descartados com segurança.
               </div>
             </details>
           </div>
@@ -1010,20 +1119,26 @@
       <div class="wrap">
         <div class="capture-band">
           <div>
-            <h3>Comece com clareza e continuidade</h3>
+            <h3>Seu livro pode começar daqui</h3>
             <p>
-              Se você já possui material, pode organizar o envio pela área do cliente. Se ainda precisa situar melhor o projeto, a PUB Editorial também pode orientar o próximo passo inicial.
+              Se você já possui material, pode solicitar acesso para organizar o envio. Se ainda precisa entender melhor o momento do projeto, a PUB Editorial também pode orientar seu próximo passo por conversa inicial. O importante é avançar com critério, clareza e segurança.
             </p>
           </div>
           <div class="actions">
             <button class="btn btn--primary js-modal" type="button"
+              data-modal-title="Quero falar sobre meu projeto"
+              data-modal-description="Envie seus dados e uma breve mensagem para que a PUB Editorial possa orientar seu próximo passo editorial."
+              data-modal-submit="Enviar mensagem"
+              data-modal-kind="contact">
+              Falar sobre meu projeto
+            </button>
+            <button class="btn btn--secondary js-modal" type="button"
               data-modal-title="Solicitar acesso à área do cliente"
               data-modal-description="Envie seus dados para solicitar acesso ao ambiente de envio de materiais e continuidade editorial da PUB Editorial."
               data-modal-submit="Solicitar acesso"
               data-modal-kind="access">
               Solicitar acesso
             </button>
-            <a class="btn btn--secondary" href="LOGIN_URL_AQUI">Já tenho acesso</a>
             <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
           </div>
         </div>
@@ -1036,12 +1151,13 @@
           <div class="footer-grid">
             <div>
               <p class="footer-title">PUB Editorial</p>
-              <p class="footer-copy">Produção editorial com método, clareza e continuidade.</p>
+              <p class="footer-copy">Tudo para a publicação do seu livro, com critério editorial, clareza e continuidade.</p>
             </div>
 
             <ul class="footer-links" aria-label="Links do rodapé">
-              <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#para-quem-e">Para quem é</a></li>
               <li><a href="#servicos">Serviços editoriais</a></li>
+              <li><a href="#como-funciona">Como funciona</a></li>
               <li><a href="#enviar-original">Enviar original</a></li>
               <li><a href="#area-cliente">Área do cliente</a></li>
               <li><a href="#materiais">Materiais</a></li>
@@ -1119,7 +1235,6 @@
       const titleEl = document.getElementById("lead-title");
       const descEl = document.getElementById("lead-description");
       const submitEl = document.getElementById("lead-submit");
-      const hintEl = document.getElementById("lead-hint");
       const kindEl = document.getElementById("lead-kind");
 
       const whatsappWrap = document.getElementById("lead-whatsapp-wrap");
