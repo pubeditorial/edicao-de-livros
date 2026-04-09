@@ -1,1649 +1,1224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUB Editorial — Sistema editorial digital integrado</title>
-  <meta name="description" content="PUB Editorial: desenvolvimento editorial, design editorial, finalização, automação, sistemas editoriais, Pages, Scripts e formação para autores, editoras e equipes." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:1" />
+  <meta name="description" content="PUB Editorial — produção editorial com método, clareza e continuidade. Envie seu original, entenda o processo e acompanhe seu projeto com segurança." />
+  <meta name="author" content="PUB Editorial" />
+  <title>PUB Editorial — Produção editorial com método e continuidade</title>
+
   <style>
-    :root {
-      --bg: #f6f2eb;
-      --surface: #fffdf9;
-      --surface-2: #f0e8dc;
-      --line: #d9cdbd;
-      --text: #1f1a17;
-      --muted: #5c534b;
-      --accent: #7a3f1d;
-      --accent-2: #b56739;
-      --ok: #24593a;
-      --shadow: 0 18px 50px rgba(31, 26, 23, 0.08);
-      --radius: 20px;
-      --radius-sm: 14px;
-      --max: 1240px;
+    :root{
+      --bg:#0f1012;
+      --bg-soft:#17191d;
+      --panel:#f7f2ea;
+      --panel-2:#ffffff;
+      --fg:#181512;
+      --fg-dark:#f6f1e8;
+      --muted:#645b52;
+      --muted2:#8a8177;
+      --muted-dark:#c9c0b5;
+      --line:rgba(24,21,18,.10);
+      --line-strong:rgba(24,21,18,.18);
+      --line-dark:rgba(255,255,255,.10);
+      --accent:#b08b57;
+      --accent-soft:#c59b62;
+      --focus:rgba(176,139,87,.26);
+      --container:1180px;
+      --gutter:clamp(18px,3vw,34px);
+
+      --s1:8px;
+      --s2:12px;
+      --s3:16px;
+      --s4:22px;
+      --s5:30px;
+      --s6:40px;
+      --s7:56px;
+      --s8:80px;
+
+      --section-space:clamp(30px,4vw,52px);
+      --section-space-mobile:clamp(22px,5vw,34px);
+
+      --stack-xl:clamp(18px,2.4vw,28px);
+      --stack-lg:clamp(16px,2vw,24px);
+      --stack-md:clamp(12px,1.6vw,16px);
+      --stack-sm:8px;
+
+      --radius-control:16px;
+      --radius-card:24px;
+      --radius-hero:34px;
+      --shadow-card:0 20px 44px rgba(0,0,0,.14);
+      --shadow-hero:0 34px 84px rgba(0,0,0,.34);
+      --text-xl:clamp(26px,2.7vw,40px);
+      --text-lg:19px;
+      --text-md:16px;
+      --text-sm:14.5px;
+      --text-xs:12px;
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(circle at top, rgba(176,139,87,.11), rgba(176,139,87,0) 36%),
+        linear-gradient(180deg, #0d0e10 0%, #121418 100%);
+      color:var(--fg-dark);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
     }
 
-    html {
-      scroll-behavior: smooth;
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    :focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:3px;
+      border-radius:12px;
     }
 
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    .wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      padding-left:var(--gutter);
+      padding-right:var(--gutter);
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    .skip{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+      background:#fff;
+      color:#000;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:12px;
+      z-index:9999;
     }
+    .skip:focus{left:18px;top:18px;width:auto;height:auto}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .stripe{padding-block:var(--section-space)}
+    @media (max-width:760px){.stripe{padding-block:var(--section-space-mobile)}}
 
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      background: #201814;
-      color: #f7efe7;
-      font-size: 0.9rem;
-      padding: 10px 0;
-    }
-
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(246, 242, 235, 0.92);
-      border-bottom: 1px solid rgba(217, 205, 189, 0.85);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 16px 0;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 160px;
-    }
-
-    .brand strong {
-      font-size: 1.15rem;
-      letter-spacing: 0.02em;
-    }
-
-    .brand span {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: center;
-      font-size: 0.96rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-      color: var(--accent);
-    }
-
-    .nav-cta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .btn,
-    button,
-    input[type="submit"] {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s ease;
-      font-size: 0.96rem;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background: #643116;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover,
-    .btn-secondary:focus {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 72px 0 44px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      padding: 42px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--surface-2);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1, h2, h3, h4 {
-      line-height: 1.16;
-      margin: 0 0 14px;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 4.3rem);
-      max-width: 12ch;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 3vw, 2.7rem);
-    }
-
-    h3 {
-      font-size: 1.2rem;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: var(--muted);
-    }
-
-    .hero-copy p.lead {
-      font-size: 1.12rem;
-      max-width: 60ch;
-    }
-
-    .hero-actions,
-    .inline-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .hero-points div {
-      background: var(--surface-2);
-      border-radius: var(--radius-sm);
-      padding: 14px;
-      border: 1px solid var(--line);
-    }
-
-    .hero-points strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    .hero-points span {
-      display: block;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .hero-card {
-      padding: 28px;
-      display: grid;
-      gap: 18px;
-      align-content: start;
-      background: linear-gradient(180deg, #fffdf9 0%, #f3eadc 100%);
-    }
-
-    .status-box {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.72);
-      padding: 18px;
-    }
-
-    .status-box ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .status-box li + li {
-      margin-top: 6px;
-    }
-
-    section {
-      padding: 42px 0;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 24px;
-    }
-
-    .cards-3,
-    .cards-4,
-    .grid-2,
-    .grid-3 {
-      display: grid;
-      gap: 18px;
-    }
-
-    .cards-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cards-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
+    .panel,
     .card,
-    .path-card,
-    .flow-card,
-    .service-card,
-    .panel-card,
-    .form-card,
-    .policy-card,
-    .catalog-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
+    .faq-item,
+    .footer,
+    .hero-side-card,
+    .capture-band,
+    .trust-box,
+    .upload-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-card);
+      color:var(--fg);
     }
 
-    .path-card {
-      position: relative;
-      overflow: hidden;
+    .panel{
+      border-radius:var(--radius-card);
+      padding:clamp(22px,2.6vw,34px);
+      display:grid;
+      gap:var(--stack-lg);
     }
 
-    .path-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 6px;
-      background: var(--accent);
+    .head{
+      display:grid;
+      gap:10px;
+      max-width:900px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 6px 10px;
-      background: var(--surface-2);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--accent);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .tag::before{
+      content:"";
+      width:9px;height:9px;border-radius:3px;
+      background:var(--accent);
     }
 
-    .list-clean {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
+    .h1{
+      margin:0;
+      font-size:clamp(38px,5vw,72px);
+      line-height:.98;
+      letter-spacing:-.05em;
+      font-weight:980;
+      color:#fff8ef;
+      max-width:11ch;
     }
 
-    .list-clean li {
-      padding-left: 20px;
-      position: relative;
-      color: var(--muted);
+    .h2{
+      margin:0;
+      font-size:var(--text-xl);
+      line-height:1.08;
+      letter-spacing:-.03em;
+      font-weight:950;
+      color:var(--fg);
     }
 
-    .list-clean li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
+    .muted{margin:0;color:var(--muted);font-size:var(--text-md);line-height:1.76}
+    .mini{margin:0;color:var(--muted-dark);font-size:var(--text-sm);line-height:1.7}
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter:blur(14px);
+      background:rgba(10,11,13,.72);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    .process-step {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 16px;
-      align-items: start;
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
+    .site-header-inner{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
     }
 
-    .process-step:first-child {
-      border-top: 0;
-      padding-top: 0;
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
     }
 
-    .step-index {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
-      background: var(--surface-2);
-      color: var(--accent);
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      font-size: 1rem;
-      border: 1px solid var(--line);
+    .brand-title{
+      font-size:22px;
+      line-height:1;
+      font-weight:980;
+      letter-spacing:-.03em;
+      color:#fff8ef;
     }
 
-    .split-highlight {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 18px;
+    .brand-sub{
+      color:var(--muted-dark);
+      font-size:11px;
+      font-weight:850;
+      letter-spacing:.14em;
+      text-transform:uppercase;
     }
 
-    .notice {
-      padding: 18px 20px;
-      background: #fff5ec;
-      border: 1px solid #e6c8b1;
-      border-radius: 18px;
-      color: #63311b;
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
+    .navlink,
+    .navcta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 13px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      color:#fff8ef;
+      font-size:12px;
+      font-weight:850;
+      letter-spacing:.01em;
+      background:rgba(255,255,255,.04);
+      cursor:pointer;
+      font:inherit;
     }
 
-    .data-table th,
-    .data-table td {
-      text-align: left;
-      padding: 16px;
-      border-bottom: 1px solid var(--line);
-      vertical-align: top;
+    .navlink:hover,.navcta:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20)}
+    .navcta{
+      background:var(--accent);
+      color:#111111;
+      border-color:transparent;
+    }
+    .navcta:hover{background:var(--accent-soft)}
+
+    .hero{
+      border-radius:var(--radius-hero);
+      border:1px solid var(--line-dark);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+        linear-gradient(135deg, #15171a 0%, #101114 100%);
+      box-shadow:var(--shadow-hero);
+      overflow:hidden;
+      color:var(--fg-dark);
     }
 
-    .data-table th {
-      background: var(--surface-2);
-      color: var(--text);
-      font-size: 0.95rem;
+    .hero-inner{padding:clamp(22px,3vw,40px);display:grid;gap:var(--stack-xl)}
+
+    .hero-body{display:grid;gap:24px;align-items:start}
+    @media (min-width:980px){.hero-body{grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr)}}
+
+    .hero-copy{display:grid;gap:var(--stack-md);align-content:start;min-width:0}
+    .hero-lead{margin:0;color:#f3ede5;font-size:17px;line-height:1.82;max-width:64ch}
+
+    .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:52px;
+      padding:14px 16px;
+      border-radius:16px;
+      font:inherit;
+      font-weight:900;
+      letter-spacing:-.01em;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease, opacity .18s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn--primary{background:var(--accent);color:#111111;box-shadow:0 14px 30px rgba(176,139,87,.24)}
+    .btn--primary:hover{background:var(--accent-soft)}
+    .btn--secondary{background:#fff;color:var(--fg);border-color:var(--line)}
+    .btn--secondary:hover{border-color:var(--line-strong)}
+    .btn--ghost{background:rgba(255,255,255,.04);color:#fff8ef;border-color:rgba(255,255,255,.12)}
+    .btn--ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20)}
+    .btn--micro{min-height:40px;padding:10px 12px;border-radius:12px;font-size:12.5px}
+    .btn--full{width:100%}
+
+    .trust-box,
+    .hero-side-card{
+      border-radius:28px;
+      padding:20px;
+      display:grid;
+      gap:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.92));
     }
 
-    .data-table tr:last-child td {
-      border-bottom: 0;
+    .trust-title{
+      margin:0;
+      font-size:17px;
+      line-height:1.15;
+      color:var(--fg);
+      font-weight:950;
+      letter-spacing:-.02em;
     }
 
-    form {
-      display: grid;
-      gap: 14px;
+    .trust-list{
+      margin:0;
+      padding-left:18px;
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
     }
 
-    label {
-      display: grid;
-      gap: 8px;
-      font-weight: 600;
-      color: var(--text);
-      font-size: 0.95rem;
+    .grid-3{display:grid;gap:var(--s4);grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{display:grid;gap:var(--s4);grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:980px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .card{border-radius:22px;padding:20px;display:grid;gap:var(--stack-md);align-content:start;min-height:100%}
+    .card h3{margin:0;font-size:18px;line-height:1.15;letter-spacing:-.02em;color:var(--fg)}
+    .card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+
+    .step-list{display:grid;gap:14px}
+    .step{
+      display:grid;
+      gap:10px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .step strong{font-size:14px;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+    .step h3{margin:0;font-size:18px;line-height:1.15;letter-spacing:-.02em;color:var(--fg)}
+    .step p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+
+    .service-card{
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:#fff;
+      padding:18px;
+      display:grid;
+      gap:10px;
+      min-height:100%;
+    }
+    .service-card h3{margin:0;font-size:18px;line-height:1.15;color:var(--fg)}
+    .service-card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+    .service-card .mini{color:var(--muted2);font-size:13px;line-height:1.65}
+
+    .upload-grid{display:grid;gap:var(--s4);grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:1080px){.upload-grid{grid-template-columns:1fr}}
+    .upload-card{border-radius:22px;padding:20px;display:grid;gap:12px;align-content:start;min-height:100%}
+    .upload-card h3{margin:0;font-size:18px;line-height:1.15;color:var(--fg)}
+    .upload-card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+    .format-list{display:flex;flex-wrap:wrap;gap:8px}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--fg);
+      font-size:11.5px;
+      font-weight:850;
+      letter-spacing:.04em;
+      text-transform:uppercase;
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px 14px;
-      font: inherit;
-      background: #fff;
-      color: var(--text);
+    .faq-list{display:grid;gap:12px}
+    .faq-item{border-radius:22px;padding:18px}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:-.01em;
+      color:var(--fg);
+    }
+    summary::-webkit-details-marker{display:none}
+    .faq-answer{margin-top:12px;color:var(--muted);font-size:15px;line-height:1.75}
+
+    .capture-band{
+      border-radius:26px;
+      padding:clamp(20px,2.6vw,30px);
+      display:grid;
+      gap:16px;
+      align-items:center;
+      background:linear-gradient(180deg, #faf5ec, #f3ebdf);
+    }
+    @media (min-width:900px){.capture-band{grid-template-columns:minmax(0,1fr) auto}}
+    .capture-band h3{margin:0;font-size:24px;line-height:1.08;letter-spacing:-.03em;color:var(--fg)}
+    .capture-band p{margin:8px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:62ch}
+
+    .footer{border-radius:24px;padding:18px 20px}
+    .footer-grid{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .footer-title{margin:0;font-size:14px;font-weight:950;line-height:1.2;letter-spacing:-.01em;color:var(--fg)}
+    .footer-copy{margin:0;color:var(--muted2);font-size:12px}
+    .footer-links{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+    .footer-links a,.footer-links button{color:var(--fg);font:inherit;font-size:13px;background:none;border:0;cursor:pointer;padding:0}
+    .footer-links a:hover,.footer-links button:hover{text-decoration:underline;text-decoration-color:rgba(24,21,18,.32)}
+
+    #lead-modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      padding:clamp(16px,3vw,32px);
+      background:rgba(8,8,9,.66);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      align-items:center;
+      justify-content:center;
+    }
+    #lead-modal[data-state="open"]{display:flex}
+
+    .lead-dialog{
+      width:min(560px,100%);
+      max-height:min(88vh,940px);
+      overflow:auto;
+      border-radius:28px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      box-shadow:0 28px 90px rgba(0,0,0,.30);
+      color:var(--fg);
+    }
+    .lead-header{
+      position:sticky;top:0;z-index:3;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+      padding:22px 22px 16px;
+      background:rgba(247,242,234,.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+    .lead-title{font-size:clamp(22px,2.2vw,28px);line-height:1.1;font-weight:980;letter-spacing:-.03em;color:var(--fg);max-width:22ch}
+    .lead-description{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.65;max-width:42ch}
+    .lead-body{padding:20px 22px 22px;display:grid;gap:16px}
+    .lead-field{display:grid;gap:7px}
+    .lead-label{font-size:12.5px;font-weight:900;color:var(--fg)}
+    .lead-input{
+      width:100%;min-height:50px;padding:13px 14px;border-radius:16px;border:1px solid var(--line-strong);
+      background:#fff;color:var(--fg);font:inherit;line-height:1.4;
+    }
+    .lead-input::placeholder{color:#958c80}
+    textarea.lead-input{min-height:120px;resize:vertical}
+    .lead-actions{display:flex;justify-content:flex-end}
+    .lead-hint{min-height:18px;font-size:13px;line-height:1.55;color:var(--muted2);white-space:pre-line}
+    .lead-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:12px 15px;border-radius:15px;
+      font:inherit;font-weight:900;letter-spacing:-.01em;border:1px solid var(--line);background:#fff;color:var(--fg);cursor:pointer;
+    }
+    .lead-btn--primary{background:var(--accent);color:#111111;border-color:transparent}
+    .lead-success-box{border:1px solid var(--line);border-radius:20px;background:#fff;padding:20px}
+    .lead-success-box h3{margin:0 0 8px;font-size:22px;line-height:1.1;letter-spacing:-.02em;color:var(--fg)}
+    .lead-success-box p{margin:0;color:var(--muted);font-size:15px;line-height:1.7}
+    .is-hidden{display:none !important}
+    body.modal-open{overflow:hidden}
+
+    @media (max-width:980px){
+      .nav{display:none}
     }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .hint {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-top: -6px;
-    }
-
-    .kpis {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .kpi {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .kpi strong {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .mini {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .footer {
-      padding: 32px 0 54px;
-      border-top: 1px solid var(--line);
-      margin-top: 24px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      gap: 22px;
-    }
-
-    .small {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--line);
-      margin: 16px 0;
-    }
-
-    @media (max-width: 1120px) {
-      .hero-grid,
-      .section-head,
-      .split-highlight,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cards-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cards-3,
-      .grid-3,
-      .kpis,
-      .grid-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero-copy,
-      .hero-card,
-      .card,
-      .path-card,
-      .flow-card,
-      .service-card,
-      .panel-card,
-      .form-card,
-      .policy-card,
-      .catalog-card {
-        padding: 20px;
-      }
-
-      .hero-points,
-      .cards-3,
-      .cards-4,
-      .grid-3,
-      .grid-2,
-      .kpis,
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        max-width: none;
-      }
-
-      .topbar .container,
-      .nav-cta,
-      .nav-links,
-      .hero-actions,
-      .inline-actions {
-        justify-content: flex-start;
-      }
+    @media (max-width:760px){
+      #lead-modal{padding:12px}
+      .lead-dialog{width:100%;max-height:92vh;border-radius:24px}
+      .lead-header{padding:18px 16px 14px}
+      .lead-body{padding:16px}
+      .lead-actions{display:grid}
+      .lead-btn{width:100%}
+      .site-header-inner{min-height:68px}
+      .brand-title{font-size:20px}
+      .h1{max-width:none}
+      .actions{display:grid}
+      .actions .btn{width:100%}
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="container">
-      <div>Sistema editorial digital integrado da <strong>PUB Editorial</strong></div>
-      <div>Contratação orientada • Sem checkout automático • Continuidade por WhatsApp ou e-mail</div>
-    </div>
-  </div>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
 
-  <header>
-    <div class="container nav">
-      <a href="#inicio" class="brand" aria-label="PUB Editorial, voltar ao início">
-        <strong>PUB Editorial</strong>
-        <span>Livros, sistemas editoriais e presença digital</span>
+  <header class="site-header" aria-label="Cabeçalho principal">
+    <div class="wrap site-header-inner">
+      <a href="#inicio" class="brand" aria-label="PUB Editorial, página inicial">
+        <span class="brand-title">PUB Editorial</span>
+        <span class="brand-sub">produção editorial com método</span>
       </a>
 
-      <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#perfis">Por perfil</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#materiais">Materiais</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contato">Contato</a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="navlink" href="#como-funciona">Como funciona</a>
+        <a class="navlink" href="#servicos">Serviços editoriais</a>
+        <a class="navlink" href="#enviar-original">Enviar original</a>
+        <a class="navlink" href="#materiais">Materiais</a>
+        <a class="navlink" href="#faq">Perguntas frequentes</a>
+        <a class="navlink" href="#area-cliente">Área do cliente</a>
+        <a class="navcta" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
       </nav>
-
-      <div class="nav-cta">
-        <a class="btn btn-secondary" href="#envio-original">Enviar original</a>
-        <a class="btn btn-primary" href="#orcamento">Pedir orçamento</a>
-      </div>
     </div>
   </header>
 
-  <main id="inicio">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">SITE • etapa pública do sistema</span>
-          <h1>Produção editorial com método, contexto e continuidade.</h1>
-          <p class="lead">A <strong>PUB Editorial</strong> organiza texto, design, finalização, automação, formação e presença editorial digital em uma mesma lógica. Este site apresenta a oferta, qualifica a entrada e inicia a relação comercial com clareza.</p>
-          <p>O ambiente público não funciona como checkout. Ele conduz cada demanda ao próximo passo correto: orçamento, envio de original, solicitação de material, atendimento, interesse em <strong>PUB Editorial Scripts</strong> ou interesse em <strong>PUB Editorial Pages</strong>.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#perfis">Quero publicar meu livro</a>
-            <a class="btn btn-secondary" href="#solucoes">Ver Scripts e Pages</a>
-            <a class="btn btn-secondary" href="#como-funciona">Entender o processo</a>
-          </div>
-          <div class="hero-points" aria-label="Pontos centrais do sistema">
-            <div>
-              <strong>Para autores</strong>
-              <span>Envio de original, orçamento e acompanhamento editorial estruturado.</span>
-            </div>
-            <div>
-              <strong>Para editoras</strong>
-              <span>Fluxo editorial, serviços por esteira e soluções técnicas para produção.</span>
-            </div>
-            <div>
-              <strong>Para equipes</strong>
-              <span>Treinamento, padronização, automação e organização de processo editorial.</span>
-            </div>
-          </div>
-        </div>
+  <main id="main">
+    <section class="wrap stripe" id="inicio" aria-label="Apresentação principal">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-body">
+            <div class="hero-copy">
+              <span class="tag">PUB Editorial</span>
+              <h1 class="h1">Produção editorial completa, organizada a partir do seu original</h1>
+              <p class="hero-lead">
+                A PUB Editorial estrutura, orienta e executa projetos de livros com base real no material do autor — do texto inicial até a entrega final.
+              </p>
+              <p class="mini">
+                Você pode começar com uma ideia, um texto em desenvolvimento ou um original pronto. Quando necessário, o envio do material permite uma análise mais precisa e uma orientação adequada para o seu projeto.
+              </p>
 
-        <aside class="hero-card" aria-label="Resumo da lógica do sistema">
-          <div class="status-box">
-            <h3>Como o site trabalha</h3>
-            <ul>
-              <li>Apresenta a <strong>PUB Editorial</strong> com clareza institucional.</li>
-              <li>Organiza a navegação por perfil, intenção e etapa.</li>
-              <li>Solicita somente os dados necessários para cada entrada.</li>
-              <li>Encaminha o usuário para upload com cadastro ou continuidade por WhatsApp.</li>
-            </ul>
-          </div>
-          <div class="status-box">
-            <h3>Regra comercial essencial</h3>
-            <p>O site registra o interesse e inicia a relação comercial. A formalização da transação ocorre por <strong>WhatsApp</strong> ou <strong>e-mail</strong>, após validação da demanda e alinhamento de escopo.</p>
-          </div>
-          <div class="status-box">
-            <h3>Fluxo quando o material é necessário</h3>
-            <p>Se o orçamento depender de leitura real do original, o sistema conduz a duas rotas legítimas:</p>
-            <ul>
-              <li><strong>Upload com cadastro</strong>, login, senha e área do cliente.</li>
-              <li><strong>Descrição qualificada + WhatsApp</strong>, sem perda de contexto.</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
+              <div class="actions" aria-label="Ações principais">
+                <a class="btn btn--primary" href="#como-funciona">Entender como funciona</a>
+                <a class="btn btn--secondary" href="#enviar-original">Enviar meu original</a>
+                <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+              </div>
 
-    <section id="sobre">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Sobre</span>
-            <h2>Uma estrutura editorial pensada para operar com legibilidade.</h2>
-          </div>
-          <div>
-            <p>A <strong>PUB Editorial</strong> reúne desenvolvimento editorial, design editorial, finalização, automação, sistemas editoriais, presença digital e formação. O objetivo não é apenas executar tarefas do livro, mas articular método, texto, design, técnica, processo e acompanhamento dentro de uma mesma lógica.</p>
-          </div>
-        </div>
+              <p class="mini">
+                O envio de materiais é usado para análise editorial e organização do projeto. A produção só começa após alinhamento entre as partes.
+              </p>
+            </div>
 
-        <div class="split-highlight">
-          <div class="card">
-            <span class="tag">Rodrigo Fagundes</span>
-            <h3>Núcleo metodológico da operação</h3>
-            <p>Rodrigo Fagundes aparece aqui não apenas como referência biográfica, mas como expressão de método: produção editorial de livros, revisão, preparação, diagramação, projeto gráfico, fechamento técnico, automação no InDesign e racionalização de fluxo.</p>
-            <p>O sistema proposto nasce de prática editorial concreta, amadurecida e tecnicamente orientada.</p>
-          </div>
-          <div class="card">
-            <span class="tag">Ecossistema integrado</span>
-            <h3>Quatro frentes, uma mesma lógica</h3>
-            <ul class="list-clean">
-              <li><strong>Rodrigo Fagundes</strong> — método, autoridade e prestação especializada.</li>
-              <li><strong>PUB Editorial</strong> — frente institucional, editorial e operacional.</li>
-              <li><strong>PUB Editorial Scripts</strong> — linha oficial de produtos técnicos para Adobe InDesign.</li>
-              <li><strong>PUB Editorial Pages</strong> — solução autoral para páginas editoriais estruturadas.</li>
-            </ul>
+            <aside class="hero-side-card" aria-label="Síntese de confiança e continuidade">
+              <h2 class="trust-title">A área do cliente organiza o envio e a continuidade</h2>
+              <ul class="trust-list">
+                <li>Cadastro e login permitem envio seguro e rastreável de materiais.</li>
+                <li>O original pode ser enviado preferencialmente em Word; PDF também é aceito.</li>
+                <li>Imagens do miolo e propostas para a capa podem ser enviadas em arquivos de imagem ou PDF.</li>
+                <li>Se o projeto não tiver continuidade, os materiais são descartados com segurança.</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn--secondary btn--micro" href="#area-cliente">Acessar área do cliente</a>
+                <button class="btn btn--secondary btn--micro js-modal" type="button"
+                  data-modal-title="Receber apresentação da PUB Editorial"
+                  data-modal-description="Envie seu nome e e-mail para receber uma apresentação breve da PUB Editorial, com visão geral do método, dos serviços e do processo editorial."
+                  data-modal-submit="Receber apresentação"
+                  data-modal-kind="material">
+                  Receber apresentação
+                </button>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="perfis">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Caminhos por perfil</span>
-            <h2>Entradas orientadas para quem chega com necessidades diferentes.</h2>
+    <section class="stripe" id="como-funciona" aria-label="Como funciona">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Como funciona</span>
+            <h2 class="h2">Como a PUB Editorial trabalha</h2>
+            <p class="muted">
+              O processo editorial começa pela compreensão real do projeto. Quando necessário, o envio do material ajuda a evitar orientações genéricas e permite uma leitura precisa do que precisa ser feito.
+            </p>
           </div>
-          <div>
-            <p>O site não parte do pressuposto de que o visitante conhece o nome técnico do serviço. Ele traduz o catálogo em percursos claros de decisão e ação.</p>
+
+          <div class="step-list">
+            <article class="step">
+              <strong>Etapa 1</strong>
+              <h3>Entendimento do projeto</h3>
+              <p>Você apresenta sua ideia, necessidade ou material inicial para que o projeto seja situado corretamente.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 2</strong>
+              <h3>Análise do material</h3>
+              <p>Quando necessário, o original é enviado pela área do cliente, em ambiente autenticado, para análise editorial responsável.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 3</strong>
+              <h3>Estruturação editorial</h3>
+              <p>A partir da análise, a PUB Editorial organiza o caminho do projeto e identifica as etapas pertinentes.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 4</strong>
+              <h3>Alinhamento e decisão</h3>
+              <p>As possibilidades de continuidade são apresentadas com base real no conteúdo, no estágio do material e no tipo de intervenção necessária.</p>
+            </article>
+            <article class="step">
+              <strong>Etapa 5</strong>
+              <h3>Produção editorial</h3>
+              <p>Com o projeto definido, o trabalho segue com acompanhamento, organização dos arquivos e continuidade adequada.</p>
+            </article>
           </div>
-        </div>
 
-        <div class="cards-3">
-          <article class="path-card">
-            <span class="tag">Para autores</span>
-            <h3>Quero publicar meu livro</h3>
-            <p>Apresentação do processo editorial em ordem natural: análise do original, preparação, revisão, projeto gráfico, diagramação, revisão de provas e finalização.</p>
-            <ul class="list-clean">
-              <li>Enviar original para avaliação</li>
-              <li>Pedir orçamento do livro</li>
-              <li>Falar pelo WhatsApp</li>
-            </ul>
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="#envio-original">Enviar original</a>
-              <a class="btn btn-secondary" href="#orcamento">Pedir orçamento</a>
-            </div>
-          </article>
-
-          <article class="path-card">
-            <span class="tag">Para editoras</span>
-            <h3>Sou editora ou equipe editorial</h3>
-            <p>Serviços em ordem da esteira editorial, com foco em contratação objetiva, demanda recorrente, suporte técnico e continuidade operacional.</p>
-            <ul class="list-clean">
-              <li>Solicitar orçamento</li>
-              <li>Enviar material</li>
-              <li>Falar sobre demanda editorial</li>
-            </ul>
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="#orcamento">Solicitar orçamento</a>
-              <a class="btn btn-secondary" href="#atendimento">Falar sobre demanda</a>
-            </div>
-          </article>
-
-          <article class="path-card">
-            <span class="tag">Para profissionais e equipes</span>
-            <h3>Quero aprender produção editorial</h3>
-            <p>Treinamentos, capacitação operacional, padronização de fluxo e organização de processo editorial para profissionais, equipes e iniciantes.</p>
-            <ul class="list-clean">
-              <li>Quero fazer um treinamento</li>
-              <li>Solicitar informações</li>
-              <li>Falar pelo WhatsApp</li>
-            </ul>
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="#orcamento">Solicitar informações</a>
-              <a class="btn btn-secondary" href="#contato">Falar pelo WhatsApp</a>
-            </div>
-          </article>
+          <div class="actions">
+            <a class="btn btn--primary" href="#enviar-original">Enviar material para análise</a>
+            <a class="btn btn--secondary" href="#area-cliente">Acessar área do cliente</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="servicos">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Serviços</span>
-            <h2>Serviços editoriais apresentados na ordem natural da produção.</h2>
+    <section class="stripe" id="servicos" aria-label="Serviços editoriais">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Serviços editoriais</span>
+            <h2 class="h2">Etapas da produção editorial</h2>
+            <p class="muted">
+              A PUB Editorial organiza seus serviços conforme a ordem natural da produção do livro, para que o processo seja compreensível e acompanhável.
+            </p>
           </div>
-          <div>
-            <p>Sempre que os serviços editoriais aparecem no site, seguem a esteira oficial: <strong>análise e diagnóstico → tratamento de texto → revisão antes da diagramação → projeto gráfico → diagramação → revisão de provas → finalização</strong>.</p>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="process-step">
-            <div class="step-index">1</div>
-            <div>
-              <h3>Análise e diagnóstico</h3>
-              <p>Leitura editorial crítica e avaliação de original para situar a obra, medir escopo, identificar necessidades e orientar a proposta editorial.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-index">2</div>
-            <div>
-              <h3>Tratamento de texto</h3>
-              <p>Preparação de originais, copidesque, padronização textual, normalização e organização de conteúdo.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-index">3</div>
-            <div>
-              <h3>Revisão antes da diagramação</h3>
-              <p>Revisão de texto sobre original editável, com foco em correção linguística e consistência textual.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-index">4</div>
-            <div>
+          <div class="grid-3">
+            <article class="service-card">
+              <h3>Preparação de texto</h3>
+              <p>Tratamento editorial do original para melhorar clareza, consistência, organização e qualidade do texto.</p>
+              <p class="mini">Quando aplicável, depende da leitura real do material.</p>
+            </article>
+            <article class="service-card">
+              <h3>Revisão</h3>
+              <p>Revisão de texto e revisão de provas em momentos distintos do processo, sempre conforme o estágio do projeto.</p>
+              <p class="mini">A etapa correta depende da situação do material.</p>
+            </article>
+            <article class="service-card">
               <h3>Projeto gráfico</h3>
-              <p>Projeto gráfico de miolo e capa para dar forma editorial consistente ao livro.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-index">5</div>
-            <div>
+              <p>Definição da lógica visual do livro, com base no conteúdo, no público e no posicionamento editorial da obra.</p>
+              <p class="mini">Pode depender do texto e do contexto do projeto.</p>
+            </article>
+            <article class="service-card">
               <h3>Diagramação</h3>
-              <p>Diagramação de miolo e diagramação de capa, com aplicação do projeto visual ao conteúdo e preparação técnica das peças.</p>
+              <p>Aplicação do projeto gráfico ao miolo e à capa, com organização técnica das páginas e dos elementos visuais.</p>
+              <p class="mini">O material precisa estar em condição compatível com a etapa.</p>
+            </article>
+            <article class="service-card">
+              <h3>Capa</h3>
+              <p>Desenvolvimento ou composição técnica da capa com base no projeto, nas referências e nos arquivos disponíveis.</p>
+              <p class="mini">Imagens e referências podem ser enviadas pela área do cliente.</p>
+            </article>
+            <article class="service-card">
+              <h3>Arquivos finais</h3>
+              <p>Conferência, fechamento e geração dos arquivos de saída para impressão e formatos digitais.</p>
+              <p class="mini">Etapa final da esteira editorial.</p>
+            </article>
+          </div>
+
+          <div class="trust-box" aria-label="Observação sobre análise real do material">
+            <h3 class="trust-title">Quando o material faz diferença</h3>
+            <p class="muted">
+              Em muitos casos, a definição correta dessas etapas depende da análise do material. Isso evita encaminhamentos genéricos e ajuda a organizar o projeto com base real no conteúdo.
+            </p>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn--primary" href="#enviar-original">Enviar original para análise</a>
+            <button class="btn btn--secondary js-modal" type="button"
+              data-modal-title="Solicitar orientação editorial inicial"
+              data-modal-description="Conte brevemente em que situação está seu projeto para que a PUB Editorial possa orientar seu próximo passo de forma mais precisa."
+              data-modal-submit="Enviar solicitação"
+              data-modal-kind="contact">
+              Solicitar orientação editorial
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="stripe" id="enviar-original" aria-label="Envio de original">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Enviar original</span>
+            <h2 class="h2">Envie seu original para análise editorial</h2>
+            <p class="muted">
+              O envio do material permite uma leitura real do projeto e ajuda a construir orientações mais precisas. Isso melhora a análise editorial, a organização do processo e a continuidade do trabalho.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3>Como o envio funciona</h3>
+              <p>
+                O envio de materiais acontece dentro da área do cliente, em ambiente autenticado. Para isso, você cria seu acesso, entra no sistema e organiza os arquivos conforme a natureza do projeto.
+              </p>
+              <p>
+                Esse processo existe para permitir entendimento adequado do conteúdo, registro estruturado e continuidade editorial consistente.
+              </p>
+            </div>
+
+            <div class="trust-box">
+              <h3 class="trust-title">Antes de enviar seu material</h3>
+              <ul class="trust-list">
+                <li>O envio é feito pela área do cliente, com cadastro e login.</li>
+                <li>O original deve ser enviado preferencialmente em Word.</li>
+                <li>Também aceitamos PDF e arquivos complementares conforme a etapa do projeto.</li>
+                <li>Os materiais são utilizados apenas para análise editorial e organização do processo.</li>
+                <li>Caso não haja continuidade, os arquivos são descartados com segurança.</li>
+              </ul>
             </div>
           </div>
-          <div class="process-step">
-            <div class="step-index">6</div>
+
+          <div class="capture-band">
             <div>
-              <h3>Revisão de provas</h3>
-              <p>Conferência do PDF diagramado, hifenização, quebras, viúvas, órfãs e verificação final da aplicação do conteúdo.</p>
+              <h3>Comece pelo envio organizado do seu material</h3>
+              <p>
+                Se você já possui acesso, entre na área do cliente. Se ainda não possui, crie seu cadastro para enviar o original e os demais arquivos do projeto com segurança e continuidade.
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn btn--primary js-modal" type="button"
+                data-modal-title="Criar acesso à área do cliente"
+                data-modal-description="Envie seus dados para criar acesso à área do cliente e organizar o envio do seu original e dos materiais do projeto."
+                data-modal-submit="Solicitar acesso"
+                data-modal-kind="access">
+                Cadastrar e enviar original
+              </button>
+              <a class="btn btn--secondary" href="#area-cliente">Já tenho acesso</a>
+              <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Prefiro falar pelo WhatsApp</a>
             </div>
           </div>
-          <div class="process-step">
-            <div class="step-index">7</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stripe" id="area-cliente" aria-label="Área do cliente">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Área do cliente</span>
+            <h2 class="h2">Acesse sua área do cliente</h2>
+            <p class="muted">
+              Se você já possui cadastro, entre para enviar materiais, acompanhar seu projeto e consultar as informações relacionadas ao seu processo editorial.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3>Entrar no sistema</h3>
+              <p>
+                A área do cliente organiza o envio de arquivos, o acompanhamento do projeto e a continuidade editorial em ambiente seguro e vinculado ao seu cadastro.
+              </p>
+              <div class="actions">
+                <a class="btn btn--primary" href="LOGIN_URL_AQUI">Entrar</a>
+                <button class="btn btn--secondary js-modal" type="button"
+                  data-modal-title="Preciso de ajuda para entrar"
+                  data-modal-description="Envie sua mensagem para receber ajuda com acesso, senha ou primeiro login na área do cliente."
+                  data-modal-submit="Enviar mensagem"
+                  data-modal-kind="contact">
+                  Preciso de ajuda
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>Ainda não tem acesso?</h3>
+              <p>
+                O acesso à área do cliente permite enviar materiais com organização e continuidade. Se você ainda não possui cadastro, solicite sua entrada no sistema para começar pelo envio correto do projeto.
+              </p>
+              <div class="actions">
+                <button class="btn btn--secondary js-modal" type="button"
+                  data-modal-title="Solicitar acesso à área do cliente"
+                  data-modal-description="Envie seus dados para solicitar cadastro e acesso ao ambiente de envio de materiais da PUB Editorial."
+                  data-modal-submit="Solicitar acesso"
+                  data-modal-kind="access">
+                  Criar acesso
+                </button>
+                <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stripe" id="uploads" aria-label="Tipos de upload">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Uploads organizados</span>
+            <h2 class="h2">O que você poderá enviar na área do cliente</h2>
+            <p class="muted">
+              Os uploads são organizados por tipo de material para manter clareza, rastreabilidade e continuidade editorial ao longo do projeto.
+            </p>
+          </div>
+
+          <div class="upload-grid">
+            <article class="upload-card">
+              <h3>Original do livro</h3>
+              <p>
+                Envie o texto principal do projeto para análise editorial e entendimento real do conteúdo.
+              </p>
+              <div class="format-list" aria-label="Formatos aceitos para original">
+                <span class="pill">DOC</span>
+                <span class="pill">DOCX</span>
+                <span class="pill">PDF</span>
+              </div>
+              <p class="mini">
+                Preferencialmente em Word. PDF também é aceito quando necessário.
+              </p>
+            </article>
+
+            <article class="upload-card">
+              <h3>Imagens para o miolo</h3>
+              <p>
+                Envie as imagens que devem constar no corpo do livro, em arquivos de imagem ou PDF.
+              </p>
+              <div class="format-list" aria-label="Formatos aceitos para imagens do miolo">
+                <span class="pill">JPG</span>
+                <span class="pill">PNG</span>
+                <span class="pill">PDF</span>
+                <span class="pill">TIFF</span>
+              </div>
+              <p class="mini">
+                O envio organizado dessas imagens ajuda a manter o projeto editorial legível e estruturado.
+              </p>
+            </article>
+
+            <article class="upload-card">
+              <h3>Imagens propostas para a capa</h3>
+              <p>
+                Envie referências visuais, imagens-base ou arquivos que possam ser considerados na construção da capa.
+              </p>
+              <div class="format-list" aria-label="Formatos aceitos para imagens da capa">
+                <span class="pill">JPG</span>
+                <span class="pill">PNG</span>
+                <span class="pill">PDF</span>
+                <span class="pill">TIFF</span>
+              </div>
+              <p class="mini">
+                Essas referências ajudam a orientar a leitura visual do projeto e a continuidade da etapa de capa.
+              </p>
+            </article>
+          </div>
+
+          <div class="trust-box">
+            <h3 class="trust-title">Por que isso é organizado dessa forma</h3>
+            <p class="muted">
+              Separar os materiais por categoria ajuda a PUB Editorial a compreender melhor o projeto, registrar corretamente cada elemento e dar continuidade ao processo sem perda de contexto.
+            </p>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn--primary" href="LOGIN_URL_AQUI">Entrar na área do cliente</a>
+            <button class="btn btn--secondary js-modal" type="button"
+              data-modal-title="Solicitar acesso para enviar materiais"
+              data-modal-description="Envie seus dados para receber acesso ao ambiente de upload da PUB Editorial e organizar o envio do seu projeto."
+              data-modal-submit="Solicitar acesso"
+              data-modal-kind="access">
+              Solicitar acesso
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stripe" id="materiais" aria-label="Materiais e conteúdos">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Materiais</span>
+            <h2 class="h2">Materiais e conteúdos da PUB Editorial</h2>
+            <p class="muted">
+              Receba materiais de apresentação, conteúdos de apoio e informações que ajudam a compreender melhor o método da PUB Editorial e o funcionamento do processo editorial.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <h3>Apresentação institucional</h3>
+              <p>Receba uma visão breve da PUB Editorial, do método de trabalho e da lógica geral do processo.</p>
+              <div class="actions">
+                <button class="btn btn--secondary btn--micro js-modal" type="button"
+                  data-modal-title="Receber apresentação institucional"
+                  data-modal-description="Envie seu nome e e-mail para receber uma apresentação breve da PUB Editorial, com visão geral do método e da estrutura de trabalho."
+                  data-modal-submit="Receber apresentação"
+                  data-modal-kind="material">
+                  Receber material
+                </button>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Orientações iniciais</h3>
+              <p>Receba conteúdos de apoio para entender melhor o envio de original, a análise do projeto e a continuidade editorial.</p>
+              <div class="actions">
+                <button class="btn btn--secondary btn--micro js-modal" type="button"
+                  data-modal-title="Receber orientações iniciais"
+                  data-modal-description="Envie seu nome e e-mail para receber orientações iniciais sobre análise de original, organização do projeto e próximos passos."
+                  data-modal-submit="Receber orientações"
+                  data-modal-kind="material">
+                  Receber orientações
+                </button>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>Falar sobre o projeto</h3>
+              <p>Se preferir, envie uma mensagem e apresente brevemente sua necessidade editorial para receber orientação inicial.</p>
+              <div class="actions">
+                <button class="btn btn--secondary btn--micro js-modal" type="button"
+                  data-modal-title="Falar sobre o projeto"
+                  data-modal-description="Conte brevemente seu momento editorial para que a PUB Editorial possa orientar seu próximo passo com mais precisão."
+                  data-modal-submit="Enviar mensagem"
+                  data-modal-kind="contact">
+                  Enviar mensagem
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stripe" id="faq" aria-label="Perguntas frequentes">
+      <div class="wrap">
+        <div class="panel">
+          <div class="head">
+            <span class="tag">Perguntas frequentes</span>
+            <h2 class="h2">Perguntas frequentes</h2>
+            <p class="muted">
+              Respostas para dúvidas comuns sobre envio de original, área do cliente, continuidade editorial e organização do processo.
+            </p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                Preciso enviar o original para começar?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                Nem sempre. Em alguns casos, uma descrição inicial já ajuda a orientar o caminho. Mas, quando a análise real do material for importante para compreender o projeto, o envio do original será recomendado ou necessário.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                Como funciona a área do cliente?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                A área do cliente é o ambiente autenticado em que você pode enviar materiais, organizar arquivos e acompanhar a continuidade do seu projeto com mais clareza e segurança.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                Que tipos de arquivo posso enviar?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                O original pode ser enviado em Word ou PDF, com preferência por Word. As imagens do miolo e as imagens propostas para a capa podem ser enviadas em arquivos de imagem e PDF.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                O que acontece depois que eu envio meus materiais?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                Os arquivos passam a compor o contexto do projeto, permitindo análise editorial mais precisa, melhor organização do processo e continuidade adequada conforme a necessidade do trabalho.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                O material enviado é utilizado para quê?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                Os materiais são utilizados exclusivamente para análise editorial, entendimento do projeto e organização da continuidade. Caso o projeto não avance, os arquivos são descartados com segurança.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                Posso continuar pelo WhatsApp se ainda não quiser enviar arquivos?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                Sim. Se você ainda não estiver em condição de enviar o material, pode apresentar sua necessidade pelo WhatsApp e dar continuidade inicial por esse canal.
+              </div>
+            </details>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn--secondary js-modal" type="button"
+              data-modal-title="Enviar uma dúvida"
+              data-modal-description="Envie sua dúvida para receber orientação inicial da PUB Editorial sobre processo editorial, envio de material ou continuidade do projeto."
+              data-modal-submit="Enviar dúvida"
+              data-modal-kind="contact">
+              Ainda tenho dúvidas
+            </button>
+            <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stripe" aria-label="Chamada final">
+      <div class="wrap">
+        <div class="capture-band">
+          <div>
+            <h3>Comece com clareza e continuidade</h3>
+            <p>
+              Se você já possui material, pode organizar o envio pela área do cliente. Se ainda precisa situar melhor o projeto, a PUB Editorial também pode orientar o próximo passo inicial.
+            </p>
+          </div>
+          <div class="actions">
+            <button class="btn btn--primary js-modal" type="button"
+              data-modal-title="Solicitar acesso à área do cliente"
+              data-modal-description="Envie seus dados para solicitar acesso ao ambiente de envio de materiais e continuidade editorial da PUB Editorial."
+              data-modal-submit="Solicitar acesso"
+              data-modal-kind="access">
+              Solicitar acesso
+            </button>
+            <a class="btn btn--secondary" href="LOGIN_URL_AQUI">Já tenho acesso</a>
+            <a class="btn btn--ghost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stripe" aria-label="Rodapé">
+      <div class="wrap">
+        <footer class="footer">
+          <div class="footer-grid">
             <div>
-              <h3>Finalização e publicação</h3>
-              <p>Fechamento para gráfica, conferência de arquivos finais, PDF para impressão, PDF digital e produção de EPUB para Kindle.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cards-4" style="margin-top: 18px;">
-          <article class="service-card">
-            <span class="tag">Desenvolvimento editorial</span>
-            <h3>Texto e conteúdo</h3>
-            <ul class="list-clean">
-              <li>Leitura editorial crítica</li>
-              <li>Avaliação de original</li>
-              <li>Preparação de originais</li>
-              <li>Copidesque</li>
-              <li>Padronização textual</li>
-              <li>Normalização</li>
-            </ul>
-          </article>
-          <article class="service-card">
-            <span class="tag">Design editorial</span>
-            <h3>Forma visual do livro</h3>
-            <ul class="list-clean">
-              <li>Projeto gráfico de miolo</li>
-              <li>Projeto gráfico de capa</li>
-              <li>Diagramação de miolo</li>
-              <li>Diagramação de capa</li>
-            </ul>
-          </article>
-          <article class="service-card">
-            <span class="tag">Processos e automação</span>
-            <h3>Eficiência operacional</h3>
-            <ul class="list-clean">
-              <li>Padronização técnica</li>
-              <li>Revisão de setup editorial</li>
-              <li>Diagnóstico de fluxo</li>
-              <li>Desenvolvimento de scripts</li>
-            </ul>
-          </article>
-          <article class="service-card">
-            <span class="tag">Formação e capacitação</span>
-            <h3>Treinamento e equipe</h3>
-            <ul class="list-clean">
-              <li>Preparação de texto</li>
-              <li>Revisão editorial</li>
-              <li>Diagramação de livros</li>
-              <li>Produção editorial</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="solucoes">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Soluções</span>
-            <h2>PUB Editorial Scripts e PUB Editorial Pages como ofertas próprias do ecossistema.</h2>
-          </div>
-          <div>
-            <p>Essas frentes não aparecem como bastidor interno do sistema. Elas são apresentadas como soluções autorais ofertadas pela <strong>PUB Editorial</strong>.</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <article class="card">
-            <span class="tag">PUB Editorial Scripts</span>
-            <h3>Linha oficial de produtos técnicos para Adobe InDesign</h3>
-            <p>Automação editorial, padronização de procedimentos, ganho de velocidade operacional e redução de retrabalho para profissionais e equipes do livro.</p>
-            <ul class="list-clean">
-              <li>CAPA MASTER</li>
-              <li>MIOLO MASTER</li>
-              <li>MANCHA MASTER</li>
-              <li>VERTICAL MASTER</li>
-              <li>BASELINE MASTER</li>
-              <li>GUIA DE USO</li>
-            </ul>
-            <div class="notice" style="margin-top: 16px;">
-              O site apresenta os produtos e registra o interesse. A formalização comercial ocorre por contato direto via WhatsApp ou e-mail.
-            </div>
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="#scripts-form">Quero informações sobre Scripts</a>
-              <a class="btn btn-secondary" href="#materiais">Solicitar material técnico</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="tag">PUB Editorial Pages</span>
-            <h3>Solução autoral para páginas editoriais estruturadas</h3>
-            <p>Criação de páginas para autores, livros, editoras, catálogos, serviços e projetos editoriais com maior clareza, contexto e coerência.</p>
-            <ul class="list-clean">
-              <li>Página de autor</li>
-              <li>Página de livro</li>
-              <li>Página institucional editorial</li>
-              <li>Página de serviços</li>
-              <li>Página de catálogo</li>
-              <li>Página de projeto editorial</li>
-            </ul>
-            <div class="notice" style="margin-top: 16px;">
-              A solicitação inicial é feita no site. A negociação e a formalização comercial seguem por contato direto.
-            </div>
-            <div class="inline-actions">
-              <a class="btn btn-primary" href="#pages-form">Quero uma página editorial</a>
-              <a class="btn btn-secondary" href="#atendimento">Falar sobre escopo</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Como funciona</span>
-            <h2>Fluxo público coerente com o pipeline estrutural do sistema.</h2>
-          </div>
-          <div>
-            <p>Este HTML materializa a etapa <strong>SITE</strong> do pipeline: arquitetura pública, caminhos por perfil, pontos de conversão, distinção semântica das entradas e explicitação da regra comercial.</p>
-          </div>
-        </div>
-
-        <div class="cards-3">
-          <article class="flow-card">
-            <span class="tag">1. Leitura</span>
-            <h3>O visitante encontra o percurso certo</h3>
-            <p>O site explica o que a <strong>PUB Editorial</strong> faz, para quem faz, como trabalha e qual é o próximo passo possível.</p>
-          </article>
-          <article class="flow-card">
-            <span class="tag">2. Entrada contextual</span>
-            <h3>A ação é registrada com tipo e finalidade</h3>
-            <p>Pedido de orçamento, atendimento, material, envio de original, Scripts ou Pages não são tratados como contato genérico.</p>
-          </article>
-          <article class="flow-card">
-            <span class="tag">3. Continuidade</span>
-            <h3>O processo segue pela rota adequada</h3>
-            <p>Quando necessário, o sistema conduz a upload com cadastro e área do cliente ou a continuidade por WhatsApp, sem perder contexto.</p>
-          </article>
-        </div>
-
-        <div class="grid-2" style="margin-top: 18px;">
-          <div class="card">
-            <h3>Quando o orçamento exige leitura do material</h3>
-            <ul class="list-clean">
-              <li>O site explica que a análise depende do original ou de informações mínimas qualificadas.</li>
-              <li>Se houver upload, o usuário é conduzido a cadastro, login, senha e área do cliente.</li>
-              <li>Se o upload não ocorrer naquele momento, a continuidade segue por WhatsApp.</li>
-              <li>Em ambos os casos, a origem da demanda continua registrada com contexto.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>O que este HTML já respeita do pipeline</h3>
-            <ul class="list-clean">
-              <li>arquitetura pública do site;</li>
-              <li>páginas e seções centrais;</li>
-              <li>serviços em ordem da esteira editorial;</li>
-              <li>entradas públicas semanticamente distintas;</li>
-              <li>regra comercial sem checkout automático;</li>
-              <li>previsão de upload com cadastro e WhatsApp como alternativa.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    <section id="materiais">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Materiais</span>
-            <h2>Materiais, guias e conteúdos com solicitação contextual.</h2>
-          </div>
-          <div>
-            <p>O pedido de material é uma entrada leve e exploratória. Ele registra interesse, vincula o item solicitado e permite continuidade relacional sem exigir dados além do necessário.</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <article class="catalog-card">
-            <span class="tag">Material institucional</span>
-            <h3>Apresentação da PUB Editorial</h3>
-            <p>Resumo institucional da atuação, dos eixos de oferta e da lógica de trabalho com livros, sistemas editoriais e presença digital.</p>
-          </article>
-
-          <article class="catalog-card">
-            <span class="tag">Material técnico</span>
-            <h3>Guias e referências de Scripts</h3>
-            <p>Conteúdos de apoio para entender melhor os produtos técnicos, aplicações, escopo e possibilidades de uso no Adobe InDesign.</p>
-          </article>
-
-          <article class="catalog-card">
-            <span class="tag">Material editorial</span>
-            <h3>Guias de processo e contratação</h3>
-            <p>Materiais de apoio para autores, editoras e equipes compreenderem melhor o percurso editorial e as formas de contratação orientada.</p>
-          </article>
-        </div>
-
-        <div class="form-card" style="margin-top: 18px;">
-          <span class="tag">Pedido de material</span>
-          <h3>Solicitar material</h3>
-          <p>Entrada leve para portfólios, apresentações, guias, conteúdos técnicos e materiais de apoio.</p>
-
-          <form>
-            <div class="form-grid">
-              <label>
-                Nome
-                <input type="text" name="nome_material" placeholder="Seu nome" required />
-              </label>
-              <label>
-                E-mail
-                <input type="email" name="email_material" placeholder="voce@email.com" required />
-              </label>
+              <p class="footer-title">PUB Editorial</p>
+              <p class="footer-copy">Produção editorial com método, clareza e continuidade.</p>
             </div>
 
-            <div class="form-grid">
-              <label>
-                WhatsApp <span class="small">(opcional)</span>
-                <input type="tel" name="whatsapp_material" placeholder="(51) 99999-9999" />
-              </label>
-              <label>
-                Empresa <span class="small">(opcional)</span>
-                <input type="text" name="empresa_material" placeholder="Se houver" />
-              </label>
-            </div>
-
-            <label>
-              Material de interesse
-              <select name="material_interesse" required>
-                <option value="">Selecione</option>
-                <option>Apresentação institucional</option>
-                <option>Material técnico de Scripts</option>
-                <option>Guia sobre fluxo editorial</option>
-                <option>Informações sobre Pages</option>
-                <option>Outro material</option>
-              </select>
-            </label>
-
-            <label>
-              Observação <span class="small">(opcional)</span>
-              <textarea name="observacao_material" placeholder="Se quiser, indique o contexto do seu interesse."></textarea>
-            </label>
-
-            <p class="hint">Dados solicitados: nome e e-mail como base mínima; WhatsApp e empresa apenas como qualificação contextual.</p>
-            <input type="submit" class="btn btn-primary" value="Solicitar material" />
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">FAQ</span>
-            <h2>Perguntas centrais para orientar a contratação.</h2>
-          </div>
-          <div>
-            <p>As respostas abaixo deixam explícita a lógica do sistema: contratação orientada, análise contextual da demanda e continuidade formal por WhatsApp ou e-mail.</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <article class="card">
-            <h3>Posso contratar e pagar diretamente pelo site?</h3>
-            <p>Não. O site apresenta a oferta, registra a intenção e inicia a relação comercial. A formalização da transação ocorre por WhatsApp ou e-mail, após validação da demanda e alinhamento de escopo.</p>
-          </article>
-
-          <article class="card">
-            <h3>Preciso saber exatamente o nome do serviço?</h3>
-            <p>Não. O site foi organizado para que você parta da sua necessidade concreta — publicar um livro, revisar, diagramar, enviar um original, obter uma solução técnica ou solicitar uma página editorial.</p>
-          </article>
-
-          <article class="card">
-            <h3>Quando preciso enviar o original?</h3>
-            <p>Sempre que a definição responsável de escopo depender de leitura real do material, como em análise editorial, preparação, revisão, diagramação, revisão de provas ou finalização vinculada ao conteúdo.</p>
-          </article>
-
-          <article class="card">
-            <h3>O que acontece quando envio um original pelo sistema?</h3>
-            <p>O envio estruturado prevê cadastro, criação de acesso, login, senha, registro do upload e acompanhamento posterior pela área do cliente.</p>
-          </article>
-
-          <article class="card">
-            <h3>E se eu não puder enviar o arquivo agora?</h3>
-            <p>Você pode descrever o original ou o projeto e seguir a continuidade por WhatsApp. O contexto da demanda continua registrado, sem perda de informação operacional.</p>
-          </article>
-
-          <article class="card">
-            <h3>Quais dados são solicitados?</h3>
-            <p>Nome e e-mail formam a base mínima quase universal. WhatsApp é solicitado quando há expectativa real de continuidade ativa. Empresa é contextual, preferencialmente opcional e nunca obrigatória de forma universal.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="orcamento">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Orçamento</span>
-            <h2>Pedido de orçamento com contexto e finalidade definidos.</h2>
-          </div>
-          <div>
-            <p>O orçamento é uma entrada comercial qualificada. Ele deve identificar a demanda, registrar o contexto e, quando necessário, conduzir ao envio do original ou à continuidade por WhatsApp.</p>
-          </div>
-        </div>
-
-        <div class="split-highlight">
-          <div class="form-card">
-            <span class="tag">Pedido de orçamento</span>
-            <h3>Solicitar orçamento</h3>
-
-            <form>
-              <div class="form-grid">
-                <label>
-                  Nome
-                  <input type="text" name="nome_orcamento" placeholder="Seu nome" required />
-                </label>
-                <label>
-                  E-mail
-                  <input type="email" name="email_orcamento" placeholder="voce@email.com" required />
-                </label>
-              </div>
-
-              <div class="form-grid">
-                <label>
-                  WhatsApp
-                  <input type="tel" name="whatsapp_orcamento" placeholder="(51) 99999-9999" required />
-                </label>
-                <label>
-                  Empresa <span class="small">(opcional)</span>
-                  <input type="text" name="empresa_orcamento" placeholder="Se houver" />
-                </label>
-              </div>
-
-              <label>
-                Perfil principal
-                <select name="perfil_orcamento" required>
-                  <option value="">Selecione</option>
-                  <option>Autor</option>
-                  <option>Editora</option>
-                  <option>Equipe editorial</option>
-                  <option>Profissional independente</option>
-                  <option>Outro</option>
-                </select>
-              </label>
-
-              <label>
-                Tipo de demanda
-                <select name="tipo_demanda_orcamento" required>
-                  <option value="">Selecione</option>
-                  <option>Livro completo</option>
-                  <option>Serviço editorial específico</option>
-                  <option>Treinamento</option>
-                  <option>Scripts</option>
-                  <option>Pages</option>
-                  <option>Projeto especial</option>
-                </select>
-              </label>
-
-              <label>
-                Descreva sua necessidade
-                <textarea name="descricao_orcamento" placeholder="Conte brevemente o que você precisa, em que estágio o material está e qual é seu objetivo." required></textarea>
-              </label>
-
-              <p class="hint">Nesta entrada, o WhatsApp é obrigatório porque há expectativa real de continuidade comercial ativa.</p>
-              <input type="submit" class="btn btn-primary" value="Enviar pedido de orçamento" />
-            </form>
-          </div>
-
-          <div class="card">
-            <h3>Quando o orçamento depende do original</h3>
-            <ul class="list-clean">
-              <li>O sistema explica que a análise responsável exige leitura real do material ou, ao menos, informações qualificadas sobre ele.</li>
-              <li>Se o arquivo puder ser enviado agora, a rota correta é o <strong>upload com cadastro</strong>.</li>
-              <li>Se o envio não for possível no momento, a continuidade segue por <strong>WhatsApp</strong>, sem perda de contexto.</li>
-            </ul>
-
-            <div class="notice" style="margin-top: 16px;">
-              Solicitar orçamento no site não equivale a contratação concluída. A proposta, a negociação e a formalização comercial seguem por canal direto.
-            </div>
-
-            <div class="inline-actions">
-              <a class="btn btn-secondary" href="#envio-original">Tenho o original e quero enviar</a>
-              <a class="btn btn-secondary" href="#contato">Prefiro continuar por WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="atendimento">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Atendimento</span>
-            <h2>Dúvidas, suporte, pendências e continuidade relacional.</h2>
-          </div>
-          <div>
-            <p>Atendimento não é contato genérico. Ele deve gerar uma entrada identificável, com finalidade clara e possibilidade real de acompanhamento.</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="form-card">
-            <span class="tag">Atendimento</span>
-            <h3>Enviar uma solicitação</h3>
-
-            <form>
-              <div class="form-grid">
-                <label>
-                  Nome
-                  <input type="text" name="nome_atendimento" placeholder="Seu nome" required />
-                </label>
-                <label>
-                  E-mail
-                  <input type="email" name="email_atendimento" placeholder="voce@email.com" required />
-                </label>
-              </div>
-
-              <div class="form-grid">
-                <label>
-                  WhatsApp <span class="small">(opcional)</span>
-                  <input type="tel" name="whatsapp_atendimento" placeholder="(51) 99999-9999" />
-                </label>
-                <label>
-                  Tipo de solicitação
-                  <select name="tipo_atendimento" required>
-                    <option value="">Selecione</option>
-                    <option>Dúvida geral</option>
-                    <option>Suporte editorial</option>
-                    <option>Suporte técnico</option>
-                    <option>Acompanhamento de orçamento</option>
-                    <option>Acompanhamento de projeto</option>
-                    <option>Outra solicitação</option>
-                  </select>
-                </label>
-              </div>
-
-              <label>
-                Mensagem
-                <textarea name="mensagem_atendimento" placeholder="Descreva sua dúvida, pendência ou necessidade." required></textarea>
-              </label>
-
-              <p class="hint">No atendimento, empresa não é solicitada por padrão, porque nem sempre agrega utilidade operacional imediata.</p>
-              <input type="submit" class="btn btn-primary" value="Enviar solicitação" />
-            </form>
-          </div>
-
-          <div class="card">
-            <h3>O que acontece com essa entrada</h3>
-            <ul class="list-clean">
-              <li>A solicitação é classificada conforme sua natureza: editorial, técnica, comercial ou administrativa.</li>
-              <li>Quando necessário, ela passa a ser acompanhada como atendimento em andamento.</li>
-              <li>O histórico, a prioridade e a continuidade podem ser organizados sem depender de troca dispersa de mensagens.</li>
-            </ul>
-
-            <div class="divider"></div>
-
-            <h3>Exemplos de uso</h3>
-            <ul class="list-clean">
-              <li>tirar dúvida sobre uma etapa editorial;</li>
-              <li>pedir retorno sobre orçamento em análise;</li>
-              <li>solicitar suporte para Scripts;</li>
-              <li>falar sobre um projeto ou uma pendência específica.</li>
+            <ul class="footer-links" aria-label="Links do rodapé">
+              <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#servicos">Serviços editoriais</a></li>
+              <li><a href="#enviar-original">Enviar original</a></li>
+              <li><a href="#area-cliente">Área do cliente</a></li>
+              <li><a href="#materiais">Materiais</a></li>
+              <li><a href="#faq">Perguntas frequentes</a></li>
+              <li><a href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="envio-original">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Envio de original</span>
-            <h2>Quando o material é essencial, o sistema conduz o envio com estrutura.</h2>
-          </div>
-          <div>
-            <p>O envio de original é uma entrada de alta relevância editorial. Quando ocorre pelo sistema, ele deve abrir uma relação rastreável, com cadastro, credenciais e possibilidade de acompanhamento pela área do cliente.</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="form-card">
-            <span class="tag">Upload com cadastro</span>
-            <h3>Enviar original para avaliação</h3>
-
-            <form>
-              <div class="form-grid">
-                <label>
-                  Nome
-                  <input type="text" name="nome_original" placeholder="Seu nome" required />
-                </label>
-                <label>
-                  E-mail
-                  <input type="email" name="email_original" placeholder="voce@email.com" required />
-                </label>
-              </div>
-
-              <div class="form-grid">
-                <label>
-                  WhatsApp <span class="small">(recomendado)</span>
-                  <input type="tel" name="whatsapp_original" placeholder="(51) 99999-9999" />
-                </label>
-                <label>
-                  Empresa <span class="small">(opcional)</span>
-                  <input type="text" name="empresa_original" placeholder="Se houver" />
-                </label>
-              </div>
-
-              <div class="form-grid">
-                <label>
-                  Gênero ou tipo de obra
-                  <input type="text" name="genero_original" placeholder="Romance, poesia, técnico, acadêmico..." />
-                </label>
-                <label>
-                  Estágio do material
-                  <select name="estagio_original">
-                    <option value="">Selecione</option>
-                    <option>Original inicial</option>
-                    <option>Texto revisado</option>
-                    <option>Material em preparação</option>
-                    <option>Arquivo diagramado</option>
-                    <option>Outro estágio</option>
-                  </select>
-                </label>
-              </div>
-
-              <label>
-                Descrição breve do original
-                <textarea name="descricao_original" placeholder="Informe objetivo, volume aproximado e o que você espera da avaliação." required></textarea>
-              </label>
-
-              <label>
-                Arquivo do original
-                <input type="file" name="arquivo_original" />
-              </label>
-
-              <p class="hint">Quando houver upload efetivo, o fluxo deve prever cadastro, criação de login e senha e acesso posterior à área do cliente.</p>
-              <input type="submit" class="btn btn-primary" value="Enviar original" />
-            </form>
-          </div>
-
-          <div class="card">
-            <h3>Se você não puder enviar o arquivo agora</h3>
-            <p>Nem sempre o upload é possível no primeiro momento. Nesse caso, a continuidade legítima é descrever o material com o mínimo de contexto necessário e seguir por WhatsApp.</p>
-
-            <ul class="list-clean">
-              <li>informe gênero, volume, estágio e objetivo do projeto;</li>
-              <li>registre o interesse de forma contextualizada;</li>
-              <li>continue a conversa por canal direto, sem perder o vínculo da demanda.</li>
-            </ul>
-
-            <div class="notice" style="margin-top: 16px;">
-              O sistema deve preservar as duas rotas: <strong>upload com cadastro</strong> quando o arquivo estiver disponível e <strong>continuidade por WhatsApp</strong> quando o envio não puder ocorrer naquele momento.
-            </div>
-
-            <div class="inline-actions">
-              <a class="btn btn-secondary" href="#contato">Continuar por WhatsApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="scripts-form">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Scripts</span>
-            <h2>Solicitação comercial ligada à linha PUB Editorial Scripts.</h2>
-          </div>
-          <div>
-            <p>Esta entrada deve identificar o item de interesse, registrar o contexto técnico e iniciar a continuidade comercial sem aparência de checkout automático.</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="form-card">
-            <span class="tag">PUB Editorial Scripts</span>
-            <h3>Quero informações sobre Scripts</h3>
-
-            <form>
-              <div class="form-grid">
-                <label>
-                  Nome
-                  <input type="text" name="nome_scripts" placeholder="Seu nome" required />
-                </label>
-                <label>
-                  E-mail
-                  <input type="email" name="email_scripts" placeholder="voce@email.com" required />
-                </label>
-              </div>
-
-              <div class="form-grid">
-                <label>
-                  WhatsApp
-                  <input type="tel" name="whatsapp_scripts" placeholder="(51) 99999-9999" required />
-                </label>
-                <label>
-                  Empresa <span class="small">(recomendada)</span>
-                  <input type="text" name="empresa_scripts" placeholder="Editora, estúdio ou equipe" />
-                </label>
-              </div>
-
-              <label>
-                Item de interesse
-                <select name="item_scripts" required>
-                  <option value="">Selecione</option>
-                  <option>CAPA MASTER</option>
-                  <option>MIOLO MASTER</option>
-                  <option>MANCHA MASTER</option>
-                  <option>VERTICAL MASTER</option>
-                  <option>BASELINE MASTER</option>
-                  <option>GUIA DE USO</option>
-                  <option>Pacote / combinação de itens</option>
-                  <option>Implantação / treinamento</option>
-                </select>
-              </label>
-
-              <label>
-                Contexto de uso
-                <textarea name="contexto_scripts" placeholder="Descreva brevemente sua rotina, necessidade técnica ou interesse comercial." required></textarea>
-              </label>
-
-              <input type="submit" class="btn btn-primary" value="Registrar interesse em Scripts" />
-            </form>
-          </div>
-
-          <div class="card">
-            <h3>Como esta frente deve ser apresentada</h3>
-            <ul class="list-clean">
-              <li>como linha oficial de produtos técnicos autorais da <strong>PUB Editorial</strong>;</li>
-              <li>voltada à produção editorial no Adobe InDesign;</li>
-              <li>com foco em automação, padronização, ganho de velocidade e redução de retrabalho;</li>
-              <li>com transação comercial formalizada apenas por WhatsApp ou e-mail.</li>
-            </ul>
-
-            <div class="notice" style="margin-top: 16px;">
-              O site apresenta os produtos, esclarece sua finalidade e registra o interesse. A compra não se conclui automaticamente no ambiente público.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pages-form">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Pages</span>
-            <h2>Solicitação inicial para páginas editoriais estruturadas.</h2>
-          </div>
-          <div>
-            <p>A <strong>PUB Editorial Pages</strong> deve aparecer como solução autoral oferecida como produto e serviço, com entrada própria para briefing inicial e continuidade comercial.</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="form-card">
-            <span class="tag">PUB Editorial Pages</span>
-            <h3>Quero uma página editorial</h3>
-
-            <form>
-              <div class="form-grid">
-                <label>
-                  Nome
-                  <input type="text" name="nome_pages" placeholder="Seu nome" required />
-                </label>
-                <label>
-                  E-mail
-                  <input type="email" name="email_pages" placeholder="voce@email.com" required />
-                </label>
-              </div>
-
-              <div class="form-grid">
-                <label>
-                  WhatsApp
-                  <input type="tel" name="whatsapp_pages" placeholder="(51) 99999-9999" required />
-                </label>
-                <label>
-                  Empresa <span class="small">(opcional)</span>
-                  <input type="text" name="empresa_pages" placeholder="Se houver" />
-                </label>
-              </div>
-
-              <label>
-                Tipo de página
-                <select name="tipo_pages" required>
-                  <option value="">Selecione</option>
-                  <option>Página de autor</option>
-                  <option>Página de livro</option>
-                  <option>Página institucional editorial</option>
-                  <option>Página de catálogo</option>
-                  <option>Página de serviços</option>
-                  <option>Página de projeto editorial</option>
-                </select>
-              </label>
-
-              <label>
-                Briefing inicial
-                <textarea name="briefing_pages" placeholder="Descreva o objetivo da página, o público e o tipo de presença editorial desejada." required></textarea>
-              </label>
-
-              <input type="submit" class="btn btn-primary" value="Enviar solicitação sobre Pages" />
-            </form>
-          </div>
-
-          <div class="card">
-            <h3>O que essa solução oferece</h3>
-            <ul class="list-clean">
-              <li>estruturação de conteúdo;</li>
-              <li>organização editorial da página;</li>
-              <li>definição de narrativa;</li>
-              <li>construção de presença digital editorial com maior clareza e contexto.</li>
-            </ul>
-
-            <div class="notice" style="margin-top: 16px;">
-              A solicitação feita aqui é o início da conversa. Escopo, proposta e formalização comercial seguem por contato direto.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Contato e governança</span>
-            <h2>Continuidade comercial e administrativa pelos canais formais.</h2>
-          </div>
-          <div>
-            <p>Os canais formais de continuidade comercial são <strong>WhatsApp</strong> e <strong>e-mail</strong>. Eles são usados para validar demanda, alinhar escopo, enviar proposta, negociar condições e formalizar a contratação com segurança.</p>
-          </div>
-        </div>
-
-        <div class="kpis">
-          <div class="kpi">
-            <strong>6</strong>
-            <div class="mini">componentes centrais do ecossistema: PUBCORE, PUBCARE, PUBMAIL, PUBTEMPLATES, SITE e PAINÉIS.</div>
-          </div>
-          <div class="kpi">
-            <strong>2</strong>
-            <div class="mini">rotas legítimas quando o material é necessário: upload com cadastro ou continuidade por WhatsApp.</div>
-          </div>
-          <div class="kpi">
-            <strong>3</strong>
-            <div class="mini">perfis principais de entrada pública: autores, editoras/equipes e profissionais.</div>
-          </div>
-          <div class="kpi">
-            <strong>1</strong>
-            <div class="mini">regra comercial central: o site não conclui compra automática.</div>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-top: 18px;">
-          <div class="policy-card">
-            <span class="tag">Regra comercial</span>
-            <h3>Sem checkout automático</h3>
-            <p>O ambiente público apresenta a oferta, registra interesse e organiza a entrada. A negociação e a formalização comercial ocorrem por contato direto, com validação da demanda.</p>
-          </div>
-
-          <div class="policy-card">
-            <span class="tag">Proteção de dados</span>
-            <h3>Coleta mínima e finalidade definida</h3>
-            <p>Os formulários devem solicitar apenas os dados estritamente necessários para a finalidade imediata. Nome e e-mail compõem a base mínima; WhatsApp e empresa aparecem conforme contexto real.</p>
-          </div>
-        </div>
+        </footer>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <strong>PUB Editorial</strong>
-        <p class="small">Produção editorial, livros, sistemas editoriais, automação, formação e presença editorial digital organizados em uma mesma lógica de trabalho.</p>
+  <div id="lead-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+    <div class="lead-dialog" role="document">
+      <div class="lead-header">
+        <div>
+          <div class="lead-title" id="lead-title">Solicitação</div>
+          <p id="lead-description" class="lead-description">Preencha seus dados para continuar.</p>
+        </div>
+        <button type="button" id="lead-close" class="lead-btn" aria-label="Fechar formulário">Fechar</button>
       </div>
 
-      <div>
-        <strong>Navegação</strong>
-        <ul class="list-clean" style="margin-top: 12px;">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#solucoes">Soluções</a></li>
-          <li><a href="#orcamento">Orçamento</a></li>
-        </ul>
-      </div>
+      <form id="lead-form" class="lead-body" novalidate>
+        <input type="hidden" id="lead-kind" name="kind" value="material" />
 
-      <div>
-        <strong>Continuidade comercial</strong>
-        <p class="small" style="margin-top: 12px;">WhatsApp e e-mail são os canais formais para proposta, alinhamento de escopo, negociação e contratação.</p>
-        <p class="small">Notificações administrativas obrigatórias: <a href="mailto:pubeditoriallivros@gmail.com">pubeditoriallivros@gmail.com</a></p>
+        <div class="lead-field">
+          <label class="lead-label" for="lead-name">Nome</label>
+          <input id="lead-name" class="lead-input" name="name" autocomplete="name" placeholder="Seu nome" required />
+        </div>
+
+        <div class="lead-field">
+          <label class="lead-label" for="lead-email">E-mail</label>
+          <input id="lead-email" class="lead-input" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required />
+        </div>
+
+        <div id="lead-whatsapp-wrap" class="lead-field is-hidden">
+          <label class="lead-label" for="lead-whatsapp">WhatsApp</label>
+          <input id="lead-whatsapp" class="lead-input" name="whatsapp" type="tel" autocomplete="tel" placeholder="(51) 99999-9999" />
+        </div>
+
+        <div id="lead-message-wrap" class="lead-field is-hidden">
+          <label class="lead-label" for="lead-message">Mensagem</label>
+          <textarea id="lead-message" class="lead-input" name="message" placeholder="Escreva sua mensagem"></textarea>
+        </div>
+
+        <div class="lead-actions">
+          <button type="submit" id="lead-submit" class="lead-btn lead-btn--primary">Enviar</button>
+        </div>
+
+        <div id="lead-hint" class="lead-hint">
+          Seus dados serão usados apenas para dar continuidade à sua solicitação.
+        </div>
+      </form>
+
+      <div id="lead-success" class="lead-body is-hidden" aria-live="polite">
+        <div class="lead-success-box">
+          <h3 id="lead-success-title">Solicitação recebida</h3>
+          <p id="lead-success-text">Sua solicitação foi registrada com sucesso.</p>
+          <div class="lead-actions" style="margin-top:18px;">
+            <button type="button" id="lead-success-close" class="lead-btn lead-btn--primary">Fechar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById("lead-modal");
+      const closeBtn = document.getElementById("lead-close");
+      const successCloseBtn = document.getElementById("lead-success-close");
+      const form = document.getElementById("lead-form");
+      const successBox = document.getElementById("lead-success");
+
+      const titleEl = document.getElementById("lead-title");
+      const descEl = document.getElementById("lead-description");
+      const submitEl = document.getElementById("lead-submit");
+      const hintEl = document.getElementById("lead-hint");
+      const kindEl = document.getElementById("lead-kind");
+
+      const whatsappWrap = document.getElementById("lead-whatsapp-wrap");
+      const messageWrap = document.getElementById("lead-message-wrap");
+
+      const successTitle = document.getElementById("lead-success-title");
+      const successText = document.getElementById("lead-success-text");
+
+      const openButtons = document.querySelectorAll(".js-modal");
+
+      let lastTrigger = null;
+
+      function openModal(config) {
+        lastTrigger = document.activeElement;
+
+        titleEl.textContent = config.title || "Solicitação";
+        descEl.textContent = config.description || "Preencha seus dados para continuar.";
+        submitEl.textContent = config.submit || "Enviar";
+        kindEl.value = config.kind || "material";
+
+        form.classList.remove("is-hidden");
+        successBox.classList.add("is-hidden");
+
+        whatsappWrap.classList.add("is-hidden");
+        messageWrap.classList.add("is-hidden");
+
+        if (config.kind === "contact" || config.kind === "access") {
+          whatsappWrap.classList.remove("is-hidden");
+        }
+
+        if (config.kind === "contact") {
+          messageWrap.classList.remove("is-hidden");
+        }
+
+        modal.setAttribute("data-state", "open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+
+        setTimeout(() => {
+          document.getElementById("lead-name").focus();
+        }, 40);
+      }
+
+      function closeModal() {
+        modal.removeAttribute("data-state");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        form.reset();
+        form.classList.remove("is-hidden");
+        successBox.classList.add("is-hidden");
+
+        if (lastTrigger && typeof lastTrigger.focus === "function") {
+          lastTrigger.focus();
+        }
+      }
+
+      openButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          openModal({
+            title: btn.dataset.modalTitle,
+            description: btn.dataset.modalDescription,
+            submit: btn.dataset.modalSubmit,
+            kind: btn.dataset.modalKind
+          });
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      successCloseBtn.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.hasAttribute("data-state")) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        form.classList.add("is-hidden");
+        successBox.classList.remove("is-hidden");
+
+        const kind = kindEl.value;
+        if (kind === "access") {
+          successTitle.textContent = "Solicitação de acesso recebida";
+          successText.textContent = "Recebemos seus dados. A PUB Editorial dará continuidade à criação do seu acesso à área do cliente.";
+        } else if (kind === "contact") {
+          successTitle.textContent = "Mensagem recebida";
+          successText.textContent = "Sua mensagem foi recebida com sucesso. A PUB Editorial dará continuidade à sua solicitação.";
+        } else {
+          successTitle.textContent = "Solicitação recebida";
+          successText.textContent = "Seu pedido foi registrado com sucesso. Em breve, você receberá continuidade por e-mail.";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
