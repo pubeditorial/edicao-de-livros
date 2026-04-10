@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUB Editorial | Publicação, produção e capacitação editorial</title>
-  <meta name="description" content="PUB Editorial. Publicação de livros, serviços editoriais para editoras e capacitação prática para profissionais e equipes editoriais." />
+  <title>PUB Editorial | Publicação e produção editorial</title>
+  <meta name="description" content="PUB Editorial. Publicação de livros com acompanhamento editorial, serviços editoriais para editoras e capacitação prática para profissionais e equipes." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -213,7 +213,7 @@
       font-size: clamp(2.9rem, 6vw, 6rem);
       line-height: 0.95;
       letter-spacing: -0.065em;
-      max-width: 10.5ch;
+      max-width: 11ch;
       font-weight: 900;
     }
 
@@ -227,7 +227,7 @@
     .hero-matrix {
       margin-top: 32px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1.25fr 1fr 1fr;
       gap: 14px;
     }
 
@@ -552,7 +552,7 @@
 
     .path-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1.25fr 1fr 1fr;
       gap: 18px;
       align-items: stretch;
     }
@@ -1018,13 +1018,13 @@
     <div class="container header-row">
       <a href="#inicio" class="brand" aria-label="PUB Editorial">
         <span class="brand-title">PUB Editorial</span>
-        <span class="brand-subtitle">Publicação, produção e capacitação editorial</span>
+        <span class="brand-subtitle">Publicação e produção editorial</span>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
         <a href="#caminhos">Caminhos</a>
-        <a href="#autores">Autores</a>
+        <a href="#autores">Publicação</a>
         <a href="#editoras">Editoras</a>
         <a href="#profissionais">Capacitação</a>
         <a href="#materiais">Materiais</a>
@@ -1038,24 +1038,24 @@
       <div class="container hero-shell">
         <div class="hero-main">
           <div class="hero-top">
-            <span class="eyebrow">Publicação, produção e formação editorial</span>
-            <h1>Seu livro, seu projeto, sua equipe, com direção editorial.</h1>
+            <span class="eyebrow">Publicação e produção editorial</span>
+            <h1>Seu livro pode se tornar um projeto editorial bem conduzido.</h1>
             <p class="hero-lead">
-              A PUB Editorial atua na publicação de livros, em serviços para editoras e na formação de profissionais e equipes. Cada trabalho começa com leitura, contexto e decisão técnica.
+              A PUB Editorial acompanha autores independentes desde a leitura do original até a definição das etapas de edição, produção e publicação. Também atende editoras e oferece capacitação para profissionais e equipes.
             </p>
 
             <div class="hero-matrix" aria-label="Áreas de atuação da PUB Editorial">
               <div class="hero-metric">
-                <strong>Autores</strong>
-                <span>Publicação impressa e digital com acompanhamento editorial em cada etapa.</span>
+                <strong>Para autores</strong>
+                <span>Publicação impressa e digital com acompanhamento editorial, leitura do original e definição de caminho.</span>
               </div>
               <div class="hero-metric">
-                <strong>Editoras</strong>
-                <span>Revisão, diagramação, produção e suporte técnico para demandas pontuais ou contínuas.</span>
+                <strong>Para editoras</strong>
+                <span>Revisão, diagramação, produção e suporte técnico para demandas pontuais ou frentes contínuas.</span>
               </div>
               <div class="hero-metric">
-                <strong>Profissionais e equipes</strong>
-                <span>Capacitação prática em revisão, fluxo editorial, Word, InDesign e rotinas de produção.</span>
+                <strong>Capacitação</strong>
+                <span>Treinamento prático para profissionais e equipes em revisão, fluxo editorial e rotinas de produção.</span>
               </div>
             </div>
           </div>
@@ -1073,15 +1073,6 @@
                   Quero publicar meu livro
                 </button>
                 <button
-                  class="button button-secondary open-capture"
-                  data-capture-type="publisher"
-                  data-item="servicos_editoriais_editoras"
-                  data-source-id="hero_servicos_editoriais"
-                  data-form-id="modal_hero_servicos_editoriais"
-                >
-                  Solicitar serviços editoriais
-                </button>
-                <button
                   class="button button-soft open-capture"
                   data-capture-type="original"
                   data-item="envio_original"
@@ -1090,8 +1081,14 @@
                 >
                   Enviar original
                 </button>
+                <a
+                  class="button button-secondary"
+                  href="#editoras"
+                >
+                  Ver serviços para editoras
+                </a>
               </div>
-              <p class="microcopy">Atendimento direto e tratamento confidencial do material enviado.</p>
+              <p class="microcopy">Atendimento direto, leitura de contexto e tratamento confidencial do material enviado.</p>
               <div class="trust-row">
                 <span class="trust-pill">Confidencialidade no atendimento</span>
                 <span class="trust-pill">Direitos preservados</span>
@@ -1102,7 +1099,7 @@
             <div class="hero-note">
               <strong>PUB Editorial</strong>
               <p>
-                Trabalho editorial com clareza, consistência técnica e atenção ao que cada projeto pede.
+                Trabalho editorial com clareza, consistência técnica e atenção ao que cada texto realmente pede.
               </p>
             </div>
           </div>
@@ -1110,12 +1107,12 @@
 
         <aside class="hero-side">
           <article class="side-card dark">
-            <span class="kicker">Entradas principais</span>
-            <h3>Escolha o ponto de partida que faz sentido para o seu caso.</h3>
+            <span class="kicker">Entrada principal</span>
+            <h3>O foco começa na publicação do seu livro.</h3>
             <ul class="mini-list">
-              <li>Publicação de livro</li>
-              <li>Serviços editoriais para editora</li>
-              <li>Capacitação para profissionais e equipes</li>
+              <li>Leitura e avaliação do original</li>
+              <li>Definição do caminho editorial</li>
+              <li>Produção, publicação e acompanhamento</li>
             </ul>
           </article>
 
@@ -1124,7 +1121,7 @@
             <h4>Publicação com acompanhamento editorial</h4>
             <p>Do original ao livro pronto, com leitura, preparação e definição das etapas do projeto.</p>
             <div class="actions">
-              <a class="button button-secondary" href="#autores">Ver detalhes</a>
+              <a class="button button-secondary" href="#autores">Ver publicação</a>
             </div>
           </article>
 
@@ -1157,7 +1154,7 @@
             <h2>Comece pelo que você precisa agora.</h2>
           </div>
           <p>
-            Você pode iniciar pela publicação do seu livro, por uma demanda editorial da sua editora ou por uma necessidade de formação técnica.
+            A PUB Editorial tem foco principal na publicação de livros para autores e também atende editoras e necessidades de formação técnica.
           </p>
         </div>
 
@@ -1166,7 +1163,7 @@
             <div class="path-top">
               <span class="path-tag">Autores</span>
               <h3>Quero publicar meu livro</h3>
-              <p>Para quem tem um original e precisa entender os próximos passos da publicação impressa ou digital.</p>
+              <p>Para quem tem um original e precisa entender o caminho da publicação impressa ou digital com acompanhamento editorial.</p>
             </div>
             <div class="path-bottom">
               <div class="actions">
@@ -1194,7 +1191,7 @@
             <div class="path-top">
               <span class="path-tag">Profissionais e equipes</span>
               <h3>Quero aprender ou treinar minha equipe</h3>
-              <p>Para quem quer desenvolver prática editorial com foco no trabalho do dia a dia.</p>
+              <p>Para quem quer desenvolver prática editorial com foco no trabalho do dia a dia, individualmente ou em equipe.</p>
             </div>
             <div class="path-bottom">
               <div class="actions">
@@ -1212,11 +1209,12 @@
         <div class="feature-split">
           <article class="feature-panel dark">
             <span class="kicker">Para autores independentes</span>
-            <h2>Publicar um livro pede leitura, forma e decisão.</h2>
+            <h2>Publicar um livro pede leitura, forma e direção editorial.</h2>
             <p>
-              A PUB Editorial acompanha projetos em diferentes estágios. O trabalho pode envolver avaliação, preparação, revisão, projeto gráfico, capa, diagramação e publicação.
+              A PUB Editorial acompanha projetos em diferentes estágios. O trabalho pode envolver avaliação do original, preparação, revisão, projeto gráfico, capa, diagramação e publicação.
             </p>
             <ul class="bullet-list">
+              <li>Avaliação editorial do original</li>
               <li>Edição e publicação de livros impressos</li>
               <li>Publicação de livros digitais para Kindle</li>
               <li>Preparação e revisão do texto</li>
@@ -1227,16 +1225,16 @@
 
           <article class="feature-panel">
             <span class="kicker">Primeiro contato</span>
-            <h3>Você pode começar por avaliação, conversa ou envio de original.</h3>
+            <h3>Você pode começar por conversa, avaliação ou envio de original.</h3>
             <p>
-              Um primeiro contato já permite definir melhor o caminho do projeto e o tipo de trabalho necessário.
+              Um primeiro contato já permite entender melhor o estágio do texto, o tipo de trabalho necessário e o caminho mais adequado para o projeto.
             </p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="pagina_autores_quero_publicar" data-form-id="modal_pagina_autores_quero_publicar">Quero publicar meu livro</button>
               <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_autores_envio_original" data-form-id="modal_pagina_autores_envio_original">Enviar original</button>
               <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_publicacao_autores" data-form-id="modal_download_guia_publicacao_autores" data-material-name="Guia inicial de publicação">Receber guia</button>
             </div>
-            <div class="safe-box">Seu material não é compartilhado com terceiros. O envio do original não implica cessão de direitos.</div>
+            <div class="safe-box">Seu material não é compartilhado com terceiros. O envio do original não implica cessão de direitos. Você mantém integralmente a titularidade da sua obra.</div>
           </article>
         </div>
       </div>
@@ -1309,7 +1307,7 @@
             <span class="kicker">Capacitação</span>
             <h2>Treinamento editorial voltado à prática.</h2>
             <p>
-              Formação para profissionais e equipes que precisam desenvolver domínio técnico e rotina de trabalho mais consistente.
+              Formação para profissionais e equipes que precisam desenvolver domínio técnico, organizar melhor os fluxos e ganhar consistência no trabalho editorial.
             </p>
             <ul class="bullet-list">
               <li>Revisão de textos</li>
@@ -1342,7 +1340,7 @@
             <h2>Conteúdo para quem quer começar melhor.</h2>
           </div>
           <p>
-            Materiais de apoio para autores, editoras e profissionais que precisam organizar decisões e próximos passos.
+            Materiais de apoio para autores, editoras e profissionais que precisam organizar decisões, próximos passos e critérios de trabalho.
           </p>
         </div>
 
@@ -1392,7 +1390,7 @@
               <h2>Já tem um material pronto para análise?</h2>
             </div>
             <p>
-              O envio do original ajuda a definir com mais precisão o ponto de partida do projeto.
+              O envio do original ajuda a definir com mais precisão o ponto de partida do projeto editorial.
             </p>
           </div>
           <div class="actions">
@@ -1457,7 +1455,7 @@
     <div class="container footer-grid">
       <div>
         <strong>PUB Editorial</strong>
-        <p>Publicação, produção e capacitação editorial.</p>
+        <p>Publicação e produção editorial, com serviços para editoras e capacitação técnica.</p>
         <small style="display:block; margin-top: 12px;">Seus dados são usados apenas para este atendimento. Seus arquivos são tratados com confidencialidade.</small>
       </div>
       <div>
@@ -1582,7 +1580,7 @@
       },
       author: {
         title: 'Quero publicar meu livro',
-        description: 'Preencha os dados e apresente seu projeto.',
+        description: 'Preencha os dados e apresente seu projeto para um primeiro encaminhamento editorial.',
         submitLabel: 'Enviar contato',
         fields: ['projectField'],
         privacy: [
