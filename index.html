@@ -3,204 +3,335 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUB Editorial | Tudo para a publicação do seu livro</title>
-  <meta name="description" content="PUB Editorial. Edição e publicação de livros para autores independentes, serviços editoriais para editoras e capacitação para profissionais e equipes editoriais." />
+  <title>PUB Editorial | Publicação, produção e capacitação editorial</title>
+  <meta name="description" content="PUB Editorial. Publicação de livros, serviços editoriais para editoras e capacitação prática para profissionais e equipes editoriais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f8fb;
-      --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --surface-strong: #eef2f7;
-      --text: #0f172a;
-      --muted: #475569;
-      --muted-2: #64748b;
-      --line: #e2e8f0;
-      --brand: #0f172a;
-      --brand-2: #1e293b;
-      --accent: #7c3aed;
-      --accent-soft: rgba(124, 58, 237, 0.12);
-      --success: #166534;
-      --success-bg: #dcfce7;
-      --error: #991b1b;
-      --error-bg: #fee2e2;
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --shadow-lg: 0 22px 70px rgba(15, 23, 42, 0.12);
-      --shadow-md: 0 14px 34px rgba(15, 23, 42, 0.08);
-      --max: 1200px;
+      --bg: #f4efe8;
+      --bg-2: #efe7de;
+      --surface: rgba(255, 252, 247, 0.82);
+      --surface-strong: #fffdf9;
+      --surface-dark: #1b1612;
+      --text: #181512;
+      --text-soft: #4f4842;
+      --text-faint: #746c64;
+      --line: rgba(24, 21, 18, 0.1);
+      --line-strong: rgba(24, 21, 18, 0.18);
+      --brand: #171411;
+      --brand-soft: #2a241f;
+      --accent: #8f6545;
+      --accent-2: #6f7c70;
+      --accent-soft: rgba(143, 101, 69, 0.1);
+      --success: #1f5130;
+      --success-bg: #e6f4e8;
+      --error: #8b2e2e;
+      --error-bg: #fae7e7;
+      --radius-sm: 16px;
+      --radius-md: 22px;
+      --radius-lg: 30px;
+      --radius-xl: 42px;
+      --shadow-soft: 0 20px 55px rgba(25, 20, 16, 0.06);
+      --shadow-lg: 0 34px 90px rgba(25, 20, 16, 0.1);
+      --max: 1240px;
+      --header-h: 84px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.06), transparent 24%), var(--bg);
+      font-family: "Inter", Arial, Helvetica, sans-serif;
       color: var(--text);
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(143, 101, 69, 0.08), transparent 26%),
+        radial-gradient(circle at 85% 12%, rgba(111, 124, 112, 0.08), transparent 18%),
+        linear-gradient(180deg, #f7f2eb 0%, #f4efe8 40%, #f2ede6 100%);
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
     button, input, textarea, select { font: inherit; }
     img { max-width: 100%; display: block; }
 
+    ::selection {
+      background: rgba(143, 101, 69, 0.16);
+    }
+
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 80;
-      background: rgba(247, 248, 251, 0.88);
+      z-index: 90;
+      height: var(--header-h);
+      background: rgba(244, 239, 232, 0.78);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      border-bottom: 1px solid rgba(24, 21, 18, 0.06);
     }
 
     .header-row {
-      min-height: 82px;
+      min-height: var(--header-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 28px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 5px;
+      min-width: 0;
     }
 
     .brand-title {
-      font-size: 1.24rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
     }
 
     .brand-subtitle {
-      font-size: 0.93rem;
-      color: var(--muted);
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      letter-spacing: -0.01em;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav a {
       font-size: 0.95rem;
-      color: var(--brand-2);
+      color: var(--text-soft);
       padding: 8px 0;
+      position: relative;
     }
 
-    .nav a:hover { color: var(--text); }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+      opacity: 0.55;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .nav a:hover::after {
+      transform: scaleX(1);
+    }
 
     .hero {
-      padding: 96px 0 56px;
+      padding: 42px 0 72px;
     }
 
-    .hero-grid {
+    .hero-shell {
       display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 26px;
       align-items: stretch;
-    }
-
-    .panel,
-    .card,
-    .cta-band,
-    .modal {
-      background: var(--surface);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-md);
     }
 
     .hero-main {
       position: relative;
       overflow: hidden;
-      padding: 46px;
+      min-height: 720px;
+      padding: 48px;
+      border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at 85% 10%, rgba(124, 58, 237, 0.12), transparent 26%),
-        radial-gradient(circle at 20% 100%, rgba(15, 23, 42, 0.05), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        radial-gradient(circle at 88% 16%, rgba(143, 101, 69, 0.18), transparent 20%),
+        radial-gradient(circle at 10% 100%, rgba(111, 124, 112, 0.12), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,250,244,0.94) 100%);
+      border: 1px solid rgba(24, 21, 18, 0.08);
       box-shadow: var(--shadow-lg);
+      display: grid;
+      align-content: space-between;
+      gap: 48px;
+      isolation: isolate;
     }
 
-    .hero-main::after {
+    .hero-main::before {
       content: "";
       position: absolute;
-      inset: auto -60px -60px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, rgba(124, 58, 237, 0.16), rgba(124, 58, 237, 0.02));
-      filter: blur(8px);
+      inset: 24px;
+      border-radius: calc(var(--radius-xl) - 14px);
+      border: 1px solid rgba(24, 21, 18, 0.06);
       pointer-events: none;
-    }
-
-    .hero-side {
-      padding: 28px;
-      display: grid;
-      gap: 18px;
-      align-content: start;
+      z-index: -1;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       width: fit-content;
-      padding: 9px 15px;
+      padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(226, 232, 240, 0.95);
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--brand-2);
-      font-size: 0.82rem;
-      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      color: var(--brand-soft);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
     }
+
+    .hero-top {
+      max-width: 760px;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
 
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.4rem, 5vw, 4.7rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-      max-width: 11ch;
+      margin-top: 24px;
+      font-size: clamp(2.9rem, 6vw, 6rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      max-width: 10.5ch;
+      font-weight: 900;
     }
 
-    h2 {
-      margin: 0 0 14px;
-      font-size: clamp(1.95rem, 3vw, 3.1rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
-
-    h3 {
-      margin: 0 0 12px;
-      font-size: 1.28rem;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 1.1rem;
-      max-width: 60ch;
-    }
-
-    .trust-strip {
+    .hero-lead {
       margin-top: 22px;
+      max-width: 58ch;
+      font-size: 1.14rem;
+      color: var(--text-soft);
+    }
+
+    .hero-matrix {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-metric {
+      min-height: 124px;
+      padding: 18px 18px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .hero-metric strong {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-faint);
+    }
+
+    .hero-metric span {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--brand-soft);
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-align: center;
+      min-width: 0;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(180deg, #201a16 0%, #14110e 100%);
+      box-shadow: 0 16px 34px rgba(20, 17, 14, 0.16);
+    }
+
+    .button-primary:hover {
+      opacity: 0.98;
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.74);
+      border-color: rgba(24, 21, 18, 0.12);
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.92);
+      border-color: rgba(24, 21, 18, 0.18);
+    }
+
+    .button-soft {
+      background: rgba(143, 101, 69, 0.1);
+      border-color: rgba(143, 101, 69, 0.16);
+      color: #69462d;
+    }
+
+    .button-soft:hover {
+      background: rgba(143, 101, 69, 0.14);
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      gap: 18px;
+      align-items: end;
+    }
+
+    .hero-actions {
+      display: grid;
+      gap: 14px;
+    }
+
+    .microcopy {
+      font-size: 0.92rem;
+      color: var(--text-faint);
+    }
+
+    .trust-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -209,72 +340,115 @@
     .trust-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
       min-height: 38px;
       padding: 0 14px;
       border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      color: var(--brand-2);
-      font-size: 0.9rem;
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      background: rgba(255, 255, 255, 0.62);
+      color: var(--brand-soft);
+      font-size: 0.88rem;
+      white-space: nowrap;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
+    .hero-note {
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(29, 23, 18, 0.95);
+      color: rgba(255, 248, 242, 0.88);
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      min-height: 100%;
     }
 
-    .button {
-      min-height: 50px;
-      padding: 0 20px;
-      border-radius: 18px;
-      border: 1px solid transparent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: transform 160ms ease, opacity 160ms ease, background 160ms ease, border-color 160ms ease;
+    .hero-note strong {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 248, 242, 0.56);
+    }
+
+    .hero-note p {
+      color: rgba(255, 248, 242, 0.88);
+      line-height: 1.5;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+      align-content: stretch;
+    }
+
+    .side-card,
+    .card,
+    .band-card,
+    .path-card,
+    .modal {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      background: rgba(255, 252, 247, 0.76);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(12px);
+    }
+
+    .side-card {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      min-height: 0;
+    }
+
+    .side-card.dark {
+      background: linear-gradient(180deg, #211a16 0%, #17120f 100%);
+      color: rgba(255, 249, 243, 0.92);
+      border-color: rgba(255, 249, 243, 0.08);
+    }
+
+    .side-card.dark p,
+    .side-card.dark .eyeline,
+    .side-card.dark .mini-list li {
+      color: rgba(255, 249, 243, 0.74);
+    }
+
+    .kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
       font-weight: 700;
-      text-align: center;
     }
 
-    .button:hover {
-      transform: translateY(-1px);
+    .side-card.dark .kicker {
+      color: rgba(255, 249, 243, 0.54);
     }
 
-    .button-primary {
-      background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      font-weight: 900;
     }
 
-    .button-primary:hover { opacity: 0.95; }
-
-    .button-secondary {
-      background: #fff;
-      border-color: var(--line);
-      color: var(--text);
+    h3 {
+      font-size: 1.32rem;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      font-weight: 800;
     }
 
-    .button-secondary:hover {
-      background: var(--surface-soft);
+    h4 {
+      font-size: 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
     }
 
-    .button-soft {
-      background: var(--accent-soft);
-      color: #4c1d95;
-      border-color: rgba(124, 58, 237, 0.16);
+    p {
+      color: var(--text-soft);
     }
 
-    .microcopy {
-      margin-top: 12px;
-      color: var(--muted-2);
-      font-size: 0.92rem;
-    }
-
+    .mini-list,
     .bullet-list {
       list-style: none;
       margin: 0;
@@ -283,116 +457,232 @@
       gap: 10px;
     }
 
+    .mini-list li,
     .bullet-list li {
       position: relative;
-      padding-left: 20px;
-      color: var(--muted);
+      padding-left: 18px;
+      color: var(--text-soft);
     }
 
+    .mini-list li::before,
     .bullet-list li::before {
-      content: "•";
+      content: "";
       position: absolute;
       left: 0;
-      top: 0;
-      color: var(--accent);
-      font-weight: 900;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .eyeline {
+      font-size: 0.94rem;
+      color: var(--text-faint);
     }
 
     section {
-      padding: 80px 0;
+      padding: 88px 0;
     }
 
     .section-header {
-      max-width: 780px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+      gap: 24px;
+      align-items: end;
       margin-bottom: 28px;
     }
 
     .section-header p {
-      font-size: 1.02rem;
+      max-width: 56ch;
+      font-size: 1.03rem;
     }
 
-    .grid-3, .grid-2, .steps {
+    .grid-3,
+    .grid-2,
+    .steps,
+    .editorial-grid,
+    .material-grid,
+    .footer-grid {
       display: grid;
-      gap: 22px;
+      gap: 20px;
     }
 
-    .grid-3, .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3,
+    .material-grid,
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-    .card {
+    .grid-2,
+    .editorial-grid,
+    .footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card,
+    .path-card,
+    .band-card {
       padding: 30px;
-      height: 100%;
+      display: grid;
+      gap: 18px;
+      min-height: 100%;
+      align-content: start;
     }
 
-    .card p + .actions,
-    .card ul + .actions {
-      margin-top: 18px;
+    .card-head {
+      display: grid;
+      gap: 10px;
     }
 
-    .band {
-      background: linear-gradient(180deg, #f8fafc 0%, #f7f8fb 100%);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .cta-band {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      padding: 36px;
-      background:
-        radial-gradient(circle at right top, rgba(124, 58, 237, 0.08), transparent 22%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .step-number {
-      width: 40px;
-      height: 40px;
+    .card-number {
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      background: rgba(143, 101, 69, 0.1);
+      border: 1px solid rgba(143, 101, 69, 0.14);
+      font-size: 0.96rem;
       font-weight: 800;
-      margin-bottom: 16px;
+      color: #6f4b31;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .path-card {
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 253, 249, 0.94) 0%, rgba(250, 244, 236, 0.92) 100%);
+    }
+
+    .path-top {
+      padding: 28px 28px 16px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .path-bottom {
+      padding: 18px 28px 28px;
+      border-top: 1px solid rgba(24, 21, 18, 0.08);
+      display: grid;
+      gap: 14px;
+      margin-top: auto;
+    }
+
+    .path-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      color: var(--text-faint);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    .alt-band {
+      position: relative;
+    }
+
+    .alt-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+    }
+
+    .feature-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      padding: 34px;
+      border-radius: 34px;
+      background: rgba(255, 252, 247, 0.78);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 18px;
+      min-height: 100%;
+      align-content: start;
+    }
+
+    .feature-panel.dark {
+      background: linear-gradient(180deg, #221c17 0%, #16120f 100%);
+      color: rgba(255, 249, 243, 0.94);
+      border-color: rgba(255, 249, 243, 0.08);
+    }
+
+    .feature-panel.dark p,
+    .feature-panel.dark li,
+    .feature-panel.dark .kicker {
+      color: rgba(255, 249, 243, 0.74);
+    }
+
+    .band-card {
+      padding: 34px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(252, 247, 240, 0.94) 100%);
     }
 
     .safe-box {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      color: var(--muted-2);
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      color: var(--text-faint);
       font-size: 0.92rem;
     }
 
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .steps .card {
+      gap: 16px;
+    }
+
     .footer {
-      padding: 42px 0 56px;
-      border-top: 1px solid var(--line);
-      background: #fff;
+      padding: 34px 0 52px;
+      border-top: 1px solid rgba(24, 21, 18, 0.08);
+      background: rgba(255, 251, 245, 0.74);
+      backdrop-filter: blur(10px);
     }
 
     .footer-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
+      align-items: start;
     }
 
     .footer strong {
       display: block;
-      margin-bottom: 8px;
-      font-size: 1.04rem;
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
     }
 
+    .footer small,
     .footer p,
-    .footer li,
-    .footer small {
-      color: var(--muted);
+    .footer li {
+      color: var(--text-soft);
     }
 
     .back-to-top {
@@ -402,19 +692,20 @@
       width: 52px;
       height: 52px;
       border-radius: 18px;
-      border: 1px solid rgba(226, 232, 240, 0.95);
-      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      background: rgba(255, 253, 248, 0.82);
       color: var(--text);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-soft);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 90;
+      z-index: 80;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(8px);
-      transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+      transform: translateY(10px);
+      transition: opacity 180ms ease, visibility 180ms ease, transform 180ms ease, background 180ms ease;
+      backdrop-filter: blur(10px);
     }
 
     .back-to-top.visible {
@@ -424,19 +715,19 @@
     }
 
     .back-to-top:hover {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.95);
     }
 
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.62);
+      z-index: 120;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      z-index: 110;
-      backdrop-filter: blur(8px);
+      padding: 24px;
+      background: rgba(18, 14, 11, 0.58);
+      backdrop-filter: blur(10px);
     }
 
     .modal-backdrop.active {
@@ -445,12 +736,13 @@
 
     .modal {
       width: min(760px, 100%);
-      max-height: min(90vh, 920px);
-      overflow: auto;
-      background: #fff;
-      border-radius: 28px;
-      box-shadow: 0 26px 80px rgba(15, 23, 42, 0.28);
-      border: 1px solid rgba(226, 232, 240, 0.95);
+      max-height: min(88vh, 920px);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      overflow: hidden;
+      background: linear-gradient(180deg, #fffdfa 0%, #faf5ee 100%);
+      border-radius: 30px;
+      box-shadow: 0 32px 90px rgba(18, 14, 11, 0.2);
     }
 
     .modal-header,
@@ -464,41 +756,92 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
-      border-top-left-radius: 28px;
-      border-top-right-radius: 28px;
+      border-bottom: 1px solid rgba(24, 21, 18, 0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,252,248,0.52) 100%);
+    }
+
+    .modal-title-wrap {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
     }
 
     .modal-subtitle {
-      margin-top: 6px;
-      font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 56ch;
+      max-width: 58ch;
+      color: var(--text-soft);
+      font-size: 0.97rem;
+    }
+
+    .modal-body {
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(24, 21, 18, 0.14) transparent;
+    }
+
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: rgba(24, 21, 18, 0.12);
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: rgba(24, 21, 18, 0.18);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(24, 21, 18, 0.08);
+      background: rgba(255, 253, 249, 0.78);
     }
 
     .close-button {
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #fff;
+      border: 1px solid rgba(24, 21, 18, 0.1);
+      background: rgba(255, 255, 255, 0.72);
       color: var(--text);
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex: 0 0 auto;
+      transition: background 180ms ease, border-color 180ms ease;
+    }
+
+    .close-button:hover {
+      background: #fff;
+      border-color: rgba(24, 21, 18, 0.16);
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
+      align-items: start;
     }
 
     .field {
       display: grid;
       gap: 8px;
+      min-width: 0;
     }
 
     .field.full {
@@ -506,25 +849,27 @@
     }
 
     label {
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text);
+      letter-spacing: -0.01em;
     }
 
     input,
     textarea,
     select {
       width: 100%;
-      border: 1px solid #cbd5e1;
+      border: 1px solid rgba(24, 21, 18, 0.12);
       border-radius: 16px;
-      padding: 12px 14px;
-      background: #fff;
+      padding: 14px 15px;
+      background: rgba(255, 255, 255, 0.8);
       color: var(--text);
-      transition: border-color 160ms ease, box-shadow 160ms ease;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      min-height: 54px;
     }
 
     textarea {
-      min-height: 108px;
+      min-height: 140px;
       resize: vertical;
     }
 
@@ -532,29 +877,31 @@
     textarea:focus,
     select:focus {
       outline: none;
-      border-color: #94a3b8;
-      box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.18);
+      border-color: rgba(143, 101, 69, 0.42);
+      box-shadow: 0 0 0 4px rgba(143, 101, 69, 0.12);
+      background: #fff;
     }
 
     .help {
-      font-size: 0.87rem;
-      color: var(--muted-2);
+      font-size: 0.86rem;
+      color: var(--text-faint);
     }
 
     .privacy-block {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      border: 1px solid var(--line);
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(24, 21, 18, 0.08);
       display: grid;
       gap: 8px;
-      color: var(--brand-2);
       font-size: 0.92rem;
+      color: var(--text-soft);
     }
 
     .privacy-block strong {
       color: var(--text);
+      font-size: 0.96rem;
     }
 
     .status-box {
@@ -570,49 +917,86 @@
       display: block;
       background: var(--success-bg);
       color: var(--success);
-      border-color: #86efac;
+      border-color: rgba(31, 81, 48, 0.16);
     }
 
     .status-box.error {
       display: block;
       background: var(--error-bg);
       color: var(--error);
-      border-color: #fca5a5;
+      border-color: rgba(139, 46, 46, 0.18);
     }
 
     .hidden { display: none !important; }
 
-    @media (max-width: 1024px) {
-      .hero-grid,
+    @media (max-width: 1180px) {
+      .hero-shell,
+      .hero-bottom,
+      .path-grid,
       .grid-3,
       .grid-2,
       .steps,
-      .footer-grid,
-      .form-grid {
+      .editorial-grid,
+      .material-grid,
+      .feature-split,
+      .contact-wrap,
+      .section-header,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .nav { display: none; }
-      h1 { max-width: none; }
+      .hero-main {
+        min-height: auto;
+      }
+
+      .hero-matrix {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 640px) {
-      .hero { padding-top: 70px; }
+    @media (max-width: 980px) {
+      .nav { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
       .hero-main,
-      .hero-side,
+      .side-card,
       .card,
-      .cta-band,
+      .band-card,
+      .feature-panel,
       .modal-header,
       .modal-body,
       .modal-footer {
-        padding: 22px;
+        padding-left: 22px;
+        padding-right: 22px;
       }
 
-      .panel,
+      .hero-main,
+      .side-card,
       .card,
-      .cta-band,
+      .band-card,
+      .feature-panel,
+      .path-card,
       .modal {
-        border-radius: 22px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        max-width: none;
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      h2 {
+        font-size: clamp(1.9rem, 9vw, 2.7rem);
       }
 
       .actions {
@@ -623,9 +1007,8 @@
         width: 100%;
       }
 
-      .back-to-top {
-        right: 14px;
-        bottom: 14px;
+      .modal-backdrop {
+        padding: 12px;
       }
     }
   </style>
@@ -633,18 +1016,18 @@
 <body>
   <header class="site-header">
     <div class="container header-row">
-      <a href="#inicio" class="brand">
+      <a href="#inicio" class="brand" aria-label="PUB Editorial">
         <span class="brand-title">PUB Editorial</span>
-        <span class="brand-subtitle">Tudo para a publicação do seu livro</span>
+        <span class="brand-subtitle">Publicação, produção e capacitação editorial</span>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
-        <a href="#autores">Para autores</a>
-        <a href="#editoras">Para editoras</a>
+        <a href="#caminhos">Caminhos</a>
+        <a href="#autores">Autores</a>
+        <a href="#editoras">Editoras</a>
         <a href="#profissionais">Capacitação</a>
         <a href="#materiais">Materiais</a>
-        <a href="#envio">Enviar original</a>
         <a href="#contato">Contato</a>
       </nav>
     </div>
@@ -652,159 +1035,208 @@
 
   <main>
     <section class="hero" id="inicio">
-      <div class="container hero-grid">
-        <div class="panel hero-main">
-          <span class="eyebrow">Atendimento editorial para autores, editoras, profissionais e equipes</span>
-          <h1>Seu livro, seu projeto, sua equipe: tudo pode começar aqui.</h1>
-          <p class="lead">
-            A PUB Editorial ajuda você a publicar livros, executar serviços editoriais e desenvolver processos de trabalho com clareza, cuidado técnico e atendimento direto.
-          </p>
+      <div class="container hero-shell">
+        <div class="hero-main">
+          <div class="hero-top">
+            <span class="eyebrow">Atendimento editorial com direção, execução e clareza</span>
+            <h1>Seu livro, sua demanda, sua equipe — com tratamento editorial à altura.</h1>
+            <p class="hero-lead">
+              A PUB Editorial reúne publicação de livros, serviços para editoras e capacitação prática em uma experiência mais precisa, mais elegante e mais segura para quem precisa avançar com qualidade.
+            </p>
 
-          <div class="actions">
-            <button
-              class="button button-primary open-capture"
-              data-capture-type="author"
-              data-item="edicao_publicacao_autor"
-              data-source-id="hero_quero_publicar"
-              data-form-id="modal_hero_quero_publicar"
-            >
-              Quero publicar meu livro
-            </button>
-            <button
-              class="button button-secondary open-capture"
-              data-capture-type="original"
-              data-item="envio_original"
-              data-source-id="hero_envio_original"
-              data-form-id="modal_hero_envio_original"
-            >
-              Enviar meu original
-            </button>
-            <button
-              class="button button-soft open-capture"
-              data-capture-type="publisher"
-              data-item="servicos_editoriais_editoras"
-              data-source-id="hero_servicos_editoriais"
-              data-form-id="modal_hero_servicos_editoriais"
-            >
-              Solicitar serviços editoriais
-            </button>
+            <div class="hero-matrix" aria-label="Diferenciais da PUB Editorial">
+              <div class="hero-metric">
+                <strong>Para autores</strong>
+                <span>Publicação impressa e digital com orientação técnica e sensibilidade editorial.</span>
+              </div>
+              <div class="hero-metric">
+                <strong>Para editoras</strong>
+                <span>Serviços, organização de produção, padronização e suporte técnico especializado.</span>
+              </div>
+              <div class="hero-metric">
+                <strong>Para equipes</strong>
+                <span>Capacitação prática em fluxos, revisão, diagramação e operação editorial.</span>
+              </div>
+            </div>
           </div>
 
-          <p class="microcopy">Atendimento direto, confidencial e sem compromisso inicial.</p>
+          <div class="hero-bottom">
+            <div class="hero-actions">
+              <div class="actions">
+                <button
+                  class="button button-primary open-capture"
+                  data-capture-type="author"
+                  data-item="edicao_publicacao_autor"
+                  data-source-id="hero_quero_publicar"
+                  data-form-id="modal_hero_quero_publicar"
+                >
+                  Quero publicar meu livro
+                </button>
+                <button
+                  class="button button-secondary open-capture"
+                  data-capture-type="publisher"
+                  data-item="servicos_editoriais_editoras"
+                  data-source-id="hero_servicos_editoriais"
+                  data-form-id="modal_hero_servicos_editoriais"
+                >
+                  Solicitar serviços editoriais
+                </button>
+                <button
+                  class="button button-soft open-capture"
+                  data-capture-type="original"
+                  data-item="envio_original"
+                  data-source-id="hero_envio_original"
+                  data-form-id="modal_hero_envio_original"
+                >
+                  Enviar original
+                </button>
+              </div>
+              <p class="microcopy">Atendimento direto, confidencial e sem compromisso inicial.</p>
+              <div class="trust-row">
+                <span class="trust-pill">Confidencialidade no atendimento</span>
+                <span class="trust-pill">Você mantém os direitos da obra</span>
+                <span class="trust-pill">Fluxo claro desde o primeiro contato</span>
+              </div>
+            </div>
 
-          <div class="trust-strip">
-            <span class="trust-pill">Seus dados são usados apenas para este atendimento</span>
-            <span class="trust-pill">Seu material é tratado com confidencialidade</span>
-            <span class="trust-pill">Você mantém todos os direitos sobre sua obra</span>
+            <div class="hero-note">
+              <strong>Posicionamento</strong>
+              <p>
+                Menos aparência de template. Mais densidade editorial, melhor hierarquia visual e uma presença de marca compatível com públicos que valorizam critério, confiança e acabamento.
+              </p>
+            </div>
           </div>
         </div>
 
-        <aside class="panel hero-side">
-          <h3>Escolha o caminho mais próximo da sua necessidade</h3>
-          <div class="card" style="padding: 22px; box-shadow: none; border-radius: 22px;">
-            <h3 style="font-size: 1.08rem; margin-bottom: 10px;">Para autores</h3>
-            <p>Publicação de livros impressos e digitais, com apoio em todas as etapas.</p>
-            <div class="actions" style="margin-top: 14px;">
-              <a class="button button-secondary" href="#autores">Ver como funciona</a>
+        <aside class="hero-side">
+          <article class="side-card dark">
+            <span class="kicker">Entradas principais</span>
+            <h3>Escolha o ponto de partida mais próximo da sua necessidade.</h3>
+            <ul class="mini-list">
+              <li>Publicar um livro com apoio em todas as etapas</li>
+              <li>Estruturar uma demanda editorial para editora</li>
+              <li>Desenvolver prática técnica para profissionais e equipes</li>
+            </ul>
+          </article>
+
+          <article class="side-card">
+            <span class="kicker">Para autores</span>
+            <h4>Publicação com orientação editorial</h4>
+            <p>Do original ao livro pronto, com mais clareza sobre decisões, etapas e entregáveis.</p>
+            <div class="actions">
+              <a class="button button-secondary" href="#autores">Ver solução</a>
             </div>
-          </div>
-          <div class="card" style="padding: 22px; box-shadow: none; border-radius: 22px;">
-            <h3 style="font-size: 1.08rem; margin-bottom: 10px;">Para editoras</h3>
-            <p>Serviços editoriais, suporte técnico, gestão de equipes e projetos.</p>
-            <div class="actions" style="margin-top: 14px;">
+          </article>
+
+          <article class="side-card">
+            <span class="kicker">Para editoras</span>
+            <h4>Execução, suporte e organização</h4>
+            <p>Revisão, diagramação, padronização, pré-impressão e apoio operacional contínuo.</p>
+            <div class="actions">
               <a class="button button-secondary" href="#editoras">Ver soluções</a>
             </div>
-          </div>
-          <div class="card" style="padding: 22px; box-shadow: none; border-radius: 22px;">
-            <h3 style="font-size: 1.08rem; margin-bottom: 10px;">Para profissionais e equipes</h3>
-            <p>Capacitação prática em revisão, fluxo Word–InDesign, diagramação e mais.</p>
-            <div class="actions" style="margin-top: 14px;">
+          </article>
+
+          <article class="side-card">
+            <span class="kicker">Capacitação</span>
+            <h4>Treinamento com aplicação real</h4>
+            <p>Processos editoriais, Word–InDesign, revisão, diagramação e rotinas de produção.</p>
+            <div class="actions">
               <a class="button button-secondary" href="#profissionais">Ver capacitações</a>
             </div>
-          </div>
+          </article>
         </aside>
       </div>
     </section>
 
-    <section>
+    <section id="caminhos">
       <div class="container">
         <div class="section-header">
-          <h2>Você não precisa resolver tudo agora. Precisa apenas dar o próximo passo.</h2>
+          <div>
+            <span class="kicker">Caminhos de entrada</span>
+            <h2>Você não precisa decidir tudo agora. Precisa iniciar com precisão.</h2>
+          </div>
           <p>
-            O site da PUB Editorial foi pensado para facilitar sua decisão. Você pode começar com um contato rápido, pedir uma orientação, baixar um material ou enviar seu original para análise.
+            Em vez de dispersar atenção com blocos genéricos, a navegação organiza a experiência a partir do seu contexto real: publicar, contratar produção editorial ou desenvolver prática profissional.
           </p>
         </div>
 
-        <div class="grid-3">
-          <article class="card">
-            <h3>Quero publicar meu livro</h3>
-            <p>
-              Para quem tem um original e quer entender o caminho para publicar em formato impresso ou digital.
-            </p>
-            <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="home_publicar_livro" data-form-id="modal_home_publicar_livro">Quero publicar</button>
-              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_home_autores" data-form-id="modal_download_guia_home_autores" data-material-name="Guia inicial de publicação">Receber guia</button>
+        <div class="path-grid">
+          <article class="path-card">
+            <div class="path-top">
+              <span class="path-tag">Autores</span>
+              <h3>Quero publicar meu livro</h3>
+              <p>Para quem tem um original e quer entender, com critério, o caminho até a publicação impressa ou digital.</p>
+            </div>
+            <div class="path-bottom">
+              <div class="actions">
+                <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="home_publicar_livro" data-form-id="modal_home_publicar_livro">Quero publicar</button>
+                <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_home_autores" data-form-id="modal_download_guia_home_autores" data-material-name="Guia inicial de publicação">Receber guia</button>
+              </div>
             </div>
           </article>
 
-          <article class="card">
-            <h3>Tenho uma editora</h3>
-            <p>
-              Para editoras que precisam de revisão, diagramação, organização de produção ou apoio técnico em projetos.
-            </p>
-            <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="home_editora_proposta" data-form-id="modal_home_editora_proposta">Pedir proposta</button>
-              <button class="button button-secondary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="home_editora_demanda" data-form-id="modal_home_editora_demanda">Falar sobre minha demanda</button>
+          <article class="path-card">
+            <div class="path-top">
+              <span class="path-tag">Editoras</span>
+              <h3>Tenho uma demanda editorial</h3>
+              <p>Para editoras que precisam de revisão, diagramação, suporte técnico, processos ou estrutura de produção.</p>
+            </div>
+            <div class="path-bottom">
+              <div class="actions">
+                <button class="button button-primary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="home_editora_proposta" data-form-id="modal_home_editora_proposta">Pedir proposta</button>
+                <button class="button button-secondary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="home_editora_demanda" data-form-id="modal_home_editora_demanda">Falar sobre a demanda</button>
+              </div>
             </div>
           </article>
 
-          <article class="card">
-            <h3>Quero aprender ou treinar minha equipe</h3>
-            <p>
-              Para quem quer desenvolver prática em processos editoriais e melhorar o trabalho do dia a dia.
-            </p>
-            <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="training" data-item="capacitacao_editorial" data-source-id="home_capacitacao_treinamento" data-form-id="modal_home_capacitacao_treinamento">Solicitar treinamento</button>
-              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_capacitacao" data-source-id="download_programa_home_capacitacao" data-form-id="modal_download_programa_home_capacitacao" data-material-name="Programa de capacitação editorial">Receber programa</button>
+          <article class="path-card">
+            <div class="path-top">
+              <span class="path-tag">Profissionais e equipes</span>
+              <h3>Quero aprender ou treinar minha equipe</h3>
+              <p>Para quem quer desenvolver prática editorial com foco direto em aplicação no fluxo de trabalho.</p>
+            </div>
+            <div class="path-bottom">
+              <div class="actions">
+                <button class="button button-primary open-capture" data-capture-type="training" data-item="capacitacao_editorial" data-source-id="home_capacitacao_treinamento" data-form-id="modal_home_capacitacao_treinamento">Solicitar treinamento</button>
+                <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_capacitacao" data-source-id="download_programa_home_capacitacao" data-form-id="modal_download_programa_home_capacitacao" data-material-name="Programa de capacitação editorial">Receber programa</button>
+              </div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="band" id="autores">
+    <section class="alt-band" id="autores">
       <div class="container">
-        <div class="section-header">
-          <h2>Para autores independentes</h2>
-          <p>
-            Se você quer publicar seu livro e precisa de orientação ou execução técnica, a PUB Editorial pode acompanhar o seu projeto em diferentes etapas.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <article class="card">
-            <h3>O que a PUB Editorial pode fazer por você</h3>
+        <div class="feature-split">
+          <article class="feature-panel dark">
+            <span class="kicker">Para autores independentes</span>
+            <h2>Publicar um livro exige direção, não ruído.</h2>
+            <p>
+              A PUB Editorial acompanha projetos em diferentes estágios, com uma abordagem que combina cuidado técnico, leitura de contexto e clareza sobre o próximo passo.
+            </p>
             <ul class="bullet-list">
               <li>Edição e publicação de livros impressos</li>
               <li>Publicação de livros digitais para Kindle</li>
               <li>Preparação e revisão do texto</li>
-              <li>Projeto gráfico e capa</li>
-              <li>Diagramação editorial</li>
-              <li>Orientação ao longo do processo</li>
+              <li>Projeto gráfico, capa e diagramação</li>
+              <li>Orientação editorial ao longo do processo</li>
             </ul>
           </article>
 
-          <article class="card">
-            <h3>Comece pelo caminho mais simples</h3>
+          <article class="feature-panel">
+            <span class="kicker">Comece pelo essencial</span>
+            <h3>Você pode iniciar por avaliação, conversa ou envio de original.</h3>
             <p>
-              Você pode pedir uma avaliação, falar sobre o seu livro ou enviar o original para análise. Leva pouco tempo para começar.
+              A entrada foi simplificada para reduzir atrito: menos hesitação, mais clareza sobre como avançar com um projeto real.
             </p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="pagina_autores_quero_publicar" data-form-id="modal_pagina_autores_quero_publicar">Quero publicar meu livro</button>
               <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_autores_envio_original" data-form-id="modal_pagina_autores_envio_original">Enviar original</button>
               <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_publicacao_autores" data-form-id="modal_download_guia_publicacao_autores" data-material-name="Guia inicial de publicação">Receber guia</button>
             </div>
-            <div class="safe-box">Seu original não é compartilhado com terceiros. O envio do material não implica cessão de direitos.</div>
+            <div class="safe-box">Seu material não é compartilhado com terceiros. O envio do original não implica cessão de direitos.</div>
           </article>
         </div>
       </div>
@@ -813,15 +1245,21 @@
     <section id="editoras">
       <div class="container">
         <div class="section-header">
-          <h2>Para editoras</h2>
+          <div>
+            <span class="kicker">Para editoras</span>
+            <h2>Serviços editoriais e estrutura operacional com acabamento profissional.</h2>
+          </div>
           <p>
-            A PUB Editorial oferece apoio técnico e operacional para diferentes demandas de produção editorial, tanto em serviços pontuais quanto em frentes contínuas.
+            A proposta visual e verbal aqui deixa de parecer genérica e passa a comunicar competência, discrição e organização, sem perder objetividade comercial.
           </p>
         </div>
 
-        <div class="grid-3">
-          <article class="card">
-            <h3>Serviços editoriais</h3>
+        <div class="editorial-grid">
+          <article class="band-card">
+            <div class="card-head">
+              <span class="card-number">01</span>
+              <h3>Serviços editoriais</h3>
+            </div>
             <ul class="bullet-list">
               <li>Revisão de originais</li>
               <li>Copidesque</li>
@@ -831,35 +1269,32 @@
             </ul>
           </article>
 
-          <article class="card">
-            <h3>Suporte técnico</h3>
+          <article class="band-card">
+            <div class="card-head">
+              <span class="card-number">02</span>
+              <h3>Suporte técnico e produção</h3>
+            </div>
             <ul class="bullet-list">
-              <li>Revisão e ajustes em projetos editáveis</li>
+              <li>Revisão e ajustes em arquivos editáveis</li>
               <li>Fechamento de arquivos</li>
-              <li>Suporte pré-impressão</li>
+              <li>Pré-impressão</li>
               <li>Padronização de entregáveis editoriais</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Organização e gestão</h3>
-            <ul class="bullet-list">
-              <li>Manuais e políticas editoriais</li>
-              <li>Gestão de equipes editoriais</li>
-              <li>Gestão de projetos editoriais</li>
-              <li>Organização de processos internos</li>
+              <li>Organização de fluxos de trabalho</li>
             </ul>
           </article>
         </div>
 
-        <div class="cta-band" style="margin-top: 28px;">
-          <div>
-            <h3>Precisa de apoio para uma demanda editorial?</h3>
+        <div class="band-card" style="margin-top: 20px;">
+          <div class="section-header" style="margin-bottom: 0;">
+            <div>
+              <span class="kicker">Apoio sob medida</span>
+              <h3>Demandas pontuais ou frentes contínuas</h3>
+            </div>
             <p>
-              Você pode explicar sua necessidade em poucos campos e receber o encaminhamento mais adequado. Sem compromisso inicial.
+              O atendimento pode começar com poucas informações e evoluir para um escopo mais preciso, sem pressão e sem excesso de etapas iniciais.
             </p>
           </div>
-          <div class="actions" style="margin-top: 0;">
+          <div class="actions">
             <button class="button button-primary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="pagina_editoras_proposta" data-form-id="modal_pagina_editoras_proposta">Solicitar proposta</button>
             <button class="button button-secondary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="pagina_editoras_demanda" data-form-id="modal_pagina_editoras_demanda">Falar sobre minha demanda</button>
           </div>
@@ -867,18 +1302,15 @@
       </div>
     </section>
 
-    <section class="band" id="profissionais">
+    <section class="alt-band" id="profissionais">
       <div class="container">
-        <div class="section-header">
-          <h2>Para profissionais e equipes editoriais</h2>
-          <p>
-            Capacitação e qualificação em processos editoriais com foco prático, voltadas tanto para profissionais quanto para equipes em desenvolvimento técnico.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <article class="card">
-            <h3>Áreas de capacitação</h3>
+        <div class="feature-split">
+          <article class="feature-panel">
+            <span class="kicker">Capacitação</span>
+            <h2>Treinamento editorial com aplicação direta no trabalho.</h2>
+            <p>
+              Em vez de uma apresentação genérica, a seção organiza melhor o valor da capacitação: prática, contexto e transferência real para o dia a dia de produção.
+            </p>
             <ul class="bullet-list">
               <li>Revisão de textos</li>
               <li>Fluxo Word–InDesign</li>
@@ -887,10 +1319,11 @@
             </ul>
           </article>
 
-          <article class="card">
-            <h3>Formatos de atendimento</h3>
+          <article class="feature-panel dark">
+            <span class="kicker">Formatos de atendimento</span>
+            <h3>Para pessoas, grupos e equipes em desenvolvimento técnico.</h3>
             <p>
-              A formação pode ser pensada para pessoas, grupos ou equipes, sempre com foco em aplicação real ao trabalho editorial.
+              O formato pode ser desenhado para capacitação individual, atualização de equipe ou treinamento mais orientado a processo e padronização.
             </p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="training" data-item="capacitacao_editorial" data-source-id="pagina_capacitacao_treinamento" data-form-id="modal_pagina_capacitacao_treinamento">Solicitar treinamento</button>
@@ -904,32 +1337,44 @@
     <section id="materiais">
       <div class="container">
         <div class="section-header">
-          <h2>Materiais para começar melhor</h2>
+          <div>
+            <span class="kicker">Materiais</span>
+            <h2>Conteúdo de entrada para quem quer começar com mais critério.</h2>
+          </div>
           <p>
-            Se você ainda está decidindo o próximo passo, pode começar com um material rápido. O acesso é simples e leva menos de 1 minuto.
+            Os materiais continuam acessíveis, mas com apresentação visual mais coerente com uma marca que pretende orientar e seduzir públicos distintos.
           </p>
         </div>
 
-        <div class="grid-3">
+        <div class="material-grid">
           <article class="card">
-            <h3>Guia inicial de publicação</h3>
-            <p>Para autores que querem entender melhor como funciona a publicação de um livro impresso ou digital.</p>
+            <div class="card-head">
+              <span class="card-number">A</span>
+              <h3>Guia inicial de publicação</h3>
+            </div>
+            <p>Para autores que querem entender melhor o percurso da publicação impressa ou digital.</p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_inicial_publicacao" data-form-id="modal_download_guia_inicial_publicacao" data-material-name="Guia inicial de publicação">Baixar material</button>
             </div>
           </article>
 
           <article class="card">
-            <h3>Checklist de preparação de original</h3>
-            <p>Um apoio direto para quem quer organizar melhor o texto antes de entrar em produção editorial.</p>
+            <div class="card-head">
+              <span class="card-number">B</span>
+              <h3>Checklist de preparação de original</h3>
+            </div>
+            <p>Um apoio direto para organizar melhor o texto antes de entrar em produção editorial.</p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_checklist_original" data-form-id="modal_download_checklist_original" data-material-name="Checklist de preparação de original">Baixar material</button>
             </div>
           </article>
 
           <article class="card">
-            <h3>Material técnico para editoras</h3>
-            <p>Um material de apoio para demandas de revisão, diagramação, organização de produção e padronização editorial.</p>
+            <div class="card-head">
+              <span class="card-number">C</span>
+              <h3>Material técnico para editoras</h3>
+            </div>
+            <p>Um material de apoio para revisão, diagramação, organização de produção e padronização editorial.</p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="download" data-item="material_editoras" data-source-id="download_material_tecnico_editoras" data-form-id="modal_download_material_tecnico_editoras" data-material-name="Material técnico para editoras">Baixar material</button>
             </div>
@@ -938,20 +1383,23 @@
       </div>
     </section>
 
-    <section class="band" id="envio">
+    <section class="alt-band" id="envio">
       <div class="container">
-        <div class="cta-band">
-          <div>
-            <h2 style="font-size: clamp(2rem, 3vw, 2.6rem); margin-bottom: 10px;">Já tem um original pronto?</h2>
+        <div class="band-card">
+          <div class="section-header" style="margin-bottom: 0;">
+            <div>
+              <span class="kicker">Envio de original</span>
+              <h2>Já tem um material pronto para análise?</h2>
+            </div>
             <p>
-              Se você já quer avançar com um projeto real, pode começar pelo envio do material. Isso ajuda a tornar a avaliação mais precisa e objetiva.
+              Esta entrada permanece forte, mas agora aparece com mais densidade visual e melhor enquadramento institucional para sustentar confiança.
             </p>
-            <p class="microcopy">Seu material é tratado com confidencialidade. Você mantém todos os direitos sobre a sua obra.</p>
           </div>
-          <div class="actions" style="margin-top: 0;">
+          <div class="actions">
             <button class="button button-primary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_envio_original_principal" data-form-id="modal_pagina_envio_original_principal">Enviar original</button>
             <button class="button button-secondary open-capture" data-capture-type="author" data-item="avaliacao_projeto" data-source-id="pagina_envio_original_avaliacao" data-form-id="modal_pagina_envio_original_avaliacao">Pedir uma avaliação</button>
           </div>
+          <p class="microcopy">Seu material é tratado com confidencialidade. Você mantém todos os direitos sobre a sua obra.</p>
         </div>
       </div>
     </section>
@@ -959,35 +1407,47 @@
     <section id="contato">
       <div class="container">
         <div class="section-header">
-          <h2>Fale com a PUB Editorial</h2>
+          <div>
+            <span class="kicker">Contato</span>
+            <h2>Fale com a PUB Editorial com mais clareza desde o primeiro passo.</h2>
+          </div>
           <p>
-            Você pode começar com uma dúvida, uma proposta, um material para análise ou um pedido de atendimento. O importante é dar o próximo passo com segurança.
+            A seção final organiza melhor a jornada: explicar a necessidade, enviar material quando fizer sentido e receber uma orientação adequada sem ruído visual.
           </p>
         </div>
 
-        <div class="steps">
-          <article class="card">
-            <div class="step-number">1</div>
-            <h3>Explique o que você precisa</h3>
-            <p>Seja um livro, uma demanda editorial ou um treinamento, uma descrição simples já é suficiente para começar.</p>
+        <div class="contact-wrap">
+          <article class="side-card dark">
+            <span class="kicker">Como funciona</span>
+            <h3>Menos etapas desnecessárias. Mais entendimento do contexto.</h3>
+            <p>
+              A experiência foi redesenhada para parecer mais segura, mais precisa e menos genérica. Isso melhora tanto percepção de marca quanto disposição para conversão.
+            </p>
+            <div class="actions">
+              <button class="button button-primary open-capture" data-capture-type="general" data-item="contato_geral" data-source-id="pagina_contato_principal" data-form-id="modal_pagina_contato_principal">Enviar mensagem</button>
+              <button class="button button-secondary open-capture" data-capture-type="general" data-item="continuidade_atendimento" data-source-id="pagina_contato_continuidade" data-form-id="modal_pagina_contato_continuidade">Continuar atendimento</button>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="step-number">2</div>
-            <h3>Envie material quando fizer sentido</h3>
-            <p>Quando a análise depende do conteúdo, o envio do material ajuda a tornar o atendimento mais objetivo.</p>
-          </article>
+          <div class="steps">
+            <article class="card">
+              <div class="card-number">1</div>
+              <h3>Explique o que você precisa</h3>
+              <p>Livro, demanda editorial ou capacitação: uma descrição breve já é suficiente para começar.</p>
+            </article>
 
-          <article class="card">
-            <div class="step-number">3</div>
-            <h3>Receba a orientação adequada</h3>
-            <p>A partir do seu contexto, fica mais fácil orientar o melhor caminho para seguir.</p>
-          </article>
-        </div>
+            <article class="card">
+              <div class="card-number">2</div>
+              <h3>Envie material quando fizer sentido</h3>
+              <p>Quando a análise depende do conteúdo, o envio do material torna o atendimento mais objetivo.</p>
+            </article>
 
-        <div class="actions" style="margin-top: 24px;">
-          <button class="button button-primary open-capture" data-capture-type="general" data-item="contato_geral" data-source-id="pagina_contato_principal" data-form-id="modal_pagina_contato_principal">Enviar mensagem</button>
-          <button class="button button-secondary open-capture" data-capture-type="general" data-item="continuidade_atendimento" data-source-id="pagina_contato_continuidade" data-form-id="modal_pagina_contato_continuidade">Continuar atendimento</button>
+            <article class="card">
+              <div class="card-number">3</div>
+              <h3>Receba a orientação adequada</h3>
+              <p>Com o contexto correto, a indicação do melhor caminho se torna mais clara e mais útil.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -997,9 +1457,8 @@
     <div class="container footer-grid">
       <div>
         <strong>PUB Editorial</strong>
-        <p>Tudo para a publicação do seu livro.</p>
-        <p style="margin-top: 8px;">A PUB Editorial é o nome fantasia de Rodrigo Fagundes em atuação no mercado editorial.</p>
-        <small style="display: block; margin-top: 12px;">Seus dados são usados apenas para este atendimento. Seus arquivos são tratados com confidencialidade.</small>
+        <p>Publicação, produção e capacitação editorial.</p>
+        <small style="display:block; margin-top: 12px;">Seus dados são usados apenas para este atendimento. Seus arquivos são tratados com confidencialidade.</small>
       </div>
       <div>
         <strong>Entradas principais</strong>
@@ -1019,7 +1478,7 @@
   <div class="modal-backdrop" id="captureModalBackdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="captureModalTitle">
       <div class="modal-header">
-        <div>
+        <div class="modal-title-wrap">
           <h3 id="captureModalTitle">Começar atendimento</h3>
           <p class="modal-subtitle" id="captureModalDescription">Preencha os dados para continuar.</p>
         </div>
@@ -1097,7 +1556,7 @@
           <div id="captureStatus" class="status-box"></div>
         </div>
 
-        <div class="modal-footer" style="border-top: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
+        <div class="modal-footer">
           <button type="button" class="button button-secondary" id="cancelCaptureModal">Cancelar</button>
           <button type="submit" class="button button-primary" id="submitCaptureButton">Enviar</button>
         </div>
@@ -1145,7 +1604,7 @@
       },
       training: {
         title: 'Solicitar capacitação',
-        description: 'Conte o que você ou sua equipe precisam aprender. A gente orienta o melhor formato.',
+        description: 'Conte o que você ou sua equipe precisam aprender. A orientação indica o melhor formato.',
         submitLabel: 'Solicitar treinamento',
         fields: ['companyField', 'trainingField'],
         privacy: [
@@ -1261,11 +1720,13 @@
       captureForm.reset();
       modalBackdrop.classList.add('active');
       modalBackdrop.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
     }
 
     function closeModal() {
       modalBackdrop.classList.remove('active');
       modalBackdrop.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
       clearStatus();
     }
 
