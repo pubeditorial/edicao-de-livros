@@ -3,51 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUB Editorial</title>
+  <title>PUB Editorial | Tudo para a publicação do seu livro</title>
   <meta
     name="description"
-    content="PUB Editorial. Tudo para a publicação do seu livro. Soluções para autores independentes, editoras, profissionais e equipes editoriais."
+    content="PUB Editorial. Edição e publicação de livros para autores independentes, serviços editoriais para editoras e capacitação para profissionais e equipes."
   />
   <style>
     :root {
       --bg: #ffffff;
       --bg-soft: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f1f5f9;
       --text: #0f172a;
       --muted: #475569;
       --line: #e2e8f0;
       --brand: #111827;
-      --brand-2: #334155;
-      --card: #ffffff;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --brand-soft: #334155;
+      --accent: #0f172a;
+      --success: #14532d;
+      --success-bg: #dcfce7;
+      --error: #991b1b;
+      --error-bg: #fee2e2;
+      --shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
       --radius-xl: 28px;
       --radius-lg: 20px;
-      --max: 1200px;
+      --radius-md: 16px;
+      --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select {
+      font: inherit;
     }
 
     .container {
@@ -59,28 +55,28 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       border-bottom: 1px solid rgba(226, 232, 240, 0.9);
       backdrop-filter: blur(14px);
     }
 
     .header-row {
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      min-height: 78px;
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
     }
 
     .brand-title {
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1.18rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
 
@@ -92,14 +88,14 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav a {
       font-size: 0.95rem;
-      color: var(--brand-2);
+      color: var(--brand-soft);
     }
 
     .nav a:hover {
@@ -107,26 +103,21 @@
     }
 
     .hero {
-      padding: 88px 0 56px;
+      padding: 84px 0 48px;
       background:
-        radial-gradient(circle at top left, rgba(148, 163, 184, 0.10), transparent 32%),
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.12), transparent 32%),
         linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
       align-items: stretch;
     }
 
-    .hero-main,
-    .hero-side,
-    .card,
-    .material-card,
-    .contact-card,
-    .download-card {
-      background: var(--card);
+    .panel {
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
@@ -136,72 +127,6 @@
       padding: 42px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.82rem;
-      color: var(--brand-2);
-      background: var(--bg-soft);
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .hero-main p {
-      margin: 0;
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 64ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 18px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: 180ms ease;
-      cursor: pointer;
-    }
-
-    .button-primary {
-      background: var(--brand);
-      color: #fff;
-    }
-
-    .button-primary:hover {
-      opacity: 0.92;
-    }
-
-    .button-secondary {
-      background: #fff;
-      color: var(--text);
-      border-color: var(--line);
-    }
-
-    .button-secondary:hover {
-      background: var(--bg-soft);
-    }
-
     .hero-side {
       padding: 28px;
       display: grid;
@@ -209,50 +134,114 @@
       align-content: start;
     }
 
-    .hero-side h2 {
-      margin: 0;
-      font-size: 1.2rem;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      color: var(--brand-soft);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4.1rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.9rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 1.24rem;
+      line-height: 1.2;
       letter-spacing: -0.02em;
     }
 
-    .hero-side p,
-    .hero-side li,
-    .section-intro,
-    .card p,
-    .material-card p,
-    .download-card p,
-    .contact-card p,
-    .footer p,
-    .footer li {
+    p {
+      margin: 0;
       color: var(--muted);
     }
 
-    .check-list,
-    .service-list,
-    .simple-list {
+    .hero-main p {
+      font-size: 1.08rem;
+      max-width: 62ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 180ms ease;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .button-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .button-primary:hover { opacity: 0.92; }
+
+    .button-secondary {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .button-secondary:hover { background: var(--bg-soft); }
+
+    .button-ghost {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--brand-soft);
+    }
+
+    .bullet-list {
       list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 0;
       display: grid;
       gap: 10px;
     }
 
-    .check-list li,
-    .service-list li,
-    .simple-list li {
+    .bullet-list li {
       position: relative;
-      padding-left: 22px;
+      padding-left: 20px;
+      color: var(--muted);
     }
 
-    .check-list li::before,
-    .service-list li::before,
-    .simple-list li::before {
+    .bullet-list li::before {
       content: "•";
       position: absolute;
       left: 0;
       top: 0;
       color: var(--brand);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     section {
@@ -264,133 +253,227 @@
       margin-bottom: 28px;
     }
 
-    .section-header h2 {
-      margin: 0 0 14px;
-      font-size: clamp(1.8rem, 3vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+    .section-header p {
+      font-size: 1.02rem;
     }
 
-    .grid-3,
-    .grid-2,
-    .materials-grid,
-    .services-grid,
-    .steps-grid,
-    .contact-grid {
+    .grid-3, .grid-2 {
       display: grid;
       gap: 22px;
     }
 
-    .grid-3,
-    .materials-grid,
-    .services-grid,
-    .steps-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-2,
-    .contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .card {
       padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
       height: 100%;
     }
 
-    .card h3,
-    .material-card h3,
-    .download-card h3,
-    .contact-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.24rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+    .card p + .actions,
+    .card ul + .actions {
+      margin-top: 18px;
     }
 
-    .split-band {
+    .band {
       background: var(--bg-soft);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .materials-grid .material-card,
-    .services-grid .download-card,
-    .contact-grid .contact-card {
-      padding: 28px;
-    }
-
     .cta-band {
-      padding: 34px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
+      padding: 34px;
       background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
     }
 
-    .cta-band h3 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
-    }
-
-    .steps-grid .card {
-      position: relative;
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       width: 38px;
       height: 38px;
       border-radius: 12px;
-      background: var(--bg-soft);
+      background: var(--surface-2);
       border: 1px solid var(--line);
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
       margin-bottom: 16px;
     }
 
     .footer {
+      padding: 40px 0 56px;
       border-top: 1px solid var(--line);
-      padding: 36px 0 50px;
       background: #fff;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 24px;
-      align-items: start;
     }
 
     .footer strong {
       display: block;
       margin-bottom: 8px;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
 
-    .contact-actions {
+    .footer small {
+      color: var(--muted);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.58);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.active {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+    }
+
+    .modal {
+      width: min(720px, 100%);
+      max-height: min(90vh, 900px);
+      overflow: auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 24px 64px rgba(15, 23, 42, 0.25);
+      border: 1px solid var(--line);
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: 22px 24px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-header p {
+      margin-top: 6px;
+      font-size: 0.96rem;
+    }
+
+    .close-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid rgba(15, 23, 42, 0.1);
+      border-color: #94a3b8;
+    }
+
+    .help {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .status-box {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+    }
+
+    .status-box.success {
+      display: block;
+      background: var(--success-bg);
+      color: var(--success);
+      border-color: #86efac;
+    }
+
+    .status-box.error {
+      display: block;
+      background: var(--error-bg);
+      color: var(--error);
+      border-color: #fca5a5;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     @media (max-width: 1024px) {
       .hero-grid,
       .grid-3,
-      .materials-grid,
-      .services-grid,
-      .steps-grid,
       .grid-2,
-      .contact-grid,
-      .footer-grid {
+      .steps,
+      .footer-grid,
+      .form-grid {
         grid-template-columns: 1fr;
       }
 
@@ -400,28 +483,30 @@
     }
 
     @media (max-width: 640px) {
-      .hero {
-        padding-top: 64px;
-      }
-
+      .hero { padding-top: 64px; }
       .hero-main,
       .hero-side,
       .card,
-      .material-card,
-      .download-card,
-      .contact-card,
-      .cta-band {
+      .cta-band,
+      .modal-header,
+      .modal-body,
+      .modal-footer {
         padding: 22px;
+      }
+
+      .panel,
+      .card,
+      .cta-band,
+      .modal {
         border-radius: 22px;
+      }
+
+      .actions {
+        flex-direction: column;
       }
 
       .button {
         width: 100%;
-      }
-
-      .hero-actions,
-      .contact-actions {
-        flex-direction: column;
       }
     }
   </style>
@@ -438,8 +523,7 @@
         <a href="#inicio">Início</a>
         <a href="#autores">Para autores</a>
         <a href="#editoras">Para editoras</a>
-        <a href="#profissionais">Para profissionais e equipes</a>
-        <a href="#servicos">Serviços</a>
+        <a href="#profissionais">Capacitação</a>
         <a href="#materiais">Materiais</a>
         <a href="#envio">Enviar original</a>
         <a href="#contato">Contato</a>
@@ -450,27 +534,43 @@
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div class="hero-main">
-          <span class="eyebrow">Produção, publicação e qualificação editorial</span>
-          <h1>PUB Editorial</h1>
+        <div class="panel hero-main">
+          <span class="eyebrow">Para autores, editoras, profissionais e equipes</span>
+          <h1>Tudo para a publicação do seu livro</h1>
           <p>
-            A PUB Editorial é o nome fantasia de Rodrigo Fagundes em atuação no mercado editorial.
-            Oferece edição e publicação de livros para autores independentes, ampla gama de serviços editoriais
-            para editoras e capacitação técnica para profissionais e equipes editoriais.
+            A PUB Editorial oferece apoio para publicar livros, executar serviços editoriais e qualificar processos de trabalho.
+            Se você tem um original, uma demanda editorial ou precisa desenvolver sua equipe, aqui é um bom lugar para começar.
           </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contato">Solicitar atendimento</a>
-            <a class="button button-secondary" href="#envio">Enviar original</a>
+          <div class="actions">
+            <button
+              class="button button-primary open-capture"
+              data-capture-type="contato"
+              data-item="contato_geral"
+              data-source-id="home_contato_principal"
+              data-form-id="modal_home_contato_principal"
+              data-title="Começar atendimento"
+            >
+              Quero começar
+            </button>
+            <button
+              class="button button-secondary open-capture"
+              data-capture-type="original"
+              data-item="envio_original"
+              data-source-id="home_envio_original"
+              data-form-id="modal_home_envio_original"
+              data-title="Enviar original"
+            >
+              Enviar original
+            </button>
           </div>
         </div>
 
-        <aside class="hero-side">
-          <h2>Frentes de atuação</h2>
-          <ul class="check-list">
-            <li>Edição e publicação de livros impressos e digitais para autores independentes</li>
-            <li>Serviços editoriais especializados e suporte técnico para editoras</li>
-            <li>Capacitação e qualificação em processos editoriais para profissionais e equipes</li>
+        <aside class="panel hero-side">
+          <h3>Como a PUB Editorial pode ajudar</h3>
+          <ul class="bullet-list">
+            <li>Publicação de livros impressos e digitais para autores independentes</li>
+            <li>Serviços editoriais especializados para editoras</li>
+            <li>Capacitação prática para profissionais e equipes editoriais</li>
           </ul>
         </aside>
       </div>
@@ -479,72 +579,136 @@
     <section>
       <div class="container">
         <div class="section-header">
-          <h2>Como o site organiza a atuação da PUB Editorial</h2>
-          <p class="section-intro">
-            O site é estruturado para apresentar a PUB Editorial com clareza institucional e, ao mesmo tempo,
-            conduzir cada visitante ao ponto de entrada mais adequado conforme o seu perfil, a sua demanda e a etapa do processo.
+          <h2>Escolha o caminho que faz mais sentido para você</h2>
+          <p>
+            O site da PUB Editorial foi pensado para facilitar o próximo passo. Você não precisa entender de processo editorial para começar.
+            Basta entrar pelo caminho mais próximo da sua necessidade.
           </p>
         </div>
 
         <div class="grid-3">
           <article class="card">
-            <h3>Para autores independentes</h3>
+            <h3>Quero publicar meu livro</h3>
             <p>
-              Orientação e execução editorial para quem deseja publicar livros impressos e digitais com suporte técnico e acompanhamento ao longo do processo.
+              Para autores que desejam publicar em formato impresso ou digital, com apoio técnico do original ao livro pronto.
             </p>
+            <div class="actions">
+              <a class="button button-ghost" href="#autores">Ver detalhes</a>
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="contato"
+                data-item="edicao_publicacao_autor"
+                data-source-id="home_quero_publicar"
+                data-form-id="modal_home_quero_publicar"
+                data-title="Quero publicar meu livro"
+              >
+                Quero publicar
+              </button>
+            </div>
           </article>
 
           <article class="card">
-            <h3>Para editoras</h3>
+            <h3>Tenho uma editora</h3>
             <p>
-              Serviços editoriais especializados, apoio operacional, organização de fluxos, gestão de equipes e suporte técnico para demandas pontuais ou recorrentes.
+              Para editoras que precisam de serviços editoriais, suporte técnico, organização de produção e gestão de projetos.
             </p>
+            <div class="actions">
+              <a class="button button-ghost" href="#editoras">Ver detalhes</a>
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="contato"
+                data-item="servicos_editoriais_editoras"
+                data-source-id="home_servicos_editoras"
+                data-form-id="modal_home_servicos_editoras"
+                data-title="Solicitar serviços editoriais"
+              >
+                Solicitar serviços
+              </button>
+            </div>
           </article>
 
           <article class="card">
-            <h3>Para profissionais e equipes</h3>
+            <h3>Quero aprender ou treinar minha equipe</h3>
             <p>
-              Capacitação aplicada a processos reais de produção editorial, com foco técnico, clareza operacional e qualificação prática.
+              Para profissionais e equipes que desejam desenvolver prática em revisão, diagramação e processos editoriais.
             </p>
+            <div class="actions">
+              <a class="button button-ghost" href="#profissionais">Ver detalhes</a>
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="contato"
+                data-item="capacitacao_editorial"
+                data-source-id="home_capacitacao"
+                data-form-id="modal_home_capacitacao"
+                data-title="Solicitar capacitação"
+              >
+                Solicitar capacitação
+              </button>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="autores" class="split-band">
+    <section class="band" id="autores">
       <div class="container">
         <div class="section-header">
           <h2>Para autores independentes</h2>
-          <p class="section-intro">
-            A PUB Editorial oferece acompanhamento completo para autores que desejam transformar seus originais em livros prontos para circulação,
-            tanto em formato impresso quanto digital, incluindo publicação para Kindle.
+          <p>
+            Se você quer publicar seu livro e precisa de orientação ou execução técnica, a PUB Editorial pode acompanhar o seu projeto em diferentes etapas.
           </p>
         </div>
 
         <div class="grid-2">
           <article class="card">
-            <h3>O que a PUB Editorial oferece</h3>
-            <ul class="service-list">
+            <h3>O que você pode contratar</h3>
+            <ul class="bullet-list">
               <li>Edição e publicação de livros impressos</li>
               <li>Publicação de livros digitais para Kindle</li>
               <li>Preparação e revisão do texto</li>
               <li>Projeto gráfico e capa</li>
               <li>Diagramação editorial</li>
-              <li>Orientação técnica em todas as etapas do processo</li>
+              <li>Orientação ao longo do processo</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3>Entradas principais no site</h3>
-            <ul class="simple-list">
-              <li>Solicitar orçamento editorial</li>
-              <li>Enviar original para análise</li>
-              <li>Baixar material introdutório sobre publicação</li>
-              <li>Dar continuidade a um projeto já iniciado</li>
-            </ul>
-            <div class="contact-actions">
-              <a class="button button-primary" href="#envio">Enviar original</a>
-              <a class="button button-secondary" href="#materiais">Ver materiais</a>
+            <h3>Comece pelo ponto mais simples</h3>
+            <p>
+              Você pode pedir uma avaliação, falar sobre o seu livro ou enviar o original para análise. O importante é começar com clareza.
+            </p>
+            <div class="actions">
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="contato"
+                data-item="edicao_publicacao_autor"
+                data-source-id="pagina_autores_quero_publicar"
+                data-form-id="modal_pagina_autores_quero_publicar"
+                data-title="Quero publicar meu livro"
+              >
+                Quero publicar meu livro
+              </button>
+              <button
+                class="button button-secondary open-capture"
+                data-capture-type="original"
+                data-item="envio_original"
+                data-source-id="pagina_autores_envio_original"
+                data-form-id="modal_pagina_autores_envio_original"
+                data-title="Enviar original para análise"
+              >
+                Enviar original
+              </button>
+              <button
+                class="button button-secondary open-capture"
+                data-capture-type="download"
+                data-item="material_autores"
+                data-source-id="download_guia_publicacao_autores"
+                data-form-id="modal_download_guia_publicacao_autores"
+                data-title="Receber guia de publicação"
+                data-material-name="Guia inicial de publicação"
+              >
+                Receber guia de publicação
+              </button>
             </div>
           </article>
         </div>
@@ -555,16 +719,15 @@
       <div class="container">
         <div class="section-header">
           <h2>Para editoras</h2>
-          <p class="section-intro">
-            A PUB Editorial atua como parceira técnica e operacional, oferecendo serviços editoriais especializados,
-            suporte a fluxos de produção, revisão, ajustes em arquivos editáveis e apoio estruturado à condução de equipes e projetos.
+          <p>
+            A PUB Editorial oferece apoio técnico e operacional para diferentes demandas de produção editorial, tanto em serviços pontuais quanto em frentes contínuas.
           </p>
         </div>
 
-        <div class="services-grid">
-          <article class="download-card">
+        <div class="grid-3">
+          <article class="card">
             <h3>Serviços editoriais</h3>
-            <ul class="service-list">
+            <ul class="bullet-list">
               <li>Revisão de originais</li>
               <li>Copidesque</li>
               <li>Projeto gráfico</li>
@@ -573,43 +736,73 @@
             </ul>
           </article>
 
-          <article class="download-card">
-            <h3>Suporte técnico e produção</h3>
-            <ul class="service-list">
+          <article class="card">
+            <h3>Suporte técnico</h3>
+            <ul class="bullet-list">
               <li>Revisão e ajustes em projetos editáveis</li>
-              <li>Fechamento de arquivos e suporte pré-impressão</li>
-              <li>Padronização e organização de entregáveis editoriais</li>
-              <li>Suporte técnico em fluxos de produção</li>
+              <li>Fechamento de arquivos</li>
+              <li>Suporte pré-impressão</li>
+              <li>Padronização de entregáveis editoriais</li>
             </ul>
           </article>
 
-          <article class="download-card">
-            <h3>Gestão e organização</h3>
-            <ul class="service-list">
+          <article class="card">
+            <h3>Organização e gestão</h3>
+            <ul class="bullet-list">
               <li>Manuais e políticas editoriais</li>
               <li>Gestão de equipes editoriais</li>
               <li>Gestão de projetos editoriais</li>
-              <li>Estruturação e qualificação de processos internos</li>
+              <li>Organização de processos internos</li>
             </ul>
           </article>
+        </div>
+
+        <div class="cta-band" style="margin-top: 28px;">
+          <div>
+            <h3>Precisa de apoio para uma demanda editorial?</h3>
+            <p>
+              Você pode descrever a sua necessidade, enviar material para avaliação ou pedir uma proposta conforme o seu projeto.
+            </p>
+          </div>
+          <div class="actions" style="margin-top: 0;">
+            <button
+              class="button button-primary open-capture"
+              data-capture-type="contato"
+              data-item="servicos_editoriais_editoras"
+              data-source-id="pagina_editoras_proposta"
+              data-form-id="modal_pagina_editoras_proposta"
+              data-title="Solicitar proposta editorial"
+            >
+              Solicitar proposta
+            </button>
+            <button
+              class="button button-secondary open-capture"
+              data-capture-type="contato"
+              data-item="servicos_editoriais_editoras"
+              data-source-id="pagina_editoras_demanda"
+              data-form-id="modal_pagina_editoras_demanda"
+              data-title="Falar sobre minha demanda"
+            >
+              Falar sobre minha demanda
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="profissionais" class="split-band">
+    <section class="band" id="profissionais">
       <div class="container">
         <div class="section-header">
           <h2>Para profissionais e equipes editoriais</h2>
-          <p class="section-intro">
-            A PUB Editorial oferece capacitação e qualificação em processos editoriais com abordagem aplicada,
-            adequada tanto a profissionais individuais quanto a equipes em desenvolvimento técnico.
+          <p>
+            Capacitação e qualificação em processos editoriais com foco prático, voltadas tanto para profissionais quanto para equipes em desenvolvimento técnico.
           </p>
         </div>
 
         <div class="grid-2">
           <article class="card">
-            <h3>Capacitação e qualificação</h3>
-            <ul class="service-list">
+            <h3>Áreas de capacitação</h3>
+            <ul class="bullet-list">
               <li>Revisão de textos</li>
               <li>Fluxo Word–InDesign</li>
               <li>Diagramação no InDesign</li>
@@ -619,147 +812,201 @@
 
           <article class="card">
             <h3>Formatos de atendimento</h3>
-            <ul class="simple-list">
-              <li>Capacitação para profissionais</li>
-              <li>Qualificação de equipes</li>
-              <li>Treinamentos técnicos aplicados</li>
-              <li>Programas alinhados a fluxos reais de produção editorial</li>
-            </ul>
+            <p>
+              A formação pode ser pensada para pessoas, grupos ou equipes, sempre com foco em aplicação real ao trabalho editorial.
+            </p>
+            <div class="actions">
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="contato"
+                data-item="capacitacao_editorial"
+                data-source-id="pagina_capacitacao_treinamento"
+                data-form-id="modal_pagina_capacitacao_treinamento"
+                data-title="Solicitar treinamento"
+              >
+                Solicitar treinamento
+              </button>
+              <button
+                class="button button-secondary open-capture"
+                data-capture-type="download"
+                data-item="material_capacitacao"
+                data-source-id="download_programa_capacitacao"
+                data-form-id="modal_download_programa_capacitacao"
+                data-title="Receber programa de capacitação"
+                data-material-name="Programa de capacitação editorial"
+              >
+                Receber programa
+              </button>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="servicos">
+    <section id="materiais">
       <div class="container">
         <div class="section-header">
-          <h2>Estrutura de serviços do site</h2>
-          <p class="section-intro">
-            Cada serviço pode ter página própria com explicação clara, contexto de uso, instruções e chamada específica para captação,
-            análise de material, solicitação de proposta ou continuidade de atendimento.
+          <h2>Materiais para começar melhor</h2>
+          <p>
+            Os materiais ajudam você a entender melhor o próximo passo. Sempre que houver download, o acesso pode ser liberado por um formulário simples.
           </p>
         </div>
 
-        <div class="steps-grid">
+        <div class="grid-3">
+          <article class="card">
+            <h3>Guia inicial de publicação</h3>
+            <p>
+              Para autores que querem entender melhor como funciona a publicação de um livro impresso ou digital.
+            </p>
+            <div class="actions">
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="download"
+                data-item="material_autores"
+                data-source-id="download_guia_inicial_publicacao"
+                data-form-id="modal_download_guia_inicial_publicacao"
+                data-title="Baixar guia inicial de publicação"
+                data-material-name="Guia inicial de publicação"
+              >
+                Baixar material
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Checklist de preparação de original</h3>
+            <p>
+              Um apoio direto para quem quer organizar melhor o texto antes de entrar em produção editorial.
+            </p>
+            <div class="actions">
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="download"
+                data-item="material_autores"
+                data-source-id="download_checklist_original"
+                data-form-id="modal_download_checklist_original"
+                data-title="Baixar checklist de preparação"
+                data-material-name="Checklist de preparação de original"
+              >
+                Baixar material
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Material técnico para editoras</h3>
+            <p>
+              Um material de apoio para demandas de revisão, diagramação, organização de produção e padronização editorial.
+            </p>
+            <div class="actions">
+              <button
+                class="button button-primary open-capture"
+                data-capture-type="download"
+                data-item="material_editoras"
+                data-source-id="download_material_tecnico_editoras"
+                data-form-id="modal_download_material_tecnico_editoras"
+                data-title="Receber material técnico"
+                data-material-name="Material técnico para editoras"
+              >
+                Baixar material
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="envio">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 10px;">Já tem um original pronto?</h2>
+            <p>
+              Se você já quer avançar com um projeto real, pode começar pelo envio do material. Isso ajuda a tornar a avaliação mais precisa.
+            </p>
+          </div>
+          <div class="actions" style="margin-top: 0;">
+            <button
+              class="button button-primary open-capture"
+              data-capture-type="original"
+              data-item="envio_original"
+              data-source-id="pagina_envio_original_principal"
+              data-form-id="modal_pagina_envio_original_principal"
+              data-title="Enviar original para análise"
+            >
+              Enviar original
+            </button>
+            <button
+              class="button button-secondary open-capture"
+              data-capture-type="contato"
+              data-item="avaliacao_projeto"
+              data-source-id="pagina_envio_original_avaliacao"
+              data-form-id="modal_pagina_envio_original_avaliacao"
+              data-title="Pedir uma avaliação"
+            >
+              Pedir uma avaliação
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-header">
+          <h2>Fale com a PUB Editorial</h2>
+          <p>
+            Você pode começar com uma dúvida, uma proposta, um material para análise ou um pedido de atendimento. O importante é dar o próximo passo.
+          </p>
+        </div>
+
+        <div class="steps">
           <article class="card">
             <div class="step-number">1</div>
-            <h3>Páginas de apresentação</h3>
+            <h3>Explique o que você precisa</h3>
             <p>
-              Explicam a frente de atuação, organizam a leitura do visitante e orientam a escolha do próximo passo.
+              Seja um livro, uma demanda editorial ou um treinamento, uma descrição simples já é suficiente para começar.
             </p>
           </article>
 
           <article class="card">
             <div class="step-number">2</div>
-            <h3>Páginas de serviço</h3>
+            <h3>Envie material quando fizer sentido</h3>
             <p>
-              Detalham o escopo técnico, mostram como a atuação funciona e direcionam para orçamento, análise ou envio de material.
+              Quando a análise depende do conteúdo, o envio do material ajuda a tornar o atendimento mais objetivo.
             </p>
           </article>
 
           <article class="card">
             <div class="step-number">3</div>
-            <h3>Páginas de continuidade</h3>
+            <h3>Receba a orientação adequada</h3>
             <p>
-              Permitem avançar no processo com contexto preservado, mantendo relação clara entre captação, atendimento e andamento do projeto.
+              A partir do seu contexto, fica mais fácil orientar o melhor caminho para seguir.
             </p>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section id="materiais" class="split-band">
-      <div class="container">
-        <div class="section-header">
-          <h2>Materiais e downloads</h2>
-          <p class="section-intro">
-            O site pode oferecer materiais para diferentes públicos, com acesso por modal obrigatório de preenchimento.
-            Isso permite transformar cada download em um ponto de entrada estruturado e contextualizado.
-          </p>
-        </div>
-
-        <div class="materials-grid">
-          <article class="material-card">
-            <h3>Guia inicial de publicação</h3>
-            <p>
-              Material voltado a autores que desejam compreender as principais etapas técnicas da publicação de um livro impresso ou digital.
-            </p>
-            <div class="contact-actions">
-              <a class="button button-secondary" href="#contato">Solicitar material</a>
-            </div>
-          </article>
-
-          <article class="material-card">
-            <h3>Checklist de preparação de original</h3>
-            <p>
-              Conteúdo objetivo para organização prévia do material antes da etapa de produção editorial.
-            </p>
-            <div class="contact-actions">
-              <a class="button button-secondary" href="#contato">Solicitar material</a>
-            </div>
-          </article>
-
-          <article class="material-card">
-            <h3>Material técnico para editoras e equipes</h3>
-            <p>
-              Documento de apoio para demandas de fluxo, revisão, diagramação, padronização e organização editorial.
-            </p>
-            <div class="contact-actions">
-              <a class="button button-secondary" href="#contato">Solicitar material</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="envio">
-      <div class="container">
-        <div class="cta-band">
-          <div>
-            <h3>Enviar original para análise</h3>
-            <p>
-              Quando o projeto exige avaliação real do material, o site pode conduzir o visitante diretamente ao envio do original,
-              preservando contexto, origem e continuidade operacional.
-            </p>
-          </div>
-          <div class="contact-actions">
-            <a class="button button-primary" href="#contato">Iniciar envio</a>
-            <a class="button button-secondary" href="#servicos">Ver serviços</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="split-band">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contato e pontos de entrada</h2>
-          <p class="section-intro">
-            O site da PUB Editorial pode ser organizado para direcionar cada contato ao ponto de entrada mais adequado,
-            com contexto suficiente para continuidade do atendimento sem perda de informação.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="contact-card">
-            <h3>Solicitar atendimento</h3>
-            <p>
-              Para autores, editoras, profissionais e equipes que desejam iniciar conversa sobre uma demanda editorial específica.
-            </p>
-            <div class="contact-actions">
-              <a class="button button-primary" href="mailto:contato@pubeditorial.com.br">Enviar e-mail</a>
-            </div>
-          </article>
-
-          <article class="contact-card">
-            <h3>Continuar um atendimento</h3>
-            <p>
-              Para quem já iniciou contato e precisa enviar material complementar, responder solicitações ou avançar no processo.
-            </p>
-            <div class="contact-actions">
-              <a class="button button-secondary" href="mailto:contato@pubeditorial.com.br?subject=Continuidade%20de%20atendimento">Continuar atendimento</a>
-            </div>
-          </article>
+        <div class="actions" style="margin-top: 24px;">
+          <button
+            class="button button-primary open-capture"
+            data-capture-type="contato"
+            data-item="contato_geral"
+            data-source-id="pagina_contato_principal"
+            data-form-id="modal_pagina_contato_principal"
+            data-title="Enviar mensagem"
+          >
+            Enviar mensagem
+          </button>
+          <button
+            class="button button-secondary open-capture"
+            data-capture-type="contato"
+            data-item="continuidade_atendimento"
+            data-source-id="pagina_contato_continuidade"
+            data-form-id="modal_pagina_contato_continuidade"
+            data-title="Continuar atendimento"
+          >
+            Continuar atendimento
+          </button>
         </div>
       </div>
     </section>
@@ -769,26 +1016,263 @@
     <div class="container footer-grid">
       <div>
         <strong>PUB Editorial</strong>
-        <p>
-          Tudo para a publicação do seu livro.
-        </p>
-        <p>
+        <p>Tudo para a publicação do seu livro.</p>
+        <p style="margin-top: 8px;">
           A PUB Editorial é o nome fantasia de Rodrigo Fagundes em atuação no mercado editorial.
         </p>
       </div>
-
       <div>
-        <strong>Estrutura pública do site</strong>
-        <ul class="simple-list">
-          <li>Início</li>
-          <li>Para autores</li>
-          <li>Para editoras</li>
-          <li>Para profissionais e equipes</li>
-          <li>Materiais e downloads</li>
-          <li>Envio de original</li>
+        <strong>Entradas principais</strong>
+        <ul class="bullet-list">
+          <li>Quero publicar meu livro</li>
+          <li>Solicitar serviços editoriais</li>
+          <li>Solicitar capacitação</li>
+          <li>Baixar materiais</li>
+          <li>Enviar original</li>
         </ul>
       </div>
     </div>
   </footer>
+
+  <div class="modal-backdrop" id="captureModalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="captureModalTitle">
+      <div class="modal-header">
+        <div>
+          <h3 id="captureModalTitle">Começar atendimento</h3>
+          <p id="captureModalDescription">Preencha os dados para continuar.</p>
+        </div>
+        <button class="close-button" id="closeCaptureModal" aria-label="Fechar modal">×</button>
+      </div>
+
+      <form id="captureForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Seu nome</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Seu e-mail</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Seu telefone</label>
+              <input id="phone" name="phone" type="tel" />
+            </div>
+
+            <div class="field">
+              <label for="interestType">Tipo de interesse</label>
+              <select id="interestType" name="interestType">
+                <option value="">Selecione</option>
+                <option value="autor">Sou autor</option>
+                <option value="editora">Tenho uma editora</option>
+                <option value="profissional">Sou profissional</option>
+                <option value="equipe">Represento uma equipe</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">Conte um pouco sobre o que você precisa</label>
+              <textarea id="message" name="message"></textarea>
+              <span class="help">Quanto mais claro o contexto, melhor o encaminhamento.</span>
+            </div>
+
+            <div class="field full hidden" id="fileUploadField">
+              <label for="originalFile">Arquivo do original</label>
+              <input id="originalFile" name="originalFile" type="file" />
+              <span class="help">Este campo está preparado para integração. Se você usar upload externo, substitua pela sua lógica de geração de file_id.</span>
+            </div>
+          </div>
+
+          <div id="captureStatus" class="status-box"></div>
+        </div>
+
+        <div class="modal-footer" style="border-top: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
+          <button type="button" class="button button-secondary" id="cancelCaptureModal">Cancelar</button>
+          <button type="submit" class="button button-primary" id="submitCaptureButton">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const SITE_API_BASE = '';
+    const CAPTURE_ROUTE = '/capture-lead';
+
+    const captureState = {
+      item: '',
+      sourceId: '',
+      formId: '',
+      title: '',
+      captureType: 'contato',
+      materialName: ''
+    };
+
+    const modalBackdrop = document.getElementById('captureModalBackdrop');
+    const captureForm = document.getElementById('captureForm');
+    const captureStatus = document.getElementById('captureStatus');
+    const fileUploadField = document.getElementById('fileUploadField');
+    const modalTitle = document.getElementById('captureModalTitle');
+    const modalDescription = document.getElementById('captureModalDescription');
+    const submitCaptureButton = document.getElementById('submitCaptureButton');
+
+    function readQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name) || '';
+    }
+
+    function buildPayload(formData) {
+      const isDownload = captureState.captureType === 'download';
+      const isOriginal = captureState.captureType === 'original';
+      const originalFile = document.getElementById('originalFile').files[0] || null;
+
+      return {
+        name: formData.get('name') || '',
+        email: formData.get('email') || '',
+        phone: formData.get('phone') || '',
+        item: captureState.item,
+        source_id: captureState.sourceId,
+        page_url: window.location.href,
+        form_id: captureState.formId,
+        source_type: 'site',
+        journey_key: captureState.captureType,
+        referrer: document.referrer || '',
+        utm_source: readQueryParam('utm_source'),
+        utm_medium: readQueryParam('utm_medium'),
+        utm_campaign: readQueryParam('utm_campaign'),
+        utm_term: readQueryParam('utm_term'),
+        utm_content: readQueryParam('utm_content'),
+        message: formData.get('message') || '',
+        interest_type: formData.get('interestType') || '',
+        file_id: originalFile ? ('pending-upload-' + originalFile.name) : '',
+        meta: {
+          capture_type: captureState.captureType,
+          material_name: captureState.materialName || '',
+          has_file: !!originalFile,
+          file_name: originalFile ? originalFile.name : ''
+        }
+      };
+    }
+
+    function showStatus(type, message) {
+      captureStatus.className = 'status-box ' + type;
+      captureStatus.textContent = message;
+    }
+
+    function clearStatus() {
+      captureStatus.className = 'status-box';
+      captureStatus.textContent = '';
+    }
+
+    function openModal(button) {
+      captureState.item = button.dataset.item || '';
+      captureState.sourceId = button.dataset.sourceId || '';
+      captureState.formId = button.dataset.formId || '';
+      captureState.title = button.dataset.title || 'Começar atendimento';
+      captureState.captureType = button.dataset.captureType || 'contato';
+      captureState.materialName = button.dataset.materialName || '';
+
+      modalTitle.textContent = captureState.title;
+
+      if (captureState.captureType === 'download') {
+        modalDescription.textContent = 'Preencha os dados para liberar o material.';
+        submitCaptureButton.textContent = 'Receber material';
+        fileUploadField.classList.add('hidden');
+      } else if (captureState.captureType === 'original') {
+        modalDescription.textContent = 'Preencha os dados e envie o material para análise.';
+        submitCaptureButton.textContent = 'Enviar original';
+        fileUploadField.classList.remove('hidden');
+      } else {
+        modalDescription.textContent = 'Preencha os dados para continuar.';
+        submitCaptureButton.textContent = 'Enviar';
+        fileUploadField.classList.add('hidden');
+      }
+
+      clearStatus();
+      captureForm.reset();
+      modalBackdrop.classList.add('active');
+      modalBackdrop.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('active');
+      modalBackdrop.setAttribute('aria-hidden', 'true');
+      clearStatus();
+    }
+
+    async function submitCapture(event) {
+      event.preventDefault();
+      clearStatus();
+
+      const formData = new FormData(captureForm);
+      const payload = buildPayload(formData);
+
+      submitCaptureButton.disabled = true;
+      submitCaptureButton.textContent = 'Enviando...';
+
+      try {
+        const response = await fetch(SITE_API_BASE + CAPTURE_ROUTE, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (!result || result.ok !== true) {
+          throw new Error(
+            result && result.error && result.error.message
+              ? result.error.message
+              : 'Não foi possível processar a solicitação.'
+          );
+        }
+
+        if (captureState.captureType === 'download') {
+          showStatus('success', 'Dados enviados com sucesso. Agora você pode liberar o download do material.');
+        } else if (captureState.captureType === 'original') {
+          showStatus('success', 'Seu envio foi registrado com sucesso.');
+        } else {
+          showStatus('success', 'Seu contato foi enviado com sucesso.');
+        }
+      } catch (error) {
+        showStatus('error', error && error.message ? error.message : 'Ocorreu um erro ao enviar os dados.');
+      } finally {
+        if (captureState.captureType === 'download') {
+          submitCaptureButton.textContent = 'Receber material';
+        } else if (captureState.captureType === 'original') {
+          submitCaptureButton.textContent = 'Enviar original';
+        } else {
+          submitCaptureButton.textContent = 'Enviar';
+        }
+        submitCaptureButton.disabled = false;
+      }
+    }
+
+    document.querySelectorAll('.open-capture').forEach(function(button) {
+      button.addEventListener('click', function() {
+        openModal(button);
+      });
+    });
+
+    document.getElementById('closeCaptureModal').addEventListener('click', closeModal);
+    document.getElementById('cancelCaptureModal').addEventListener('click', closeModal);
+    captureForm.addEventListener('submit', submitCapture);
+
+    modalBackdrop.addEventListener('click', function(event) {
+      if (event.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
