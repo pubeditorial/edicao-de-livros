@@ -4,67 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PUB Editorial | Edição e publicação profissional para autores</title>
-  <meta name="description" content="PUB Editorial. Edição e publicação profissional para autores. Do original ao livro pronto, com leitura editorial, preparação, revisão, projeto gráfico, diagramação e publicação." />
+  <meta name="description" content="Leitura editorial, preparação, revisão, projeto gráfico, diagramação e publicação para autores que querem transformar um original em livro com critério." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4efe8;
-      --bg-2: #efe7de;
-      --surface: rgba(255, 252, 247, 0.82);
-      --surface-strong: #fffdf9;
-      --surface-dark: #1b1612;
-      --text: #181512;
-      --text-soft: #4f4842;
-      --text-faint: #746c64;
-      --line: rgba(24, 21, 18, 0.1);
-      --line-strong: rgba(24, 21, 18, 0.18);
-      --brand: #171411;
-      --brand-soft: #2a241f;
-      --accent: #8f6545;
-      --accent-2: #6f7c70;
-      --accent-soft: rgba(143, 101, 69, 0.1);
+      --bg: #f7f4ef;
+      --bg-alt: #efe9e0;
+      --surface: #fffdf9;
+      --surface-muted: #f4efe7;
+      --ink: #1f1a17;
+      --ink-soft: #5e5650;
+      --ink-faint: #8a8077;
+      --line: rgba(31, 26, 23, 0.1);
+      --line-strong: rgba(31, 26, 23, 0.16);
+      --brand: #2a211b;
+      --accent: #9a6a43;
+      --accent-strong: #7f5330;
+      --accent-soft: rgba(154, 106, 67, 0.12);
+      --dark: #231c17;
+      --dark-soft: #d9cec3;
       --success: #1f5130;
       --success-bg: #e6f4e8;
       --error: #8b2e2e;
       --error-bg: #fae7e7;
-      --radius-sm: 16px;
+      --radius-sm: 14px;
       --radius-md: 22px;
-      --radius-lg: 30px;
-      --radius-xl: 42px;
-      --shadow-soft: 0 20px 55px rgba(25, 20, 16, 0.06);
-      --shadow-lg: 0 34px 90px rgba(25, 20, 16, 0.1);
-      --max: 1240px;
-      --header-h: 84px;
+      --radius-lg: 32px;
+      --shadow-sm: 0 12px 30px rgba(31, 26, 23, 0.06);
+      --shadow-lg: 0 28px 70px rgba(31, 26, 23, 0.1);
+      --max: 1180px;
+      --header-h: 78px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Inter", Arial, Helvetica, sans-serif;
-      color: var(--text);
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(143, 101, 69, 0.08), transparent 26%),
-        radial-gradient(circle at 85% 12%, rgba(111, 124, 112, 0.08), transparent 18%),
-        linear-gradient(180deg, #f7f2eb 0%, #f4efe8 40%, #f2ede6 100%);
+        radial-gradient(circle at top left, rgba(154, 106, 67, 0.08), transparent 26%),
+        linear-gradient(180deg, #faf7f2 0%, #f7f4ef 100%);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    body.modal-open {
-      overflow: hidden;
-    }
-
+    body.modal-open { overflow: hidden; }
+    h1, h2, h3, h4, p { margin: 0; }
     a { color: inherit; text-decoration: none; }
     button, input, textarea, select { font: inherit; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
 
-    ::selection {
-      background: rgba(143, 101, 69, 0.16);
-    }
+    ::selection { background: rgba(154, 106, 67, 0.18); }
 
     .container {
       width: min(var(--max), calc(100% - 40px));
@@ -75,10 +69,10 @@
       position: sticky;
       top: 0;
       z-index: 90;
-      height: var(--header-h);
-      background: rgba(244, 239, 232, 0.78);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(24, 21, 18, 0.06);
+      min-height: var(--header-h);
+      background: rgba(247, 244, 239, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(31, 26, 23, 0.06);
     }
 
     .header-row {
@@ -86,174 +80,130 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 24px;
     }
 
     .brand {
-      display: inline-flex;
-      flex-direction: column;
-      gap: 5px;
-      min-width: 0;
+      display: grid;
+      gap: 4px;
     }
 
     .brand-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
     .brand-subtitle {
-      color: var(--text-soft);
       font-size: 0.9rem;
-      letter-spacing: -0.01em;
+      color: var(--ink-soft);
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav a {
       font-size: 0.95rem;
-      color: var(--text-soft);
+      color: var(--ink-soft);
       padding: 8px 0;
-      position: relative;
     }
 
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 2px;
-      width: 100%;
-      height: 1px;
-      background: currentColor;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 180ms ease;
-      opacity: 0.55;
-    }
-
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    .nav a:hover::after {
-      transform: scaleX(1);
-    }
+    .nav a:hover { color: var(--ink); }
 
     .hero {
-      padding: 42px 0 72px;
+      padding: 40px 0 72px;
     }
 
     .hero-shell {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-      gap: 26px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(290px, 0.8fr);
+      gap: 20px;
       align-items: stretch;
     }
 
+    .hero-main,
+    .hero-aside,
+    .card,
+    .band,
+    .modal {
+      background: rgba(255, 253, 249, 0.86);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
     .hero-main {
-      position: relative;
-      overflow: hidden;
-      min-height: 760px;
-      padding: 48px;
-      border-radius: var(--radius-xl);
-      background:
-        radial-gradient(circle at 88% 16%, rgba(143, 101, 69, 0.18), transparent 20%),
-        radial-gradient(circle at 10% 100%, rgba(111, 124, 112, 0.12), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,250,244,0.94) 100%);
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      box-shadow: var(--shadow-lg);
+      padding: 44px;
+      border-radius: var(--radius-lg);
       display: grid;
-      align-content: space-between;
-      gap: 48px;
-      isolation: isolate;
+      gap: 34px;
+      box-shadow: var(--shadow-lg);
+      background:
+        radial-gradient(circle at 85% 18%, rgba(154, 106, 67, 0.14), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(252,248,242,0.98) 100%);
     }
 
-    .hero-main::before {
-      content: "";
-      position: absolute;
-      inset: 24px;
-      border-radius: calc(var(--radius-xl) - 14px);
-      border: 1px solid rgba(24, 21, 18, 0.06);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .eyebrow {
+    .eyebrow,
+    .tag {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
       width: fit-content;
-      padding: 10px 16px;
+      min-height: 34px;
+      padding: 0 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.62);
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      color: var(--brand-soft);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      background: var(--accent-soft);
+      border: 1px solid rgba(154, 106, 67, 0.18);
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      backdrop-filter: blur(8px);
     }
-
-    .hero-top {
-      max-width: 780px;
-    }
-
-    h1, h2, h3, h4, p { margin: 0; }
 
     h1 {
-      margin-top: 24px;
-      font-size: clamp(2.9rem, 6vw, 6rem);
-      line-height: 0.95;
+      max-width: 11ch;
+      margin-top: 18px;
+      font-size: clamp(2.9rem, 6vw, 5.4rem);
+      line-height: 0.94;
       letter-spacing: -0.065em;
-      max-width: 10.8ch;
-      font-weight: 900;
+      font-weight: 800;
     }
 
     .hero-lead {
-      margin-top: 22px;
-      max-width: 60ch;
-      font-size: 1.14rem;
-      color: var(--text-soft);
+      margin-top: 18px;
+      max-width: 58ch;
+      font-size: 1.08rem;
+      color: var(--ink-soft);
     }
 
-    .hero-matrix {
-      margin-top: 32px;
+    .hero-points {
       display: grid;
-      grid-template-columns: 1.15fr 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .hero-metric {
-      min-height: 124px;
-      padding: 18px 18px 20px;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.58);
-      border: 1px solid rgba(24, 21, 18, 0.08);
+    .point {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--line);
       display: grid;
-      align-content: start;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .hero-metric strong {
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text-faint);
+    .point strong {
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
     }
 
-    .hero-metric span {
-      font-size: 1rem;
-      line-height: 1.4;
-      color: var(--brand-soft);
-      font-weight: 600;
+    .point span {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
     }
 
     .actions {
@@ -263,177 +213,125 @@
     }
 
     .button {
-      min-height: 54px;
-      padding: 0 22px;
-      border-radius: 18px;
+      min-height: 52px;
+      padding: 0 20px;
+      border-radius: 16px;
       border: 1px solid transparent;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       cursor: pointer;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
       font-weight: 700;
       letter-spacing: -0.01em;
-      text-align: center;
-      min-width: 0;
     }
 
-    .button:hover {
-      transform: translateY(-1px);
-    }
+    .button:hover { transform: translateY(-1px); }
 
     .button-primary {
+      background: linear-gradient(180deg, #2f261f 0%, #1f1915 100%);
       color: #fff;
-      background: linear-gradient(180deg, #201a16 0%, #14110e 100%);
-      box-shadow: 0 16px 34px rgba(20, 17, 14, 0.16);
-    }
-
-    .button-primary:hover {
-      opacity: 0.98;
+      box-shadow: 0 12px 26px rgba(31, 25, 21, 0.16);
     }
 
     .button-secondary {
-      background: rgba(255, 255, 255, 0.74);
-      border-color: rgba(24, 21, 18, 0.12);
-      color: var(--text);
-    }
-
-    .button-secondary:hover {
-      background: rgba(255, 255, 255, 0.92);
-      border-color: rgba(24, 21, 18, 0.18);
-    }
-
-    .button-soft {
-      background: rgba(143, 101, 69, 0.1);
-      border-color: rgba(143, 101, 69, 0.16);
-      color: #69462d;
-    }
-
-    .button-soft:hover {
-      background: rgba(143, 101, 69, 0.14);
-    }
-
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-      gap: 18px;
-      align-items: end;
-    }
-
-    .hero-actions {
-      display: grid;
-      gap: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border-color: var(--line-strong);
+      color: var(--ink);
     }
 
     .microcopy {
       font-size: 0.92rem;
-      color: var(--text-faint);
+      color: var(--ink-faint);
+    }
+
+    .hero-foot {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 16px;
+      align-items: start;
     }
 
     .trust-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 14px;
     }
 
     .trust-pill {
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      background: rgba(255, 255, 255, 0.62);
-      color: var(--brand-soft);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.68);
+      color: var(--ink-soft);
       font-size: 0.88rem;
-      white-space: nowrap;
     }
 
     .hero-note {
-      padding: 22px;
-      border-radius: 26px;
-      background: rgba(29, 23, 18, 0.95);
-      color: rgba(255, 248, 242, 0.88);
+      padding: 20px;
+      border-radius: 24px;
+      background: var(--dark);
+      color: rgba(255, 248, 242, 0.9);
       display: grid;
-      gap: 10px;
-      align-content: start;
-      min-height: 100%;
+      gap: 8px;
     }
 
     .hero-note strong {
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: rgba(255, 248, 242, 0.56);
+      color: rgba(255, 248, 242, 0.6);
     }
 
-    .hero-note p {
-      color: rgba(255, 248, 242, 0.88);
-      line-height: 1.5;
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 14px;
-      align-content: stretch;
-    }
-
-    .side-card,
-    .card,
-    .band-card,
-    .path-card,
-    .modal {
+    .hero-aside {
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      background: rgba(255, 252, 247, 0.76);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(12px);
-    }
-
-    .side-card {
-      padding: 24px;
+      overflow: hidden;
       display: grid;
-      gap: 18px;
-      min-height: 0;
+      grid-template-rows: auto auto;
     }
 
-    .side-card.dark {
-      background: linear-gradient(180deg, #211a16 0%, #17120f 100%);
-      color: rgba(255, 249, 243, 0.92);
-      border-color: rgba(255, 249, 243, 0.08);
+    .aside-block {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .side-card.dark p,
-    .side-card.dark .eyeline,
-    .side-card.dark .mini-list li {
-      color: rgba(255, 249, 243, 0.74);
+    .aside-block:last-child { border-bottom: 0; }
+
+    .aside-block.dark {
+      background: linear-gradient(180deg, #261f1a 0%, #1f1915 100%);
+      color: rgba(255, 248, 242, 0.92);
     }
+
+    .aside-block.dark p,
+    .aside-block.dark li,
+    .aside-block.dark .kicker { color: rgba(255, 248, 242, 0.76); }
 
     .kicker {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--text-faint);
+      color: var(--ink-faint);
       font-weight: 700;
     }
 
-    .side-card.dark .kicker {
-      color: rgba(255, 249, 243, 0.54);
-    }
-
     h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: 0.98;
       letter-spacing: -0.055em;
-      font-weight: 900;
+      font-weight: 800;
     }
 
     h3 {
-      font-size: 1.32rem;
+      font-size: 1.28rem;
       line-height: 1.12;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.035em;
       font-weight: 800;
     }
 
@@ -444,247 +342,134 @@
       font-weight: 700;
     }
 
-    p {
-      color: var(--text-soft);
-    }
+    p { color: var(--ink-soft); }
 
-    .mini-list,
-    .bullet-list {
+    .list {
       list-style: none;
-      margin: 0;
       padding: 0;
+      margin: 0;
       display: grid;
       gap: 10px;
     }
 
-    .mini-list li,
-    .bullet-list li {
+    .list li {
       position: relative;
-      padding-left: 18px;
-      color: var(--text-soft);
+      padding-left: 16px;
+      color: inherit;
     }
 
-    .mini-list li::before,
-    .bullet-list li::before {
+    .list li::before {
       content: "";
       position: absolute;
       left: 0;
       top: 0.72em;
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--accent);
       transform: translateY(-50%);
     }
 
-    .eyeline {
-      font-size: 0.94rem;
-      color: var(--text-faint);
-    }
+    section { padding: 84px 0; }
 
-    section {
-      padding: 88px 0;
-    }
+    .alt { background: linear-gradient(180deg, rgba(239,233,224,0.32) 0%, rgba(239,233,224,0.08) 100%); }
 
-    .section-header {
+    .section-head {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.75fr);
       gap: 24px;
       align-items: end;
       margin-bottom: 28px;
     }
 
-    .section-header p {
-      max-width: 56ch;
-      font-size: 1.03rem;
-    }
+    .section-head p { font-size: 1.02rem; }
 
     .grid-3,
     .grid-2,
-    .steps,
-    .material-grid,
-    .footer-grid,
-    .proof-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .grid-3,
-    .material-grid,
-    .steps,
-    .proof-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-2,
-    .footer-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card,
-    .path-card,
-    .band-card {
-      padding: 30px;
+    .steps {
       display: grid;
       gap: 18px;
-      min-height: 100%;
-      align-content: start;
     }
 
-    .card-head {
+    .grid-3,
+    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      padding: 28px;
+      border-radius: 26px;
       display: grid;
-      gap: 10px;
+      gap: 14px;
+      align-content: start;
     }
 
     .card-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(143, 101, 69, 0.1);
-      border: 1px solid rgba(143, 101, 69, 0.14);
-      font-size: 0.96rem;
+      background: var(--accent-soft);
+      border: 1px solid rgba(154, 106, 67, 0.18);
+      color: var(--accent-strong);
+      font-size: 0.94rem;
       font-weight: 800;
-      color: #6f4b31;
-    }
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 18px;
-      align-items: stretch;
     }
 
     .path-card {
-      padding: 0;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(255, 253, 249, 0.94) 0%, rgba(250, 244, 236, 0.92) 100%);
-    }
-
-    .path-top {
-      padding: 28px 28px 16px;
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
-    .path-bottom {
-      padding: 18px 28px 28px;
-      border-top: 1px solid rgba(24, 21, 18, 0.08);
-      display: grid;
-      gap: 14px;
-      margin-top: auto;
-    }
-
-    .path-tag {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      min-height: 32px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      color: var(--text-faint);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-    }
-
-    .alt-band {
-      position: relative;
-    }
-
-    .alt-band::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 100%);
-      pointer-events: none;
-    }
-
-    .feature-split {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .feature-panel {
+    .band {
       padding: 34px;
-      border-radius: 34px;
-      background: rgba(255, 252, 247, 0.78);
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      gap: 18px;
-      min-height: 100%;
-      align-content: start;
+      border-radius: 30px;
     }
 
-    .feature-panel.dark {
-      background: linear-gradient(180deg, #221c17 0%, #16120f 100%);
-      color: rgba(255, 249, 243, 0.94);
-      border-color: rgba(255, 249, 243, 0.08);
+    .service-list {
+      columns: 2;
+      column-gap: 24px;
     }
 
-    .feature-panel.dark p,
-    .feature-panel.dark li,
-    .feature-panel.dark .kicker {
-      color: rgba(255, 249, 243, 0.74);
-    }
-
-    .band-card {
-      padding: 34px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(252, 247, 240, 0.94) 100%);
-    }
-
-    .safe-box {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.66);
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      color: var(--text-faint);
-      font-size: 0.92rem;
+    .service-list li {
+      break-inside: avoid;
+      margin-bottom: 10px;
     }
 
     .footer {
-      padding: 34px 0 52px;
-      border-top: 1px solid rgba(24, 21, 18, 0.08);
-      background: rgba(255, 251, 245, 0.74);
-      backdrop-filter: blur(10px);
+      padding: 30px 0 46px;
+      border-top: 1px solid var(--line);
+      background: rgba(255, 251, 246, 0.78);
     }
 
     .footer-grid {
-      align-items: start;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
     }
 
     .footer strong {
       display: block;
       margin-bottom: 10px;
-      font-size: 1.02rem;
-      letter-spacing: -0.02em;
+      font-size: 1rem;
     }
 
-    .footer small,
     .footer p,
-    .footer li {
-      color: var(--text-soft);
-    }
+    .footer small,
+    .footer li { color: var(--ink-soft); }
 
     .back-to-top {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      border: 1px solid rgba(24, 21, 18, 0.08);
-      background: rgba(255, 253, 248, 0.82);
-      color: var(--text);
-      box-shadow: var(--shadow-soft);
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 249, 0.92);
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -692,19 +477,14 @@
       z-index: 80;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(10px);
-      transition: opacity 180ms ease, visibility 180ms ease, transform 180ms ease, background 180ms ease;
-      backdrop-filter: blur(10px);
+      transform: translateY(8px);
+      transition: opacity 160ms ease, visibility 160ms ease, transform 160ms ease;
     }
 
     .back-to-top.visible {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: rgba(255, 255, 255, 0.95);
     }
 
     .modal-backdrop {
@@ -715,38 +495,33 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background: rgba(18, 14, 11, 0.58);
+      background: rgba(20, 16, 13, 0.56);
       backdrop-filter: blur(10px);
     }
 
-    .modal-backdrop.active {
-      display: flex;
-    }
+    .modal-backdrop.active { display: flex; }
 
     .modal {
       width: min(760px, 100%);
       max-height: min(88vh, 920px);
+      border-radius: 28px;
+      overflow: hidden;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
-      overflow: hidden;
-      background: linear-gradient(180deg, #fffdfa 0%, #faf5ee 100%);
-      border-radius: 30px;
-      box-shadow: 0 32px 90px rgba(18, 14, 11, 0.2);
+      background: linear-gradient(180deg, #fffdfa 0%, #faf4ec 100%);
+      box-shadow: 0 32px 90px rgba(20, 16, 13, 0.2);
     }
 
     .modal-header,
     .modal-body,
-    .modal-footer {
-      padding: 24px 26px;
-    }
+    .modal-footer { padding: 24px 26px; }
 
     .modal-header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      border-bottom: 1px solid rgba(24, 21, 18, 0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,252,248,0.52) 100%);
+      border-bottom: 1px solid var(--line);
     }
 
     .modal-title-wrap {
@@ -757,36 +532,14 @@
 
     .modal-subtitle {
       max-width: 58ch;
-      color: var(--text-soft);
+      color: var(--ink-soft);
       font-size: 0.97rem;
     }
 
     .modal-body {
       overflow: auto;
-      overscroll-behavior: contain;
       scrollbar-width: thin;
-      scrollbar-color: rgba(24, 21, 18, 0.14) transparent;
-    }
-
-    .modal-body::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .modal-body::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .modal-body::-webkit-scrollbar-thumb {
-      background: rgba(24, 21, 18, 0.12);
-      border-radius: 999px;
-      border: 2px solid transparent;
-      background-clip: padding-box;
-    }
-
-    .modal-body::-webkit-scrollbar-thumb:hover {
-      background: rgba(24, 21, 18, 0.18);
-      border: 2px solid transparent;
-      background-clip: padding-box;
+      scrollbar-color: rgba(31, 26, 23, 0.14) transparent;
     }
 
     .modal-footer {
@@ -794,37 +547,27 @@
       gap: 12px;
       flex-wrap: wrap;
       justify-content: flex-end;
-      border-top: 1px solid rgba(24, 21, 18, 0.08);
-      background: rgba(255, 253, 249, 0.78);
+      border-top: 1px solid var(--line);
+      background: rgba(255, 253, 249, 0.8);
     }
 
     .close-button {
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      border: 1px solid rgba(24, 21, 18, 0.1);
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
       cursor: pointer;
       font-size: 1.1rem;
-      line-height: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex: 0 0 auto;
-      transition: background 180ms ease, border-color 180ms ease;
-    }
-
-    .close-button:hover {
-      background: #fff;
-      border-color: rgba(24, 21, 18, 0.16);
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      align-items: start;
     }
 
     .field {
@@ -833,28 +576,25 @@
       min-width: 0;
     }
 
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field.full { grid-column: 1 / -1; }
 
     label {
       font-size: 0.92rem;
       font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.01em;
+      color: var(--ink);
     }
 
     input,
     textarea,
     select {
       width: 100%;
-      border: 1px solid rgba(24, 21, 18, 0.12);
-      border-radius: 16px;
-      padding: 14px 15px;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--text);
-      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
       min-height: 54px;
+      padding: 14px 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(31, 26, 23, 0.12);
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      transition: border-color 160ms ease, box-shadow 160ms ease;
     }
 
     textarea {
@@ -866,39 +606,34 @@
     textarea:focus,
     select:focus {
       outline: none;
-      border-color: rgba(143, 101, 69, 0.42);
-      box-shadow: 0 0 0 4px rgba(143, 101, 69, 0.12);
+      border-color: rgba(154, 106, 67, 0.42);
+      box-shadow: 0 0 0 4px rgba(154, 106, 67, 0.12);
       background: #fff;
     }
 
-    .help {
-      font-size: 0.86rem;
-      color: var(--text-faint);
-    }
+    .help,
+    .privacy-block,
+    .status-box,
+    .hidden { font-size: 0.9rem; }
 
     .privacy-block {
       margin-top: 20px;
       padding: 18px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.66);
-      border: 1px solid rgba(24, 21, 18, 0.08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid var(--line);
       display: grid;
       gap: 8px;
-      font-size: 0.92rem;
-      color: var(--text-soft);
+      color: var(--ink-soft);
     }
 
-    .privacy-block strong {
-      color: var(--text);
-      font-size: 0.96rem;
-    }
+    .privacy-block strong { color: var(--ink); }
 
     .status-box {
       display: none;
       margin-top: 18px;
       padding: 14px 16px;
       border-radius: 16px;
-      font-size: 0.95rem;
       border: 1px solid transparent;
     }
 
@@ -918,86 +653,47 @@
 
     .hidden { display: none !important; }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 1120px) {
       .hero-shell,
-      .hero-bottom,
-      .path-grid,
+      .hero-foot,
+      .section-head,
       .grid-3,
       .grid-2,
       .steps,
-      .material-grid,
-      .feature-split,
-      .section-header,
       .footer-grid,
-      .proof-grid {
+      .hero-points {
         grid-template-columns: 1fr;
       }
 
-      .hero-main {
-        min-height: auto;
-      }
-
-      .hero-matrix {
-        grid-template-columns: 1fr;
-      }
+      .service-list { columns: 1; }
+      h1 { max-width: none; }
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 900px) {
       .nav { display: none; }
       .form-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
-      .container {
-        width: min(var(--max), calc(100% - 24px));
-      }
-
-      .hero {
-        padding-top: 24px;
-      }
-
+      .container { width: min(var(--max), calc(100% - 24px)); }
+      .hero { padding-top: 24px; }
       .hero-main,
-      .side-card,
+      .aside-block,
       .card,
-      .band-card,
-      .feature-panel,
+      .band,
       .modal-header,
       .modal-body,
-      .modal-footer {
-        padding-left: 22px;
-        padding-right: 22px;
-      }
-
+      .modal-footer { padding-left: 22px; padding-right: 22px; }
       .hero-main,
-      .side-card,
+      .hero-aside,
       .card,
-      .band-card,
-      .feature-panel,
-      .path-card,
-      .modal {
-        border-radius: 24px;
-      }
-
-      h1 {
-        max-width: none;
-        font-size: clamp(2.5rem, 12vw, 4rem);
-      }
-
-      h2 {
-        font-size: clamp(1.9rem, 9vw, 2.7rem);
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .modal-backdrop {
-        padding: 12px;
-      }
+      .band,
+      .modal { border-radius: 24px; }
+      h1 { font-size: clamp(2.4rem, 12vw, 4rem); }
+      h2 { font-size: clamp(1.9rem, 9vw, 2.7rem); }
+      .actions { flex-direction: column; }
+      .button { width: 100%; }
+      .modal-backdrop { padding: 12px; }
     }
   </style>
 </head>
@@ -1010,7 +706,6 @@
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
-        <a href="#inicio">Início</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#servicos">Serviços</a>
         <a href="#materiais">Materiais</a>
@@ -1024,64 +719,38 @@
     <section class="hero" id="inicio">
       <div class="container hero-shell">
         <div class="hero-main">
-          <div class="hero-top">
-            <span class="eyebrow">Edição e publicação profissional para autores</span>
-            <h1>Seu original pode virar livro com direção editorial em cada etapa.</h1>
+          <div>
+            <span class="eyebrow">Leitura, edição e publicação</span>
+            <h1>Seu original pode virar livro com direção editorial.</h1>
             <p class="hero-lead">
-              A PUB Editorial ajuda autores a transformar seus textos em livros editorialmente consistentes, com leitura qualificada, definição de caminho, preparação, revisão, projeto gráfico, diagramação e publicação.
+              A PUB Editorial ajuda autores a entender o estágio do texto, definir o escopo do trabalho e conduzir o projeto até a publicação impressa ou digital.
             </p>
+          </div>
 
-            <div class="hero-matrix" aria-label="Principais benefícios para autores">
-              <div class="hero-metric">
-                <strong>Clareza de caminho</strong>
-                <span>Entenda o estágio do seu original e o que realmente precisa ser feito para publicar bem.</span>
-              </div>
-              <div class="hero-metric">
-                <strong>Critério editorial</strong>
-                <span>Seu texto é lido com atenção técnica, sem improviso e sem atalhos que prejudiquem a obra.</span>
-              </div>
-              <div class="hero-metric">
-                <strong>Acompanhamento</strong>
-                <span>Do primeiro contato ao livro pronto, cada etapa é definida conforme o projeto pede.</span>
-              </div>
+          <div class="hero-points" aria-label="Principais benefícios para autores">
+            <div class="point">
+              <strong>Diagnóstico claro</strong>
+              <span>Você entende o que o texto pede antes de entrar em produção.</span>
+            </div>
+            <div class="point">
+              <strong>Critério editorial</strong>
+              <span>Cada etapa é definida pelo projeto, não por uma fórmula pronta.</span>
+            </div>
+            <div class="point">
+              <strong>Condução contínua</strong>
+              <span>Do original ao livro pronto, com acompanhamento editorial.</span>
             </div>
           </div>
 
-          <div class="hero-bottom">
-            <div class="hero-actions">
+          <div class="hero-foot">
+            <div>
               <div class="actions">
-                <button
-                  class="button button-primary open-capture"
-                  data-capture-type="author"
-                  data-item="edicao_publicacao_autor"
-                  data-source-id="hero_quero_publicar"
-                  data-form-id="modal_hero_quero_publicar"
-                >
-                  Quero publicar meu livro
-                </button>
-                <button
-                  class="button button-soft open-capture"
-                  data-capture-type="original"
-                  data-item="envio_original"
-                  data-source-id="hero_envio_original"
-                  data-form-id="modal_hero_envio_original"
-                >
-                  Enviar original
-                </button>
-                <button
-                  class="button button-secondary open-capture"
-                  data-capture-type="download"
-                  data-item="material_autores"
-                  data-source-id="hero_guia_publicacao"
-                  data-form-id="modal_hero_guia_publicacao"
-                  data-material-name="Guia inicial de publicação"
-                >
-                  Receber guia
-                </button>
+                <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="hero_quero_publicar" data-form-id="modal_hero_quero_publicar">Quero publicar meu livro</button>
+                <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="hero_envio_original" data-form-id="modal_hero_envio_original">Enviar original</button>
               </div>
-              <p class="microcopy">Atendimento direto, leitura de contexto e tratamento confidencial do material enviado.</p>
+              <p class="microcopy">Atendimento direto, confidencialidade no envio e respeito integral à autoria.</p>
               <div class="trust-row">
-                <span class="trust-pill">Confidencialidade no atendimento</span>
+                <span class="trust-pill">Confidencialidade</span>
                 <span class="trust-pill">Direitos preservados</span>
                 <span class="trust-pill">Orientação desde o início</span>
               </div>
@@ -1089,276 +758,188 @@
 
             <div class="hero-note">
               <strong>PUB Editorial</strong>
-              <p>
-                Um livro não começa pela pressa de publicar. Começa por leitura, decisão editorial e construção cuidadosa do projeto.
-              </p>
+              <p>Publicar bem não começa com pressa. Começa com leitura, decisão e projeto.</p>
             </div>
           </div>
         </div>
 
-        <aside class="hero-side">
-          <article class="side-card dark">
+        <aside class="hero-aside">
+          <div class="aside-block dark">
             <span class="kicker">Para quem é</span>
-            <h3>Autores que querem publicar com mais critério e menos improviso.</h3>
-            <ul class="mini-list">
-              <li>Quem está com o original em desenvolvimento</li>
-              <li>Quem já concluiu o texto e quer avaliar o próximo passo</li>
-              <li>Quem busca publicação impressa ou digital com padrão profissional</li>
+            <h3>Para autores que precisam de clareza antes de publicar.</h3>
+            <ul class="list">
+              <li>Texto em desenvolvimento</li>
+              <li>Original concluído sem próximo passo definido</li>
+              <li>Projeto para edição impressa ou digital</li>
             </ul>
-          </article>
+          </div>
 
-          <article class="side-card">
-            <span class="kicker">Primeiro passo</span>
-            <h4>Entender o estágio do seu texto</h4>
-            <p>O ponto de partida não é sempre o mesmo. Às vezes é avaliação. Às vezes é preparação. Às vezes é reorganizar o projeto antes de publicar.</p>
+          <div class="aside-block">
+            <span class="kicker">Primeiro movimento</span>
+            <h4>Entender o estágio do texto</h4>
+            <p>Nem todo original precisa da mesma intervenção. O ponto de partida pode ser avaliação, preparação, revisão ou reorganização do projeto.</p>
             <div class="actions">
               <a class="button button-secondary" href="#como-funciona">Como funciona</a>
-            </div>
-          </article>
-
-          <article class="side-card">
-            <span class="kicker">Segurança</span>
-            <h4>Seu material continua sendo seu</h4>
-            <p>O envio do original não implica cessão de direitos. Seu texto é tratado com confidencialidade e respeito à autoria.</p>
-            <div class="actions">
-              <a class="button button-secondary" href="#envio">Enviar original</a>
-            </div>
-          </article>
-
-          <article class="side-card">
-            <span class="kicker">Material de apoio</span>
-            <h4>Comece entendendo melhor o processo</h4>
-            <p>Receba materiais para organizar decisões, preparar o original e enxergar com mais clareza o caminho da publicação.</p>
-            <div class="actions">
               <a class="button button-secondary" href="#materiais">Ver materiais</a>
             </div>
-          </article>
+          </div>
         </aside>
       </div>
     </section>
 
     <section id="como-funciona">
       <div class="container">
-        <div class="section-header">
+        <div class="section-head">
           <div>
             <span class="kicker">Como funciona</span>
-            <h2>Publicar bem começa por entender o que o seu livro precisa.</h2>
+            <h2>O trabalho editorial começa por diagnóstico, não por pacote.</h2>
           </div>
-          <p>
-            Nem todo original pede a mesma intervenção. O trabalho editorial parte da leitura do material, da análise do estágio do texto e da definição do caminho mais adequado para o projeto.
-          </p>
+          <p>O original é lido no contexto do projeto para definir o percurso mais adequado e evitar retrabalho.</p>
         </div>
 
-        <div class="path-grid">
-          <article class="path-card">
-            <div class="path-top">
-              <span class="path-tag">Etapa 1</span>
-              <h3>Leitura e entendimento do projeto</h3>
-              <p>O primeiro passo é compreender o estágio do original, os objetivos do autor e o tipo de publicação que faz sentido.</p>
-            </div>
-            <div class="path-bottom">
-              <div class="actions">
-                <button class="button button-primary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="como_funciona_avaliacao" data-form-id="modal_como_funciona_avaliacao">Pedir avaliação</button>
-              </div>
-            </div>
+        <div class="grid-3">
+          <article class="card path-card">
+            <span class="tag">Etapa 1</span>
+            <h3>Leitura do original e do contexto</h3>
+            <p>O primeiro passo é entender o estágio do texto, o objetivo do autor e o tipo de publicação desejada.</p>
           </article>
 
-          <article class="path-card">
-            <div class="path-top">
-              <span class="path-tag">Etapa 2</span>
-              <h3>Definição do escopo editorial</h3>
-              <p>Depois da leitura, fica mais claro o que o texto pede: preparação, revisão, projeto gráfico, diagramação, publicação ou mais de uma etapa.</p>
-            </div>
-            <div class="path-bottom">
-              <p class="eyeline">Cada livro pede um percurso próprio.</p>
-            </div>
+          <article class="card path-card">
+            <span class="tag">Etapa 2</span>
+            <h3>Definição do escopo editorial</h3>
+            <p>Com a leitura feita, fica claro o que o livro precisa: preparação, revisão, projeto gráfico, diagramação, publicação ou combinação dessas etapas.</p>
           </article>
 
-          <article class="path-card">
-            <div class="path-top">
-              <span class="path-tag">Etapa 3</span>
-              <h3>Produção e publicação</h3>
-              <p>Com o caminho definido, o projeto avança com mais consistência até chegar ao livro pronto para publicação impressa ou digital.</p>
-            </div>
-            <div class="path-bottom">
-              <p class="eyeline">Direção editorial do início ao fim.</p>
-            </div>
+          <article class="card path-card">
+            <span class="tag">Etapa 3</span>
+            <h3>Produção e publicação</h3>
+            <p>O projeto avança com direção editorial até o livro pronto para circulação impressa ou digital.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="alt-band" id="servicos">
+    <section class="alt" id="servicos">
       <div class="container">
-        <div class="feature-split">
-          <article class="feature-panel dark">
-            <span class="kicker">Serviços para autores</span>
-            <h2>Do original ao livro pronto, com acompanhamento editorial.</h2>
-            <p>
-              A PUB Editorial pode acompanhar o projeto em diferentes etapas, conforme o estado do texto e a necessidade real da obra.
-            </p>
-            <ul class="bullet-list">
-              <li>Avaliação editorial do original</li>
+        <div class="section-head">
+          <div>
+            <span class="kicker">Serviços</span>
+            <h2>As etapas entram quando fazem sentido para a obra.</h2>
+          </div>
+          <p>A PUB Editorial pode atuar em partes específicas do processo ou acompanhar o projeto do início ao fim.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card" style="background: linear-gradient(180deg, #261f1a 0%, #1f1915 100%); color: rgba(255,248,242,0.92); border-color: rgba(255,248,242,0.08);">
+            <span class="kicker" style="color: rgba(255,248,242,0.58);">Escopo editorial</span>
+            <h3>Do original ao livro pronto</h3>
+            <ul class="list service-list" style="color: rgba(255,248,242,0.76);">
+              <li>Avaliação editorial</li>
               <li>Preparação de texto</li>
               <li>Revisão</li>
               <li>Projeto gráfico e capa</li>
               <li>Diagramação</li>
-              <li>Publicação de livro impresso</li>
-              <li>Publicação de livro digital</li>
-              <li>Acompanhamento editorial do projeto</li>
+              <li>Publicação impressa</li>
+              <li>Publicação digital</li>
+              <li>Acompanhamento editorial</li>
             </ul>
           </article>
 
-          <article class="feature-panel">
-            <span class="kicker">Quando faz sentido procurar</span>
+          <article class="card">
+            <span class="kicker">Quando procurar</span>
             <h3>Você não precisa chegar com tudo resolvido.</h3>
-            <p>
-              Muitos autores chegam com dúvidas legítimas sobre o estágio do texto, a viabilidade do projeto ou o que precisa acontecer antes da publicação. Isso faz parte do processo.
-            </p>
-            <ul class="bullet-list">
-              <li>Quando o original está pronto, mas o próximo passo ainda não está claro</li>
+            <ul class="list">
+              <li>Quando o texto está pronto, mas o próximo passo não está claro</li>
               <li>Quando você quer publicar com padrão profissional</li>
               <li>Quando precisa de leitura editorial antes de avançar</li>
-              <li>Quando quer evitar improviso, pressa e retrabalho</li>
+              <li>Quando quer evitar improviso e retrabalho</li>
             </ul>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="servicos_quero_publicar" data-form-id="modal_servicos_quero_publicar">Quero publicar meu livro</button>
-              <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="servicos_envio_original" data-form-id="modal_servicos_envio_original">Enviar original</button>
+              <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="servicos_avaliacao" data-form-id="modal_servicos_avaliacao">Pedir avaliação</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="provas">
+    <section id="materiais">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="kicker">O que o autor precisa sentir aqui</span>
-            <h2>Mais clareza, mais segurança, mais direção.</h2>
-          </div>
-          <p>
-            Antes de contratar qualquer etapa, o autor precisa perceber que o livro será tratado com seriedade, critério e respeito à obra.
-          </p>
-        </div>
-
-        <div class="proof-grid">
-          <article class="card">
-            <div class="card-head">
-              <span class="card-number">01</span>
-              <h3>Confidencialidade</h3>
-            </div>
-            <p>Seu original é tratado com discrição. O envio do material existe para permitir leitura e encaminhamento editorial, não para transferir direitos.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <span class="card-number">02</span>
-              <h3>Leitura qualificada</h3>
-            </div>
-            <p>O texto não entra em produção automaticamente. Antes disso, é preciso entender seu estágio, sua estrutura e o tipo de trabalho necessário.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-head">
-              <span class="card-number">03</span>
-              <h3>Publicação com critério</h3>
-            </div>
-            <p>Publicar profissionalmente é resultado de uma sequência bem conduzida de decisões editoriais, e não apenas do fechamento rápido de arquivos.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="alt-band" id="materiais">
-      <div class="container">
-        <div class="section-header">
+        <div class="section-head">
           <div>
             <span class="kicker">Materiais</span>
-            <h2>Conteúdo para autores que querem começar melhor.</h2>
+            <h2>Conteúdo útil para preparar decisões e organizar o envio.</h2>
           </div>
-          <p>
-            Materiais de apoio para organizar o original, entender o processo editorial e tomar decisões com mais clareza antes da publicação.
-          </p>
+          <p>Em vez de repetir explicações ao longo da página, os materiais concentram a orientação inicial para quem está começando.</p>
         </div>
 
-        <div class="material-grid">
+        <div class="grid-3">
           <article class="card">
-            <div class="card-head">
-              <span class="card-number">A</span>
-              <h3>Guia inicial de publicação</h3>
-            </div>
-            <p>Um material para autores que querem compreender melhor o percurso da publicação impressa ou digital.</p>
+            <div class="card-number">A</div>
+            <h3>Guia inicial de publicação</h3>
+            <p>Visão geral do percurso editorial para livros impressos e digitais.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_inicial_publicacao" data-form-id="modal_download_guia_inicial_publicacao" data-material-name="Guia inicial de publicação">Baixar material</button>
+              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_inicial_publicacao" data-form-id="modal_download_guia_inicial_publicacao" data-material-name="Guia inicial de publicação">Receber guia</button>
             </div>
           </article>
 
           <article class="card">
-            <div class="card-head">
-              <span class="card-number">B</span>
-              <h3>Checklist de preparação de original</h3>
-            </div>
-            <p>Um apoio direto para revisar o texto antes de entrar em preparação, revisão, diagramação e publicação.</p>
+            <div class="card-number">B</div>
+            <h3>Checklist de original</h3>
+            <p>Pontos essenciais para revisar antes de preparação, revisão ou diagramação.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_checklist_original" data-form-id="modal_download_checklist_original" data-material-name="Checklist de preparação de original">Baixar material</button>
+              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_checklist_original" data-form-id="modal_download_checklist_original" data-material-name="Checklist de preparação de original">Baixar checklist</button>
             </div>
           </article>
 
           <article class="card">
-            <div class="card-head">
-              <span class="card-number">C</span>
-              <h3>Roteiro para envio de original</h3>
-            </div>
-            <p>Um material breve para ajudar você a enviar seu texto com informações que tornam a análise mais objetiva e útil.</p>
+            <div class="card-number">C</div>
+            <h3>Roteiro para envio</h3>
+            <p>Informações que ajudam a tornar a análise do original mais objetiva e útil.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_roteiro_envio_original" data-form-id="modal_download_roteiro_envio_original" data-material-name="Roteiro para envio de original">Baixar material</button>
+              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_roteiro_envio_original" data-form-id="modal_download_roteiro_envio_original" data-material-name="Roteiro para envio de original">Receber roteiro</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="envio">
+    <section class="alt" id="envio">
       <div class="container">
-        <div class="band-card">
-          <div class="section-header" style="margin-bottom: 0;">
+        <div class="band">
+          <div class="section-head" style="margin-bottom: 18px;">
             <div>
-              <span class="kicker">Envio de original</span>
-              <h2>Já tem um texto e quer entender o próximo passo?</h2>
+              <span class="kicker">Enviar original</span>
+              <h2>Já tem um texto e quer saber o próximo passo?</h2>
             </div>
-            <p>
-              O envio do original ajuda a definir com mais precisão o ponto de partida do projeto editorial e o tipo de trabalho necessário.
-            </p>
+            <p>O envio do original permite uma leitura inicial e ajuda a definir com precisão o ponto de partida do projeto.</p>
           </div>
+
           <div class="actions">
             <button class="button button-primary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_envio_original_principal" data-form-id="modal_pagina_envio_original_principal">Enviar original</button>
-            <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_envio_original_avaliacao" data-form-id="modal_pagina_envio_original_avaliacao">Pedir uma avaliação</button>
+            <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_envio_original_avaliacao" data-form-id="modal_pagina_envio_original_avaliacao">Pedir avaliação</button>
           </div>
-          <p class="microcopy">Seu material é tratado com confidencialidade. Você mantém todos os direitos sobre a sua obra.</p>
+
+          <p class="microcopy" style="margin-top: 14px;">Seu material é tratado com confidencialidade. Os direitos sobre a obra permanecem com você.</p>
         </div>
       </div>
     </section>
 
-    <section class="alt-band" id="contato">
+    <section id="contato">
       <div class="container">
-        <div class="section-header">
+        <div class="section-head">
           <div>
             <span class="kicker">Contato</span>
             <h2>Fale sobre o seu livro.</h2>
           </div>
-          <p>
-            Explique em que estágio o texto está, o que você pretende publicar e onde estão suas principais dúvidas. A partir disso, fica mais fácil indicar o melhor caminho.
-          </p>
+          <p>Explique em que estágio o texto está e quais são suas principais dúvidas. A partir disso, o caminho editorial fica mais claro.</p>
         </div>
 
-        <div class="feature-split">
-          <article class="feature-panel dark">
-            <span class="kicker">Atendimento</span>
-            <h3>O trabalho começa pelo entendimento do seu contexto.</h3>
-            <p>
-              Um primeiro contato já permite situar o projeto, esclarecer o que precisa ser feito e indicar o próximo passo editorial.
-            </p>
+        <div class="grid-2">
+          <article class="card" style="background: linear-gradient(180deg, #261f1a 0%, #1f1915 100%); color: rgba(255,248,242,0.92); border-color: rgba(255,248,242,0.08);">
+            <span class="kicker" style="color: rgba(255,248,242,0.58);">Atendimento</span>
+            <h3>O primeiro contato já serve para situar o projeto.</h3>
+            <p style="color: rgba(255,248,242,0.76);">Com o contexto certo, fica mais fácil indicar o próximo movimento editorial.</p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="author" data-item="contato_autor" data-source-id="pagina_contato_principal" data-form-id="modal_pagina_contato_principal">Quero publicar meu livro</button>
               <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_contato_avaliacao" data-form-id="modal_pagina_contato_avaliacao">Pedir avaliação</button>
@@ -1368,20 +949,20 @@
           <div class="steps">
             <article class="card">
               <div class="card-number">1</div>
-              <h3>Conte sobre o seu projeto</h3>
-              <p>Uma descrição breve já ajuda a entender o estágio do original e o tipo de orientação mais útil.</p>
+              <h3>Conte sobre o projeto</h3>
+              <p>Uma descrição breve já ajuda a entender o estágio do original.</p>
             </article>
 
             <article class="card">
               <div class="card-number">2</div>
-              <h3>Envie material quando fizer sentido</h3>
-              <p>Quando a leitura do conteúdo é necessária, o envio do original torna o encaminhamento mais preciso.</p>
+              <h3>Envie material quando necessário</h3>
+              <p>Quando a leitura do conteúdo for importante, o envio torna o encaminhamento mais preciso.</p>
             </article>
 
             <article class="card">
               <div class="card-number">3</div>
-              <h3>Receba um próximo passo mais claro</h3>
-              <p>A partir do contexto do texto e do objetivo do autor, fica mais fácil definir o caminho editorial.</p>
+              <h3>Receba uma direção clara</h3>
+              <p>O objetivo é definir o caminho editorial com mais segurança e menos ruído.</p>
             </article>
           </div>
         </div>
@@ -1394,16 +975,15 @@
       <div>
         <strong>PUB Editorial</strong>
         <p>Edição e publicação profissional para autores.</p>
-        <small style="display:block; margin-top: 12px;">Seus dados são usados apenas para este atendimento. Seus arquivos são tratados com confidencialidade.</small>
+        <small style="display:block; margin-top: 12px;">Dados usados apenas para atendimento. Originais tratados com confidencialidade.</small>
       </div>
       <div>
         <strong>Entradas principais</strong>
-        <ul class="bullet-list">
+        <ul class="list">
           <li>Quero publicar meu livro</li>
           <li>Pedir avaliação</li>
-          <li>Baixar materiais</li>
+          <li>Receber materiais</li>
           <li>Enviar original</li>
-          <li>Falar sobre o projeto</li>
         </ul>
       </div>
     </div>
@@ -1557,13 +1137,7 @@
     const submitCaptureButton = document.getElementById('submitCaptureButton');
     const backToTopButton = document.getElementById('backToTop');
 
-    const dynamicFields = [
-      'bookStageField',
-      'projectField',
-      'evaluationField',
-      'downloadField',
-      'fileUploadField'
-    ];
+    const dynamicFields = ['bookStageField', 'projectField', 'evaluationField', 'downloadField', 'fileUploadField'];
 
     function readQueryParam(name) {
       const url = new URL(window.location.href);
@@ -1634,13 +1208,10 @@
 
     function collectContextMessage(formData) {
       const pieces = [];
-      const keys = ['projectDetails', 'evaluationDetails', 'downloadReason'];
-
-      keys.forEach(function(key) {
+      ['projectDetails', 'evaluationDetails', 'downloadReason'].forEach(function(key) {
         const value = formData.get(key);
         if (value) pieces.push(String(value).trim());
       });
-
       return pieces.join('\n\n').trim();
     }
 
@@ -1698,15 +1269,14 @@
           throw new Error(result && result.error && result.error.message ? result.error.message : 'Não foi possível processar sua solicitação agora.');
         }
 
-        if (captureState.captureType === 'download') {
-          showStatus('success', 'Seus dados foram enviados com sucesso. Agora você pode liberar o material.');
-        } else if (captureState.captureType === 'original') {
-          showStatus('success', 'Seu original foi registrado com sucesso.');
-        } else if (captureState.captureType === 'evaluation') {
-          showStatus('success', 'Seu pedido de avaliação foi enviado com sucesso.');
-        } else {
-          showStatus('success', 'Seu contato foi enviado com sucesso.');
-        }
+        const messages = {
+          download: 'Seus dados foram enviados com sucesso. Agora você pode liberar o material.',
+          original: 'Seu original foi registrado com sucesso.',
+          evaluation: 'Seu pedido de avaliação foi enviado com sucesso.',
+          author: 'Seu contato foi enviado com sucesso.'
+        };
+
+        showStatus('success', messages[captureState.captureType] || messages.author);
       } catch (error) {
         showStatus('error', error && error.message ? error.message : 'Ocorreu um erro ao enviar os dados.');
       } finally {
@@ -1716,9 +1286,7 @@
     }
 
     document.querySelectorAll('.open-capture').forEach(function(button) {
-      button.addEventListener('click', function() {
-        openModal(button);
-      });
+      button.addEventListener('click', function() { openModal(button); });
     });
 
     document.getElementById('closeCaptureModal').addEventListener('click', closeModal);
@@ -1738,11 +1306,8 @@
     });
 
     function updateBackToTopVisibility() {
-      if (window.scrollY > 500) {
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
+      if (window.scrollY > 500) backToTopButton.classList.add('visible');
+      else backToTopButton.classList.remove('visible');
     }
 
     backToTopButton.addEventListener('click', function() {
