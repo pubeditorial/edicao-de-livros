@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUB Editorial | Publicação e produção editorial</title>
-  <meta name="description" content="PUB Editorial. Publicação de livros com acompanhamento editorial, serviços editoriais para editoras e capacitação prática para profissionais e equipes." />
+  <title>PUB Editorial | Edição e publicação profissional para autores</title>
+  <meta name="description" content="PUB Editorial. Edição e publicação profissional para autores. Do original ao livro pronto, com leitura editorial, preparação, revisão, projeto gráfico, diagramação e publicação." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -160,7 +160,7 @@
     .hero-main {
       position: relative;
       overflow: hidden;
-      min-height: 720px;
+      min-height: 760px;
       padding: 48px;
       border-radius: var(--radius-xl);
       background:
@@ -203,7 +203,7 @@
     }
 
     .hero-top {
-      max-width: 760px;
+      max-width: 780px;
     }
 
     h1, h2, h3, h4, p { margin: 0; }
@@ -213,13 +213,13 @@
       font-size: clamp(2.9rem, 6vw, 6rem);
       line-height: 0.95;
       letter-spacing: -0.065em;
-      max-width: 11ch;
+      max-width: 10.8ch;
       font-weight: 900;
     }
 
     .hero-lead {
       margin-top: 22px;
-      max-width: 58ch;
+      max-width: 60ch;
       font-size: 1.14rem;
       color: var(--text-soft);
     }
@@ -227,7 +227,7 @@
     .hero-matrix {
       margin-top: 32px;
       display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
+      grid-template-columns: 1.15fr 1fr 1fr;
       gap: 14px;
     }
 
@@ -502,21 +502,21 @@
     .grid-3,
     .grid-2,
     .steps,
-    .editorial-grid,
     .material-grid,
-    .footer-grid {
+    .footer-grid,
+    .proof-grid {
       display: grid;
       gap: 20px;
     }
 
     .grid-3,
     .material-grid,
-    .steps {
+    .steps,
+    .proof-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .grid-2,
-    .editorial-grid,
     .footer-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -552,7 +552,7 @@
 
     .path-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr 1fr;
       gap: 18px;
       align-items: stretch;
     }
@@ -648,17 +648,6 @@
       border: 1px solid rgba(24, 21, 18, 0.08);
       color: var(--text-faint);
       font-size: 0.92rem;
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .steps .card {
-      gap: 16px;
     }
 
     .footer {
@@ -936,12 +925,11 @@
       .grid-3,
       .grid-2,
       .steps,
-      .editorial-grid,
       .material-grid,
       .feature-split,
-      .contact-wrap,
       .section-header,
-      .footer-grid {
+      .footer-grid,
+      .proof-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1018,16 +1006,15 @@
     <div class="container header-row">
       <a href="#inicio" class="brand" aria-label="PUB Editorial">
         <span class="brand-title">PUB Editorial</span>
-        <span class="brand-subtitle">Publicação e produção editorial</span>
+        <span class="brand-subtitle">Edição e publicação profissional para autores</span>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
-        <a href="#caminhos">Caminhos</a>
-        <a href="#autores">Publicação</a>
-        <a href="#editoras">Editoras</a>
-        <a href="#profissionais">Capacitação</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#servicos">Serviços</a>
         <a href="#materiais">Materiais</a>
+        <a href="#envio">Enviar original</a>
         <a href="#contato">Contato</a>
       </nav>
     </div>
@@ -1038,24 +1025,24 @@
       <div class="container hero-shell">
         <div class="hero-main">
           <div class="hero-top">
-            <span class="eyebrow">Publicação e produção editorial</span>
-            <h1>Seu livro pode se tornar um projeto editorial bem conduzido.</h1>
+            <span class="eyebrow">Edição e publicação profissional para autores</span>
+            <h1>Seu original pode virar livro com direção editorial em cada etapa.</h1>
             <p class="hero-lead">
-              A PUB Editorial acompanha autores independentes desde a leitura do original até a definição das etapas de edição, produção e publicação. Também atende editoras e oferece capacitação para profissionais e equipes.
+              A PUB Editorial ajuda autores a transformar seus textos em livros editorialmente consistentes, com leitura qualificada, definição de caminho, preparação, revisão, projeto gráfico, diagramação e publicação.
             </p>
 
-            <div class="hero-matrix" aria-label="Áreas de atuação da PUB Editorial">
+            <div class="hero-matrix" aria-label="Principais benefícios para autores">
               <div class="hero-metric">
-                <strong>Para autores</strong>
-                <span>Publicação impressa e digital com acompanhamento editorial, leitura do original e definição de caminho.</span>
+                <strong>Clareza de caminho</strong>
+                <span>Entenda o estágio do seu original e o que realmente precisa ser feito para publicar bem.</span>
               </div>
               <div class="hero-metric">
-                <strong>Para editoras</strong>
-                <span>Revisão, diagramação, produção e suporte técnico para demandas pontuais ou frentes contínuas.</span>
+                <strong>Critério editorial</strong>
+                <span>Seu texto é lido com atenção técnica, sem improviso e sem atalhos que prejudiquem a obra.</span>
               </div>
               <div class="hero-metric">
-                <strong>Capacitação</strong>
-                <span>Treinamento prático para profissionais e equipes em revisão, fluxo editorial e rotinas de produção.</span>
+                <strong>Acompanhamento</strong>
+                <span>Do primeiro contato ao livro pronto, cada etapa é definida conforme o projeto pede.</span>
               </div>
             </div>
           </div>
@@ -1081,12 +1068,16 @@
                 >
                   Enviar original
                 </button>
-                <a
-                  class="button button-secondary"
-                  href="#editoras"
+                <button
+                  class="button button-secondary open-capture"
+                  data-capture-type="download"
+                  data-item="material_autores"
+                  data-source-id="hero_guia_publicacao"
+                  data-form-id="modal_hero_guia_publicacao"
+                  data-material-name="Guia inicial de publicação"
                 >
-                  Ver serviços para editoras
-                </a>
+                  Receber guia
+                </button>
               </div>
               <p class="microcopy">Atendimento direto, leitura de contexto e tratamento confidencial do material enviado.</p>
               <div class="trust-row">
@@ -1099,7 +1090,7 @@
             <div class="hero-note">
               <strong>PUB Editorial</strong>
               <p>
-                Trabalho editorial com clareza, consistência técnica e atenção ao que cada texto realmente pede.
+                Um livro não começa pela pressa de publicar. Começa por leitura, decisão editorial e construção cuidadosa do projeto.
               </p>
             </div>
           </div>
@@ -1107,240 +1098,187 @@
 
         <aside class="hero-side">
           <article class="side-card dark">
-            <span class="kicker">Entrada principal</span>
-            <h3>O foco começa na publicação do seu livro.</h3>
+            <span class="kicker">Para quem é</span>
+            <h3>Autores que querem publicar com mais critério e menos improviso.</h3>
             <ul class="mini-list">
-              <li>Leitura e avaliação do original</li>
-              <li>Definição do caminho editorial</li>
-              <li>Produção, publicação e acompanhamento</li>
+              <li>Quem está com o original em desenvolvimento</li>
+              <li>Quem já concluiu o texto e quer avaliar o próximo passo</li>
+              <li>Quem busca publicação impressa ou digital com padrão profissional</li>
             </ul>
           </article>
 
           <article class="side-card">
-            <span class="kicker">Autores</span>
-            <h4>Publicação com acompanhamento editorial</h4>
-            <p>Do original ao livro pronto, com leitura, preparação e definição das etapas do projeto.</p>
+            <span class="kicker">Primeiro passo</span>
+            <h4>Entender o estágio do seu texto</h4>
+            <p>O ponto de partida não é sempre o mesmo. Às vezes é avaliação. Às vezes é preparação. Às vezes é reorganizar o projeto antes de publicar.</p>
             <div class="actions">
-              <a class="button button-secondary" href="#autores">Ver publicação</a>
+              <a class="button button-secondary" href="#como-funciona">Como funciona</a>
             </div>
           </article>
 
           <article class="side-card">
-            <span class="kicker">Editoras</span>
-            <h4>Produção, revisão e suporte técnico</h4>
-            <p>Atuação em revisão, diagramação, arquivos editáveis, padronização e rotina de produção.</p>
+            <span class="kicker">Segurança</span>
+            <h4>Seu material continua sendo seu</h4>
+            <p>O envio do original não implica cessão de direitos. Seu texto é tratado com confidencialidade e respeito à autoria.</p>
             <div class="actions">
-              <a class="button button-secondary" href="#editoras">Ver serviços</a>
+              <a class="button button-secondary" href="#envio">Enviar original</a>
             </div>
           </article>
 
           <article class="side-card">
-            <span class="kicker">Capacitação</span>
-            <h4>Formação aplicada ao trabalho editorial</h4>
-            <p>Conteúdo voltado à prática, com foco em fluxo, operação e execução cotidiana.</p>
+            <span class="kicker">Material de apoio</span>
+            <h4>Comece entendendo melhor o processo</h4>
+            <p>Receba materiais para organizar decisões, preparar o original e enxergar com mais clareza o caminho da publicação.</p>
             <div class="actions">
-              <a class="button button-secondary" href="#profissionais">Ver capacitações</a>
+              <a class="button button-secondary" href="#materiais">Ver materiais</a>
             </div>
           </article>
         </aside>
       </div>
     </section>
 
-    <section id="caminhos">
+    <section id="como-funciona">
       <div class="container">
         <div class="section-header">
           <div>
-            <span class="kicker">Caminhos de entrada</span>
-            <h2>Comece pelo que você precisa agora.</h2>
+            <span class="kicker">Como funciona</span>
+            <h2>Publicar bem começa por entender o que o seu livro precisa.</h2>
           </div>
           <p>
-            A PUB Editorial tem foco principal na publicação de livros para autores e também atende editoras e necessidades de formação técnica.
+            Nem todo original pede a mesma intervenção. O trabalho editorial parte da leitura do material, da análise do estágio do texto e da definição do caminho mais adequado para o projeto.
           </p>
         </div>
 
         <div class="path-grid">
           <article class="path-card">
             <div class="path-top">
-              <span class="path-tag">Autores</span>
-              <h3>Quero publicar meu livro</h3>
-              <p>Para quem tem um original e precisa entender o caminho da publicação impressa ou digital com acompanhamento editorial.</p>
+              <span class="path-tag">Etapa 1</span>
+              <h3>Leitura e entendimento do projeto</h3>
+              <p>O primeiro passo é compreender o estágio do original, os objetivos do autor e o tipo de publicação que faz sentido.</p>
             </div>
             <div class="path-bottom">
               <div class="actions">
-                <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="home_publicar_livro" data-form-id="modal_home_publicar_livro">Quero publicar</button>
-                <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_home_autores" data-form-id="modal_download_guia_home_autores" data-material-name="Guia inicial de publicação">Receber guia</button>
+                <button class="button button-primary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="como_funciona_avaliacao" data-form-id="modal_como_funciona_avaliacao">Pedir avaliação</button>
               </div>
             </div>
           </article>
 
           <article class="path-card">
             <div class="path-top">
-              <span class="path-tag">Editoras</span>
-              <h3>Tenho uma demanda editorial</h3>
-              <p>Para editoras que precisam de revisão, diagramação, suporte técnico, organização de produção ou apoio operacional.</p>
+              <span class="path-tag">Etapa 2</span>
+              <h3>Definição do escopo editorial</h3>
+              <p>Depois da leitura, fica mais claro o que o texto pede: preparação, revisão, projeto gráfico, diagramação, publicação ou mais de uma etapa.</p>
             </div>
             <div class="path-bottom">
-              <div class="actions">
-                <button class="button button-primary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="home_editora_proposta" data-form-id="modal_home_editora_proposta">Pedir proposta</button>
-                <button class="button button-secondary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="home_editora_demanda" data-form-id="modal_home_editora_demanda">Falar sobre a demanda</button>
-              </div>
+              <p class="eyeline">Cada livro pede um percurso próprio.</p>
             </div>
           </article>
 
           <article class="path-card">
             <div class="path-top">
-              <span class="path-tag">Profissionais e equipes</span>
-              <h3>Quero aprender ou treinar minha equipe</h3>
-              <p>Para quem quer desenvolver prática editorial com foco no trabalho do dia a dia, individualmente ou em equipe.</p>
+              <span class="path-tag">Etapa 3</span>
+              <h3>Produção e publicação</h3>
+              <p>Com o caminho definido, o projeto avança com mais consistência até chegar ao livro pronto para publicação impressa ou digital.</p>
             </div>
             <div class="path-bottom">
-              <div class="actions">
-                <button class="button button-primary open-capture" data-capture-type="training" data-item="capacitacao_editorial" data-source-id="home_capacitacao_treinamento" data-form-id="modal_home_capacitacao_treinamento">Solicitar treinamento</button>
-                <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_capacitacao" data-source-id="download_programa_home_capacitacao" data-form-id="modal_download_programa_home_capacitacao" data-material-name="Programa de capacitação editorial">Receber programa</button>
-              </div>
+              <p class="eyeline">Direção editorial do início ao fim.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="alt-band" id="autores">
+    <section class="alt-band" id="servicos">
       <div class="container">
         <div class="feature-split">
           <article class="feature-panel dark">
-            <span class="kicker">Para autores independentes</span>
-            <h2>Publicar um livro pede leitura, forma e direção editorial.</h2>
+            <span class="kicker">Serviços para autores</span>
+            <h2>Do original ao livro pronto, com acompanhamento editorial.</h2>
             <p>
-              A PUB Editorial acompanha projetos em diferentes estágios. O trabalho pode envolver avaliação do original, preparação, revisão, projeto gráfico, capa, diagramação e publicação.
+              A PUB Editorial pode acompanhar o projeto em diferentes etapas, conforme o estado do texto e a necessidade real da obra.
             </p>
             <ul class="bullet-list">
               <li>Avaliação editorial do original</li>
-              <li>Edição e publicação de livros impressos</li>
-              <li>Publicação de livros digitais para Kindle</li>
-              <li>Preparação e revisão do texto</li>
-              <li>Projeto gráfico, capa e diagramação</li>
+              <li>Preparação de texto</li>
+              <li>Revisão</li>
+              <li>Projeto gráfico e capa</li>
+              <li>Diagramação</li>
+              <li>Publicação de livro impresso</li>
+              <li>Publicação de livro digital</li>
               <li>Acompanhamento editorial do projeto</li>
             </ul>
           </article>
 
           <article class="feature-panel">
-            <span class="kicker">Primeiro contato</span>
-            <h3>Você pode começar por conversa, avaliação ou envio de original.</h3>
+            <span class="kicker">Quando faz sentido procurar</span>
+            <h3>Você não precisa chegar com tudo resolvido.</h3>
             <p>
-              Um primeiro contato já permite entender melhor o estágio do texto, o tipo de trabalho necessário e o caminho mais adequado para o projeto.
+              Muitos autores chegam com dúvidas legítimas sobre o estágio do texto, a viabilidade do projeto ou o que precisa acontecer antes da publicação. Isso faz parte do processo.
             </p>
+            <ul class="bullet-list">
+              <li>Quando o original está pronto, mas o próximo passo ainda não está claro</li>
+              <li>Quando você quer publicar com padrão profissional</li>
+              <li>Quando precisa de leitura editorial antes de avançar</li>
+              <li>Quando quer evitar improviso, pressa e retrabalho</li>
+            </ul>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="pagina_autores_quero_publicar" data-form-id="modal_pagina_autores_quero_publicar">Quero publicar meu livro</button>
-              <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_autores_envio_original" data-form-id="modal_pagina_autores_envio_original">Enviar original</button>
-              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_publicacao_autores" data-form-id="modal_download_guia_publicacao_autores" data-material-name="Guia inicial de publicação">Receber guia</button>
+              <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="servicos_quero_publicar" data-form-id="modal_servicos_quero_publicar">Quero publicar meu livro</button>
+              <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="servicos_envio_original" data-form-id="modal_servicos_envio_original">Enviar original</button>
             </div>
-            <div class="safe-box">Seu material não é compartilhado com terceiros. O envio do original não implica cessão de direitos. Você mantém integralmente a titularidade da sua obra.</div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="editoras">
+    <section id="provas">
       <div class="container">
         <div class="section-header">
           <div>
-            <span class="kicker">Para editoras</span>
-            <h2>Serviços editoriais e suporte à produção.</h2>
+            <span class="kicker">O que o autor precisa sentir aqui</span>
+            <h2>Mais clareza, mais segurança, mais direção.</h2>
           </div>
           <p>
-            Atuação técnica e operacional para projetos editoriais, demandas recorrentes e organização de fluxos de trabalho.
+            Antes de contratar qualquer etapa, o autor precisa perceber que o livro será tratado com seriedade, critério e respeito à obra.
           </p>
         </div>
 
-        <div class="editorial-grid">
-          <article class="band-card">
+        <div class="proof-grid">
+          <article class="card">
             <div class="card-head">
               <span class="card-number">01</span>
-              <h3>Serviços editoriais</h3>
+              <h3>Confidencialidade</h3>
             </div>
-            <ul class="bullet-list">
-              <li>Revisão de originais</li>
-              <li>Copidesque</li>
-              <li>Projeto gráfico</li>
-              <li>Diagramação</li>
-              <li>Revisão de provas</li>
-            </ul>
+            <p>Seu original é tratado com discrição. O envio do material existe para permitir leitura e encaminhamento editorial, não para transferir direitos.</p>
           </article>
 
-          <article class="band-card">
+          <article class="card">
             <div class="card-head">
               <span class="card-number">02</span>
-              <h3>Suporte técnico e produção</h3>
+              <h3>Leitura qualificada</h3>
             </div>
-            <ul class="bullet-list">
-              <li>Revisão e ajustes em arquivos editáveis</li>
-              <li>Fechamento de arquivos</li>
-              <li>Pré-impressão</li>
-              <li>Padronização de entregáveis editoriais</li>
-              <li>Organização de fluxos de trabalho</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="band-card" style="margin-top: 20px;">
-          <div class="section-header" style="margin-bottom: 0;">
-            <div>
-              <span class="kicker">Atendimento</span>
-              <h3>Demandas pontuais ou frentes contínuas</h3>
-            </div>
-            <p>
-              O trabalho pode começar com uma necessidade específica e avançar para um escopo mais amplo, conforme o projeto pede.
-            </p>
-          </div>
-          <div class="actions">
-            <button class="button button-primary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="pagina_editoras_proposta" data-form-id="modal_pagina_editoras_proposta">Solicitar proposta</button>
-            <button class="button button-secondary open-capture" data-capture-type="publisher" data-item="servicos_editoriais_editoras" data-source-id="pagina_editoras_demanda" data-form-id="modal_pagina_editoras_demanda">Falar sobre minha demanda</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="alt-band" id="profissionais">
-      <div class="container">
-        <div class="feature-split">
-          <article class="feature-panel">
-            <span class="kicker">Capacitação</span>
-            <h2>Treinamento editorial voltado à prática.</h2>
-            <p>
-              Formação para profissionais e equipes que precisam desenvolver domínio técnico, organizar melhor os fluxos e ganhar consistência no trabalho editorial.
-            </p>
-            <ul class="bullet-list">
-              <li>Revisão de textos</li>
-              <li>Fluxo Word e InDesign</li>
-              <li>Diagramação no InDesign</li>
-              <li>ISBN e ficha catalográfica</li>
-            </ul>
+            <p>O texto não entra em produção automaticamente. Antes disso, é preciso entender seu estágio, sua estrutura e o tipo de trabalho necessário.</p>
           </article>
 
-          <article class="feature-panel dark">
-            <span class="kicker">Formatos de atendimento</span>
-            <h3>Para pessoas, grupos e equipes.</h3>
-            <p>
-              O conteúdo pode ser pensado para atualização técnica individual, formação de equipe ou padronização de processos.
-            </p>
-            <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="training" data-item="capacitacao_editorial" data-source-id="pagina_capacitacao_treinamento" data-form-id="modal_pagina_capacitacao_treinamento">Solicitar treinamento</button>
-              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_capacitacao" data-source-id="download_programa_capacitacao" data-form-id="modal_download_programa_capacitacao" data-material-name="Programa de capacitação editorial">Receber programa</button>
+          <article class="card">
+            <div class="card-head">
+              <span class="card-number">03</span>
+              <h3>Publicação com critério</h3>
             </div>
+            <p>Publicar profissionalmente é resultado de uma sequência bem conduzida de decisões editoriais, e não apenas do fechamento rápido de arquivos.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="materiais">
+    <section class="alt-band" id="materiais">
       <div class="container">
         <div class="section-header">
           <div>
             <span class="kicker">Materiais</span>
-            <h2>Conteúdo para quem quer começar melhor.</h2>
+            <h2>Conteúdo para autores que querem começar melhor.</h2>
           </div>
           <p>
-            Materiais de apoio para autores, editoras e profissionais que precisam organizar decisões, próximos passos e critérios de trabalho.
+            Materiais de apoio para organizar o original, entender o processo editorial e tomar decisões com mais clareza antes da publicação.
           </p>
         </div>
 
@@ -1350,7 +1288,7 @@
               <span class="card-number">A</span>
               <h3>Guia inicial de publicação</h3>
             </div>
-            <p>Para autores que querem entender melhor o percurso da publicação impressa ou digital.</p>
+            <p>Um material para autores que querem compreender melhor o percurso da publicação impressa ou digital.</p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_inicial_publicacao" data-form-id="modal_download_guia_inicial_publicacao" data-material-name="Guia inicial de publicação">Baixar material</button>
             </div>
@@ -1361,7 +1299,7 @@
               <span class="card-number">B</span>
               <h3>Checklist de preparação de original</h3>
             </div>
-            <p>Um apoio direto para organizar melhor o texto antes de entrar em produção editorial.</p>
+            <p>Um apoio direto para revisar o texto antes de entrar em preparação, revisão, diagramação e publicação.</p>
             <div class="actions">
               <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_checklist_original" data-form-id="modal_download_checklist_original" data-material-name="Checklist de preparação de original">Baixar material</button>
             </div>
@@ -1370,80 +1308,80 @@
           <article class="card">
             <div class="card-head">
               <span class="card-number">C</span>
-              <h3>Material técnico para editoras</h3>
+              <h3>Roteiro para envio de original</h3>
             </div>
-            <p>Material de apoio para revisão, diagramação, produção e padronização editorial.</p>
+            <p>Um material breve para ajudar você a enviar seu texto com informações que tornam a análise mais objetiva e útil.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_editoras" data-source-id="download_material_tecnico_editoras" data-form-id="modal_download_material_tecnico_editoras" data-material-name="Material técnico para editoras">Baixar material</button>
+              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_roteiro_envio_original" data-form-id="modal_download_roteiro_envio_original" data-material-name="Roteiro para envio de original">Baixar material</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="alt-band" id="envio">
+    <section id="envio">
       <div class="container">
         <div class="band-card">
           <div class="section-header" style="margin-bottom: 0;">
             <div>
               <span class="kicker">Envio de original</span>
-              <h2>Já tem um material pronto para análise?</h2>
+              <h2>Já tem um texto e quer entender o próximo passo?</h2>
             </div>
             <p>
-              O envio do original ajuda a definir com mais precisão o ponto de partida do projeto editorial.
+              O envio do original ajuda a definir com mais precisão o ponto de partida do projeto editorial e o tipo de trabalho necessário.
             </p>
           </div>
           <div class="actions">
             <button class="button button-primary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_envio_original_principal" data-form-id="modal_pagina_envio_original_principal">Enviar original</button>
-            <button class="button button-secondary open-capture" data-capture-type="author" data-item="avaliacao_projeto" data-source-id="pagina_envio_original_avaliacao" data-form-id="modal_pagina_envio_original_avaliacao">Pedir uma avaliação</button>
+            <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_envio_original_avaliacao" data-form-id="modal_pagina_envio_original_avaliacao">Pedir uma avaliação</button>
           </div>
           <p class="microcopy">Seu material é tratado com confidencialidade. Você mantém todos os direitos sobre a sua obra.</p>
         </div>
       </div>
     </section>
 
-    <section id="contato">
+    <section class="alt-band" id="contato">
       <div class="container">
         <div class="section-header">
           <div>
             <span class="kicker">Contato</span>
-            <h2>Fale com a PUB Editorial.</h2>
+            <h2>Fale sobre o seu livro.</h2>
           </div>
           <p>
-            Você pode explicar sua necessidade, enviar material quando isso for útil e receber um encaminhamento adequado ao seu caso.
+            Explique em que estágio o texto está, o que você pretende publicar e onde estão suas principais dúvidas. A partir disso, fica mais fácil indicar o melhor caminho.
           </p>
         </div>
 
-        <div class="contact-wrap">
-          <article class="side-card dark">
+        <div class="feature-split">
+          <article class="feature-panel dark">
             <span class="kicker">Atendimento</span>
             <h3>O trabalho começa pelo entendimento do seu contexto.</h3>
             <p>
-              Um primeiro contato já permite situar a demanda, esclarecer o que precisa ser feito e indicar o próximo passo.
+              Um primeiro contato já permite situar o projeto, esclarecer o que precisa ser feito e indicar o próximo passo editorial.
             </p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="general" data-item="contato_geral" data-source-id="pagina_contato_principal" data-form-id="modal_pagina_contato_principal">Enviar mensagem</button>
-              <button class="button button-secondary open-capture" data-capture-type="general" data-item="continuidade_atendimento" data-source-id="pagina_contato_continuidade" data-form-id="modal_pagina_contato_continuidade">Continuar atendimento</button>
+              <button class="button button-primary open-capture" data-capture-type="author" data-item="contato_autor" data-source-id="pagina_contato_principal" data-form-id="modal_pagina_contato_principal">Quero publicar meu livro</button>
+              <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_contato_avaliacao" data-form-id="modal_pagina_contato_avaliacao">Pedir avaliação</button>
             </div>
           </article>
 
           <div class="steps">
             <article class="card">
               <div class="card-number">1</div>
-              <h3>Explique o que você precisa</h3>
-              <p>Livro, demanda editorial ou capacitação. Uma descrição breve já permite começar.</p>
+              <h3>Conte sobre o seu projeto</h3>
+              <p>Uma descrição breve já ajuda a entender o estágio do original e o tipo de orientação mais útil.</p>
             </article>
 
             <article class="card">
               <div class="card-number">2</div>
               <h3>Envie material quando fizer sentido</h3>
-              <p>Quando a leitura do conteúdo é necessária, o envio do material torna o atendimento mais preciso.</p>
+              <p>Quando a leitura do conteúdo é necessária, o envio do original torna o encaminhamento mais preciso.</p>
             </article>
 
             <article class="card">
               <div class="card-number">3</div>
-              <h3>Receba a orientação adequada</h3>
-              <p>A partir do contexto do projeto, fica mais claro definir o melhor caminho de trabalho.</p>
+              <h3>Receba um próximo passo mais claro</h3>
+              <p>A partir do contexto do texto e do objetivo do autor, fica mais fácil definir o caminho editorial.</p>
             </article>
           </div>
         </div>
@@ -1455,17 +1393,17 @@
     <div class="container footer-grid">
       <div>
         <strong>PUB Editorial</strong>
-        <p>Publicação e produção editorial, com serviços para editoras e capacitação técnica.</p>
+        <p>Edição e publicação profissional para autores.</p>
         <small style="display:block; margin-top: 12px;">Seus dados são usados apenas para este atendimento. Seus arquivos são tratados com confidencialidade.</small>
       </div>
       <div>
         <strong>Entradas principais</strong>
         <ul class="bullet-list">
           <li>Quero publicar meu livro</li>
-          <li>Solicitar serviços editoriais</li>
-          <li>Solicitar capacitação</li>
+          <li>Pedir avaliação</li>
           <li>Baixar materiais</li>
           <li>Enviar original</li>
+          <li>Falar sobre o projeto</li>
         </ul>
       </div>
     </div>
@@ -1501,35 +1439,25 @@
               <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(11) 99999-9999" autocomplete="tel" required />
             </div>
 
-            <div class="field hidden" id="interestTypeField">
-              <label for="interestType">Tipo de interesse</label>
-              <select id="interestType" name="interestType">
+            <div class="field hidden" id="bookStageField">
+              <label for="bookStage">Em que estágio está o seu texto?</label>
+              <select id="bookStage" name="bookStage">
                 <option value="">Selecione</option>
-                <option value="autor">Publicação de livro</option>
-                <option value="editora">Serviços para editora</option>
-                <option value="profissional">Capacitação individual</option>
-                <option value="equipe">Capacitação para equipe</option>
+                <option value="rascunho">Ainda em desenvolvimento</option>
+                <option value="quase_pronto">Quase finalizado</option>
+                <option value="finalizado">Texto finalizado</option>
+                <option value="publicacao">Já pensando na publicação</option>
               </select>
             </div>
 
-            <div class="field full hidden" id="companyField">
-              <label for="company">Nome da editora, empresa ou equipe</label>
-              <input id="company" name="company" type="text" />
-            </div>
-
             <div class="field full hidden" id="projectField">
-              <label for="projectDetails">Fale um pouco sobre o seu projeto</label>
+              <label for="projectDetails">Fale um pouco sobre o seu livro</label>
               <textarea id="projectDetails" name="projectDetails"></textarea>
             </div>
 
-            <div class="field full hidden" id="demandField">
-              <label for="demandDetails">Descreva a sua demanda</label>
-              <textarea id="demandDetails" name="demandDetails"></textarea>
-            </div>
-
-            <div class="field full hidden" id="trainingField">
-              <label for="trainingDetails">Conte o que você ou sua equipe precisam aprender</label>
-              <textarea id="trainingDetails" name="trainingDetails"></textarea>
+            <div class="field full hidden" id="evaluationField">
+              <label for="evaluationDetails">O que você gostaria de entender ou avaliar no seu projeto?</label>
+              <textarea id="evaluationDetails" name="evaluationDetails"></textarea>
             </div>
 
             <div class="field full hidden" id="downloadField">
@@ -1567,48 +1495,26 @@
     const CAPTURE_ROUTE = '/capture-lead';
 
     const modalConfigs = {
-      general: {
-        title: 'Vamos conversar',
-        description: 'Preencha os dados e descreva sua necessidade.',
-        submitLabel: 'Enviar mensagem',
-        fields: ['interestTypeField', 'projectField'],
-        privacy: [
-          'Seus dados são usados apenas para responder este contato.',
-          'Não enviamos mensagens sem necessidade.',
-          'Depois do primeiro retorno, você decide como seguir.'
-        ]
-      },
       author: {
         title: 'Quero publicar meu livro',
         description: 'Preencha os dados e apresente seu projeto para um primeiro encaminhamento editorial.',
         submitLabel: 'Enviar contato',
-        fields: ['projectField'],
+        fields: ['bookStageField', 'projectField'],
         privacy: [
           'Seus dados são usados apenas para este atendimento.',
           'Seu projeto é tratado com confidencialidade.',
           'Você mantém todos os direitos sobre sua obra.'
         ]
       },
-      publisher: {
-        title: 'Solicitar serviços editoriais',
-        description: 'Descreva sua demanda. As informações iniciais já permitem começar a conversa.',
-        submitLabel: 'Solicitar proposta',
-        fields: ['companyField', 'demandField'],
+      evaluation: {
+        title: 'Pedir avaliação do projeto',
+        description: 'Conte em que estágio o texto está e o que você precisa entender antes de avançar.',
+        submitLabel: 'Pedir avaliação',
+        fields: ['bookStageField', 'evaluationField'],
         privacy: [
           'Seus dados são usados apenas para este atendimento.',
-          'As informações do projeto são tratadas com discrição profissional.',
-          'O atendimento pode começar com um escopo inicial.'
-        ]
-      },
-      training: {
-        title: 'Solicitar capacitação',
-        description: 'Conte o que você ou sua equipe precisam desenvolver.',
-        submitLabel: 'Solicitar treinamento',
-        fields: ['companyField', 'trainingField'],
-        privacy: [
-          'Seus dados são usados apenas para este atendimento.',
-          'As informações da sua equipe são tratadas com cuidado e discrição.',
-          'O formato é definido a partir da necessidade apresentada.'
+          'As informações do projeto são tratadas com discrição.',
+          'A avaliação inicial ajuda a definir o melhor caminho editorial.'
         ]
       },
       download: {
@@ -1624,9 +1530,9 @@
       },
       original: {
         title: 'Enviar original para análise',
-        description: 'Preencha os dados e envie o material.',
+        description: 'Preencha os dados, conte brevemente sobre o livro e envie o material.',
         submitLabel: 'Enviar original',
-        fields: ['projectField', 'fileUploadField'],
+        fields: ['bookStageField', 'projectField', 'fileUploadField'],
         privacy: [
           'Seu material é tratado com confidencialidade.',
           'O envio do original não implica cessão de direitos.',
@@ -1639,7 +1545,7 @@
       item: '',
       sourceId: '',
       formId: '',
-      captureType: 'general',
+      captureType: 'author',
       materialName: ''
     };
 
@@ -1652,11 +1558,9 @@
     const backToTopButton = document.getElementById('backToTop');
 
     const dynamicFields = [
-      'interestTypeField',
-      'companyField',
+      'bookStageField',
       'projectField',
-      'demandField',
-      'trainingField',
+      'evaluationField',
       'downloadField',
       'fileUploadField'
     ];
@@ -1691,7 +1595,7 @@
     }
 
     function applyModalConfig(type) {
-      const config = modalConfigs[type] || modalConfigs.general;
+      const config = modalConfigs[type] || modalConfigs.author;
       modalTitle.textContent = config.title;
       modalDescription.textContent = config.description;
       submitCaptureButton.textContent = config.submitLabel;
@@ -1710,7 +1614,7 @@
       captureState.item = button.dataset.item || '';
       captureState.sourceId = button.dataset.sourceId || '';
       captureState.formId = button.dataset.formId || '';
-      captureState.captureType = button.dataset.captureType || 'general';
+      captureState.captureType = button.dataset.captureType || 'author';
       captureState.materialName = button.dataset.materialName || '';
 
       applyModalConfig(captureState.captureType);
@@ -1730,7 +1634,7 @@
 
     function collectContextMessage(formData) {
       const pieces = [];
-      const keys = ['projectDetails', 'demandDetails', 'trainingDetails', 'downloadReason'];
+      const keys = ['projectDetails', 'evaluationDetails', 'downloadReason'];
 
       keys.forEach(function(key) {
         const value = formData.get(key);
@@ -1761,8 +1665,7 @@
         utm_content: readQueryParam('utm_content'),
         file_id: originalFile ? ('pending-upload-' + originalFile.name) : '',
         data_context: {
-          interest_type: formData.get('interestType') || '',
-          company: formData.get('company') || '',
+          book_stage: formData.get('bookStage') || '',
           message: collectContextMessage(formData),
           capture_type: captureState.captureType,
           material_name: captureState.materialName || '',
@@ -1798,7 +1701,9 @@
         if (captureState.captureType === 'download') {
           showStatus('success', 'Seus dados foram enviados com sucesso. Agora você pode liberar o material.');
         } else if (captureState.captureType === 'original') {
-          showStatus('success', 'Seu envio foi registrado com sucesso.');
+          showStatus('success', 'Seu original foi registrado com sucesso.');
+        } else if (captureState.captureType === 'evaluation') {
+          showStatus('success', 'Seu pedido de avaliação foi enviado com sucesso.');
         } else {
           showStatus('success', 'Seu contato foi enviado com sucesso.');
         }
