@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUB Editorial | Edição e publicação profissional para autores</title>
-  <meta name="description" content="Leitura editorial, preparação, revisão, projeto gráfico, diagramação e publicação para autores que querem transformar um original em livro com critério." />
+  <title>PUB Editorial | Direção editorial para autores</title>
+  <meta name="description" content="Direção editorial para autores. Leitura editorial, preparação, revisão, projeto gráfico, diagramação e publicação com critério." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f4ef;
-      --bg-alt: #efe9e0;
-      --surface: #fffdf9;
-      --surface-muted: #f4efe7;
-      --ink: #1f1a17;
-      --ink-soft: #5e5650;
-      --ink-faint: #8a8077;
-      --line: rgba(31, 26, 23, 0.1);
-      --line-strong: rgba(31, 26, 23, 0.16);
-      --brand: #2a211b;
-      --accent: #9a6a43;
-      --accent-strong: #7f5330;
-      --accent-soft: rgba(154, 106, 67, 0.12);
-      --dark: #231c17;
-      --dark-soft: #d9cec3;
+      --bg: #faf7f2;
+      --bg-alt: #f2ebe2;
+      --surface: #fffdfa;
+      --surface-muted: #f6f0e8;
+      --ink: #1e1a17;
+      --ink-soft: #605851;
+      --ink-faint: #8c837b;
+      --line: rgba(30, 26, 23, 0.1);
+      --line-strong: rgba(30, 26, 23, 0.16);
+      --brand: #241d19;
+      --accent: #8c5a34;
+      --accent-soft: rgba(140, 90, 52, 0.1);
+      --accent-line: rgba(140, 90, 52, 0.18);
+      --dark: #241d19;
+      --dark-soft: rgba(255, 247, 240, 0.76);
       --success: #1f5130;
       --success-bg: #e6f4e8;
       --error: #8b2e2e;
@@ -32,9 +32,10 @@
       --radius-sm: 14px;
       --radius-md: 22px;
       --radius-lg: 32px;
-      --shadow-sm: 0 12px 30px rgba(31, 26, 23, 0.06);
-      --shadow-lg: 0 28px 70px rgba(31, 26, 23, 0.1);
-      --max: 1180px;
+      --radius-xl: 42px;
+      --shadow-sm: 0 10px 26px rgba(30, 26, 23, 0.05);
+      --shadow-md: 0 22px 56px rgba(30, 26, 23, 0.08);
+      --max: 1160px;
       --header-h: 78px;
     }
 
@@ -45,20 +46,26 @@
       font-family: "Inter", Arial, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(154, 106, 67, 0.08), transparent 26%),
-        linear-gradient(180deg, #faf7f2 0%, #f7f4ef 100%);
+        radial-gradient(circle at top left, rgba(140, 90, 52, 0.06), transparent 26%),
+        linear-gradient(180deg, #fcf9f4 0%, var(--bg) 100%);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     body.modal-open { overflow: hidden; }
+
+    *:focus-visible {
+      outline: 3px solid rgba(140, 90, 52, 0.24);
+      outline-offset: 2px;
+    }
+
     h1, h2, h3, h4, p { margin: 0; }
     a { color: inherit; text-decoration: none; }
     button, input, textarea, select { font: inherit; }
     img { display: block; max-width: 100%; }
 
-    ::selection { background: rgba(154, 106, 67, 0.18); }
+    ::selection { background: rgba(140, 90, 52, 0.16); }
 
     .container {
       width: min(var(--max), calc(100% - 40px));
@@ -68,11 +75,10 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 90;
-      min-height: var(--header-h);
-      background: rgba(247, 244, 239, 0.82);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(31, 26, 23, 0.06);
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(30, 26, 23, 0.06);
     }
 
     .header-row {
@@ -80,12 +86,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 18px;
     }
 
     .brand {
       display: grid;
       gap: 4px;
+      min-width: 0;
     }
 
     .brand-title {
@@ -98,6 +105,7 @@
     .brand-subtitle {
       font-size: 0.9rem;
       color: var(--ink-soft);
+      letter-spacing: -0.01em;
     }
 
     .nav {
@@ -112,41 +120,55 @@
       font-size: 0.95rem;
       color: var(--ink-soft);
       padding: 8px 0;
+      transition: color 160ms ease;
     }
 
     .nav a:hover { color: var(--ink); }
 
-    .hero {
-      padding: 40px 0 72px;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(290px, 0.8fr);
-      gap: 20px;
-      align-items: stretch;
+    .mobile-menu-button {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.8);
+      color: var(--ink);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero-main,
-    .hero-aside,
-    .card,
-    .band,
-    .modal {
-      background: rgba(255, 253, 249, 0.86);
+    .mobile-nav {
+      display: none;
+      padding: 0 0 16px;
+    }
+
+    .mobile-nav-inner {
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
       box-shadow: var(--shadow-sm);
+      display: grid;
+      gap: 10px;
     }
 
-    .hero-main {
-      padding: 44px;
-      border-radius: var(--radius-lg);
-      display: grid;
-      gap: 34px;
-      box-shadow: var(--shadow-lg);
-      background:
-        radial-gradient(circle at 85% 18%, rgba(154, 106, 67, 0.14), transparent 22%),
-        linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(252,248,242,0.98) 100%);
+    .mobile-nav a {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 12px;
+      color: var(--ink-soft);
     }
+
+    .mobile-nav a:hover { background: var(--surface-muted); color: var(--ink); }
 
     .eyebrow,
     .tag {
@@ -157,59 +179,12 @@
       padding: 0 14px;
       border-radius: 999px;
       background: var(--accent-soft);
-      border: 1px solid rgba(154, 106, 67, 0.18);
-      color: var(--accent-strong);
+      border: 1px solid var(--accent-line);
+      color: var(--accent);
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 11ch;
-      margin-top: 18px;
-      font-size: clamp(2.9rem, 6vw, 5.4rem);
-      line-height: 0.94;
-      letter-spacing: -0.065em;
-      font-weight: 800;
-    }
-
-    .hero-lead {
-      margin-top: 18px;
-      max-width: 58ch;
-      font-size: 1.08rem;
-      color: var(--ink-soft);
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .point {
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.62);
-      border: 1px solid var(--line);
-      display: grid;
-      gap: 8px;
-    }
-
-    .point strong {
-      font-size: 0.9rem;
-      letter-spacing: -0.02em;
-    }
-
-    .point span {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
     }
 
     .button {
@@ -225,25 +200,133 @@
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
       font-weight: 700;
       letter-spacing: -0.01em;
+      text-align: center;
     }
 
     .button:hover { transform: translateY(-1px); }
 
     .button-primary {
-      background: linear-gradient(180deg, #2f261f 0%, #1f1915 100%);
+      background: linear-gradient(180deg, #302721 0%, #211a16 100%);
       color: #fff;
-      box-shadow: 0 12px 26px rgba(31, 25, 21, 0.16);
+      box-shadow: 0 14px 30px rgba(33, 26, 22, 0.16);
     }
 
     .button-secondary {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255,255,255,0.9);
       border-color: var(--line-strong);
       color: var(--ink);
+    }
+
+    .button-ghost {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--ink-soft);
+    }
+
+    .hero {
+      padding: 48px 0 84px;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side,
+    .panel,
+    .entry-card,
+    .material-card,
+    .quote-card,
+    .contact-card,
+    .modal {
+      background: rgba(255, 253, 250, 0.88);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-main {
+      padding: 48px;
+      border-radius: var(--radius-xl);
+      display: grid;
+      gap: 34px;
+      box-shadow: var(--shadow-md);
+      background:
+        radial-gradient(circle at 84% 18%, rgba(140, 90, 52, 0.11), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(252,248,242,0.98) 100%);
+    }
+
+    h1 {
+      margin-top: 20px;
+      max-width: 11ch;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.07em;
+      font-weight: 800;
+    }
+
+    .hero-lead {
+      margin-top: 18px;
+      max-width: 58ch;
+      font-size: 1.08rem;
+      color: var(--ink-soft);
+    }
+
+    .hero-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .summary-item {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 8px;
+    }
+
+    .summary-item strong {
+      font-size: 0.92rem;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-item span {
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .microcopy {
       font-size: 0.92rem;
       color: var(--ink-faint);
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      color: var(--ink-soft);
+      font-size: 0.88rem;
     }
 
     .hero-foot {
@@ -253,91 +336,74 @@
       align-items: start;
     }
 
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .trust-pill {
-      min-height: 36px;
-      padding: 0 12px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.68);
-      color: var(--ink-soft);
-      font-size: 0.88rem;
-    }
-
     .hero-note {
-      padding: 20px;
+      padding: 22px;
       border-radius: 24px;
       background: var(--dark);
-      color: rgba(255, 248, 242, 0.9);
+      color: rgba(255,248,242,0.9);
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     .hero-note strong {
       font-size: 0.82rem;
-      text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: rgba(255, 248, 242, 0.6);
+      text-transform: uppercase;
+      color: rgba(255,248,242,0.58);
     }
 
-    .hero-aside {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+    .hero-side {
+      border-radius: var(--radius-xl);
+      padding: 30px;
       display: grid;
-      grid-template-rows: auto auto;
+      gap: 22px;
+      align-content: space-between;
     }
 
-    .aside-block {
-      padding: 28px;
+    .hero-side-top {
       display: grid;
       gap: 16px;
-      border-bottom: 1px solid var(--line);
     }
 
-    .aside-block:last-child { border-bottom: 0; }
-
-    .aside-block.dark {
-      background: linear-gradient(180deg, #261f1a 0%, #1f1915 100%);
-      color: rgba(255, 248, 242, 0.92);
+    .hero-side.dark {
+      background: linear-gradient(180deg, #2a221d 0%, #211a16 100%);
+      color: rgba(255,248,242,0.92);
+      border-color: rgba(255,248,242,0.08);
     }
 
-    .aside-block.dark p,
-    .aside-block.dark li,
-    .aside-block.dark .kicker { color: rgba(255, 248, 242, 0.76); }
+    .hero-side.dark p,
+    .hero-side.dark li,
+    .hero-side.dark .kicker,
+    .hero-side.dark .side-label {
+      color: rgba(255,248,242,0.76);
+    }
 
-    .kicker {
+    .kicker,
+    .side-label {
       font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--ink-faint);
       font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
     }
 
     h2 {
-      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-size: clamp(2rem, 4vw, 3.4rem);
       line-height: 0.98;
       letter-spacing: -0.055em;
       font-weight: 800;
     }
 
     h3 {
-      font-size: 1.28rem;
+      font-size: 1.3rem;
       line-height: 1.12;
-      letter-spacing: -0.035em;
+      letter-spacing: -0.04em;
       font-weight: 800;
     }
 
     h4 {
       font-size: 1rem;
-      line-height: 1.2;
+      line-height: 1.24;
       letter-spacing: -0.02em;
       font-weight: 700;
     }
@@ -346,8 +412,8 @@
 
     .list {
       list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 0;
       display: grid;
       gap: 10px;
     }
@@ -355,7 +421,6 @@
     .list li {
       position: relative;
       padding-left: 16px;
-      color: inherit;
     }
 
     .list li::before {
@@ -370,89 +435,157 @@
       transform: translateY(-50%);
     }
 
-    section { padding: 84px 0; }
-
-    .alt { background: linear-gradient(180deg, rgba(239,233,224,0.32) 0%, rgba(239,233,224,0.08) 100%); }
+    section { padding: 86px 0; }
+    section.alt { background: linear-gradient(180deg, rgba(242,235,226,0.45) 0%, rgba(242,235,226,0.12) 100%); }
 
     .section-head {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.75fr);
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.75fr);
       gap: 24px;
       align-items: end;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
-    .section-head p { font-size: 1.02rem; }
+    .section-head p {
+      font-size: 1.02rem;
+      max-width: 54ch;
+    }
 
-    .grid-3,
     .grid-2,
-    .steps {
+    .grid-3,
+    .service-grid,
+    .entry-grid,
+    .materials-grid,
+    .contact-grid {
       display: grid;
       gap: 18px;
     }
 
+    .grid-2,
+    .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid-3,
-    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .entry-grid,
+    .materials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .service-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
 
-    .card {
-      padding: 28px;
-      border-radius: 26px;
+    .panel,
+    .entry-card,
+    .material-card,
+    .quote-card,
+    .contact-card {
+      padding: 30px;
+      border-radius: var(--radius-lg);
       display: grid;
-      gap: 14px;
+      gap: 16px;
       align-content: start;
     }
 
-    .card-number {
-      width: 40px;
-      height: 40px;
+    .panel.dark,
+    .contact-card.dark {
+      background: linear-gradient(180deg, #2a221d 0%, #211a16 100%);
+      color: rgba(255,248,242,0.92);
+      border-color: rgba(255,248,242,0.08);
+    }
+
+    .panel.dark p,
+    .panel.dark li,
+    .panel.dark .kicker,
+    .contact-card.dark p,
+    .contact-card.dark .kicker {
+      color: rgba(255,248,242,0.76);
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+    }
+
+    .service-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .panel.dark .service-item {
+      border-bottom-color: rgba(255,248,242,0.1);
+      color: rgba(255,248,242,0.92);
+    }
+
+    .quote-card {
+      padding: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.78) 0%, rgba(247,240,232,0.94) 100%);
+    }
+
+    .quote-card p {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: var(--ink);
+      max-width: 44ch;
+    }
+
+    .entry-card,
+    .material-card {
+      min-height: 100%;
+    }
+
+    .entry-card p,
+    .material-card p {
+      max-width: 28ch;
+    }
+
+    .card-top {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card-index {
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: var(--accent-soft);
-      border: 1px solid rgba(154, 106, 67, 0.18);
-      color: var(--accent-strong);
-      font-size: 0.94rem;
+      border: 1px solid var(--accent-line);
+      color: var(--accent);
       font-weight: 800;
+      font-size: 0.95rem;
     }
 
-    .path-card {
+    .contact-stack {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .band {
-      padding: 34px;
-      border-radius: 30px;
-    }
-
-    .service-list {
-      columns: 2;
-      column-gap: 24px;
-    }
-
-    .service-list li {
-      break-inside: avoid;
-      margin-bottom: 10px;
+    .safe-box {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.66);
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.92rem;
     }
 
     .footer {
-      padding: 30px 0 46px;
+      padding: 32px 0 50px;
       border-top: 1px solid var(--line);
-      background: rgba(255, 251, 246, 0.78);
+      background: rgba(255,251,247,0.82);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 18px;
+      align-items: start;
     }
 
     .footer strong {
       display: block;
       margin-bottom: 10px;
       font-size: 1rem;
+      letter-spacing: -0.02em;
     }
 
     .footer p,
@@ -467,7 +600,7 @@
       height: 50px;
       border-radius: 16px;
       border: 1px solid var(--line);
-      background: rgba(255, 253, 249, 0.92);
+      background: rgba(255,253,249,0.94);
       color: var(--ink);
       box-shadow: var(--shadow-sm);
       display: inline-flex;
@@ -514,7 +647,9 @@
 
     .modal-header,
     .modal-body,
-    .modal-footer { padding: 24px 26px; }
+    .modal-footer {
+      padding: 24px 26px;
+    }
 
     .modal-header {
       display: flex;
@@ -539,7 +674,7 @@
     .modal-body {
       overflow: auto;
       scrollbar-width: thin;
-      scrollbar-color: rgba(31, 26, 23, 0.14) transparent;
+      scrollbar-color: rgba(30, 26, 23, 0.14) transparent;
     }
 
     .modal-footer {
@@ -548,7 +683,7 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       border-top: 1px solid var(--line);
-      background: rgba(255, 253, 249, 0.8);
+      background: rgba(255,253,249,0.8);
     }
 
     .close-button {
@@ -556,7 +691,8 @@
       height: 42px;
       border-radius: 14px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255,255,255,0.82);
+      color: var(--ink);
       cursor: pointer;
       font-size: 1.1rem;
       display: inline-flex;
@@ -568,6 +704,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
+      align-items: start;
     }
 
     .field {
@@ -582,6 +719,7 @@
       font-size: 0.92rem;
       font-weight: 700;
       color: var(--ink);
+      letter-spacing: -0.01em;
     }
 
     input,
@@ -590,11 +728,11 @@
       width: 100%;
       min-height: 54px;
       padding: 14px 15px;
+      border: 1px solid rgba(30, 26, 23, 0.12);
       border-radius: 16px;
-      border: 1px solid rgba(31, 26, 23, 0.12);
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255,255,255,0.86);
       color: var(--ink);
-      transition: border-color 160ms ease, box-shadow 160ms ease;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
 
     textarea {
@@ -606,34 +744,39 @@
     textarea:focus,
     select:focus {
       outline: none;
-      border-color: rgba(154, 106, 67, 0.42);
-      box-shadow: 0 0 0 4px rgba(154, 106, 67, 0.12);
+      border-color: rgba(140, 90, 52, 0.42);
+      box-shadow: 0 0 0 4px rgba(140, 90, 52, 0.12);
       background: #fff;
     }
 
-    .help,
-    .privacy-block,
-    .status-box,
-    .hidden { font-size: 0.9rem; }
+    .help {
+      font-size: 0.86rem;
+      color: var(--ink-faint);
+    }
 
     .privacy-block {
       margin-top: 20px;
       padding: 18px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.68);
+      background: rgba(255,255,255,0.68);
       border: 1px solid var(--line);
       display: grid;
       gap: 8px;
+      font-size: 0.92rem;
       color: var(--ink-soft);
     }
 
-    .privacy-block strong { color: var(--ink); }
+    .privacy-block strong {
+      color: var(--ink);
+      font-size: 0.96rem;
+    }
 
     .status-box {
       display: none;
       margin-top: 18px;
       padding: 14px 16px;
       border-radius: 16px;
+      font-size: 0.95rem;
       border: 1px solid transparent;
     }
 
@@ -654,46 +797,94 @@
     .hidden { display: none !important; }
 
     @media (max-width: 1120px) {
-      .hero-shell,
+      .hero-wrap,
       .hero-foot,
       .section-head,
-      .grid-3,
+      .service-grid,
       .grid-2,
-      .steps,
+      .grid-3,
+      .entry-grid,
+      .materials-grid,
+      .contact-grid,
       .footer-grid,
-      .hero-points {
+      .hero-summary {
         grid-template-columns: 1fr;
       }
 
-      .service-list { columns: 1; }
+      .service-list { grid-template-columns: 1fr; }
       h1 { max-width: none; }
     }
 
-    @media (max-width: 900px) {
-      .nav { display: none; }
+    @media (max-width: 920px) {
+      .nav,
+      .header-row .header-actions .button-secondary {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+      }
+
+      .mobile-nav.active {
+        display: block;
+      }
+
       .form-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
-      .container { width: min(var(--max), calc(100% - 24px)); }
-      .hero { padding-top: 24px; }
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
       .hero-main,
-      .aside-block,
-      .card,
-      .band,
+      .hero-side,
+      .panel,
+      .entry-card,
+      .material-card,
+      .quote-card,
+      .contact-card,
       .modal-header,
       .modal-body,
-      .modal-footer { padding-left: 22px; padding-right: 22px; }
+      .modal-footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
       .hero-main,
-      .hero-aside,
-      .card,
-      .band,
-      .modal { border-radius: 24px; }
-      h1 { font-size: clamp(2.4rem, 12vw, 4rem); }
-      h2 { font-size: clamp(1.9rem, 9vw, 2.7rem); }
-      .actions { flex-direction: column; }
-      .button { width: 100%; }
-      .modal-backdrop { padding: 12px; }
+      .hero-side,
+      .panel,
+      .entry-card,
+      .material-card,
+      .quote-card,
+      .contact-card,
+      .modal {
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      h2 {
+        font-size: clamp(1.9rem, 9vw, 2.7rem);
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .modal-backdrop {
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -702,161 +893,265 @@
     <div class="container header-row">
       <a href="#inicio" class="brand" aria-label="PUB Editorial">
         <span class="brand-title">PUB Editorial</span>
-        <span class="brand-subtitle">Edição e publicação profissional para autores</span>
+        <span class="brand-subtitle">Direção editorial para autores</span>
       </a>
 
       <nav class="nav" aria-label="Navegação principal">
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#servicos">Serviços</a>
+        <a href="#o-que-fazemos">O que fazemos</a>
+        <a href="#quando-procurar">Quando procurar</a>
+        <a href="#como-trabalhamos">Como trabalhamos</a>
+        <a href="#entradas">Começar</a>
         <a href="#materiais">Materiais</a>
-        <a href="#envio">Enviar original</a>
         <a href="#contato">Contato</a>
       </nav>
+
+      <div class="header-actions">
+        <button class="button button-secondary open-capture" data-capture-type="author" data-item="cabecalho_quero_publicar" data-source-id="header_quero_publicar" data-form-id="modal_header_quero_publicar">Quero publicar</button>
+        <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Abrir navegação" aria-expanded="false" aria-controls="mobileNav">☰</button>
+      </div>
+    </div>
+
+    <div class="container mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+      <div class="mobile-nav-inner">
+        <a href="#o-que-fazemos">O que fazemos</a>
+        <a href="#quando-procurar">Quando procurar</a>
+        <a href="#como-trabalhamos">Como trabalhamos</a>
+        <a href="#entradas">Começar</a>
+        <a href="#materiais">Materiais</a>
+        <a href="#contato">Contato</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="container hero-shell">
+      <div class="container hero-wrap">
         <div class="hero-main">
           <div>
             <span class="eyebrow">Leitura, edição e publicação</span>
-            <h1>Seu original pode virar livro com direção editorial.</h1>
+            <h1>Publicar um livro não é executar etapas. É tomar decisões editoriais.</h1>
             <p class="hero-lead">
-              A PUB Editorial ajuda autores a entender o estágio do texto, definir o escopo do trabalho e conduzir o projeto até a publicação impressa ou digital.
+              A PUB Editorial lê o seu original, entende o projeto e conduz o livro com critério — do texto à publicação, sem fórmulas prontas e sem improviso.
             </p>
           </div>
 
-          <div class="hero-points" aria-label="Principais benefícios para autores">
-            <div class="point">
-              <strong>Diagnóstico claro</strong>
-              <span>Você entende o que o texto pede antes de entrar em produção.</span>
-            </div>
-            <div class="point">
-              <strong>Critério editorial</strong>
-              <span>Cada etapa é definida pelo projeto, não por uma fórmula pronta.</span>
-            </div>
-            <div class="point">
-              <strong>Condução contínua</strong>
-              <span>Do original ao livro pronto, com acompanhamento editorial.</span>
-            </div>
+          <div class="hero-summary" aria-label="Pontos principais da proposta editorial">
+            <article class="summary-item">
+              <strong>Leitura editorial real</strong>
+              <span>O original é lido como projeto, não tratado como triagem automática.</span>
+            </article>
+            <article class="summary-item">
+              <strong>Decisão antes da execução</strong>
+              <span>O caminho do livro é definido antes de qualquer produção técnica.</span>
+            </article>
+            <article class="summary-item">
+              <strong>Condução conforme a obra</strong>
+              <span>O escopo nasce da necessidade do texto, não de um pacote fixo.</span>
+            </article>
           </div>
 
           <div class="hero-foot">
             <div>
               <div class="actions">
-                <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="hero_quero_publicar" data-form-id="modal_hero_quero_publicar">Quero publicar meu livro</button>
-                <button class="button button-secondary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="hero_envio_original" data-form-id="modal_hero_envio_original">Enviar original</button>
+                <button class="button button-primary open-capture" data-capture-type="author" data-item="hero_quero_publicar" data-source-id="hero_quero_publicar" data-form-id="modal_hero_quero_publicar">Quero publicar meu livro</button>
+                <button class="button button-secondary open-capture" data-capture-type="original" data-item="hero_envio_original" data-source-id="hero_envio_original" data-form-id="modal_hero_envio_original">Enviar original</button>
               </div>
-              <p class="microcopy">Atendimento direto, confidencialidade no envio e respeito integral à autoria.</p>
+              <p class="microcopy">Atendimento direto, tratamento confidencial do material e respeito integral à autoria.</p>
               <div class="trust-row">
                 <span class="trust-pill">Confidencialidade</span>
                 <span class="trust-pill">Direitos preservados</span>
-                <span class="trust-pill">Orientação desde o início</span>
+                <span class="trust-pill">Orientação editorial</span>
               </div>
             </div>
 
-            <div class="hero-note">
+            <aside class="hero-note">
               <strong>PUB Editorial</strong>
-              <p>Publicar bem não começa com pressa. Começa com leitura, decisão e projeto.</p>
-            </div>
+              <p>Um livro não começa por produção. Começa por leitura, contexto e decisão.</p>
+            </aside>
           </div>
         </div>
 
-        <aside class="hero-aside">
-          <div class="aside-block dark">
+        <aside class="hero-side dark">
+          <div class="hero-side-top">
             <span class="kicker">Para quem é</span>
-            <h3>Para autores que precisam de clareza antes de publicar.</h3>
+            <h3>Para autores que não querem errar o livro por pressa ou falta de direção.</h3>
             <ul class="list">
-              <li>Texto em desenvolvimento</li>
-              <li>Original concluído sem próximo passo definido</li>
-              <li>Projeto para edição impressa ou digital</li>
+              <li>Quem concluiu o texto, mas ainda não sabe o próximo movimento</li>
+              <li>Quem quer publicar com padrão profissional</li>
+              <li>Quem precisa de leitura crítica antes de investir em produção</li>
             </ul>
           </div>
 
-          <div class="aside-block">
-            <span class="kicker">Primeiro movimento</span>
-            <h4>Entender o estágio do texto</h4>
-            <p>Nem todo original precisa da mesma intervenção. O ponto de partida pode ser avaliação, preparação, revisão ou reorganização do projeto.</p>
-            <div class="actions">
-              <a class="button button-secondary" href="#como-funciona">Como funciona</a>
-              <a class="button button-secondary" href="#materiais">Ver materiais</a>
+          <div>
+            <span class="side-label">Entrada recomendada</span>
+            <div class="actions" style="margin-top: 12px;">
+              <button class="button button-primary open-capture" data-capture-type="evaluation" data-item="hero_pedir_avaliacao" data-source-id="hero_pedir_avaliacao" data-form-id="modal_hero_pedir_avaliacao">Pedir avaliação</button>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="como-funciona">
+    <section id="o-que-fazemos">
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="kicker">Como funciona</span>
-            <h2>O trabalho editorial começa por diagnóstico, não por pacote.</h2>
+            <span class="kicker">O que fazemos</span>
+            <h2>Direção editorial para transformar texto em livro.</h2>
           </div>
-          <p>O original é lido no contexto do projeto para definir o percurso mais adequado e evitar retrabalho.</p>
+          <p>Nem todo original precisa do mesmo tipo de trabalho. Antes de qualquer execução, o projeto é lido, situado e definido.</p>
         </div>
 
-        <div class="grid-3">
-          <article class="card path-card">
-            <span class="tag">Etapa 1</span>
-            <h3>Leitura do original e do contexto</h3>
-            <p>O primeiro passo é entender o estágio do texto, o objetivo do autor e o tipo de publicação desejada.</p>
+        <div class="service-grid">
+          <article class="panel dark">
+            <span class="kicker">Escopo possível</span>
+            <h3>O trabalho pode incluir partes específicas ou o projeto completo.</h3>
+            <div class="service-list" aria-label="Serviços editoriais disponíveis">
+              <div class="service-item">Avaliação editorial</div>
+              <div class="service-item">Preparação de texto</div>
+              <div class="service-item">Revisão</div>
+              <div class="service-item">Projeto gráfico e capa</div>
+              <div class="service-item">Diagramação</div>
+              <div class="service-item">Publicação impressa</div>
+              <div class="service-item">Publicação digital</div>
+              <div class="service-item">Acompanhamento editorial</div>
+            </div>
           </article>
 
-          <article class="card path-card">
-            <span class="tag">Etapa 2</span>
-            <h3>Definição do escopo editorial</h3>
-            <p>Com a leitura feita, fica claro o que o livro precisa: preparação, revisão, projeto gráfico, diagramação, publicação ou combinação dessas etapas.</p>
-          </article>
-
-          <article class="card path-card">
-            <span class="tag">Etapa 3</span>
-            <h3>Produção e publicação</h3>
-            <p>O projeto avança com direção editorial até o livro pronto para circulação impressa ou digital.</p>
+          <article class="panel">
+            <span class="kicker">Ponto central</span>
+            <h3>O escopo não é decidido antes do livro.</h3>
+            <p>O projeto não entra em uma esteira padrão. O que será feito depende da maturidade do texto, do objetivo do autor e do tipo de publicação pretendida.</p>
+            <p>Isso evita retrabalho, decisões apressadas e soluções técnicas aplicadas no momento errado.</p>
+            <div class="safe-box">O que orienta o trabalho não é uma sequência fixa. É a necessidade real da obra.</div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="alt" id="servicos">
+    <section class="alt" id="quando-procurar">
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="kicker">Serviços</span>
-            <h2>As etapas entram quando fazem sentido para a obra.</h2>
+            <span class="kicker">Quando procurar</span>
+            <h2>Faz sentido buscar direção editorial quando a execução sozinha já não basta.</h2>
           </div>
-          <p>A PUB Editorial pode atuar em partes específicas do processo ou acompanhar o projeto do início ao fim.</p>
+          <p>Este trabalho serve para autores que precisam tomar decisões melhores antes de avançar para a publicação.</p>
         </div>
 
         <div class="grid-2">
-          <article class="card" style="background: linear-gradient(180deg, #261f1a 0%, #1f1915 100%); color: rgba(255,248,242,0.92); border-color: rgba(255,248,242,0.08);">
-            <span class="kicker" style="color: rgba(255,248,242,0.58);">Escopo editorial</span>
-            <h3>Do original ao livro pronto</h3>
-            <ul class="list service-list" style="color: rgba(255,248,242,0.76);">
-              <li>Avaliação editorial</li>
-              <li>Preparação de texto</li>
-              <li>Revisão</li>
-              <li>Projeto gráfico e capa</li>
-              <li>Diagramação</li>
-              <li>Publicação impressa</li>
-              <li>Publicação digital</li>
-              <li>Acompanhamento editorial</li>
-            </ul>
+          <article class="panel">
+            <div class="card-top">
+              <div class="card-index">01</div>
+              <h3>O texto está pronto, mas o próximo passo não está claro</h3>
+            </div>
+            <p>Você tem material, mas ainda não sabe se o livro pede revisão, preparação, reorganização ou publicação.</p>
           </article>
 
-          <article class="card">
-            <span class="kicker">Quando procurar</span>
-            <h3>Você não precisa chegar com tudo resolvido.</h3>
-            <ul class="list">
-              <li>Quando o texto está pronto, mas o próximo passo não está claro</li>
-              <li>Quando você quer publicar com padrão profissional</li>
-              <li>Quando precisa de leitura editorial antes de avançar</li>
-              <li>Quando quer evitar improviso e retrabalho</li>
-            </ul>
+          <article class="panel">
+            <div class="card-top">
+              <div class="card-index">02</div>
+              <h3>Você quer publicar com padrão profissional</h3>
+            </div>
+            <p>Sem improvisar decisões centrais e sem tratar o livro como simples fechamento de arquivo.</p>
+          </article>
+
+          <article class="panel">
+            <div class="card-top">
+              <div class="card-index">03</div>
+              <h3>Você precisa de leitura crítica antes de investir</h3>
+            </div>
+            <p>Uma leitura editorial ajuda a entender onde o projeto está e o que vale a pena fazer agora.</p>
+          </article>
+
+          <article class="panel">
+            <div class="card-top">
+              <div class="card-index">04</div>
+              <h3>Você quer evitar retrabalho</h3>
+            </div>
+            <p>Quando as decisões corretas são tomadas cedo, o livro avança com mais consistência e menos ruído.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-trabalhamos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker">Como trabalhamos</span>
+            <h2>O trabalho não começa com produção.</h2>
+          </div>
+          <p>Começa com leitura, contexto e decisão editorial. Só depois disso o livro entra em execução técnica.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="panel">
+            <span class="tag">Princípio 1</span>
+            <h3>O texto não entra direto em execução</h3>
+            <p>Antes de produzir, é preciso entender o que o original realmente pede.</p>
+          </article>
+
+          <article class="panel">
+            <span class="tag">Princípio 2</span>
+            <h3>Cada livro define seu próprio caminho</h3>
+            <p>O projeto pode exigir intervenção ampla ou apenas uma etapa específica. Isso é decidido pelo livro.</p>
+          </article>
+
+          <article class="panel">
+            <span class="tag">Princípio 3</span>
+            <h3>Publicação é consequência</h3>
+            <p>O foco não é publicar rápido, mas publicar com coerência editorial e qualidade final.</p>
+          </article>
+        </div>
+
+        <div class="quote-card" style="margin-top: 18px;">
+          <p>Publicar bem não depende de seguir uma sequência genérica. Depende de ler a obra, situar o projeto e decidir com precisão.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="entradas">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker">Começar</span>
+            <h2>Três formas de iniciar a conversa.</h2>
+          </div>
+          <p>Em vez de empurrar um fluxo fixo, o site abre caminhos diferentes conforme a necessidade do autor.</p>
+        </div>
+
+        <div class="entry-grid">
+          <article class="entry-card">
+            <div class="card-top">
+              <div class="card-index">A</div>
+              <h3>Quero publicar meu livro</h3>
+            </div>
+            <p>Para quem procura condução editorial do projeto e quer situar a obra com clareza.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="author" data-item="edicao_publicacao_autor" data-source-id="servicos_quero_publicar" data-form-id="modal_servicos_quero_publicar">Quero publicar meu livro</button>
-              <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="servicos_avaliacao" data-form-id="modal_servicos_avaliacao">Pedir avaliação</button>
+              <button class="button button-primary open-capture" data-capture-type="author" data-item="entrada_publicar_livro" data-source-id="entrada_publicar_livro" data-form-id="modal_entrada_publicar_livro">Começar por aqui</button>
+            </div>
+          </article>
+
+          <article class="entry-card">
+            <div class="card-top">
+              <div class="card-index">B</div>
+              <h3>Pedir avaliação</h3>
+            </div>
+            <p>Para entender o estágio do original e o que faz sentido decidir antes de avançar.</p>
+            <div class="actions">
+              <button class="button button-primary open-capture" data-capture-type="evaluation" data-item="entrada_pedir_avaliacao" data-source-id="entrada_pedir_avaliacao" data-form-id="modal_entrada_pedir_avaliacao">Pedir avaliação</button>
+            </div>
+          </article>
+
+          <article class="entry-card">
+            <div class="card-top">
+              <div class="card-index">C</div>
+              <h3>Enviar original</h3>
+            </div>
+            <p>Para quem já quer apresentar o material e permitir uma análise inicial do projeto.</p>
+            <div class="actions">
+              <button class="button button-primary open-capture" data-capture-type="original" data-item="entrada_enviar_original" data-source-id="entrada_enviar_original" data-form-id="modal_entrada_enviar_original">Enviar original</button>
             </div>
           </article>
         </div>
@@ -868,101 +1163,82 @@
         <div class="section-head">
           <div>
             <span class="kicker">Materiais</span>
-            <h2>Conteúdo útil para preparar decisões e organizar o envio.</h2>
+            <h2>Conteúdo para quem quer começar com mais clareza.</h2>
           </div>
-          <p>Em vez de repetir explicações ao longo da página, os materiais concentram a orientação inicial para quem está começando.</p>
+          <p>Os materiais concentram a orientação inicial e evitam que o site precise repetir a mesma explicação em vários pontos.</p>
         </div>
 
-        <div class="grid-3">
-          <article class="card">
-            <div class="card-number">A</div>
-            <h3>Guia inicial de publicação</h3>
-            <p>Visão geral do percurso editorial para livros impressos e digitais.</p>
+        <div class="materials-grid">
+          <article class="material-card">
+            <div class="card-top">
+              <div class="card-index">1</div>
+              <h3>Guia inicial de publicação</h3>
+            </div>
+            <p>Uma visão clara do que realmente entra em jogo ao transformar um original em livro.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_guia_inicial_publicacao" data-form-id="modal_download_guia_inicial_publicacao" data-material-name="Guia inicial de publicação">Receber guia</button>
+              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_guia_publicacao" data-source-id="download_guia_publicacao" data-form-id="modal_download_guia_publicacao" data-material-name="Guia inicial de publicação">Receber guia</button>
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-number">B</div>
-            <h3>Checklist de original</h3>
-            <p>Pontos essenciais para revisar antes de preparação, revisão ou diagramação.</p>
+          <article class="material-card">
+            <div class="card-top">
+              <div class="card-index">2</div>
+              <h3>Checklist de original</h3>
+            </div>
+            <p>Pontos objetivos para revisar antes de enviar o texto ou entrar em produção editorial.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_checklist_original" data-form-id="modal_download_checklist_original" data-material-name="Checklist de preparação de original">Baixar checklist</button>
+              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_checklist_original" data-source-id="download_checklist_original" data-form-id="modal_download_checklist_original" data-material-name="Checklist de original">Baixar checklist</button>
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-number">C</div>
-            <h3>Roteiro para envio</h3>
-            <p>Informações que ajudam a tornar a análise do original mais objetiva e útil.</p>
+          <article class="material-card">
+            <div class="card-top">
+              <div class="card-index">3</div>
+              <h3>Roteiro para envio</h3>
+            </div>
+            <p>Informações que ajudam a apresentar o projeto de forma mais clara e útil para análise.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="download" data-item="material_autores" data-source-id="download_roteiro_envio_original" data-form-id="modal_download_roteiro_envio_original" data-material-name="Roteiro para envio de original">Receber roteiro</button>
+              <button class="button button-secondary open-capture" data-capture-type="download" data-item="material_roteiro_envio" data-source-id="download_roteiro_envio" data-form-id="modal_download_roteiro_envio" data-material-name="Roteiro para envio de original">Receber roteiro</button>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="alt" id="envio">
-      <div class="container">
-        <div class="band">
-          <div class="section-head" style="margin-bottom: 18px;">
-            <div>
-              <span class="kicker">Enviar original</span>
-              <h2>Já tem um texto e quer saber o próximo passo?</h2>
-            </div>
-            <p>O envio do original permite uma leitura inicial e ajuda a definir com precisão o ponto de partida do projeto.</p>
-          </div>
-
-          <div class="actions">
-            <button class="button button-primary open-capture" data-capture-type="original" data-item="envio_original" data-source-id="pagina_envio_original_principal" data-form-id="modal_pagina_envio_original_principal">Enviar original</button>
-            <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_envio_original_avaliacao" data-form-id="modal_pagina_envio_original_avaliacao">Pedir avaliação</button>
-          </div>
-
-          <p class="microcopy" style="margin-top: 14px;">Seu material é tratado com confidencialidade. Os direitos sobre a obra permanecem com você.</p>
         </div>
       </div>
     </section>
 
-    <section id="contato">
+    <section class="alt" id="contato">
       <div class="container">
         <div class="section-head">
           <div>
             <span class="kicker">Contato</span>
             <h2>Fale sobre o seu livro.</h2>
           </div>
-          <p>Explique em que estágio o texto está e quais são suas principais dúvidas. A partir disso, o caminho editorial fica mais claro.</p>
+          <p>Descreva o projeto, o estágio do texto e o que você precisa entender. A partir disso, o caminho editorial fica mais claro.</p>
         </div>
 
-        <div class="grid-2">
-          <article class="card" style="background: linear-gradient(180deg, #261f1a 0%, #1f1915 100%); color: rgba(255,248,242,0.92); border-color: rgba(255,248,242,0.08);">
-            <span class="kicker" style="color: rgba(255,248,242,0.58);">Atendimento</span>
-            <h3>O primeiro contato já serve para situar o projeto.</h3>
-            <p style="color: rgba(255,248,242,0.76);">Com o contexto certo, fica mais fácil indicar o próximo movimento editorial.</p>
+        <div class="contact-grid">
+          <article class="contact-card dark">
+            <span class="kicker">Primeiro contato</span>
+            <h3>Uma boa conversa já organiza o projeto.</h3>
+            <p>O objetivo do primeiro contato não é forçar contratação. É entender o contexto e indicar a entrada mais adequada.</p>
             <div class="actions">
-              <button class="button button-primary open-capture" data-capture-type="author" data-item="contato_autor" data-source-id="pagina_contato_principal" data-form-id="modal_pagina_contato_principal">Quero publicar meu livro</button>
-              <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="avaliacao_projeto" data-source-id="pagina_contato_avaliacao" data-form-id="modal_pagina_contato_avaliacao">Pedir avaliação</button>
+              <button class="button button-primary open-capture" data-capture-type="author" data-item="contato_quero_publicar" data-source-id="contato_quero_publicar" data-form-id="modal_contato_quero_publicar">Quero publicar meu livro</button>
+              <button class="button button-secondary open-capture" data-capture-type="evaluation" data-item="contato_pedir_avaliacao" data-source-id="contato_pedir_avaliacao" data-form-id="modal_contato_pedir_avaliacao">Pedir avaliação</button>
             </div>
           </article>
 
-          <div class="steps">
-            <article class="card">
-              <div class="card-number">1</div>
-              <h3>Conte sobre o projeto</h3>
-              <p>Uma descrição breve já ajuda a entender o estágio do original.</p>
+          <div class="contact-stack">
+            <article class="contact-card">
+              <span class="kicker">O que contar</span>
+              <ul class="list">
+                <li>Qual é o estágio atual do texto</li>
+                <li>O que você pretende publicar</li>
+                <li>Quais dúvidas precisam ser resolvidas agora</li>
+              </ul>
             </article>
 
-            <article class="card">
-              <div class="card-number">2</div>
-              <h3>Envie material quando necessário</h3>
-              <p>Quando a leitura do conteúdo for importante, o envio torna o encaminhamento mais preciso.</p>
-            </article>
-
-            <article class="card">
-              <div class="card-number">3</div>
-              <h3>Receba uma direção clara</h3>
-              <p>O objetivo é definir o caminho editorial com mais segurança e menos ruído.</p>
+            <article class="contact-card">
+              <span class="kicker">Segurança</span>
+              <p>Seu material é tratado com confidencialidade. O envio do original não transfere direitos e não implica cessão de autoria.</p>
             </article>
           </div>
         </div>
@@ -974,16 +1250,16 @@
     <div class="container footer-grid">
       <div>
         <strong>PUB Editorial</strong>
-        <p>Edição e publicação profissional para autores.</p>
-        <small style="display:block; margin-top: 12px;">Dados usados apenas para atendimento. Originais tratados com confidencialidade.</small>
+        <p>Direção editorial para autores que querem transformar texto em livro com critério.</p>
+        <small style="display:block; margin-top: 12px;">Seus dados são usados apenas para este atendimento. Seus arquivos são tratados com confidencialidade.</small>
       </div>
       <div>
         <strong>Entradas principais</strong>
         <ul class="list">
           <li>Quero publicar meu livro</li>
           <li>Pedir avaliação</li>
-          <li>Receber materiais</li>
           <li>Enviar original</li>
+          <li>Receber materiais</li>
         </ul>
       </div>
     </div>
@@ -1077,7 +1353,7 @@
     const modalConfigs = {
       author: {
         title: 'Quero publicar meu livro',
-        description: 'Preencha os dados e apresente seu projeto para um primeiro encaminhamento editorial.',
+        description: 'Apresente seu projeto para um primeiro encaminhamento editorial.',
         submitLabel: 'Enviar contato',
         fields: ['bookStageField', 'projectField'],
         privacy: [
@@ -1088,29 +1364,29 @@
       },
       evaluation: {
         title: 'Pedir avaliação do projeto',
-        description: 'Conte em que estágio o texto está e o que você precisa entender antes de avançar.',
+        description: 'Conte em que estágio o texto está e o que precisa ser entendido antes de avançar.',
         submitLabel: 'Pedir avaliação',
         fields: ['bookStageField', 'evaluationField'],
         privacy: [
           'Seus dados são usados apenas para este atendimento.',
           'As informações do projeto são tratadas com discrição.',
-          'A avaliação inicial ajuda a definir o melhor caminho editorial.'
+          'A avaliação inicial ajuda a definir o caminho editorial mais adequado.'
         ]
       },
       download: {
         title: 'Receber material',
-        description: 'Preencha os dados para liberar o material.',
+        description: 'Preencha os dados para liberar o material solicitado.',
         submitLabel: 'Receber material',
         fields: ['downloadField'],
         privacy: [
           'Seus dados são usados apenas para liberar este material e responder seu contato, se necessário.',
           'Não compartilhamos seus dados com terceiros.',
-          'Você pode encerrar por aqui ou seguir depois.'
+          'Você pode encerrar por aqui ou continuar depois.'
         ]
       },
       original: {
         title: 'Enviar original para análise',
-        description: 'Preencha os dados, conte brevemente sobre o livro e envie o material.',
+        description: 'Preencha os dados, apresente brevemente o livro e envie o material.',
         submitLabel: 'Enviar original',
         fields: ['bookStageField', 'projectField', 'fileUploadField'],
         privacy: [
@@ -1136,8 +1412,16 @@
     const modalDescription = document.getElementById('captureModalDescription');
     const submitCaptureButton = document.getElementById('submitCaptureButton');
     const backToTopButton = document.getElementById('backToTop');
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileNav = document.getElementById('mobileNav');
 
-    const dynamicFields = ['bookStageField', 'projectField', 'evaluationField', 'downloadField', 'fileUploadField'];
+    const dynamicFields = [
+      'bookStageField',
+      'projectField',
+      'evaluationField',
+      'downloadField',
+      'fileUploadField'
+    ];
 
     function readQueryParam(name) {
       const url = new URL(window.location.href);
@@ -1285,8 +1569,26 @@
       }
     }
 
+    function toggleMobileNav(forceClose) {
+      const shouldOpen = typeof forceClose === 'boolean' ? !forceClose && !mobileNav.classList.contains('active') : !mobileNav.classList.contains('active');
+      mobileNav.classList.toggle('active', shouldOpen);
+      mobileMenuButton.setAttribute('aria-expanded', String(shouldOpen));
+    }
+
     document.querySelectorAll('.open-capture').forEach(function(button) {
-      button.addEventListener('click', function() { openModal(button); });
+      button.addEventListener('click', function() {
+        openModal(button);
+      });
+    });
+
+    document.querySelectorAll('.mobile-nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        toggleMobileNav(true);
+      });
+    });
+
+    mobileMenuButton.addEventListener('click', function() {
+      toggleMobileNav();
     });
 
     document.getElementById('closeCaptureModal').addEventListener('click', closeModal);
@@ -1303,6 +1605,7 @@
 
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape' && modalBackdrop.classList.contains('active')) closeModal();
+      if (event.key === 'Escape' && mobileNav.classList.contains('active')) toggleMobileNav(true);
     });
 
     function updateBackToTopVisibility() {
